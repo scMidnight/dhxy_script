@@ -6,11 +6,11 @@ if (appid ~= "com.netease.dhxy") then
 	lua_exit();
 end
 require("BeiJu");
+require("BeiJu1080");
 init("0",1);
 ret,results = showUI("ui.json");
 if(width == 540) then
 	if(ret == 1) then
-		sysLog(results.motorStyle);
 		if (results.motorStyle == "0") then --motorStyle=0就是北倶
 			beiJu_funtab.loopFun();
 			pubFun_tab.infiniteLoop(beiJu_funtab.isLoop);
@@ -18,6 +18,14 @@ if(width == 540) then
 		end
 	else
 		sysLog("fuck");
+	end
+elseif(width == 1080) then
+	if(ret == 1) then
+		if (results.motorStyle == "0") then --motorStyle=0就是北倶
+			beiJu_funtab1080.loopFun();
+			pubFun_tab.infiniteLoop(beiJu_funtab1080.isLoop);
+			lua_exit();
+		end
 	end
 end
 

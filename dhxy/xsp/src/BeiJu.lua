@@ -5,10 +5,10 @@ beiJu_funtab.isLoop = true;
 
 --北倶挂机方法
 function beiJu_funtab.motor()
-	mSleep(1000);
   local x, y = 0, 0;
 	--先看看有没有遮挡框，有的话一概取消（掉线之类的另说）
 	for i = 1, 2 do
+		mSleep(1000);
     x, y = findMultiColorInRegionFuzzy(0xda943d,"140|42|0xdda75e,71|-1|0xdfaa66", 96, 291, 324, 457, 377)
     if (x ~= -1 and y ~= -1) then
       x = math.random((x+5), (x+135));
