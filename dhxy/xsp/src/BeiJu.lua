@@ -34,7 +34,7 @@ function beiJu_funtab.motor()
   end
   mSleep(2000);
   local flag = true;
-  for i = 1, 2 do
+  for i = 1, 5 do
     while flag do
       --上来点击包裹
 			x, y = findMultiColorInRegionFuzzy(0xe79a3e,"-15|6|0x932620,15|30|0xd45955,2|31|0xcc4130,-16|16|0xfffddf,16|7|0xc55627", 95, 818, 463, 879, 528)
@@ -50,7 +50,6 @@ function beiJu_funtab.motor()
 				sysLog("截图");
 				local nowDate = os.date("%H:%M:%S", os.time());
 				snapshot("[public]"..nowDate..".png",2,2,955,530);
-				break;
 			end
 			--点完包裹就找香
 			--x, y = findMultiColorInRegionFuzzy(0xcb8b34,"0|5|0x050201,7|6|0xcac1b8,-9|7|0xeac55c,13|3|0xb76925,-8|15|0xfffeef,-4|22|0xb55236", 95, 484, 152, 794, 427);
@@ -67,7 +66,6 @@ function beiJu_funtab.motor()
 				pubFun_tab.tap(500,x,y);
 			else
 					sysLog("对不起，没找到香！");
-					break;
 			end
 			--点击完香后点使用
 			point = findMultiColorInRegionFuzzyExt(0xffffff,"84|0|0xa4d8b4,-1|32|0x2dbc98,88|32|0x2ec5a0,21|18|0xe2f4ee,46|18|0x3bb78b,65|18|0xaee1cf",95,235, 139, 796, 446);
@@ -83,7 +81,6 @@ function beiJu_funtab.motor()
 				pubFun_tab.tap(500,x,y);
 			else
 				sysLog("对不起，没找到使用！");
-				break;
 			end
 			--使用后点确定
 			x, y = findMultiColorInRegionFuzzy(0xffffff,"137|3|0x88cba5,1|31|0x2dc09d,133|32|0x2dc7a7,65|1|0x9cd4af,71|36|0x28d1b4", 95, 502, 321, 666, 380);
