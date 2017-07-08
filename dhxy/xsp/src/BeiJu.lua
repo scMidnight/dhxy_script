@@ -24,7 +24,7 @@ function beiJu_funtab.motor()
   mSleep(2000);
   --先使用循环找是否在战斗中
   while true do
-    x, y = findMultiColorInRegionFuzzy(0x17170a,"-18|-32|0x926e4d,11|-45|0xdacbb0,34|-40|0xe5d7c0", 95, 2, 0, 121, 72)
+    x, y = findMultiColorInRegionFuzzy(0x1a1920,"8|0|0xf3c46f,17|0|0x0b1219,11|-2|0x925c3b", 95, 66, 47, 108, 78);
     if (x ~= -1 and y ~= -1) then
       sysLog("当前在战斗中！稍后检测！");
       mSleep(10000);
