@@ -21,12 +21,12 @@
 	     ]
      },
      {
-	     "text" : "挂机模式",
+	     "text" : "任务模式",
 	     "type" : "Page",
 	     "views" : [
 				{
 	        "id" : "motorStyle",
-	        "list" : "北倶挂机",
+	        "list" : "北倶挂机,抓鬼",
 	        "select" : "0",
 	        "size" : "24",
 	        "type" : "RadioGroup",

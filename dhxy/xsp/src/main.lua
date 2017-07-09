@@ -7,6 +7,7 @@ if (appid ~= "com.netease.dhxy") then
 end
 require("BeiJu");
 require("BeiJu1080");
+require("TianGui");
 init("0",1);
 ret,results = showUI("ui.json");
 if(width == 540) then
@@ -15,6 +16,8 @@ if(width == 540) then
 			beiJu_funtab.loopFun();
 			pubFun_tab.infiniteLoop(beiJu_funtab.isLoop);
 			lua_exit();
+		elseif(results.motorStyle == "1") then
+			tiangui_funtab.gui();
 		end
 	else
 		sysLog("fuck");

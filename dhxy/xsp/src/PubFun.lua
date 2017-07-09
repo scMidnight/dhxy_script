@@ -22,6 +22,16 @@ function pubFun_tab.doubleClick(delay, x, y)
 	mSleep(delay+1000);
 end
 
+--移动
+function pubFun_tab.move(delay, clickX, clickY, moveX, moveY)
+	touchDown(1, clickX, clickY);
+	mSleep(delay);
+	touchMove(1, moveX, moveY);
+	mSleep(delay);
+	touchUp(1, moveX, moveY);
+	mSleep(1000);
+end
+
 --无限循环，一般用来防止脚本自动结束
 function pubFun_tab.infiniteLoop(isLoop)
 	while isLoop do
