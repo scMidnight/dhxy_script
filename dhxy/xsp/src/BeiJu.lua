@@ -15,7 +15,7 @@ function beiJu_funtab.motor()
       y = math.random((y+6), (y+36));
       sysLog("取消x:"..x);
       sysLog("取消y:"..y);
-      pubFun_tab.tap(500,x,y);
+      pubFun_tab.tap(300,x,y);
       break;
     else
       sysLog("没找到取消！");
@@ -24,7 +24,8 @@ function beiJu_funtab.motor()
   mSleep(2000);
   --先使用循环找是否在战斗中
   while true do
-    x, y = findMultiColorInRegionFuzzy(0x1a1920,"8|0|0xf3c46f,17|0|0x0b1219,11|-2|0x925c3b", 95, 66, 47, 108, 78);
+    --x, y = findMultiColorInRegionFuzzy(0x1a1920,"8|0|0xf3c46f,17|0|0x0b1219,11|-2|0x925c3b", 95, 66, 47, 108, 78);
+		x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
     if (x ~= -1 and y ~= -1) then
       sysLog("当前在战斗中！稍后检测！");
       mSleep(10000);
@@ -44,7 +45,7 @@ function beiJu_funtab.motor()
 				y = math.random(y, 515);
 				sysLog("包裹x:"..x);
 				sysLog("包裹y:"..y);
-				pubFun_tab.doubleClick(500,x,y);
+				pubFun_tab.doubleClick(300,x,y);
 			else
 				sysLog("对不起，没找到包裹！");
 				sysLog("截图");
@@ -63,7 +64,7 @@ function beiJu_funtab.motor()
 				y = math.random((y-7), (y+46));
 				sysLog("香x:"..x);
 				sysLog("香y:"..y);
-				pubFun_tab.tap(500,x,y);
+				pubFun_tab.tap(300,x,y);
 			else
 					sysLog("对不起，没找到香！");
 			end
@@ -78,7 +79,7 @@ function beiJu_funtab.motor()
 				y = math.random((y-4), (y+31));
 				sysLog("使用x:"..x);
 				sysLog("使用y:"..y);
-				pubFun_tab.tap(500,x,y);
+				pubFun_tab.tap(300,x,y);
 			else
 				sysLog("对不起，没找到使用！");
 			end
@@ -89,7 +90,7 @@ function beiJu_funtab.motor()
 				y = math.random((y-2), (y+33));
 				sysLog("确定x:"..x);
 				sysLog("确定y:"..y);
-				pubFun_tab.tap(500,x,y);
+				pubFun_tab.tap(300,x,y);
 			else
 				sysLog("对不起，没有找到确定！");
 				break;
@@ -99,12 +100,12 @@ function beiJu_funtab.motor()
 			y = math.random(60, 87);
 			sysLog("关闭包裹x:"..x);
 			sysLog("关闭包裹y:"..y);
-			pubFun_tab.tap(500, x, y);
+			pubFun_tab.tap(300, x, y);
 			mSleep(2000);
 			--休息2秒点击巡逻
 			x = math.random(463, 513);
 			y = math.random(99, 124);
-			pubFun_tab.tap(500, x, y);
+			pubFun_tab.tap(300, x, y);
 			sysLog("巡逻x:"..x);
 			sysLog("巡逻y:"..y);
 			sysLog("任务结束！");
