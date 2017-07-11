@@ -16,8 +16,10 @@ if(width == 540) then
 			beiJu_funtab.loopFun();
 			pubFun_tab.infiniteLoop(beiJu_funtab.isLoop);
 			lua_exit();
-		elseif(results.motorStyle == "1") then
+		elseif(results.motorStyle == "1") then--抓鬼
 			tiangui_funtab.gui();
+		elseif(results.motorStyle == "2") then --天庭
+			tiangui_funtab.tian();
 		end
 	else
 		sysLog("fuck");
