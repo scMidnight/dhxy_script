@@ -8,6 +8,7 @@ end
 require("BeiJu");
 require("BeiJu1080");
 require("TianGui");
+require("Huan200");
 init("0",1);
 ret,results = showUI("ui.json");
 if(width == 540) then
@@ -20,6 +21,8 @@ if(width == 540) then
 			tiangui_funtab.gui();
 		elseif(results.motorStyle == "2") then --天庭
 			tiangui_funtab.tian();
+		elseif(results.motorStyle == "3") then -- 200
+			huan200_funtab540.pao();
 		end
 	else
 		sysLog("fuck");
