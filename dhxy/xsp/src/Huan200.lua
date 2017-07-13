@@ -50,7 +50,7 @@ function huan200_funtab540.pao()
 		end
 	end
 	while true do
-		mSleep(7000);
+		mSleep(2000);
 		--诗词鬼
 		while true do
 			x, y = findMultiColorInRegionFuzzy(0xda9743,"16|53|0xdba04f,304|1|0xd98e35,302|54|0xd6b077", 95, 190, 296, 761, 441)
@@ -58,21 +58,26 @@ function huan200_funtab540.pao()
 				--214,322,455,349找到就只点a
 				x = math.random(214, 455);
 				y = math.random(322, 349);
+				sysLog("诗词鬼选择a,x:"..x..",y:"..y);
 				pubFun_tab.tap(300,x,y);
-				mSleep(10000);
+				mSleep(5000);
 				--找是否通过
-				x, y = findMultiColorInRegionFuzzy(0xa9a48d,"409|-40|0xce985f,900|19|0x888577,473|-58|0xafac89,556|-69|0xe5a76d,633|-56|0xaba388", 95, 14, 323, 945, 520)
+				x, y = findMultiColorInRegionFuzzy(0xd19660,"-74|0|0xd69a64,15|0|0xd3965e,39|0|0xf5e9d1,49|-6|0xc4b497,59|-17|0xb36f37", 95, 186, 324, 573, 398);
 				if (x ~= -1 and y ~= -1) then
 					--786,136,922,175没有通过的话再200环处点3下
 					x = math.random(786, 922);
 					y = math.random(136, 175);
+					sysLog("诗词鬼没通过，继续,x:"..x..",y:"..y);
 					pubFun_tab.doubleClick(300,x,y);
 					pubFun_tab.tap(300,x,y);
 				else
 					break;
 				end
+			else 
+				break;
 			end
 		end
+		mSleep(500);
 		--是否战斗
 		x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
 		if (x ~= -1 and y ~= -1) then
@@ -81,6 +86,7 @@ function huan200_funtab540.pao()
 			y = math.random(231, 307);
 			pubFun_tab.tap(300,x,y);
 			while true do
+				sysLog("战斗中");
 				mSleep(10000);
 				x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
 				if(x == -1 and y == -1) then
@@ -88,6 +94,63 @@ function huan200_funtab540.pao()
 				end
 			end
 		end
+		mSleep(500);
+		--上交药品，宝宝
+		x, y = findMultiColorInRegionFuzzy(0xfeffff,"-106|-62|0xdcc2a1,-20|-5|0xf1eedc,9|12|0x4db88c,121|13|0x4ab88c,16|27|0x2cbb92", 95, 374, 131, 781, 460);
+		if (x ~= -1 and y ~= -1) then
+			--521,406,644,439
+			x = math.random(x, (x+143));
+			y = math.random(y, (y+33));
+			sysLog("上交药品x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+		end
+		mSleep(500);
+		--看是不是上交宝宝的界面
+		x, y = findMultiColorInRegionFuzzy(0xfffbed,"95|28|0xf9e5ac,128|5|0xeacbb1,221|26|0xefcfb4,572|7|0xfff7e0,669|18|0xfce6b6,50|-43|0xb39072", 95, 66, 27, 874, 156)
+		if (x ~= -1 and y ~= -1) then
+			for i = 1, 4 do 
+				--上交宝宝
+				point = findMultiColorInRegionFuzzyExt(0xe2bf7d,"11|0|0xfdd985,6|6|0xf9b370,22|2|0xffbe77,20|-4|0xffe487,25|1|0xffbf74",95,344, 148, 811, 456);
+				if (#point ~= 0) then
+					for var = 1,#point do
+						x = point[var].x;
+						y = point[var].y;
+						break;
+					end
+					--362,163,550,204选择宝宝 进行买卖
+					x = math.random(x, (x+185));
+					y = math.random((y-21), (y+20));
+					sysLog("选择符合的宝宝x:"..x..",y:"..y);
+					pubFun_tab.tap(300,x,y);
+					--531,400,748,432点击购买
+					x = math.random(531, 748);
+					y = math.random(400, 432);
+					sysLog("购买符合的宝宝x:"..x..",y:"..y);
+					pubFun_tab.tap(300,x,y);
+					break;
+				else
+					--没找到就翻页
+					x = math.random(380, 720);
+					y = math.random(340, 420);
+					pubFun_tab.move(300, x, y, x, (y-130));
+				end
+			end
+		end
+		mSleep(500);
+		--150环有右侧对话框上交技能书点击200环(已完成)
+		x, y = findMultiColorInRegionFuzzy(0xdeaa62,"0|-5|0xdda861,269|-3|0xdf9c46,152|21|0xe8b46b,95|-3|0x0297fe", 95, 614, 297, 902, 362)
+		if (x ~= -1 and y ~= -1) then
+			--635,317,876,342
+			x = math.random(635, 876);
+			y = math.random(317, 342);
+			sysLog("上交技能书x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+		end
+		mSleep(500);
+		--786,136,922,175什么都没找到的话在200环处点3下
+		x = math.random(786, 922);
+		y = math.random(136, 175);
+		pubFun_tab.tap(300,x,y);
 	end
 end
 
