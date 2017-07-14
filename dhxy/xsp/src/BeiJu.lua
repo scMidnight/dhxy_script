@@ -1,9 +1,11 @@
 beiJu_funtab = {};
+beiJu_funtab1080 = {};
 require("PubFun");
 
 beiJu_funtab.isLoop = true;
+beiJu_funtab1080.isLoop = true;
 
---北倶挂机方法
+--北倶挂机方法540
 function beiJu_funtab.motor()
   local x, y = 0, 0;
 	--先看看有没有遮挡框，有的话一概取消（掉线之类的另说）
@@ -13,8 +15,7 @@ function beiJu_funtab.motor()
     if (x ~= -1 and y ~= -1) then
       x = math.random((x+5), (x+135));
       y = math.random((y+6), (y+36));
-      sysLog("取消x:"..x);
-      sysLog("取消y:"..y);
+      sysLog("取消x:"..x..",y:"..y);
       pubFun_tab.tap(300,x,y);
       break;
     else
@@ -43,8 +44,7 @@ function beiJu_funtab.motor()
 			--848  479
 				x = math.random(830, 860);
 				y = math.random(y, 515);
-				sysLog("包裹x:"..x);
-				sysLog("包裹y:"..y);
+				sysLog("包裹x:"..x..",y:"..y);
 				pubFun_tab.doubleClick(300,x,y);
 			else
 				sysLog("对不起，没找到包裹！");
@@ -52,8 +52,8 @@ function beiJu_funtab.motor()
 				local nowDate = os.date("%H:%M:%S", os.time());
 				snapshot("[public]"..nowDate..".png",2,2,955,530);
 			end
+			mSleep(500);
 			--点完包裹就找香
-			--x, y = findMultiColorInRegionFuzzy(0xcb8b34,"0|5|0x050201,7|6|0xcac1b8,-9|7|0xeac55c,13|3|0xb76925,-8|15|0xfffeef,-4|22|0xb55236", 95, 484, 152, 794, 427);
 			point = findMultiColorInRegionFuzzyExt(0xc4983a,"-16|8|0xede685,21|7|0xa56525,9|12|0xf6f4ed,2|21|0x370d09,2|26|0x773b28,1|32|0xf5a668",80,484, 150, 798, 432);
 			if (#point ~= 0) then
 				for var = 1,#point do
@@ -62,12 +62,12 @@ function beiJu_funtab.motor()
 				end
 				x = math.random((x-24), (x+28));
 				y = math.random((y-7), (y+46));
-				sysLog("香x:"..x);
-				sysLog("香y:"..y);
+				sysLog("香x:"..x..",y:"..y);
 				pubFun_tab.tap(300,x,y);
 			else
 					sysLog("对不起，没找到香！");
 			end
+			mSleep(500);
 			--点击完香后点使用
 			point = findMultiColorInRegionFuzzyExt(0xffffff,"84|0|0xa4d8b4,-1|32|0x2dbc98,88|32|0x2ec5a0,21|18|0xe2f4ee,46|18|0x3bb78b,65|18|0xaee1cf",95,235, 139, 796, 446);
 			if (#point ~= 0) then
@@ -77,44 +77,55 @@ function beiJu_funtab.motor()
 				end
 				x = math.random((x-1), (x+83));
 				y = math.random((y-4), (y+31));
-				sysLog("使用x:"..x);
-				sysLog("使用y:"..y);
+				sysLog("使用x:"..x..",y:"..y);
 				pubFun_tab.tap(300,x,y);
 			else
 				sysLog("对不起，没找到使用！");
 			end
+			mSleep(500);
 			--使用后点确定
 			x, y = findMultiColorInRegionFuzzy(0xffffff,"137|3|0x88cba5,1|31|0x2dc09d,133|32|0x2dc7a7,65|1|0x9cd4af,71|36|0x28d1b4", 95, 502, 321, 666, 380);
 			if (x ~= -1 and y ~= -1) then
 				x = math.random((x-2), (x+136));
 				y = math.random((y-2), (y+33));
-				sysLog("确定x:"..x);
-				sysLog("确定y:"..y);
+				sysLog("确定x:"..x..",y:"..y);
 				pubFun_tab.tap(300,x,y);
 			else
 				sysLog("对不起，没有找到确定！");
 				break;
 			end
+			mSleep(500);
 			--确定完后关闭包裹
 			x = math.random(817, 844);
 			y = math.random(60, 87);
-			sysLog("关闭包裹x:"..x);
-			sysLog("关闭包裹y:"..y);
+			sysLog("关闭包裹x:"..x..",y:"..y);
 			pubFun_tab.tap(300, x, y);
-			mSleep(2000);
+			mSleep(500);
 			--休息2秒点击巡逻
-			x = math.random(463, 513);
-			y = math.random(99, 124);
-			pubFun_tab.tap(300, x, y);
-			sysLog("巡逻x:"..x);
-			sysLog("巡逻y:"..y);
+			for i = 1, 2 do
+				mSleep(2000);
+				sysLog("第"..i.."次巡逻！");
+				point = findMultiColorInRegionFuzzyExt(0xa76122,"-5|-4|0xa66021,-5|0|0xc38f55,4|0|0xa96425,9|0|0xbf884d,29|-6|0xaa672a,21|-4|0xa66021,20|0|0xb47639,21|5|0xa65f20,37|11|0xad6b2c",95,493, 92, 616, 134);
+				if (#point ~= 0) then
+					--540,111 巡逻按钮534,104,578,121
+					for var = 1,#point do
+						x = point[var].x;
+						y = point[var].y;
+					end
+					x = math.random((x-7), (x+38));
+					y = math.random((y-7), (y+10));
+					sysLog("巡逻x:"..x..",y:"..y);
+					pubFun_tab.doubleClick(300,x,y);
+					break;
+				end
+			end
 			sysLog("任务结束！");
 			flag = false;
     end
     sysLog("第"..i.."次");
   end
 end
-
+--北俱挂机方法入口540
 function beiJu_funtab.loopFun()
   sysLog("进入调用方法！");
   beiJu_funtab.isLoop = true;
@@ -124,5 +135,135 @@ function beiJu_funtab.loopFun()
   else
     sysLog("5点了，休息了！"..pubFun_tab.getNowDate());
     beiJu_funtab.isLoop = false;
+  end
+end
+
+--北倶挂机方法1080
+function beiJu_funtab1080.motor()
+  local x, y = 0, 0;
+	--先看看有没有遮挡框，有的话一概取消（掉线之类的另说）
+	for i = 1, 2 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xd68121,"48|38|0xd69a4a,-251|40|0xde9a4a,-110|87|0xdea252,-17|12|0xfffbe6,224|37|0x4ab68c", 95, 592, 647, 1327, 752)
+		if (x ~= -1 and y ~= -1) then
+			x = math.random((x-235), (x+37));
+			y = math.random((y+10), (y+77));
+			sysLog("取消x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		else
+			sysLog("没找到取消");
+		end
+	end
+	mSleep(2000);
+	--先使用循环找是否在战斗中
+	while true do
+		x, y = findMultiColorInRegionFuzzy(0x191821,"-35|0|0x081419,-13|-8|0x8c553a,20|-33|0x6b594a,40|-89|0x312821,-53|-77|0x7b594a", 95, 8, 8, 243, 152)
+		if (x ~= -1 and y ~= -1) then
+		sysLog("当前在战斗中！稍后检测！");
+		mSleep(10000);
+		else
+			break;
+		end
+	end
+	mSleep(2000);
+	local flag = true;
+	for i = 1, 2 do
+		while flag do
+			--上来找包裹点击
+			x, y = findMultiColorInRegionFuzzy(0xad2831,"-29|19|0x942d21,26|22|0x942d21,4|23|0xbd6510,11|69|0xad1819,43|63|0x52baac", 95, 1637, 926, 1752, 1056);
+			if (x ~= -1 and y ~= -1) then
+				--1696,951
+				x = math.random(1650, 1737);
+				y = math.random(y, 1046);
+				sysLog("包裹x:"..x..",y:"..y);
+				pubFun_tab.doubleClick(300,x,y);
+			else
+				sysLog("对不起，没找到包裹！");
+				--sysLog("截图");
+				--local nowDate = os.date("%H:%M:%S", os.time());
+				--snapshot("[public]"..nowDate..".png",2,2,1919,1079);
+			end
+			mSleep(500);
+			--点完包裹就找香
+			point = findMultiColorInRegionFuzzyExt(0x191c19,"-10|11|0xf7f7ef,-34|4|0xefce6b,23|4|0xc57d29,-31|23|0xffffff,-3|33|0xe6a684,-3|40|0x7b4129",95,966, 295, 1592, 867);
+			if (#point ~= 0) then
+				for var = 1,#point do
+					x = point[var].x;
+					y = point[var].y;
+				end
+				x = math.random((x-56), (x+45));
+				y = math.random((y-22), (y+78));
+				sysLog("香x："..x..",y:"..y);
+				pubFun_tab.tap(300,x,y);
+			else
+				sysLog("对不起，没找到香！");
+			end
+			mSleep(500);
+			--找完香后点使用
+			x, y = findMultiColorInRegionFuzzy(0xffffff,"168|1|0x9cd2ad,3|61|0x31c29c,181|58|0x29b68c,167|56|0x31b68c,84|-2|0xb5dfbd", 95, 1182, 325, 1439, 503);
+			if (x ~= -1 and y ~= -1) then
+				--1219,377
+				x = math.random(x, (x+169));
+				y = math.random(y, (y+63));
+				sysLog("使用x："..x..",y:"..y);
+				pubFun_tab.tap(300,x,y);
+			else
+				sysLog("对不起，没找到使用！");
+			end
+			mSleep(500);
+			--使用香后点确定
+			x, y = findMultiColorInRegionFuzzy(0x31b67b,"271|13|0x94cea4,2|74|0x29c2a4,268|71|0x31c2a4,-293|0|0xd68629", 95, 588, 646, 1331, 753);
+			if (x ~= -1 and y ~= -1) then
+				--1036,657
+				x = math.random(x, (x+259));
+				y = math.random((y+13), (y+73));
+				sysLog("确定x："..x..",y:"..y);
+				pubFun_tab.tap(300,x,y);
+			else
+				sysLog("对不起，没找到确定！");
+				break;
+			end
+			mSleep(500);
+			--关闭包裹
+			x = math.random(1636, 1690);
+			y = math.random(121, 176);
+			sysLog("关闭包裹x："..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			mSleep(500);
+			--休息2秒点击巡逻
+			for i = 1, 2 do
+				mSleep(2000);
+				sysLog("第"..i.."次巡逻！");
+				point = findMultiColorInRegionFuzzyExt(0xa45d21,"-10|-10|0xa46121,-11|-1|0xad6529,-11|7|0xb56d31,8|-1|0xa46121,17|-1|0xad6121,42|-9|0x9c5d19,38|-2|0xa45d21,42|9|0xa45d19",95,886, 184, 1213, 270);
+				if (#point ~= 0) then
+					for var = 1,#point do
+						x = point[var].x;
+						y = point[var].y;
+					end
+					--942,224 巡逻按钮883,183,1212,267
+					x = math.random((x-59), (x+270));
+					y = math.random((y-41), (y+43));
+					sysLog("巡逻x："..x..",y:"..y);
+					pubFun_tab.doubleClick(300,x,y);
+					break;
+				end
+			end
+			sysLog("任务结束！");
+			flag = false;
+		end
+		sysLog("第"..i.."次");
+	end
+end
+--北俱挂机方法入口1080
+function beiJu_funtab1080.loopFun()
+  sysLog("进入1080调用方法！");
+  beiJu_funtab1080.isLoop = true;
+  if(pubFun_tab.getNowHour() ~= "05") then
+    beiJu_funtab1080.motor();
+    setTimer(1810000, beiJu_funtab1080.loopFun);
+  else
+    sysLog("5点了，休息了！"..pubFun_tab.getNowDate());
+    beiJu_funtab1080.isLoop = false;
   end
 end

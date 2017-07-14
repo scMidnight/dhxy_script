@@ -6,7 +6,6 @@ if (appid ~= "com.netease.dhxy") then
 	lua_exit();
 end
 require("BeiJu");
-require("BeiJu1080");
 require("TianGui");
 require("Huan200");
 init("0",1);

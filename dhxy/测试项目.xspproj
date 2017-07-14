@@ -1,20 +1,20 @@
 [SOURCE]
-1\SOURCEFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/BeiJu.lua
-2\SOURCEFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/BeiJu1080.lua
-3\SOURCEFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/Huan200.lua
-4\SOURCEFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/JSON.lua
-5\SOURCEFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/main.lua
-6\SOURCEFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/PubFun.lua
-size=8
-7\SOURCEFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/TianGui.lua
-8\SOURCEFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/ui.lua
+1\SOURCEFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/BeiJu.lua
+2\SOURCEFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/Huan200.lua
+3\SOURCEFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/JSON.lua
+4\SOURCEFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/main.lua
+5\SOURCEFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/PubFun.lua
+6\SOURCEFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/TianGui.lua
+size=7
+7\SOURCEFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/ui.lua
+8\SOURCEFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/ui.lua
 9\SOURCEFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/src/ui.lua
 
 [UI]
-1\UIFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/ui/ui.json
+1\UIFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/ui/ui.json
 size=1
 
 [RES]
-1\RESFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/res/1.png
-2\RESFILE=E:/xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/res/ziku_win7.txt
+1\RESFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/res/1.png
+2\RESFILE=E:/xx_xspworkspace/\x6d4b\x8bd5\x9879\x76ee/xsp/res/ziku_win7.txt
 size=2
