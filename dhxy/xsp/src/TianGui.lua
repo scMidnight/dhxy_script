@@ -173,6 +173,45 @@ function tiangui_funtab.tian()
 end
 
 function tiangui_funtab1080.gui()
+	--判断是否在战斗中
+	local num = 0;
+	while true do
+		mSleep(7000);
+		--判断是否在战斗中
+		x, y = findMultiColorInRegionFuzzy(0x191821,"-35|0|0x081419,-13|-8|0x8c553a,20|-33|0x6b594a,40|-89|0x312821,-53|-77|0x7b594a", 95, 8, 8, 243, 152);
+		if (x ~= -1 and y ~= -1) then
+			num = num + 1;
+			sysLog("抓鬼第"..num.."次;");
+			while true do
+				mSleep(10000);
+				x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
+				if(x == -1 and y == -1) then
+					break;
+				end
+			end
+		else
+			--不在战斗中的时候判断是不是有是否继续抓鬼对话框
+			x, y = findMultiColorInRegionFuzzy(0xffffff,"137|2|0x90cfa8,137|31|0x2cb591,2|31|0x2dc19e,67|35|0x29d3b4,67|0|0xa9dbb7,-142|-5|0xdfaa66", 95, 294, 322, 668, 377);
+			if (x ~= -1 and y ~= -1) then
+				--516,333
+				x = math.random(x, (x+134));
+				y = math.random(y, (y+32));
+				sysLog("确定继续x:"..x.."，y:"..y);
+				pubFun_tab.tap(300,x,y);
+			else
+				sysLog("对不起，没找到是否继续抓鬼对话框！");
+			end
+			--再点一下继续抓鬼
+			x = math.random(779, 933);
+			y = math.random(140, 203);
+			sysLog("右边任务栏抓鬼x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+		end
+		if(num == 60) then
+			sysLog("抓鬼结束！");
+			break;
+		end
+	end
 end
 
 function tiangui_funtab1080.gui()

@@ -9,11 +9,8 @@ local function tap(delay, x, y)
 	touchUp(1, x, y);
 	mSleep(delay);
 end
-
-function huan200_funtab540.pao()
-	local num = 1;
-	local x, y = 0, 0;
-	mSleep(1000);
+--领取200环任务
+function huan200_funtab540.lingqu()
 	--8,6,54,55点击世界地图
 	x = math.random(8, 54);
 	y = math.random(6, 55);
@@ -49,6 +46,9 @@ function huan200_funtab540.pao()
 			lua_exit();
 		end
 	end
+end
+--200环具体逻辑
+function huan200_funtab540.neirong()
 	while true do
 		mSleep(2000);
 		--诗词鬼
@@ -147,11 +147,24 @@ function huan200_funtab540.pao()
 			pubFun_tab.tap(300,x,y);
 		end
 		mSleep(500);
-		--786,136,922,175什么都没找到的话在200环处点3下
-		x = math.random(786, 922);
-		y = math.random(136, 175);
-		pubFun_tab.tap(300,x,y);
+		--夺魄妖王的对话框
+		x, y = findMultiColorInRegionFuzzy(0xd68729,"0|43|0xe8b46b,0|57|0xd88c32,0|100|0xe7b064", 95, 612, 303, 906, 417)
+		if (x ~= -1 and y ~= -1) then
+			--632,315,880,341
+			x = math.random(632, 880);
+			y = math.random(315, 341);
+			sysLog("夺魄妖王对话框x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+		end
 	end
+end
+--执行领取加逻辑
+function huan200_funtab540.quanbu()
+	local num = 1;
+	local x, y = 0, 0;
+	mSleep(1000);
+	huan200_funtab540.lingqu();
+	huan200_funtab540.neirong();
 end
 
 function huan200_funtab1080.pao()

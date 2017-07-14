@@ -20,8 +20,10 @@ if(width == 540) then
 			tiangui_funtab.gui();
 		elseif(results.motorStyle == "2") then --天庭
 			tiangui_funtab.tian();
-		elseif(results.motorStyle == "3") then -- 200
-			huan200_funtab540.pao();
+		elseif(results.motorStyle == "3") then -- 200(刚开始)
+			huan200_funtab540.quanbu();
+		elseif(results.motorStyle == "3") then -- 200(已开始)
+			huan200_funtab540.neirong();
 		end
 	else
 		sysLog("fuck");

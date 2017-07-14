@@ -26,7 +26,7 @@
 	     "views" : [
 				{
 	        "id" : "motorStyle",
-	        "list" : "北倶挂机,抓鬼,天庭,200",
+	        "list" : "北倶挂机,抓鬼,天庭,200(刚开始),200(已开始)",
 	        "select" : "0",
 	        "size" : "24",
 	        "type" : "RadioGroup",
