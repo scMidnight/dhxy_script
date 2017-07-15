@@ -4,7 +4,6 @@ require("PubFun");
 
 beiJu_funtab.isLoop = true;
 beiJu_funtab1080.isLoop = true;
-
 --北倶挂机方法540
 function beiJu_funtab.motor()
   local x, y = 0, 0;
@@ -16,7 +15,7 @@ function beiJu_funtab.motor()
       x = math.random((x+5), (x+135));
       y = math.random((y+6), (y+36));
       sysLog("取消x:"..x..",y:"..y);
-      pubFun_tab.tap(300,x,y);
+      pubFun_tab.doubleClick(300,x,y);
       break;
     else
       sysLog("没找到取消！");
@@ -24,16 +23,17 @@ function beiJu_funtab.motor()
   end
   mSleep(2000);
   --先使用循环找是否在战斗中
-  while true do
-    --x, y = findMultiColorInRegionFuzzy(0x1a1920,"8|0|0xf3c46f,17|0|0x0b1219,11|-2|0x925c3b", 95, 66, 47, 108, 78);
-		x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
-    if (x ~= -1 and y ~= -1) then
-      sysLog("当前在战斗中！稍后检测！");
-      mSleep(10000);
-    else
-      break;
-    end
-  end
+	x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
+	if (x ~= -1 and y ~= -1) then
+		sysLog("战斗中！");
+		while true do
+			mSleep(10000);
+			x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
+			if(x == -1 and y == -1) then
+				break;
+			end
+		end
+	end
   mSleep(2000);
   local flag = true;
   for i = 1, 5 do
@@ -149,7 +149,7 @@ function beiJu_funtab1080.motor()
 			x = math.random((x-235), (x+37));
 			y = math.random((y+10), (y+77));
 			sysLog("取消x:"..x..",y:"..y);
-			pubFun_tab.tap(300,x,y);
+			pubFun_tab.doubleClick(300,x,y);
 			break;
 		else
 			sysLog("没找到取消");
@@ -157,15 +157,17 @@ function beiJu_funtab1080.motor()
 	end
 	mSleep(2000);
 	--先使用循环找是否在战斗中
-	while true do
-		x, y = findMultiColorInRegionFuzzy(0x191821,"-35|0|0x081419,-13|-8|0x8c553a,20|-33|0x6b594a,40|-89|0x312821,-53|-77|0x7b594a", 95, 8, 8, 243, 152)
+		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145)
 		if (x ~= -1 and y ~= -1) then
-		sysLog("当前在战斗中！稍后检测！");
-		mSleep(10000);
-		else
-			break;
+			sysLog("战斗中！");
+			while true do
+				mSleep(10000);
+				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+				if(x == -1 and y == -1) then
+					break;
+				end
+			end
 		end
-	end
 	mSleep(2000);
 	local flag = true;
 	for i = 1, 2 do
@@ -232,22 +234,19 @@ function beiJu_funtab1080.motor()
 			pubFun_tab.tap(300,x,y);
 			mSleep(500);
 			--休息2秒点击巡逻
-			for i = 1, 2 do
-				mSleep(2000);
-				sysLog("第"..i.."次巡逻！");
-				point = findMultiColorInRegionFuzzyExt(0xa45d21,"-10|-10|0xa46121,-11|-1|0xad6529,-11|7|0xb56d31,8|-1|0xa46121,17|-1|0xad6121,42|-9|0x9c5d19,38|-2|0xa45d21,42|9|0xa45d19",95,886, 184, 1213, 270);
-				if (#point ~= 0) then
-					for var = 1,#point do
-						x = point[var].x;
-						y = point[var].y;
-					end
-					--942,224 巡逻按钮883,183,1212,267
-					x = math.random((x-59), (x+270));
-					y = math.random((y-41), (y+43));
-					sysLog("巡逻x："..x..",y:"..y);
-					pubFun_tab.doubleClick(300,x,y);
-					break;
-				end
+			x, y = findMultiColorInRegionFuzzy(0xad6d31,"51|0|0xa45d21,164|3|0xad6129,218|5|0xad6121", 95, 889, 184, 1215, 269)
+			if (x ~= -1 and y ~= -1) then
+				--922,203,1024,246
+				x = math.random(922, 1024);
+				y = math.random(203, 246);
+				sysLog("巡逻x："..x..",y:"..y);
+				pubFun_tab.tap(300,x,y);
+			else
+				--1100,209,1156,235
+				x = math.random(1100, 1156);
+				y = math.random(209, 235);
+				sysLog("巡逻x："..x..",y:"..y);
+				pubFun_tab.tap(300,x,y);
 			end
 			sysLog("任务结束！");
 			flag = false;

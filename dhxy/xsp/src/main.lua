@@ -22,7 +22,7 @@ if(width == 540) then
 			tiangui_funtab.tian();
 		elseif(results.motorStyle == "3") then -- 200(刚开始)
 			huan200_funtab540.quanbu();
-		elseif(results.motorStyle == "3") then -- 200(已开始)
+		elseif(results.motorStyle == "4") then -- 200(已开始)
 			huan200_funtab540.neirong();
 		end
 	else
@@ -34,6 +34,14 @@ elseif(width == 1080) then
 			beiJu_funtab1080.loopFun();
 			pubFun_tab.infiniteLoop(beiJu_funtab1080.isLoop);
 			lua_exit();
+		elseif(results.motorStyle == "1") then--抓鬼
+			tiangui_funtab1080.gui();
+		elseif(results.motorStyle == "2") then --天庭
+			tiangui_funtab1080.tian();
+		elseif(results.motorStyle == "3") then -- 200(刚开始)
+			huan200_funtab1080.quanbu();
+		elseif(results.motorStyle == "4") then -- 200(已开始)
+			huan200_funtab1080.neirong();
 		end
 	end
 end
