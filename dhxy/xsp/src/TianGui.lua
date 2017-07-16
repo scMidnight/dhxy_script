@@ -155,8 +155,17 @@ function tiangui_funtab.tian()
 				end
 			end
 		else
-			--不在战斗中的时候判断是不是有是否继续抓鬼对话框
-			
+			--不在战斗中的时候判断是不是有是否继续做天对话框
+			x, y = findMultiColorInRegionFuzzy(0xffffff,"137|2|0x90cfa8,137|31|0x2cb591,2|31|0x2dc19e,67|35|0x29d3b4,67|0|0xa9dbb7,-142|-5|0xdfaa66", 95, 294, 322, 668, 377);
+			if (x ~= -1 and y ~= -1) then
+				--516,333
+				x = math.random(x, (x+134));
+				y = math.random(y, (y+32));
+				sysLog("确定继续x:"..x.."，y:"..y);
+				pubFun_tab.doubleClick(300,x,y);
+			else
+				sysLog("对不起，没找到是否继续做天对话框！");
+			end
 		end
 		if(num == 60) then
 			sysLog("天庭结束！");

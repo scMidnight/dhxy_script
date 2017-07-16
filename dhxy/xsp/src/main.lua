@@ -8,6 +8,7 @@ end
 require("BeiJu");
 require("TianGui");
 require("Huan200");
+require("WuHuan");
 init("0",1);
 ret,results = showUI("ui.json");
 if(width == 540) then
