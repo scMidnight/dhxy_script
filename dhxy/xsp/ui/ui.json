@@ -26,13 +26,28 @@
 	     "views" : [
 				{
 	        "id" : "motorStyle",
-	        "list" : "北倶挂机,抓鬼,天庭,200(刚开始),200(已开始)",
+	        "list" : "北倶挂机,抓鬼,天庭,200(未领取),200(已领取)",
 	        "select" : "0",
 	        "size" : "24",
 	        "type" : "RadioGroup",
 	        "orientation" : "horizontal",
 	        "color" : "0,0,0"
         }
+	     ]
+     },
+		 {
+	     "text" : "各种任务",
+	     "type" : "Page",
+	     "views" : [
+			 {
+	       "id" : "CheckBoxTask1",
+	       "list" : "北倶挂机,抓鬼,天庭,200(未领取),200(已领取),单人五环,双人五环",
+	       "select" : "0",
+	       "size" : "24",
+	       "type" : "CheckBoxGroup",
+	       "orientation" : "horizontal",
+	       "color" : "0,0,0"
+       }
 	     ]
      }
    ]

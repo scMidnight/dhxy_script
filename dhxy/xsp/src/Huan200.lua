@@ -52,6 +52,7 @@ end
 --540的200环具体逻辑
 function huan200_funtab540.neirong()
 	local x, y = 0, 0;
+	local nTime = mTime();--记录一个时间
 	while true do
 		mSleep(2000);
 		--诗词鬼
@@ -64,6 +65,7 @@ function huan200_funtab540.neirong()
 				sysLog("诗词鬼选择a,x:"..x..",y:"..y);
 				pubFun_tab.tap(300,x,y);
 				mSleep(5000);
+				nTime = mTime();
 				--找是否通过
 				x, y = findMultiColorInRegionFuzzy(0xd19660,"-74|0|0xd69a64,15|0|0xd3965e,39|0|0xf5e9d1,49|-6|0xc4b497,59|-17|0xb36f37", 95, 186, 324, 573, 398);
 				if (x ~= -1 and y ~= -1) then
@@ -88,6 +90,7 @@ function huan200_funtab540.neirong()
 			x = math.random(439, 522);
 			y = math.random(231, 307);
 			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
 			while true do
 				sysLog("战斗中");
 				mSleep(10000);
@@ -106,6 +109,7 @@ function huan200_funtab540.neirong()
 			y = math.random(y, (y+33));
 			sysLog("上交药品x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
 		end
 		mSleep(500);
 		--看是不是上交宝宝的界面
@@ -130,6 +134,7 @@ function huan200_funtab540.neirong()
 					y = math.random(400, 432);
 					sysLog("购买符合的宝宝x:"..x..",y:"..y);
 					pubFun_tab.tap(300,x,y);
+					nTime = mTime();
 					break;
 				else
 					--没找到就翻页
@@ -148,6 +153,7 @@ function huan200_funtab540.neirong()
 			y = math.random(317, 342);
 			sysLog("上交技能书x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
 		end
 		mSleep(500);
 		--夺魄妖王的对话框
@@ -158,6 +164,12 @@ function huan200_funtab540.neirong()
 			y = math.random(315, 341);
 			sysLog("夺魄妖王对话框x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
+		end
+		--判断结束
+		if((string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
+			sysLog("200环结束！");
+			break;
 		end
 	end
 end
@@ -210,6 +222,7 @@ end
 
 --1080的200环具体逻辑
 function huan200_funtab1080.neirong()
+	local nTime = mTime();--记录一个时间
 	local x , y = 0, 0;
 	while true do
 		mSleep(2000);
@@ -224,6 +237,7 @@ function huan200_funtab1080.neirong()
 				sysLog("诗词鬼选择a,x:"..x..",y:"..y);
 				pubFun_tab.tap(300,x,y);
 				mSleep(5000);
+				nTime = mTime();
 				--找是否通过
 				for i = 1, 3 do
 					x, y = findMultiColorInRegionFuzzy(0xa4a28c,"844|-76|0xce965a,938|-84|0xbdb2a4,961|-101|0xad7131,984|-88|0x8c613a", 95, 39, 659, 1105, 912);
@@ -250,6 +264,7 @@ function huan200_funtab1080.neirong()
 			x = math.random(747, 873);
 			y = math.random(615, 720);
 			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
 			while true do
 				sysLog("战斗中");
 				mSleep(10000);
@@ -279,6 +294,7 @@ function huan200_funtab1080.neirong()
 				y1 = math.random((y1-12), (y1+58));
 				sysLog("点击玫瑰仙叶x:"..x1..",y:"..y1);
 				pubFun_tab.tap(300,x1,y1);
+				nTime = mTime();
 			elseif (#point1 ~= 0) then
 				for var = 1,#point1 do
 					x1 = point1[var].x;
@@ -290,12 +306,14 @@ function huan200_funtab1080.neirong()
 				y1 = math.random((y1-36), (y1+30));
 				sysLog("点击千年熊胆x:"..x1..",y:"..y1);
 				pubFun_tab.tap(300,x1,y1);
+				nTime = mTime();
 			end
 			--1053,813,1284,873上交
 			x = math.random(1053, 1284);
 			y = math.random(813, 873);
 			sysLog("上交药品x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
 		end
 		mSleep(500);
 		--看是不是要买宝宝的任务
@@ -320,6 +338,7 @@ function huan200_funtab1080.neirong()
 					y = math.random(809, 862);
 					sysLog("购买宝宝x:"..x..",y:"..y);
 					pubFun_tab.tap(300,x,y);
+					nTime = mTime();
 					break;
 				else
 					--739,650,1546,885没找到就翻页
@@ -338,6 +357,7 @@ function huan200_funtab1080.neirong()
 			y = math.random(633, 687);
 			sysLog("200环任务链(已完成)x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
 		end
 		mSleep(500);
 		--夺魄妖王的对话框
@@ -348,8 +368,13 @@ function huan200_funtab1080.neirong()
 			y = math.random(633, 687);
 			sysLog("夺魄妖王看你往哪里跑x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
 		end
-		mSleep(500);
+		--判断结束
+		if((string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
+			sysLog("200环结束！");
+			break;
+		end
 	end
 end
 

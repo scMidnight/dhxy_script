@@ -5,44 +5,64 @@ if (appid ~= "com.netease.dhxy") then
 	mSleep(1000);
 	lua_exit();
 end
+require("ui");
 require("BeiJu");
 require("TianGui");
 require("Huan200");
 require("WuHuan");
 init("0",1);
-ret,results = showUI("ui.json");
-if(width == 540) then
-	if(ret == 1) then
-		if (results.motorStyle == "0") then --motorStyle=0就是北倶
+ui = 适配UI("ui.json",540);
+ret,results = showUI(ui);
+if(ret == 0) then lua_exit(); end--选择取消就结束脚本
+local choices = results.CheckBoxTask1;--得到多选任务结果
+local choicesTab = pubFun_tab.lua_string_split(choices,"@");--把多选任务结果转换成table
+for i,v in pairs(choicesTab) do 
+	if(width == 540) then--540分辨率下
+		if(v == "0") then--北倶
 			beiJu_funtab.loopFun();
 			pubFun_tab.infiniteLoop(beiJu_funtab.isLoop);
-			lua_exit();
-		elseif(results.motorStyle == "1") then--抓鬼
+		end
+		if(v == "1") then--抓鬼
 			tiangui_funtab.gui();
-		elseif(results.motorStyle == "2") then --天庭
+		end
+		if(v == "2") then--做天
 			tiangui_funtab.tian();
-		elseif(results.motorStyle == "3") then -- 200(刚开始)
+		end
+		if(v == "3") then--200未领取
 			huan200_funtab540.quanbu();
-		elseif(results.motorStyle == "4") then -- 200(已开始)
+		end
+		if(v == "4") then--200已领取
 			huan200_funtab540.neirong();
 		end
-	else
-		sysLog("fuck");
+		if(v == "5") then--单人五环
+			wuhuan_funtab540.wuhuan("single");
+		end
+		if(v == "6") then--双人五环
+			wuhuan_funtab540.wuhuan("double");
+		end
 	end
-elseif(width == 1080) then
-	if(ret == 1) then
-		if (results.motorStyle == "0") then --motorStyle=0就是北倶
+	if(width == 1080) then --1080分辨率下
+		if(v == "0") then--北倶
 			beiJu_funtab1080.loopFun();
 			pubFun_tab.infiniteLoop(beiJu_funtab1080.isLoop);
-			lua_exit();
-		elseif(results.motorStyle == "1") then--抓鬼
+		end
+		if(v == "1") then--抓鬼
 			tiangui_funtab1080.gui();
-		elseif(results.motorStyle == "2") then --天庭
+		end
+		if(v == "2") then--做天
 			tiangui_funtab1080.tian();
-		elseif(results.motorStyle == "3") then -- 200(刚开始)
+		end
+		if(v == "3") then--200未领取
 			huan200_funtab1080.quanbu();
-		elseif(results.motorStyle == "4") then -- 200(已开始)
+		end
+		if(v == "4") then--200已领取
 			huan200_funtab1080.neirong();
+		end
+		if(v == "5") then--单人五环
+			wuhuan_funtab1080.wuhuan("single");
+		end
+		if(v == "6") then--双人五环
+			wuhuan_funtab1080.wuhuan("double");
 		end
 	end
 end
