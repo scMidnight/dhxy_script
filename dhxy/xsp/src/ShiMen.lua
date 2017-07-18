@@ -1,11 +1,10 @@
-bangpai_funtab540 = {};
-bangpai_funtab1080 = {};
+shimen_funtab540 = {};
+shimen_funtab1080 = {};
 require("PubFun");
 local hud = createHUD();
 
---540帮派
-function bangpai_funtab540.bangpai()
-	showHUD(hud,"帮派任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+function shimen_funtab540.shimen()
+	showHUD(hud,"师门任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	mSleep(5000);
 	--先点活动
 	x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
@@ -17,18 +16,18 @@ function bangpai_funtab540.bangpai()
 	else
 		sysLog("对不起，没找到活动！");
 	end
-	--找帮派
+	--找师门
 	for i = 1, 10 do
-		point = findMultiColorInRegionFuzzyExt(0xc05721,"-11|-2|0xd79100,13|-3|0xfdffa7,16|17|0xffe790,-4|15|0xde7325,-4|32|0xfab64d,21|16|0xf7d580",95,114, 137, 818, 393);
+		point = findMultiColorInRegionFuzzyExt(0xccecf7,"-38|8|0xfcffff,-17|13|0x84aece",95,121, 130, 816, 397);
 		if (#point ~= 0) then
 			for var = 1,#point do
 				x = point[var].x;
 				y = point[var].y;
 			end
-			--375,158,426,180点击前往153,166
-			x = math.random((x+222), (x+273));
-			y = math.random((y-8), (y+14));
-			sysLog("前往帮派x:"..x..",y:"..y);
+			--726,327,776,347点击前往525,347
+			x = math.random((x+201), (x+251));
+			y = math.random((y-20), y);
+			sysLog("前往师门x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
 			break;
 		else
@@ -39,13 +38,13 @@ function bangpai_funtab540.bangpai()
 		end
 	end
 	mSleep(10000);
-	--找帮派主管对话框
-	x, y = findMultiColorInRegionFuzzy(0xd68729,"-8|43|0xe8b46b,-9|57|0xd88c32,-13|100|0xe7b064,-12|114|0xda9139,-10|157|0xe6ad5e", 95, 608, 299, 906, 478)
+	--找师门对话框
+	x, y = findMultiColorInRegionFuzzy(0xd78729,"4|43|0xe8b46b,6|57|0xd88c32,6|100|0xe7b064", 95, 604, 297, 905, 425)
 	if (x ~= -1 and y ~= -1) then
-		--635,316,879,342点击帮派任务
-		x = math.random(635, 879);
-		y = math.random(316, 342);
-		sysLog("帮派任务x:"..x..",y:"..y);
+		--638,317,880,342点击师门任务
+		x = math.random(638, 880);
+		y = math.random(317, 342);
+		sysLog("师门任务x:"..x..",y:"..y);
 		pubFun_tab.tap(300,x,y);
 	end
 	--一直找买卖东西或者提示战斗的对话框
@@ -92,7 +91,7 @@ function bangpai_funtab540.bangpai()
 		end
 		mSleep(500);
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
-			showHUD(hud,"帮派任务结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			showHUD(hud,"师门任务结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 			--431,469,580,508点一下
 			x = math.random(431, 580);
 			y = math.random(469, 508);
@@ -105,9 +104,8 @@ function bangpai_funtab540.bangpai()
 end
 
 
---1080帮派
-function bangpai_funtab1080.bangpai()
-	showHUD(hud,"帮派任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+function shimen_funtab1080.shimen()
+	showHUD(hud,"师门任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(5000);
 	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
@@ -120,18 +118,18 @@ function bangpai_funtab1080.bangpai()
 	else
 		sysLog("对不起，没找到活动！");
 	end
-	--找帮派
+	--找师门
 	for i = 1, 10 do
-		point = findMultiColorInRegionFuzzyExt(0xbd5521,"8|-9|0xf7fb73,-32|32|0xefa63a,20|35|0xe6a23a,20|72|0xde6d21",95,235, 267, 1615, 774);
+		point = findMultiColorInRegionFuzzyExt(0xceebf7,"-62|14|0xffffff,-29|-6|0x425d7b,-28|33|0x7ba6ce",95,245, 275, 1619, 781);
 		if (#point ~= 0) then
 			for var = 1,#point do
 				x = point[var].x;
 				y = point[var].y;
 			end
-			--748,645,857,687点击前往314,662
-			x = math.random((x+431), (x+543));
-			y = math.random((y-17), (y+25));
-			sysLog("前往帮派x:"..x..",y:"..y);
+			--1450,484,1556,523点击前往1043,525
+			x = math.random((x+407), (x+513));
+			y = math.random((y-41), (y-2));
+			sysLog("前往师门x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
 			break;
 		else
@@ -142,18 +140,18 @@ function bangpai_funtab1080.bangpai()
 		end
 	end
 	mSleep(10000);
-	--找帮派主管对话框
-	x, y = findMultiColorInRegionFuzzy(0xdea252,"11|87|0xde963a,49|114|0xd69a4a,49|201|0xde9a3a,59|228|0xd69642,72|315|0xd6963a", 95, 1225, 594, 1812, 963)
+	--找师门对话框
+	x, y = findMultiColorInRegionFuzzy(0xdea252,"19|87|0xde963a,27|114|0xde9a4a,46|201|0xd6963a", 95, 1225, 608, 1809, 831)
 	if (x ~= -1 and y ~= -1) then
 		--1264,627,1762,689
 		x = math.random(1264, 1762);
 		y = math.random(627, 689);
-		sysLog("帮派任务x:"..x..",y:"..y);
+		sysLog("师门任务x:"..x..",y:"..y);
 		pubFun_tab.tap(300,x,y);
 	end
 	--一直找买卖东西或者提示战斗的对话框
 	local nTime = mTime();--记录一个时间
-	while true do
+	while true do 
 		mSleep(15000);
 		--判断是否在战斗中
 		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
@@ -195,7 +193,7 @@ function bangpai_funtab1080.bangpai()
 		end
 		mSleep(500);
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
-			showHUD(hud,"帮派任务结束",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			showHUD(hud,"师门任务结束",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 			--757,906,1143,1044点一下
 			x = math.random(757, 1143);
 			y = math.random(906, 1044);

@@ -12,6 +12,8 @@ end
 
 --540五环
 function wuhuan_funtab540.wuhuan(flag)
+	mSleep(2000);
+	local x,y = 0,0;
 	--8,6,54,55点击世界地图
 	x = math.random(8, 54);
 	y = math.random(6, 55);
@@ -33,7 +35,7 @@ function wuhuan_funtab540.wuhuan(flag)
 	sysLog("关闭小地图x:"..x.."，y:"..y);
 	pubFun_tab.tap(300,x,y);
 	mSleep(10000);
-	--点击单人五环
+	--点击五环
 	x, y = findMultiColorInRegionFuzzy(0xd68729,"0|43|0xe8b46b,-24|57|0xd88c32,-14|100|0xe7b064,-14|114|0xda9139,-16|157|0xe6ad5e,-6|171|0xdb9541", 95, 607, 292, 900, 515)
 	if (x ~= -1 and y ~= -1) then
 		if(flag == "single") then--单人645,372,870,398
@@ -49,7 +51,7 @@ function wuhuan_funtab540.wuhuan(flag)
 		end
 		pubFun_tab.tap(300,x,y);
 	end
-	local num = 0;
+	local nTime = mTime();--记录一个时间
 	--是否战斗
 	while true do
 		mSleep(10000);
@@ -59,28 +61,29 @@ function wuhuan_funtab540.wuhuan(flag)
 			x = math.random(439, 522);
 			y = math.random(231, 307);
 			pubFun_tab.tap(300,x,y);
-			num = num + 1;
-			showHUD(hud,"五环第"..num.."次",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 			while true do
 				mSleep(10000);
 				x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
 				if(x == -1 and y == -1) then
+					nTime = mTime();
 					break;
 				end
 			end
-		else
-			if(num == 5) then
-				showHUD(hud,"五环结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
-				mSleep(2000);
-				hideHUD(hud);
-				break;
-			end
+		end
+		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
+			showHUD(hud,"五环结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			mSleep(2000);
+			break;
 		end
 	end
+	hideHUD(hud);
 end
 
 --1080五环
 function wuhuan_funtab1080.wuhuan(flag)
+	showHUD(hud,"五环任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	mSleep(2000);
+	local x,y = 0,0;
 	--13,15,109,110世界地图
 	x = math.random(13, 109);
 	y = math.random(15, 110);
@@ -102,5 +105,46 @@ function wuhuan_funtab1080.wuhuan(flag)
 	sysLog("关闭小地图x:"..x.."，y:"..y);
 	pubFun_tab.tap(300,x,y);
 	mSleep(10000);
-	
+	--选择五环
+	x, y = findMultiColorInRegionFuzzy(0xde9e52,"10|87|0xde963a,3|114|0xde9e4a,6|201|0xde9a3a,6|228|0xd69642,13|315|0xd6963a,17|342|0xde9242", 95, 1230, 606, 1799, 1012);
+	if (x ~= -1 and y ~= -1) then
+		if(flag == "single") then--单人1266,746,1761,798
+			x = math.random(1266, 1761);
+			y = math.random(746, 798);
+			sysLog("单人五环x:"..x.."，y:"..y);
+			showHUD(hud,"单人五环",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+		elseif(flag == "double") then--双人1267,630,1765,688
+			x = math.random(1267, 1765);
+			y = math.random(630, 688);
+			sysLog("双人五环x:"..x.."，y:"..y);
+			showHUD(hud,"双人五环",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+		end
+		pubFun_tab.tap(300,x,y);
+	end
+	local nTime = mTime();--记录一个时间
+	--是否战斗
+	while true do
+		mSleep(10000);
+		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+		if (x ~= -1 and y ~= -1) then
+			--747,615,873,720点击一下
+			x = math.random(747, 873);
+			y = math.random(615, 720);
+			pubFun_tab.tap(300,x,y);
+			while true do
+				mSleep(10000);
+				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+				if(x == -1 and y == -1) then
+					nTime = mTime();
+					break;
+				end
+			end
+		end
+		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
+			showHUD(hud,"五环结束",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			mSleep(2000);
+			break;
+		end
+	end
+	hideHUD(hud);
 end

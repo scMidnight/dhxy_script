@@ -15,7 +15,7 @@ function beiJu_funtab.motor()
       x = math.random((x+5), (x+135));
       y = math.random((y+6), (y+36));
       sysLog("取消x:"..x..",y:"..y);
-      pubFun_tab.doubleClick(300,x,y);
+      pubFun_tab.tap(300,x,y);
       break;
     else
       sysLog("没找到取消！");
@@ -141,6 +141,23 @@ end
 --北倶挂机方法1080
 function beiJu_funtab1080.motor()
   local x, y = 0, 0;
+	--先看掉线
+	for i = 1, 2 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0x42b68c,"-594|-373|0xb58673,-587|-300|0xc54942,-596|-271|0x3a2019,-565|-247|0xe69e94,-564|-132|0x7ba694,-445|-199|0xd6a694,-737|-8|0xce8642,-631|39|0xf7ebc5,-536|-294|0xa4594a", 95, 245, 227, 1456, 825);
+		if (x ~= -1 and y ~= -1) then
+			--1029,674,1291,740点击确定
+			x = math.random(1029, 1291);
+			y = math.random(674, 740);
+			sysLog("确定x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			mSleep(8000);
+			break;
+		else
+			sysLog("没找到掉线");
+		end
+	end
+	mSleep(2000);
 	--先看看有没有遮挡框，有的话一概取消（掉线之类的另说）
 	for i = 1, 2 do
 		mSleep(1000);
@@ -149,7 +166,7 @@ function beiJu_funtab1080.motor()
 			x = math.random((x-235), (x+37));
 			y = math.random((y+10), (y+77));
 			sysLog("取消x:"..x..",y:"..y);
-			pubFun_tab.doubleClick(300,x,y);
+			pubFun_tab.tap(300,x,y);
 			break;
 		else
 			sysLog("没找到取消");

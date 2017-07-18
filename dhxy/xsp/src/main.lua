@@ -9,7 +9,9 @@ require("ui");
 require("BeiJu");
 require("TianGui");
 require("Huan200");
-require("BangPar");
+require("BangPai");
+require("ShiMen");
+require("BaoTu");
 require("WuHuan");
 init("0",1);
 ui = 适配UI("ui.json",540);
@@ -40,11 +42,13 @@ for i,v in pairs(choicesTab) do
 		if(v == "6") then --竞技场(刷新冷却打满次)
 		end
 		if(v == "7") then --帮派
-			
+			bangpai_funtab540.bangpai();
 		end
 		if(v == "8") then --师门
+			shimen_funtab540.shimen();
 		end
 		if(v == "9") then --宝图
+			baotu_funtab540.baotu();
 		end
 		if(v == "10") then--单人五环
 			wuhuan_funtab540.wuhuan("single");
@@ -77,10 +81,13 @@ for i,v in pairs(choicesTab) do
 		if(v == "6") then --竞技场(刷新冷却打满次)
 		end
 		if(v == "7") then --帮派
+			bangpai_funtab1080.bangpai();
 		end
 		if(v == "8") then --师门
+			shimen_funtab1080.shimen();
 		end
 		if(v == "9") then --宝图
+			baotu_funtab1080.baotu();
 		end
 		if(v == "10") then--单人五环
 			wuhuan_funtab1080.wuhuan("single");

@@ -169,7 +169,7 @@ function huan200_funtab540.neirong()
 			nTime = mTime();
 		end
 		--判断结束
-		if((string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
+		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
 			sysLog("200环结束！");
 			break;
 		end
@@ -373,7 +373,7 @@ function huan200_funtab1080.neirong()
 			nTime = mTime();
 		end
 		--判断结束
-		if((string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
+		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
 			sysLog("200环结束！");
 			break;
 		end
