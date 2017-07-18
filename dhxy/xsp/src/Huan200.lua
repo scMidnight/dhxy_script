@@ -125,6 +125,8 @@ function huan200_funtab540.neirong()
 						break;
 					end
 					--362,163,550,204选择宝宝 进行买卖
+--					x = math.random((x+56), (x+196));
+--					y = math.random((y-18), (y+30));
 					x = math.random(x, (x+185));
 					y = math.random((y-21), (y+20));
 					sysLog("选择符合的宝宝x:"..x..",y:"..y);

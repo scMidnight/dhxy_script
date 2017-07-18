@@ -9,6 +9,7 @@ require("ui");
 require("BeiJu");
 require("TianGui");
 require("Huan200");
+require("BangPar");
 require("WuHuan");
 init("0",1);
 ui = 适配UI("ui.json",540);
@@ -34,11 +35,24 @@ for i,v in pairs(choicesTab) do
 		if(v == "4") then--200已领取
 			huan200_funtab540.neirong();
 		end
-		if(v == "5") then--单人五环
+		if(v == "5") then --竞技场(打五次)
+		end
+		if(v == "6") then --竞技场(刷新冷却打满次)
+		end
+		if(v == "7") then --帮派
+			
+		end
+		if(v == "8") then --师门
+		end
+		if(v == "9") then --宝图
+		end
+		if(v == "10") then--单人五环
 			wuhuan_funtab540.wuhuan("single");
 		end
-		if(v == "6") then--双人五环
+		if(v == "11") then--双人五环
 			wuhuan_funtab540.wuhuan("double");
+		end
+		if(v == "12") then --挖宝
 		end
 	end
 	if(width == 1080) then --1080分辨率下
@@ -58,11 +72,23 @@ for i,v in pairs(choicesTab) do
 		if(v == "4") then--200已领取
 			huan200_funtab1080.neirong();
 		end
-		if(v == "5") then--单人五环
+		if(v == "5") then --竞技场(打五次)
+		end
+		if(v == "6") then --竞技场(刷新冷却打满次)
+		end
+		if(v == "7") then --帮派
+		end
+		if(v == "8") then --师门
+		end
+		if(v == "9") then --宝图
+		end
+		if(v == "10") then--单人五环
 			wuhuan_funtab1080.wuhuan("single");
 		end
-		if(v == "6") then--双人五环
+		if(v == "11") then--双人五环
 			wuhuan_funtab1080.wuhuan("double");
+		end
+		if(v == "12") then --挖宝
 		end
 	end
 end
