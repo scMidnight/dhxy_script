@@ -96,6 +96,7 @@ function huan200_funtab540.neirong()
 				mSleep(10000);
 				x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
 				if(x == -1 and y == -1) then
+					nTime = mTime();
 					break;
 				end
 			end
