@@ -51,24 +51,7 @@ function bangpai_funtab540.bangpai()
 	--一直找买卖东西或者提示战斗的对话框
 	local nTime = mTime();--记录一个时间
 	while true do 
-		mSleep(15000);
-		--判断是否在战斗中
-		x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
-		if (x ~= -1 and y ~= -1) then
-			--439,231,522,307随机点一下
-			x = math.random(439, 522);
-			y = math.random(231, 307);
-			pubFun_tab.tap(300,x,y);
-			while true do
-				mSleep(10000);
-				x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
-				if(x == -1 and y == -1) then
-					nTime = mTime();
-					break;
-				end
-			end
-		end
-		mSleep(500);
+		mSleep(10000);
 		--买各类东西
 		x, y = findMultiColorInRegionFuzzy(0xdbefe2,"-1|0|0xfeffff,151|5|0x73c29a,1|29|0x30b88f,149|26|0x32b58b", 95, 608, 417, 797, 477)
 		if (x ~= -1 and y ~= -1) then
@@ -89,6 +72,23 @@ function bangpai_funtab540.bangpai()
 			sysLog("战斗x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
 			nTime = mTime();
+		end
+		mSleep(500);
+		--判断是否在战斗中
+		x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
+		if (x ~= -1 and y ~= -1) then
+			--439,231,522,307随机点一下
+			x = math.random(439, 522);
+			y = math.random(231, 307);
+			pubFun_tab.tap(300,x,y);
+			while true do
+				mSleep(10000);
+				x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
+				if(x == -1 and y == -1) then
+					nTime = mTime();
+					break;
+				end
+			end
 		end
 		mSleep(500);
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
@@ -154,24 +154,7 @@ function bangpai_funtab1080.bangpai()
 	--一直找买卖东西或者提示战斗的对话框
 	local nTime = mTime();--记录一个时间
 	while true do
-		mSleep(15000);
-		--判断是否在战斗中
-		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
-		if (x ~= -1 and y ~= -1) then
-			--747,615,873,720点击一下
-			x = math.random(747, 873);
-			y = math.random(615, 720);
-			pubFun_tab.tap(300,x,y);
-			while true do
-				mSleep(10000);
-				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
-				if(x == -1 and y == -1) then
-					nTime = mTime();
-					break;
-				end
-			end
-		end
-		mSleep(500);
+		mSleep(10000);
 		--买各类东西
 		x, y = findMultiColorInRegionFuzzy(0xf7fbf7,"312|3|0x94cead,2|57|0x31b694,308|56|0x31b68c", 95, 1219, 832, 1595, 959);
 		if (x ~= -1 and y ~= -1) then
@@ -192,6 +175,23 @@ function bangpai_funtab1080.bangpai()
 			sysLog("战斗x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
 			nTime = mTime();
+		end
+		mSleep(500);
+		--判断是否在战斗中
+		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+		if (x ~= -1 and y ~= -1) then
+			--747,615,873,720点击一下
+			x = math.random(747, 873);
+			y = math.random(615, 720);
+			pubFun_tab.tap(300,x,y);
+			while true do
+				mSleep(10000);
+				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+				if(x == -1 and y == -1) then
+					nTime = mTime();
+					break;
+				end
+			end
 		end
 		mSleep(500);
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then

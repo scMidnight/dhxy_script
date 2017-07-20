@@ -55,7 +55,7 @@ function wuhuan_funtab540.wuhuan(flag)
 	--是否战斗
 	while true do
 		mSleep(10000);
-		x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
+		x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
 		if (x ~= -1 and y ~= -1) then
 			--439,231,522,307随机点一下
 			x = math.random(439, 522);
@@ -63,7 +63,7 @@ function wuhuan_funtab540.wuhuan(flag)
 			pubFun_tab.tap(300,x,y);
 			while true do
 				mSleep(10000);
-				x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
+				x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
 				if(x == -1 and y == -1) then
 					nTime = mTime();
 					break;
@@ -71,6 +71,7 @@ function wuhuan_funtab540.wuhuan(flag)
 			end
 		end
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
+			sysLog("五环结束！");
 			showHUD(hud,"五环结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 			mSleep(2000);
 			break;
@@ -89,9 +90,9 @@ function wuhuan_funtab1080.wuhuan(flag)
 	y = math.random(15, 110);
 	sysLog("世界地图x:"..x.."，y:"..y);
 	pubFun_tab.tap(300,x,y);
-	--1040,393,1198,474长安
-	x = math.random(1040, 1198);
-	y = math.random(393, 474);
+	--1096,365,1191,410长安
+	x = math.random(1096, 1191);
+	y = math.random(365, 410);
 	sysLog("长安x:"..x.."，y:"..y);
 	pubFun_tab.tap(300,x,y);
 	--1118,657,1226,675云游大师

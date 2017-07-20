@@ -53,7 +53,7 @@ function baotu_funtab540.baotu()
 	while true do
 		mSleep(1000);
 		--判断是否在战斗中
-		x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
+		x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
 		if (x ~= -1 and y ~= -1) then
 			--439,231,522,307随机点一下
 			x = math.random(439, 522);
@@ -61,14 +61,14 @@ function baotu_funtab540.baotu()
 			pubFun_tab.tap(300,x,y);
 			while true do
 				mSleep(10000);
-				x, y = findMultiColorInRegionFuzzy(0x79624d,"-17|0|0x997150,-31|0|0x9f7451,-80|0|0xaf6d2d", 95, 3, 18, 101, 60);
+				x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
 				if(x == -1 and y == -1) then
 					nTime = mTime();
 					break;
 				end
 			end
 		end
-		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
+		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			showHUD(hud,"宝图任务结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 			mSleep(2000);
 			break;
@@ -79,7 +79,7 @@ end
 
 --1080挖宝
 function baotu_funtab1080.baotu()
-	showHUD(hud,"师门任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	showHUD(hud,"宝图任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(5000);
 	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
@@ -142,7 +142,7 @@ function baotu_funtab1080.baotu()
 				end
 			end
 		end
-		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
+		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			showHUD(hud,"宝图任务结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 			mSleep(2000);
 			break;
