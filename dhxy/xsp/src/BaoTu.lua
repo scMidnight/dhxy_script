@@ -143,7 +143,7 @@ function baotu_funtab1080.baotu()
 			end
 		end
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
-			showHUD(hud,"宝图任务结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			showHUD(hud,"宝图任务结束",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 			mSleep(2000);
 			break;
 		end

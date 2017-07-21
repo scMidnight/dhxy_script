@@ -157,7 +157,20 @@ function beiJu_funtab1080.motor()
 			sysLog("没找到掉线");
 		end
 	end
-	mSleep(2000);
+	--看看是否连接失败
+	while true do
+		mSleep(5000);
+		x, y = findMultiColorInRegionFuzzy(0x4ab68c,"-377|-293|0xce413a,-388|-262|0x422019,-334|-283|0x311c19,-400|-238|0x8c5d31,-369|-183|0xd6c26b,-374|-17|0x63aac5,-553|3|0xc53131,-272|-11|0xdebac5", 95, 203, 222, 1419, 809)
+		if (x ~= -1 and y ~= -1) then
+			--837,679,1097,737点击确定
+			x = math.random(837, 1097);
+			y = math.random(679, 737);
+			sysLog("确定x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+		else
+			break;
+		end
+	end
 	--先看看有没有遮挡框，有的话一概取消（掉线之类的另说）
 	for i = 1, 2 do
 		mSleep(1000);

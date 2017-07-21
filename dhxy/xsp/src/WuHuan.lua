@@ -70,7 +70,7 @@ function wuhuan_funtab540.wuhuan(flag)
 				end
 			end
 		end
-		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
+		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			sysLog("五环结束！");
 			showHUD(hud,"五环结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 			mSleep(2000);

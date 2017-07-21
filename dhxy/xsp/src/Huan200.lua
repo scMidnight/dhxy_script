@@ -67,7 +67,8 @@ function huan200_funtab540.neirong()
 				mSleep(5000);
 				nTime = mTime();
 				--找是否通过
-				x, y = findMultiColorInRegionFuzzy(0xd19660,"-74|0|0xd69a64,15|0|0xd3965e,39|0|0xf5e9d1,49|-6|0xc4b497,59|-17|0xb36f37", 95, 186, 324, 573, 398);
+--				x, y = findMultiColorInRegionFuzzy(0xd19660,"-74|0|0xd69a64,15|0|0xd3965e,39|0|0xf5e9d1,49|-6|0xc4b497,59|-17|0xb36f37", 95, 186, 324, 573, 398);
+				x, y = findMultiColorInRegionFuzzy(0xfffefa,"71|-29|0xe5a76d", 95, 446, 315, 643, 393);
 				if (x ~= -1 and y ~= -1) then
 					--786,136,922,175没有通过的话再200环处点3下
 					x = math.random(786, 922);
@@ -105,6 +106,36 @@ function huan200_funtab540.neirong()
 		--上交药品，宝宝
 		x, y = findMultiColorInRegionFuzzy(0xfeffff,"-106|-62|0xdcc2a1,-20|-5|0xf1eedc,9|12|0x4db88c,121|13|0x4ab88c,16|27|0x2cbb92", 95, 374, 131, 781, 460);
 		if (x ~= -1 and y ~= -1) then
+			local x1,y1 = 0,0;
+			--玫瑰仙叶
+			point = findMultiColorInRegionFuzzyExt(0x6ddd5f,"-11|14|0x3eb03b,0|16|0x35ce43,11|14|0x146928",95,163, 135, 388, 440);
+			--千年熊胆
+			point1 = findMultiColorInRegionFuzzyExt(0xfde8c8,"-10|10|0xdc2c48,5|3|0xf46f6d,3|19|0x821729",95,162, 134, 386, 439);
+			if (#point ~= 0) then
+				for var = 1,#point do
+					x1 = point[var].x;
+					y1 = point[var].y;
+					break;
+				end
+				--257,151,290,189点一下玫瑰仙叶270,159
+				x1 = math.random((x1-13), (x1+20));
+				y1 = math.random((y1-8), (y1+30));
+				sysLog("点击玫瑰仙叶x:"..x1..",y:"..y1);
+				pubFun_tab.tap(300,x1,y1);
+				nTime = mTime();
+			elseif (#point1 ~= 0) then
+				for var = 1,#point1 do
+					x1 = point1[var].x;
+					y1 = point1[var].y;
+					break;
+				end
+				--184,150,223,189点一下千年熊胆203,161
+				x1 = math.random((x1-19), (x1+20));
+				y1 = math.random((y1-11), (y1+28));
+				sysLog("点击千年熊胆x:"..x1..",y:"..y1);
+				pubFun_tab.tap(300,x1,y1);
+				nTime = mTime();
+			end
 			--521,406,644,439
 			x = math.random(x, (x+143));
 			y = math.random(y, (y+33));
@@ -126,9 +157,7 @@ function huan200_funtab540.neirong()
 						break;
 					end
 					--362,163,550,204选择宝宝 进行买卖
---					x = math.random((x+56), (x+196));
---					y = math.random((y-18), (y+30));
-					x = math.random(x, (x+185));
+					x = math.random((x+45), (x+185));
 					y = math.random((y-21), (y+20));
 					sysLog("选择符合的宝宝x:"..x..",y:"..y);
 					pubFun_tab.tap(300,x,y);
@@ -242,18 +271,16 @@ function huan200_funtab1080.neirong()
 				mSleep(5000);
 				nTime = mTime();
 				--找是否通过
-				for i = 1, 3 do
-					x, y = findMultiColorInRegionFuzzy(0xa4a28c,"844|-76|0xce965a,938|-84|0xbdb2a4,961|-101|0xad7131,984|-88|0x8c613a", 95, 39, 659, 1105, 912);
-					if (x ~= -1 and y ~= -1) then
-						--1564,280,1860,345没有通过的话再200环处点3下
-						x = math.random(1564, 1860);
-						y = math.random(280, 345);
-						sysLog("诗词鬼没通过，继续,x:"..x..",y:"..y);
-						pubFun_tab.doubleClick(300,x,y);
-						pubFun_tab.tap(300,x,y);
-						break;
-					end
-					mSleep(5000);
+				x, y = findMultiColorInRegionFuzzy(0xa4a28c,"844|-76|0xce965a,938|-84|0xbdb2a4,961|-101|0xad7131,984|-88|0x8c613a", 95, 39, 659, 1105, 912);
+				if (x ~= -1 and y ~= -1) then
+					--1564,280,1860,345没有通过的话再200环处点3下
+					x = math.random(1564, 1860);
+					y = math.random(280, 345);
+					sysLog("诗词鬼没通过，继续,x:"..x..",y:"..y);
+					pubFun_tab.doubleClick(300,x,y);
+					pubFun_tab.tap(300,x,y);
+				else
+					break;
 				end
 			else 
 				break;
@@ -331,9 +358,9 @@ function huan200_funtab1080.neirong()
 						y = point[var].y;
 						break;
 					end
-					--716,341,1100,419点击符合条件的722,374
-					x = math.random((x+6), (x+378));
-					y = math.random((y-33), (y+45));
+					--839,326,1116,430点击符合条件的722,374
+					x = math.random((x+117), (x+394));
+					y = math.random((y-48), (y+56));
 					sysLog("符合条件的宝宝x:"..x..",y:"..y);
 					pubFun_tab.tap(300,x,y);
 					--1071,809,1495,862点击购买
