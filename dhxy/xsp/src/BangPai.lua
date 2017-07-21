@@ -86,17 +86,17 @@ function bangpai_funtab540.bangpai()
 				end
 			end
 		end
-		local falg = false;
+		local flag = false;
 		--判断是否结束
 		for i=1,10 do
 			mSleep(300);
 			x, y = findMultiColorInRegionFuzzy(0xf5f5f5,"195|5|0xffffe8,199|5|0xffe519,265|-44|0xbca186,319|-63|0xe5a76d", 90, 212, 313, 585, 433);
 			if(x ~= -1 and y ~= -1) then
-				falg = true;
+				flag = true;
 				break;
 			end
 		end
-		if(falg) then
+		if(flag) then
 			showHUD(hud,"帮派任务结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 			--350,446,512,503点一下
 			x = math.random(350, 512);
