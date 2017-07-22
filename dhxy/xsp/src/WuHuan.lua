@@ -90,9 +90,9 @@ function wuhuan_funtab1080.wuhuan(flag)
 	y = math.random(15, 110);
 	sysLog("世界地图x:"..x.."，y:"..y);
 	pubFun_tab.tap(300,x,y);
-	--1096,365,1191,410长安
-	x = math.random(1096, 1191);
-	y = math.random(365, 410);
+	--1074,388,1185,455长安
+	x = math.random(1074, 1185);
+	y = math.random(388, 455);
 	sysLog("长安x:"..x.."，y:"..y);
 	pubFun_tab.tap(300,x,y);
 	--1118,657,1226,675云游大师

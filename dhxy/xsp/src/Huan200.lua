@@ -271,7 +271,8 @@ function huan200_funtab1080.neirong()
 				mSleep(5000);
 				nTime = mTime();
 				--找是否通过
-				x, y = findMultiColorInRegionFuzzy(0xa4a28c,"844|-76|0xce965a,938|-84|0xbdb2a4,961|-101|0xad7131,984|-88|0x8c613a", 95, 39, 659, 1105, 912);
+				--x, y = findMultiColorInRegionFuzzy(0xa4a28c,"844|-76|0xce965a,938|-84|0xbdb2a4,961|-101|0xad7131,984|-88|0x8c613a", 95, 39, 659, 1105, 912);
+				x, y = findMultiColorInRegionFuzzy(0xbdb294,"96|-41|0xefc294", 95, 923, 620, 1270, 780);
 				if (x ~= -1 and y ~= -1) then
 					--1564,280,1860,345没有通过的话再200环处点3下
 					x = math.random(1564, 1860);
