@@ -11,6 +11,7 @@ local function tap(delay, x, y)
 end
 --540领取200环任务
 function huan200_funtab540.lingqu()
+	showHUD(hud,"200环",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(1000);
 	--8,6,54,55点击世界地图
@@ -45,12 +46,15 @@ function huan200_funtab540.lingqu()
 			break;
 		elseif (i == 2) then 
 			sysLog("没有找到200对话框，任务结束！");
+			showHUD(hud,"没有找到200对话框，任务结束！",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			mSleep(2000);
 			lua_exit();
 		end
 	end
 end
 --540的200环具体逻辑
 function huan200_funtab540.neirong()
+	showHUD(hud,"200环任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
 	local nTime = mTime();--记录一个时间
 	while true do
@@ -201,6 +205,8 @@ function huan200_funtab540.neirong()
 		--判断结束
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
 			sysLog("200环结束！");
+			showHUD(hud,"200环结束！",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			mSleep(2000);
 			break;
 		end
 	end
@@ -209,10 +215,12 @@ end
 function huan200_funtab540.quanbu()
 	huan200_funtab540.lingqu();
 	huan200_funtab540.neirong();
+	hideHUD(hud);
 end
 
 --1080领取200环任务
 function huan200_funtab1080.lingqu()
+	showHUD(hud,"200环",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x , y = 0, 0;
 	mSleep(1000);
 	--13,15,109,110世界地图
@@ -247,6 +255,8 @@ function huan200_funtab1080.lingqu()
 			break;
 		elseif (i == 2) then 
 			sysLog("没有找到200对话框，任务结束！");
+			showHUD(hud,"没有找到200环对话框，任务结束！",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			mSleep(2000);
 			lua_exit();
 		end
 	end
@@ -254,6 +264,7 @@ end
 
 --1080的200环具体逻辑
 function huan200_funtab1080.neirong()
+	showHUD(hud,"200环任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local nTime = mTime();--记录一个时间
 	local x , y = 0, 0;
 	while true do
@@ -271,7 +282,6 @@ function huan200_funtab1080.neirong()
 				mSleep(5000);
 				nTime = mTime();
 				--找是否通过
-				--x, y = findMultiColorInRegionFuzzy(0xa4a28c,"844|-76|0xce965a,938|-84|0xbdb2a4,961|-101|0xad7131,984|-88|0x8c613a", 95, 39, 659, 1105, 912);
 				x, y = findMultiColorInRegionFuzzy(0xbdb294,"96|-41|0xefc294", 95, 923, 620, 1270, 780);
 				if (x ~= -1 and y ~= -1) then
 					--1564,280,1860,345没有通过的话再200环处点3下
@@ -404,6 +414,8 @@ function huan200_funtab1080.neirong()
 		--判断结束
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
 			sysLog("200环结束！");
+			showHUD(hud,"200环结束！",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			mSleep(2000);
 			break;
 		end
 	end
@@ -413,4 +425,5 @@ end
 function huan200_funtab1080.quanbu()
 	huan200_funtab1080.lingqu();
 	huan200_funtab1080.neirong();
+	hideHUD(hud);
 end
