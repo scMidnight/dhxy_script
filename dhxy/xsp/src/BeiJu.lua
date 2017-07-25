@@ -101,24 +101,29 @@ function beiJu_funtab.motor()
 			sysLog("关闭包裹x:"..x..",y:"..y);
 			pubFun_tab.tap(300, x, y);
 			mSleep(500);
-			--休息2秒点击巡逻
-			for i = 1, 2 do
-				mSleep(2000);
-				sysLog("第"..i.."次巡逻！");
-				point = findMultiColorInRegionFuzzyExt(0xa76122,"-5|-4|0xa66021,-5|0|0xc38f55,4|0|0xa96425,9|0|0xbf884d,29|-6|0xaa672a,21|-4|0xa66021,20|0|0xb47639,21|5|0xa65f20,37|11|0xad6b2c",95,493, 92, 616, 134);
-				if (#point ~= 0) then
+			--休息2秒点击巡逻533,102,577,122
+			mSleep(2000);
+			x = math.random(533, 577);
+			y = math.random(102, 122);
+			sysLog("巡逻x:"..x..",y:"..y);
+			pubFun_tab.tap(300, x, y);
+--			for i = 1, 2 do
+--				mSleep(2000);
+--				sysLog("第"..i.."次巡逻！");
+--				point = findMultiColorInRegionFuzzyExt(0xa76122,"-5|-4|0xa66021,-5|0|0xc38f55,4|0|0xa96425,9|0|0xbf884d,29|-6|0xaa672a,21|-4|0xa66021,20|0|0xb47639,21|5|0xa65f20,37|11|0xad6b2c",95,493, 92, 616, 134);
+--				if (#point ~= 0) then
 					--540,111 巡逻按钮534,104,578,121
-					for var = 1,#point do
-						x = point[var].x;
-						y = point[var].y;
-					end
-					x = math.random((x-7), (x+38));
-					y = math.random((y-7), (y+10));
-					sysLog("巡逻x:"..x..",y:"..y);
-					pubFun_tab.doubleClick(300,x,y);
-					break;
-				end
-			end
+--					for var = 1,#point do
+--						x = point[var].x;
+--						y = point[var].y;
+--					end
+--					x = math.random((x-7), (x+38));
+--					y = math.random((y-7), (y+10));
+--					sysLog("巡逻x:"..x..",y:"..y);
+--					pubFun_tab.doubleClick(300,x,y);
+--					break;
+--				end
+--			end
 			sysLog("任务结束！");
 			flag = false;
     end
@@ -131,7 +136,7 @@ function beiJu_funtab.loopFun()
   beiJu_funtab.isLoop = true;
   if(pubFun_tab.getNowHour() ~= "05") then
     beiJu_funtab.motor();
-    setTimer(1810000, beiJu_funtab.loopFun);
+    setTimer(1800000, beiJu_funtab.loopFun);
   else
     sysLog("5点了，休息了！"..pubFun_tab.getNowDate());
     beiJu_funtab.isLoop = false;
@@ -290,7 +295,7 @@ function beiJu_funtab1080.loopFun()
   beiJu_funtab1080.isLoop = true;
   if(pubFun_tab.getNowHour() ~= "05") then
     beiJu_funtab1080.motor();
-    setTimer(1810000, beiJu_funtab1080.loopFun);
+    setTimer(180000, beiJu_funtab1080.loopFun);
   else
     sysLog("5点了，休息了！"..pubFun_tab.getNowDate());
     beiJu_funtab1080.isLoop = false;

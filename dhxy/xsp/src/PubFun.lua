@@ -59,11 +59,11 @@ function pubFun_tab.infiniteLoop(isLoop)
 	end
 end
 
---获取当前时间 mTime()是UNIX时间戳
+--获取当前时间 mTime()是UNIX时间戳mTime()/1000
 function pubFun_tab.getNowDate()
-	return os.date("%Y%m%d%H%M%S",mTime()/1000);
+	return os.date("%Y%m%d%H%M%S",os.time());
 end
 --得到当前小时
 function pubFun_tab.getNowHour()
-	return os.date("%H",mTime()/1000);
+	return os.date("%H",os.time());
 end

@@ -11,7 +11,7 @@ local function tap(delay, x, y)
 end
 --540领取200环任务
 function huan200_funtab540.lingqu()
-	showHUD(hud,"200环",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+	showHUD(hud,"200环",12,"0xffffffff","0x70161212",1,-240,-260,192,30);
 	local x, y = 0, 0;
 	mSleep(1000);
 	--8,6,54,55点击世界地图
@@ -54,7 +54,7 @@ function huan200_funtab540.lingqu()
 end
 --540的200环具体逻辑
 function huan200_funtab540.neirong()
-	showHUD(hud,"200环任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+	showHUD(hud,"200环任务",12,"0xffffffff","0x70161212",1,-240,-260,192,30);
 	local x, y = 0, 0;
 	local nTime = mTime();--记录一个时间
 	while true do
@@ -153,16 +153,17 @@ function huan200_funtab540.neirong()
 		if (x ~= -1 and y ~= -1) then
 			for i = 1, 4 do 
 				--上交宝宝
-				point = findMultiColorInRegionFuzzyExt(0xe2bf7d,"11|0|0xfdd985,6|6|0xf9b370,22|2|0xffbe77,20|-4|0xffe487,25|1|0xffbf74",95,344, 148, 811, 456);
+				--point = findMultiColorInRegionFuzzyExt(0xe2bf7d,"11|0|0xfdd985,6|6|0xf9b370,22|2|0xffbe77,20|-4|0xffe487,25|1|0xffbf74",95,344, 148, 811, 456);
+				point = findMultiColorInRegionFuzzyExt(0xa96f5a,"-1|-2|0xff9d64",95,338, 150, 811, 460);
 				if (#point ~= 0) then
 					for var = 1,#point do
 						x = point[var].x;
 						y = point[var].y;
 						break;
 					end
-					--362,163,550,204选择宝宝 进行买卖
-					x = math.random((x+45), (x+185));
-					y = math.random((y-21), (y+20));
+					--420,169,546,204选择宝宝 进行买卖393,200
+					x = math.random((x+27), (x+153));
+					y = math.random((y-31), (y+4));
 					sysLog("选择符合的宝宝x:"..x..",y:"..y);
 					pubFun_tab.tap(300,x,y);
 					--531,400,748,432点击购买
