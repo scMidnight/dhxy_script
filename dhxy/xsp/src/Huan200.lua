@@ -221,7 +221,7 @@ end
 
 --1080领取200环任务
 function huan200_funtab1080.lingqu()
-	showHUD(hud,"200环",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	showHUD(hud,"200环",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
 	local x , y = 0, 0;
 	mSleep(1000);
 	--13,15,109,110世界地图
@@ -256,7 +256,7 @@ function huan200_funtab1080.lingqu()
 			break;
 		elseif (i == 2) then 
 			sysLog("没有找到200对话框，任务结束！");
-			showHUD(hud,"没有找到200环对话框，任务结束！",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			showHUD(hud,"没有找到200环对话框，任务结束！",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
 			mSleep(2000);
 			lua_exit();
 		end
@@ -265,7 +265,7 @@ end
 
 --1080的200环具体逻辑
 function huan200_funtab1080.neirong()
-	showHUD(hud,"200环任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	showHUD(hud,"200环任务",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
 	local nTime = mTime();--记录一个时间
 	local x , y = 0, 0;
 	while true do
@@ -415,7 +415,7 @@ function huan200_funtab1080.neirong()
 		--判断结束
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
 			sysLog("200环结束！");
-			showHUD(hud,"200环结束！",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			showHUD(hud,"200环结束！",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
 			mSleep(2000);
 			break;
 		end

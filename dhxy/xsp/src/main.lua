@@ -58,6 +58,11 @@ for i,v in pairs(choicesTab) do
 		end
 		if(v == "12") then --挖宝
 		end
+		if(v == "13") then --北倶5点带天
+			beiJu_funtab.loopFun();
+			pubFun_tab.infiniteLoop(beiJu_funtab.isLoop);
+			tiangui_funtab.tian();
+		end
 	end
 	if(width == 1080) then --1080分辨率下
 		if(v == "0") then--北倶
@@ -96,6 +101,11 @@ for i,v in pairs(choicesTab) do
 			wuhuan_funtab1080.wuhuan("double");
 		end
 		if(v == "12") then --挖宝
+		end
+		if(v == "13") then --北倶5点带天
+			beiJu_funtab1080.loopFun();
+			pubFun_tab.infiniteLoop(beiJu_funtab1080.isLoop);
+			tiangui_funtab1080.tian();
 		end
 	end
 end

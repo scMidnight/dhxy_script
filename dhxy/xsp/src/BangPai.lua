@@ -197,8 +197,8 @@ function bangpai_funtab1080.bangpai()
 		local flag = false;
 		--检测是否结束
 		for i = 1, 10 do
-			mSleep(300);
-			x, y = findMultiColorInRegionFuzzy(0x5a0000,"-8|-4|0xf7fbff,394|-6|0xffeb21,387|-6|0xffffef,525|-95|0xc5ba9c,663|-142|0xefc28c", 90, 391, 656, 1193, 887);
+			mSleep(500);
+			x, y = findMultiColorInRegionFuzzy(0xf7f7ff,"0|9|0x8c2829,386|6|0xfff719,378|9|0xf7f3f7", 85, 441, 783, 888, 841);
 			if (x ~= -1 and y ~= -1) then
 				flag = true;
 				break;

@@ -192,17 +192,17 @@ function beiJu_funtab1080.motor()
 	end
 	mSleep(2000);
 	--先使用循环找是否在战斗中
-		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145)
-		if (x ~= -1 and y ~= -1) then
-			sysLog("战斗中！");
-			while true do
-				mSleep(10000);
-				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
-				if(x == -1 and y == -1) then
-					break;
-				end
+	x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145)
+	if (x ~= -1 and y ~= -1) then
+		sysLog("战斗中！");
+		while true do
+			mSleep(10000);
+			x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+			if(x == -1 and y == -1) then
+				break;
 			end
 		end
+	end
 	mSleep(2000);
 	local flag = true;
 	for i = 1, 2 do

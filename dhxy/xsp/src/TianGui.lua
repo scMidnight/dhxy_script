@@ -8,6 +8,19 @@ function tiangui_funtab.gui()
 	showHUD(hud,"抓鬼任务中",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(1000);
+	--先使用循环找是否在战斗中
+	x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
+	if (x ~= -1 and y ~= -1) then
+		sysLog("战斗中！");
+		while true do
+			mSleep(10000);
+			x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
+			if(x == -1 and y == -1) then
+				break;
+			end
+		end
+	end
+	mSleep(2000);
 	--先点活动
 	x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
 	if (x ~= -1 and y ~= -1) then
@@ -107,6 +120,19 @@ function tiangui_funtab.tian()
 	showHUD(hud,"天庭任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(1000);
+	--先使用循环找是否在战斗中
+	x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
+	if (x ~= -1 and y ~= -1) then
+		sysLog("战斗中！");
+		while true do
+			mSleep(10000);
+			x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
+			if(x == -1 and y == -1) then
+				break;
+			end
+		end
+	end
+	mSleep(2000);
 	--先点活动
 	x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
 	if (x ~= -1 and y ~= -1) then
@@ -208,6 +234,19 @@ function tiangui_funtab1080.gui()
 	showHUD(hud,"抓鬼任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(1000);
+	--先使用循环找是否在战斗中
+	x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145)
+	if (x ~= -1 and y ~= -1) then
+		sysLog("战斗中！");
+		while true do
+			mSleep(10000);
+			x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+			if(x == -1 and y == -1) then
+				break;
+			end
+		end
+	end
+	mSleep(2000);
 	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
 	--先点活动
 	if (x ~= -1 and y ~= -1) then
@@ -312,8 +351,21 @@ function tiangui_funtab1080.tian()
 	showHUD(hud,"天庭任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(1000);
-	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
+	--先使用循环找是否在战斗中
+	x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145)
+	if (x ~= -1 and y ~= -1) then
+		sysLog("战斗中！");
+		while true do
+			mSleep(10000);
+			x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+			if(x == -1 and y == -1) then
+				break;
+			end
+		end
+	end
+	mSleep(2000);
 	--先点活动
+	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
 	if (x ~= -1 and y ~= -1) then
 		x = math.random((x-34), (x+19));
 		y = math.random((y-10), (y+60));
