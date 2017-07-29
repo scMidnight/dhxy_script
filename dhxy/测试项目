@@ -128,6 +128,7 @@ hud	E:/xspworkspace/测试项目/xsp/src\BaoTu.lua	4;"	e
 hud	E:/xspworkspace/测试项目/xsp/src\Huan200.lua	4;"	e
 hud	E:/xspworkspace/测试项目/xsp/src\ShiMen.lua	4;"	e
 hud	E:/xspworkspace/测试项目/xsp/src\TianGui.lua	4;"	e
+hud	E:/xspworkspace/测试项目/xsp/src\WaBao.lua	4;"	e
 hud	E:/xspworkspace/测试项目/xsp/src\WuHuan.lua	4;"	e
 i	E:/xspworkspace/测试项目/xsp/src\JSON.lua	413;"	e
 i	E:/xspworkspace/测试项目/xsp/src\JSON.lua	420;"	e
@@ -323,6 +324,12 @@ tiangui_funtab1080.tian	E:/xspworkspace/测试项目/xsp/src\TianGui.lua	350;"	f
 ui	E:/xspworkspace/测试项目/xsp/src\main.lua	17;"	e
 unicode_codepoint_as_utf8	E:/xspworkspace/测试项目/xsp/src\JSON.lua	304;"	f
 value	E:/xspworkspace/测试项目/xsp/src\ui.lua	57;"	e
+wabao()	E:/xspworkspace/测试项目/xsp/src\WaBao.lua	25;"	f
+wabao()	E:/xspworkspace/测试项目/xsp/src\WaBao.lua	7;"	f
+wabao_funtab1080	E:/xspworkspace/测试项目/xsp/src\WaBao.lua	2;"	e
+wabao_funtab1080.wabao	E:/xspworkspace/测试项目/xsp/src\WaBao.lua	25;"	f
+wabao_funtab540	E:/xspworkspace/测试项目/xsp/src\WaBao.lua	1;"	e
+wabao_funtab540.wabao	E:/xspworkspace/测试项目/xsp/src\WaBao.lua	7;"	f
 wuhuan(flag)	E:/xspworkspace/测试项目/xsp/src\WuHuan.lua	14;"	f
 wuhuan(flag)	E:/xspworkspace/测试项目/xsp/src\WuHuan.lua	84;"	f
 wuhuan_funtab1080	E:/xspworkspace/测试项目/xsp/src\WuHuan.lua	2;"	e
@@ -467,6 +474,7 @@ x	E:/xspworkspace/测试项目/xsp/src\TianGui.lua	55;"	e
 x	E:/xspworkspace/测试项目/xsp/src\TianGui.lua	61;"	e
 x	E:/xspworkspace/测试项目/xsp/src\TianGui.lua	68;"	e
 x	E:/xspworkspace/测试项目/xsp/src\TianGui.lua	83;"	e
+x	E:/xspworkspace/测试项目/xsp/src\WaBao.lua	11;"	e
 x	E:/xspworkspace/测试项目/xsp/src\WuHuan.lua	104;"	e
 x	E:/xspworkspace/测试项目/xsp/src\WuHuan.lua	113;"	e
 x	E:/xspworkspace/测试项目/xsp/src\WuHuan.lua	118;"	e
@@ -627,6 +635,7 @@ y	E:/xspworkspace/测试项目/xsp/src\TianGui.lua	56;"	e
 y	E:/xspworkspace/测试项目/xsp/src\TianGui.lua	62;"	e
 y	E:/xspworkspace/测试项目/xsp/src\TianGui.lua	69;"	e
 y	E:/xspworkspace/测试项目/xsp/src\TianGui.lua	84;"	e
+y	E:/xspworkspace/测试项目/xsp/src\WaBao.lua	12;"	e
 y	E:/xspworkspace/测试项目/xsp/src\WuHuan.lua	100;"	e
 y	E:/xspworkspace/测试项目/xsp/src\WuHuan.lua	105;"	e
 y	E:/xspworkspace/测试项目/xsp/src\WuHuan.lua	114;"	e
