@@ -107,23 +107,6 @@ function beiJu_funtab.motor()
 			y = math.random(102, 122);
 			sysLog("巡逻x:"..x..",y:"..y);
 			pubFun_tab.tap(300, x, y);
---			for i = 1, 2 do
---				mSleep(2000);
---				sysLog("第"..i.."次巡逻！");
---				point = findMultiColorInRegionFuzzyExt(0xa76122,"-5|-4|0xa66021,-5|0|0xc38f55,4|0|0xa96425,9|0|0xbf884d,29|-6|0xaa672a,21|-4|0xa66021,20|0|0xb47639,21|5|0xa65f20,37|11|0xad6b2c",95,493, 92, 616, 134);
---				if (#point ~= 0) then
-					--540,111 巡逻按钮534,104,578,121
---					for var = 1,#point do
---						x = point[var].x;
---						y = point[var].y;
---					end
---					x = math.random((x-7), (x+38));
---					y = math.random((y-7), (y+10));
---					sysLog("巡逻x:"..x..",y:"..y);
---					pubFun_tab.doubleClick(300,x,y);
---					break;
---				end
---			end
 			sysLog("任务结束！");
 			flag = false;
     end

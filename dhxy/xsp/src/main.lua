@@ -13,6 +13,8 @@ require("BangPai");
 require("ShiMen");
 require("BaoTu");
 require("WuHuan");
+require("WaBao");
+require("JingJi");
 init("0",1);
 ui = 适配UI("ui.json",540);
 ret,results = showUI(ui);
@@ -38,8 +40,10 @@ for i,v in pairs(choicesTab) do
 			huan200_funtab540.neirong();
 		end
 		if(v == "5") then --竞技场(打五次)
+			jingji_funtab540.jingji(5);
 		end
 		if(v == "6") then --竞技场(刷新冷却打满次)
+			jingji_funtab540.jingji(10);
 		end
 		if(v == "7") then --帮派
 			bangpai_funtab540.bangpai();
@@ -57,6 +61,7 @@ for i,v in pairs(choicesTab) do
 			wuhuan_funtab540.wuhuan("double");
 		end
 		if(v == "12") then --挖宝
+			wabao_funtab540.wabao();
 		end
 		if(v == "13") then --北倶5点带天
 			beiJu_funtab.loopFun();
