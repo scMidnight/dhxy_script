@@ -206,14 +206,15 @@ function beiJu_funtab1080.motor()
 			end
 			mSleep(500);
 			--点完包裹就找香
-			point = findMultiColorInRegionFuzzyExt(0xfffbf7,"-8|-1|0x7b6d4a,-34|9|0xffffff",95,958, 297, 1592, 949);
+			point = findMultiColorInRegionFuzzyExt(0x191819,"-11|11|0xfff7f7,-33|11|0xf7d77b,14|-1|0xb56921,-4|41|0xe6a273,-32|24|0xfff7f7",90,966, 301, 1591, 858);
 			if (#point ~= 0) then
 				for var = 1,#point do
 					x = point[var].x;
 					y = point[var].y;
 				end
-				x = math.random((x-20), (x+66));
-				y = math.random((y-16), (y+66));
+				--1036,332——984,316,1069,403
+				x = math.random((x-50), (x+30));
+				y = math.random((y-15), (y+68));
 				sysLog("香x："..x..",y:"..y);
 				pubFun_tab.tap(300,x,y);
 			else
