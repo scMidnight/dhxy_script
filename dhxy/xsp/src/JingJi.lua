@@ -78,7 +78,7 @@ function jingji_funtab540.jingji(flag)
 		{x1=678,x2=772,y1=433,y2=463}
 	}
 	while true do
-		mSleep(2000);
+		mSleep(1000);
 		--检查是否战斗中
 		x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
 		if (x ~= -1 and y ~= -1) then
