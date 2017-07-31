@@ -127,7 +127,8 @@ function jingji_funtab540.jingji(flag)
 			sysLog("竞技场10次完毕");
 			mSleep(2000);
 			break;
-		end	end
+		end
+	end
 	--816,62,842,86关闭竞技场
 	x = math.random(816, 842);
 	y = math.random(62, 86);
@@ -138,5 +139,136 @@ end
 
 --1080竞技场
 function jingji_funtab1080.jingji(flag)
-	sysLog("无");
+	showHUD(hud,"竞技场",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	local x, y = 0, 0;
+	mSleep(1000);
+	--13,15,109,110世界地图
+	x = math.random(13, 109);
+	y = math.random(15, 110);
+	sysLog("世界地图x:"..x.."，y:"..y);
+	pubFun_tab.tap(300,x,y);
+	mSleep(1000);
+	--1243,330,1296,380点击皇宫
+	x = math.random(1243, 1296);
+	y = math.random(330, 380);
+	sysLog("皇宫x:"..x.."，y:"..y);
+	pubFun_tab.tap(200,x,y);
+	mSleep(1000);
+	--1316,368,1424,388点击金銮殿
+	x = math.random(1316, 1424);
+	y = math.random(368, 388);
+	sysLog("金銮殿x:"..x.."，y:"..y);
+	pubFun_tab.tap(300,x,y);
+	--1515,86,1562,130关闭小地图
+	x = math.random(1515, 1562);
+	y = math.random(86, 130);
+	sysLog("关闭小地图x:"..x.."，y:"..y);
+	pubFun_tab.tap(300,x,y);
+	--1849,24,1895,70关闭世界地图
+	x = math.random(1849, 1895);
+	y = math.random(24, 70);
+	sysLog("关闭世界地图x:"..x.."，y:"..y);
+	pubFun_tab.tap(300,x,y);
+	mSleep(7000);
+	--1392,533,1450,568休息7秒后点击传送阵
+	x = math.random(1392, 1450);
+	y = math.random(533, 568);
+	sysLog("传送阵x:"..x.."，y:"..y);
+	pubFun_tab.tap(300,x,y);
+	mSleep(1000);
+	--151,46,319,110点击小地图
+	x = math.random(151, 319);
+	y = math.random(46, 110);
+	sysLog("小地图x:"..x.."，y:"..y);
+	pubFun_tab.tap(300,x,y);
+	mSleep(1000);
+	--1012,796,1088,811程咬金
+	x = math.random(1012, 1088);
+	y = math.random(796, 811);
+	sysLog("程咬金x:"..x.."，y:"..y);
+	pubFun_tab.tap(300,x,y);
+	--1533,80,1575,128关闭小地图
+	x = math.random(1533, 1575);
+	y = math.random(80, 128);
+	sysLog("关闭小地图x:"..x.."，y:"..y);
+	pubFun_tab.tap(300,x,y);
+	--休息4秒后找对话框
+	for i = 1, 2 do
+		mSleep(4000);
+		x, y = findMultiColorInRegionFuzzy(0xde9e52,"-4|87|0xde963a,-3|114|0xde9e4a,14|201|0xde9a3a,56|228|0xd69642,49|315|0xd6963a", 95, 1230, 606, 1798, 943);
+		if (x ~= -1 and y ~= -1) then
+			--1268,632,1758,689点挑战竞技场
+			x = math.random(1268, 1758);
+			y = math.random(632, 689);
+			sysLog("挑战竞技场x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		end
+	end
+	local pkNum = 0;
+	local pkList = {
+		{x1=1352,x2=1548,y1=205,y2=235},
+		{x1=1357,x2=1541,y1=346,y2=408},
+		{x1=1357,x2=1540,y1=522,y2=578},
+		{x1=1356,x2=1543,y1=695,y2=755},
+		{x1=1359,x2=1538,y1=869,y2=927}
+	}
+	while true do
+		mSleep(1000);
+		--检查是否战斗中
+		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+		if (x ~= -1 and y ~= -1) then
+			pkNum = pkNum + 1;
+			while true do
+				mSleep(10000);
+				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+				if(x == -1 and y == -1) then
+					break;
+				end
+			end
+		else
+			local index = math.random(1, 5);
+			--随机找一个PK且生成随机坐标,点击目标挑战
+			x = math.random(pkList[index].x1, pkList[index].x2);
+			y = math.random(pkList[index].y1, pkList[index].y2);
+			sysLog("挑战x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+		end
+		if(pkNum == 5 and flag == 5) then
+			showHUD(hud,"竞技场5次完毕",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			sysLog("竞技场5次完毕");
+			mSleep(2000);
+			break;
+		end
+		if(pkNum == 5 and flag == 10) then
+			--507,831,635,866点击刷新
+			x = math.random(507, 635);
+			y = math.random(831, 866);
+			sysLog("刷新x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+			mSleep(2000);
+			x, y = findMultiColorInRegionFuzzy(0xffffff,"256|5|0x8ccaa4,9|56|0x31b68c,265|57|0x31b68c,-315|-10|0xce8121", 95, 584, 637, 1350, 771);
+			if (x ~= -1 and y ~= -1) then
+				--1034,670,1298,730确定
+				x = math.random(1034, 1298);
+				y = math.random(670, 730);
+				sysLog("确定x:"..x.."，y:"..y);
+				pubFun_tab.tap(300,x,y);
+			else
+				sysLog("对不起，没找确定刷新！");
+			end
+		end
+		if(pkNum == 10) then
+			showHUD(hud,"竞技场10次完毕",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			sysLog("竞技场10次完毕");
+			mSleep(2000);
+			break;
+		end
+	end
+	--1637,131,1686,171关闭竞技场
+	x = math.random(1637, 1686);
+	y = math.random(131, 171);
+	sysLog("关闭竞技场x:"..x.."，y:"..y);
+	pubFun_tab.tap(300,x,y);
+	hideHUD(hud);
 end

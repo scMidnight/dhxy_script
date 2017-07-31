@@ -63,10 +63,8 @@ for i,v in pairs(choicesTab) do
 		if(v == "12") then --挖宝
 			wabao_funtab540.wabao();
 		end
-		if(v == "13") then --北倶5点带天
-			beiJu_funtab.loopFun();
-			pubFun_tab.infiniteLoop(beiJu_funtab.isLoop);
-			tiangui_funtab.tian();
+		if(v == "13") then --竞技场最后5次
+			jingji_funtab540.jingji(5);
 		end
 	end
 	if(width == 1080) then --1080分辨率下
@@ -87,8 +85,10 @@ for i,v in pairs(choicesTab) do
 			huan200_funtab1080.neirong();
 		end
 		if(v == "5") then --竞技场(打五次)
+			jingji_funtab1080.jingji(5);
 		end
 		if(v == "6") then --竞技场(刷新冷却打满次)
+			jingji_funtab1080.jingji(10);
 		end
 		if(v == "7") then --帮派
 			bangpai_funtab1080.bangpai();
@@ -106,11 +106,10 @@ for i,v in pairs(choicesTab) do
 			wuhuan_funtab1080.wuhuan("double");
 		end
 		if(v == "12") then --挖宝
+			wabao_funtab1080.wabao();
 		end
-		if(v == "13") then --北倶5点带天
-			beiJu_funtab1080.loopFun();
-			pubFun_tab.infiniteLoop(beiJu_funtab1080.isLoop);
-			tiangui_funtab1080.tian();
+		if(v == "13") then --竞技场后5次
+			jingji_funtab1080.jingji(5);
 		end
 	end
 end

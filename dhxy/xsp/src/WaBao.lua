@@ -77,5 +77,71 @@ end
 
 --1080挖宝
 function wabao_funtab1080.wabao()
-	
+	showHUD(hud,"挖宝",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	local x, y = 0, 0;
+	mSleep(2000);
+	--上来找包裹点击
+	x, y = findMultiColorInRegionFuzzy(0xad2831,"-29|19|0x942d21,26|22|0x942d21,4|23|0xbd6510,11|69|0xad1819,43|63|0x52baac", 95, 1637, 926, 1752, 1056);
+	if (x ~= -1 and y ~= -1) then
+		--1696,951
+		x = math.random(1650, 1737);
+		y = math.random(y, 1046);
+		sysLog("包裹x:"..x..",y:"..y);
+		pubFun_tab.doubleClick(300,x,y);
+	else
+		sysLog("对不起，没找到包裹！");
+	end
+	mSleep(1000);
+	--找宝图
+	point = findMultiColorInRegionFuzzyExt(0xc54d42,"20|-18|0x84695a,3|31|0xe6db8c,-32|51|0x84695a",90,952, 295, 1592, 875);
+	if (#point ~= 0) then
+		for var = 1,#point do
+			x = point[var].x;
+			y = point[var].y;
+			break;
+		end
+		--1484,320,1570,401宝图1523,347
+		x = math.random((x-39), (x+47));
+		y = math.random((y-27), (y+54));
+		sysLog("宝图x:"..x..",y:"..y);
+		pubFun_tab.tap(300,x,y);
+	else
+			sysLog("对不起，没找到宝图！");
+	end
+	mSleep(700);
+	local nTime = mTime();--记录一个时间
+	while true do
+		--点使用
+		x, y = findMultiColorInRegionFuzzy(0xffffff,"163|4|0x94cead,1|60|0x29ba94,167|61|0x31ba94", 95, 1114, 313, 1490, 518);
+		if (x ~= -1 and y ~= -1) then
+			--1220,382,1393,443
+			x = math.random(x, 1393);
+			y = math.random(y, 443);
+			sysLog("使用x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
+		else
+			sysLog("对不起，没找到使用！");
+		end
+		mSleep(1000);
+		--点右下角使用
+		x, y = findMultiColorInRegionFuzzy(0xffffff,"132|4|0x84c6a4,3|43|0x29be9c,131|39|0x31be94,162|-178|0xef8a63", 95, 1331, 555, 1598, 870);
+		if (x ~= -1 and y ~= -1) then
+			--1396,778,1531,823
+			x = math.random(x, 1531);
+			y = math.random(y, 823);
+			sysLog("右下角使用x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
+		else
+			sysLog("对不起，没找到右下角使用！")
+		end
+		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
+			sysLog("挖宝结束！");
+			showHUD(hud,"挖宝结束！",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			mSleep(2000);
+			break;
+		end
+	end
+	hideHUD(hud);
 end
