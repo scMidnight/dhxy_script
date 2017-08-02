@@ -72,7 +72,7 @@ function qiandao_funtab1080.qiandao()
 	local hud = createHUD();
 	showHUD(hud,"签到",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
-	mSleep(2000);
+	mSleep(1000);
 	--46,421找奖励40,430,95,509
 	x, y = findMultiColorInRegionFuzzy(0xf7d23a,"22|9|0xffe7c5,43|0|0xf7c242,24|36|0xf7fbf7,30|67|0xde456b,0|67|0xffb631,51|67|0xf7c23a", 95, 12, 406, 128, 533)
 	if (x ~= -1 and y ~= -1) then
@@ -92,7 +92,7 @@ function qiandao_funtab1080.qiandao()
 	end
 	mSleep(1500);
 	--找当天签到图标
-	for i = 1, 10 do
+	while true do
 		point = findMultiColorInRegionFuzzyExt(0xffbaff,"1|-4|0xf78eff",95,761, 221, 1582, 890);
 		if (#point ~= 0) then
 			for var = 1,#point do
@@ -105,7 +105,7 @@ function qiandao_funtab1080.qiandao()
 			y = math.random((y-10), (y+10));
 			sysLog("签到图标x:"..x..",y:"..y);
 			pubFun_tab.tap(300,x,y);
-			mSleep(1000);
+		else
 			--关闭签到窗口1658,124,1707,173
 			x = math.random(1658, 1707);
 			y = math.random(124, 173);
@@ -115,15 +115,6 @@ function qiandao_funtab1080.qiandao()
 			mSleep(2000);
 			hideHUD(hud);
 			break;
-		elseif(i == 10) then
-			showHUD(hud,"没有找到签到图标",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
-			--关闭签到窗口1658,124,1707,173
-			x = math.random(1658, 1707);
-			y = math.random(124, 173);
-			sysLog("关闭签到窗口x:"..x..",y:"..y);
-			pubFun_tab.tap(300,x,y);
-			mSleep(2000);
-			hideHUD(hud);
 		end
 		mSleep(500);
 	end
