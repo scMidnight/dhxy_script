@@ -1,10 +1,11 @@
 wabao_funtab540 = {};
 wabao_funtab1080 = {};
 require("PubFun");
-local hud = createHUD();
+
 
 --540挖宝
 function wabao_funtab540.wabao()
+	local hud = createHUD();
 	showHUD(hud,"挖宝",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(2000);
@@ -21,7 +22,7 @@ function wabao_funtab540.wabao()
 	end
 	mSleep(500);
 	--找宝图
-	point = findMultiColorInRegionFuzzyExt(0xc44838,"8|-9|0x856959,0|22|0xf5efb9,-10|31|0x856958",90,467, 146, 801, 433);
+	point = findMultiColorInRegionFuzzyExt(0xc44838,"8|-9|0x856959,0|22|0xf5efb9,-10|31|0x856958",95,467, 146, 801, 433);
 	if (#point ~= 0) then
 		for var = 1,#point do
 			x = point[var].x;
@@ -40,7 +41,7 @@ function wabao_funtab540.wabao()
 	local nTime = mTime();--记录一个时间
 	while true do
 		--点使用
-		x, y = findMultiColorInRegionFuzzy(0xffffff,"81|3|0x8acca5,1|26|0x2fae86,79|29|0x30b88f", 90, 222, 148, 721, 375)
+		x, y = findMultiColorInRegionFuzzy(0xffffff,"81|3|0x8acca5,1|26|0x2fae86,79|29|0x30b88f", 95, 222, 148, 721, 375)
 		if (x ~= -1 and y ~= -1) then
 			--609,188
 			x = math.random(x, 690);
@@ -53,7 +54,7 @@ function wabao_funtab540.wabao()
 		end
 		mSleep(1000);
 		--点右下角使用
-		x, y = findMultiColorInRegionFuzzy(0xfdfefd,"66|3|0x77c69f,1|19|0x32bf99,66|18|0x34be97", 90, 665, 282, 798, 432)
+		x, y = findMultiColorInRegionFuzzy(0xfdfefd,"66|3|0x77c69f,1|19|0x32bf99,66|18|0x34be97", 95, 665, 282, 798, 432)
 		if (x ~= -1 and y ~= -1) then
 			--697,388
 			x = math.random(x, 760);
@@ -77,6 +78,7 @@ end
 
 --1080挖宝
 function wabao_funtab1080.wabao()
+	local hud = createHUD();
 	showHUD(hud,"挖宝",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(2000);
@@ -93,7 +95,7 @@ function wabao_funtab1080.wabao()
 	end
 	mSleep(1000);
 	--找宝图
-	point = findMultiColorInRegionFuzzyExt(0xc54d42,"20|-18|0x84695a,3|31|0xe6db8c,-32|51|0x84695a",90,952, 295, 1592, 875);
+	point = findMultiColorInRegionFuzzyExt(0xc54d42,"20|-18|0x84695a,3|31|0xe6db8c,-32|51|0x84695a",95,952, 295, 1592, 875);
 	if (#point ~= 0) then
 		for var = 1,#point do
 			x = point[var].x;

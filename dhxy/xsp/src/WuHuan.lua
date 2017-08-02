@@ -1,7 +1,6 @@
 wuhuan_funtab540 = {};
 wuhuan_funtab1080 = {};
 
-local hud = createHUD();
 
 local function tap(delay, x, y) 
 	touchDown(1, x, y);
@@ -12,6 +11,8 @@ end
 
 --540五环
 function wuhuan_funtab540.wuhuan(flag)
+	local hud = createHUD();
+	showHUD(hud,"五环任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	mSleep(2000);
 	local x,y = 0,0;
 	--8,6,54,55点击世界地图
@@ -52,6 +53,7 @@ function wuhuan_funtab540.wuhuan(flag)
 		pubFun_tab.tap(300,x,y);
 	end
 	local nTime = mTime();--记录一个时间
+	local pkNum = 0;
 	--是否战斗
 	while true do
 		mSleep(10000);
@@ -61,6 +63,7 @@ function wuhuan_funtab540.wuhuan(flag)
 			x = math.random(439, 522);
 			y = math.random(231, 307);
 			pubFun_tab.tap(300,x,y);
+			pkNum = pkNum + 1;
 			while true do
 				mSleep(10000);
 				x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
@@ -70,7 +73,7 @@ function wuhuan_funtab540.wuhuan(flag)
 				end
 			end
 		end
-		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
+		if(pkNum == 5 or tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			sysLog("五环结束！");
 			showHUD(hud,"五环结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 			mSleep(2000);
@@ -82,6 +85,7 @@ end
 
 --1080五环
 function wuhuan_funtab1080.wuhuan(flag)
+	local hud = createHUD();
 	showHUD(hud,"五环任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	mSleep(2000);
 	local x,y = 0,0;
@@ -90,22 +94,31 @@ function wuhuan_funtab1080.wuhuan(flag)
 	y = math.random(15, 110);
 	sysLog("世界地图x:"..x.."，y:"..y);
 	pubFun_tab.tap(300,x,y);
-	--1078,424,1178,474长安
-	x = math.random(1078, 1178);
-	y = math.random(424, 474);
+	--1034,369,1163,441长安
+	x = math.random(1034, 1163);
+	y = math.random(369, 441);
 	sysLog("长安x:"..x.."，y:"..y);
 	pubFun_tab.tap(300,x,y);
 	--1118,657,1226,675云游大师
 	x = math.random(1118, 1226);
 	y = math.random(657, 675);
 	sysLog("云游大师x:"..x.."，y:"..y);
-	tap(300,x,y);
+	tap(200,x,y);
 	--1669,82,1715,129关闭小地图
 	x = math.random(1669, 1715);
 	y = math.random(82, 129);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	mSleep(10000);
+	pubFun_tab.tap(200,x,y);
+	--检测世界地图是否关闭
+	x, y = findMultiColorInRegionFuzzy(0xef7173,"-12|-10|0xef7173,10|-11|0xe6716b,-14|14|0xe67173,15|15|0xef7173", 95, 1843, 24, 1896, 71)
+	if (x ~= -1 and y ~= -1) then
+		--关闭世界地图1846,24,1896,71
+		x = math.random(1846, 1896);
+		y = math.random(24, 71);
+		sysLog("关闭世界地图x:"..x.."，y:"..y);
+		pubFun_tab.tap(200,x,y);
+	end
+	mSleep(8000);
 	--选择五环
 	x, y = findMultiColorInRegionFuzzy(0xde9e52,"10|87|0xde963a,3|114|0xde9e4a,6|201|0xde9a3a,6|228|0xd69642,13|315|0xd6963a,17|342|0xde9242", 95, 1230, 606, 1799, 1012);
 	if (x ~= -1 and y ~= -1) then
@@ -123,15 +136,13 @@ function wuhuan_funtab1080.wuhuan(flag)
 		pubFun_tab.tap(300,x,y);
 	end
 	local nTime = mTime();--记录一个时间
+	local pkNum = 0;
 	--是否战斗
 	while true do
 		mSleep(10000);
 		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
 		if (x ~= -1 and y ~= -1) then
-			--747,615,873,720点击一下
-			x = math.random(747, 873);
-			y = math.random(615, 720);
-			pubFun_tab.tap(300,x,y);
+			pkNum = pkNum + 1;
 			while true do
 				mSleep(10000);
 				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
@@ -141,7 +152,7 @@ function wuhuan_funtab1080.wuhuan(flag)
 				end
 			end
 		end
-		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
+		if(pkNum == 5 or tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			showHUD(hud,"五环结束",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 			mSleep(2000);
 			break;

@@ -15,6 +15,10 @@ require("BaoTu");
 require("WuHuan");
 require("WaBao");
 require("JingJi");
+require("SuanGua");
+require("LingXiu");
+require("QianDao");
+require("DaLiSi");
 init("0",1);
 ui = 适配UI("ui.json",540);
 ret,results = showUI(ui);
@@ -23,92 +27,112 @@ local choices = results.CheckBoxTask1;--得到多选任务结果
 local choicesTab = pubFun_tab.lua_string_split(choices,"@");--把多选任务结果转换成table
 for i,v in pairs(choicesTab) do 
 	if(width == 540) then--540分辨率下
-		if(v == "0") then--北倶
+		if(v == "0") then --签到
+		end
+		if(v == "1") then --召唤兽灵修
+		end
+		if(v == "2") then --算卦
+		end
+		if(v == "3") then --大理寺答题
+		end
+		if(v == "4") then--北倶
 			beiJu_funtab.loopFun();
 			pubFun_tab.infiniteLoop(beiJu_funtab.isLoop);
 		end
-		if(v == "1") then--抓鬼
+		if(v == "5") then--抓鬼
 			tiangui_funtab.gui();
 		end
-		if(v == "2") then--做天
+		if(v == "6") then--做天
 			tiangui_funtab.tian();
 		end
-		if(v == "3") then--200未领取
+		if(v == "7") then--200未领取
 			huan200_funtab540.quanbu();
 		end
-		if(v == "4") then--200已领取
+		if(v == "8") then--200已领取
 			huan200_funtab540.neirong();
 		end
-		if(v == "5") then --竞技场(打五次)
+		if(v == "9") then --竞技场(打五次)
 			jingji_funtab540.jingji(5);
 		end
-		if(v == "6") then --竞技场(刷新冷却打满次)
+		if(v == "10") then --竞技场(刷新冷却打满次)
 			jingji_funtab540.jingji(10);
 		end
-		if(v == "7") then --帮派
+		if(v == "11") then --帮派
 			bangpai_funtab540.bangpai();
 		end
-		if(v == "8") then --师门
+		if(v == "12") then --师门
 			shimen_funtab540.shimen();
 		end
-		if(v == "9") then --宝图
+		if(v == "13") then --宝图
 			baotu_funtab540.baotu();
 		end
-		if(v == "10") then--单人五环
+		if(v == "14") then--单人五环
 			wuhuan_funtab540.wuhuan("single");
 		end
-		if(v == "11") then--双人五环
+		if(v == "15") then--双人五环
 			wuhuan_funtab540.wuhuan("double");
 		end
-		if(v == "12") then --挖宝
+		if(v == "16") then --挖宝
 			wabao_funtab540.wabao();
 		end
-		if(v == "13") then --竞技场最后5次
+		if(v == "17") then --竞技场最后5次
 			jingji_funtab540.jingji(5);
 		end
 	end
 	if(width == 1080) then --1080分辨率下
-		if(v == "0") then--北倶
+		if(v == "0") then --签到
+			qiandao_funtab1080.qiandao();
+		end
+		if(v == "1") then --召唤兽灵修
+			lingxiu_funtab1080.lingxiu("经验");
+		end
+		if(v == "2") then --算卦
+			suangua_funtab1080.suangua();
+		end
+		if(v == "3") then --大理寺答题
+			dalisi_funtab1080.dalisi();
+		end
+		if(v == "4") then--北倶挂机
 			beiJu_funtab1080.loopFun();
 			pubFun_tab.infiniteLoop(beiJu_funtab1080.isLoop);
 		end
-		if(v == "1") then--抓鬼
+		if(v == "5") then--抓鬼
 			tiangui_funtab1080.gui();
 		end
-		if(v == "2") then--做天
+		if(v == "6") then--做天
 			tiangui_funtab1080.tian();
 		end
-		if(v == "3") then--200未领取
+		if(v == "7") then--200未领取
 			huan200_funtab1080.quanbu();
 		end
-		if(v == "4") then--200已领取
+		if(v == "8") then--200已领取
 			huan200_funtab1080.neirong();
 		end
-		if(v == "5") then --竞技场(打五次)
+		if(v == "9") then --竞技场(打五次)
 			jingji_funtab1080.jingji(5);
 		end
-		if(v == "6") then --竞技场(刷新冷却打满次)
+		if(v == "10") then --竞技场(刷新冷却打满次)
 			jingji_funtab1080.jingji(10);
 		end
-		if(v == "7") then --帮派
+		if(v == "11") then --帮派
 			bangpai_funtab1080.bangpai();
 		end
-		if(v == "8") then --师门
+		if(v == "12") then --师门
 			shimen_funtab1080.shimen();
 		end
-		if(v == "9") then --宝图
+		if(v == "13") then --宝图
 			baotu_funtab1080.baotu();
 		end
-		if(v == "10") then--单人五环
+		if(v == "14") then--单人五环
 			wuhuan_funtab1080.wuhuan("single");
 		end
-		if(v == "11") then--双人五环
+		if(v == "15") then--双人五环
 			wuhuan_funtab1080.wuhuan("double");
 		end
-		if(v == "12") then --挖宝
+		if(v == "16") then --挖宝
 			wabao_funtab1080.wabao();
 		end
-		if(v == "13") then --竞技场后5次
+		if(v == "17") then --竞技场后5次
 			jingji_funtab1080.jingji(5);
 		end
 	end

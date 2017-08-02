@@ -1,7 +1,7 @@
 huan200_funtab540 = {};
 huan200_funtab1080 = {};
 require("PubFun");
-local hud = createHUD();
+
 
 local function tap(delay, x, y) 
 	touchDown(1, x, y);
@@ -9,8 +9,10 @@ local function tap(delay, x, y)
 	touchUp(1, x, y);
 	mSleep(delay);
 end
+
 --540领取200环任务
 function huan200_funtab540.lingqu()
+	local hud = createHUD();
 	showHUD(hud,"200环",12,"0xffffffff","0x70161212",1,-240,-260,192,30);
 	local x, y = 0, 0;
 	mSleep(1000);
@@ -48,12 +50,13 @@ function huan200_funtab540.lingqu()
 			sysLog("没有找到200对话框，任务结束！");
 			showHUD(hud,"没有找到200对话框，任务结束！",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 			mSleep(2000);
-			lua_exit();
 		end
 	end
+	hideHUD(hud);
 end
 --540的200环具体逻辑
 function huan200_funtab540.neirong()
+	local hud = createHUD();
 	showHUD(hud,"200环任务",12,"0xffffffff","0x70161212",1,-240,-260,192,30);
 	local x, y = 0, 0;
 	local nTime = mTime();--记录一个时间
@@ -211,16 +214,17 @@ function huan200_funtab540.neirong()
 			break;
 		end
 	end
+	hideHUD(hud);
 end
 --540执行领取加逻辑
 function huan200_funtab540.quanbu()
 	huan200_funtab540.lingqu();
-	huan200_funtab540.neirong();
-	hideHUD(hud);
+	huan200_funtab540.neirong();	
 end
 
 --1080领取200环任务
 function huan200_funtab1080.lingqu()
+	local hud = createHUD();
 	showHUD(hud,"200环",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
 	local x , y = 0, 0;
 	mSleep(1000);
@@ -258,13 +262,14 @@ function huan200_funtab1080.lingqu()
 			sysLog("没有找到200对话框，任务结束！");
 			showHUD(hud,"没有找到200环对话框，任务结束！",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
 			mSleep(2000);
-			lua_exit();
 		end
 	end
+	hideHUD(hud);
 end
 
 --1080的200环具体逻辑
 function huan200_funtab1080.neirong()
+	local hud = createHUD();
 	showHUD(hud,"200环任务",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
 	local nTime = mTime();--记录一个时间
 	local x , y = 0, 0;
@@ -420,11 +425,11 @@ function huan200_funtab1080.neirong()
 			break;
 		end
 	end
+	hideHUD(hud);
 end
 
 --1080执行领取加逻辑
 function huan200_funtab1080.quanbu()
 	huan200_funtab1080.lingqu();
 	huan200_funtab1080.neirong();
-	hideHUD(hud);
 end

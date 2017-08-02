@@ -1,10 +1,11 @@
 baotu_funtab540 = {};
 baotu_funtab1080 = {};
 require("PubFun");
-local hud = createHUD();
 
---540挖宝
+
+--540宝图
 function baotu_funtab540.baotu()
+	local hud = createHUD();
 	showHUD(hud,"宝图任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	mSleep(5000);
 	local x,y = 0,0;
@@ -77,8 +78,9 @@ function baotu_funtab540.baotu()
 	hideHUD(hud);
 end
 
---1080挖宝
+--1080宝图
 function baotu_funtab1080.baotu()
+	local hud = createHUD();
 	showHUD(hud,"宝图任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(5000);

@@ -1,10 +1,11 @@
 jingji_funtab540 = {};
 jingji_funtab1080 = {};
 require("PubFun");
-local hud = createHUD();
+
 
 --540竞技场
 function jingji_funtab540.jingji(flag)
+	local hud = createHUD();
 	showHUD(hud,"竞技场",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(1000);
@@ -30,12 +31,16 @@ function jingji_funtab540.jingji(flag)
 	x = math.random(758, 781);
 	y = math.random(43, 63);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	--924,10,945,35关闭世界地图
-	x = math.random(924, 945);
-	y = math.random(10, 35);
-	sysLog("关闭世界地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
+	pubFun_tab.tap(200,x,y);
+	--检测世界地图是否关闭
+	x, y = findMultiColorInRegionFuzzy(0xef7173,"-12|-10|0xef7173,10|-11|0xe6716b,-14|14|0xe67173,15|15|0xef7173", 95, 1843, 24, 1896, 71)
+	if (x ~= -1 and y ~= -1) then
+		--关闭世界地图1846,24,1896,71
+		x = math.random(1846, 1896);
+		y = math.random(24, 71);
+		sysLog("关闭世界地图x:"..x.."，y:"..y);
+		pubFun_tab.tap(200,x,y);
+	end
 	mSleep(1000);
 	--702,277,724,298点击传送阵
 	x = math.random(702, 724);
@@ -139,6 +144,7 @@ end
 
 --1080竞技场
 function jingji_funtab1080.jingji(flag)
+	local hud = createHUD();
 	showHUD(hud,"竞技场",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(1000);

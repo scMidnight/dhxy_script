@@ -1,10 +1,11 @@
 tiangui_funtab = {};
 tiangui_funtab1080 = {};
 require("PubFun");
-local hud = createHUD();
+
 
 --540抓鬼
 function tiangui_funtab.gui()
+	local hud = createHUD();
 	showHUD(hud,"抓鬼任务中",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(1000);
@@ -117,6 +118,7 @@ function tiangui_funtab.gui()
 end
 --540做天
 function tiangui_funtab.tian()
+	local hud = createHUD();
 	showHUD(hud,"天庭任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(1000);
@@ -231,6 +233,7 @@ end
 
 --1080抓鬼
 function tiangui_funtab1080.gui()
+	local hud = createHUD();
 	showHUD(hud,"抓鬼任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(1000);
@@ -348,6 +351,7 @@ function tiangui_funtab1080.gui()
 end
 --1080做天
 function tiangui_funtab1080.tian()
+	local hud = createHUD();
 	showHUD(hud,"天庭任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(1000);

@@ -1,10 +1,11 @@
 bangpai_funtab540 = {};
 bangpai_funtab1080 = {};
 require("PubFun");
-local hud = createHUD();
+
 
 --540帮派
 function bangpai_funtab540.bangpai()
+	local hud = createHUD();
 	showHUD(hud,"帮派任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	mSleep(5000);
 	--先点活动
@@ -112,6 +113,7 @@ end
 
 --1080帮派
 function bangpai_funtab1080.bangpai()
+	local hud = createHUD();
 	showHUD(hud,"帮派任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(5000);

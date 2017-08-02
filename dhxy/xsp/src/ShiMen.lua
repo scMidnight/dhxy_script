@@ -1,9 +1,10 @@
 shimen_funtab540 = {};
 shimen_funtab1080 = {};
 require("PubFun");
-local hud = createHUD();
+
 
 function shimen_funtab540.shimen()
+	local hud = createHUD();
 	showHUD(hud,"师门任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	mSleep(5000);
 	--先点活动
@@ -50,6 +51,25 @@ function shimen_funtab540.shimen()
 	--一直找买卖东西或者提示战斗的对话框
 	while true do 
 		mSleep(5000);
+		--判断是否结束
+		local flag = false;
+		for i=1,10 do 
+			mSleep(300);
+			x, y = findMultiColorInRegionFuzzy(0xf34058,"0|-9|0xfad81d,59|-52|0xada58c,103|-73|0xe4a66c", 90, 393, 323, 682, 442);
+			if (x ~= -1 and y ~= -1) then
+				flag = true;
+				break;
+			end
+		end
+		if(flag) then
+			showHUD(hud,"师门任务结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			--372,432,563,499点一下
+			x = math.random(431, 580);
+			y = math.random(469, 508);
+			pubFun_tab.tap(300,x,y);
+			mSleep(2000);
+			break;
+		end
 		--买各类东西
 		x, y = findMultiColorInRegionFuzzy(0xdbefe2,"-1|0|0xfeffff,151|5|0x73c29a,1|29|0x30b88f,149|26|0x32b58b", 95, 608, 417, 797, 477)
 		if (x ~= -1 and y ~= -1) then
@@ -85,31 +105,13 @@ function shimen_funtab540.shimen()
 				end
 			end
 		end
-		--判断是否结束
-		local flag = false;
-		for i=1,10 do 
-			mSleep(300);
-			x, y = findMultiColorInRegionFuzzy(0xf34058,"0|-9|0xfad81d,59|-52|0xada58c,103|-73|0xe4a66c", 90, 393, 323, 682, 442);
-			if (x ~= -1 and y ~= -1) then
-				flag = true;
-				break;
-			end
-		end
-		if(flag) then
-			showHUD(hud,"师门任务结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
-			--372,432,563,499点一下
-			x = math.random(431, 580);
-			y = math.random(469, 508);
-			pubFun_tab.tap(300,x,y);
-			mSleep(2000);
-			break;
-		end
 	end
 	hideHUD(hud);
 end
 
 
 function shimen_funtab1080.shimen()
+	local hud = createHUD();
 	showHUD(hud,"师门任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(5000);
@@ -158,44 +160,6 @@ function shimen_funtab1080.shimen()
 	local nTime = mTime();--记录一个时间
 	while true do 
 		mSleep(5000);
-		--买各类东西
-		x, y = findMultiColorInRegionFuzzy(0xf7fbf7,"312|3|0x94cead,2|57|0x31b694,308|56|0x31b68c", 95, 1219, 832, 1595, 959);
-		if (x ~= -1 and y ~= -1) then
-			--1250,867,1547,917点击购买
-			x = math.random(1250, 1547);
-			y = math.random(867, 917);
-			sysLog("购买x:"..x..",y:"..y);
-			pubFun_tab.tap(300,x,y);
-			nTime = mTime();
-		end
-		mSleep(300);
-		--找战斗对话框
-		x, y = findMultiColorInRegionFuzzy(0xdea252,"19|87|0xde963a,27|114|0xde9a4a,46|201|0xd6963a", 95, 1225, 608, 1809, 831);
-		if (x ~= -1 and y ~= -1) then
-			--1273,633,1767,688点击战斗
-			x = math.random(1273, 1767);
-			y = math.random(633, 688);
-			sysLog("战斗x:"..x..",y:"..y);
-			pubFun_tab.tap(300,x,y);
-			nTime = mTime();
-		end
-		mSleep(300);
-		--判断是否在战斗中
-		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
-		if (x ~= -1 and y ~= -1) then
-			--747,615,873,720点击一下
-			x = math.random(747, 873);
-			y = math.random(615, 720);
-			pubFun_tab.tap(300,x,y);
-			while true do
-				mSleep(10000);
-				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
-				if(x == -1 and y == -1) then
-					nTime = mTime();
-					break;
-				end
-			end
-		end
 		--检测是否结束
 		local flag = false;
 		for i=1,10 do
@@ -208,12 +172,56 @@ function shimen_funtab1080.shimen()
 		end
 		if(flag) then
 			showHUD(hud,"师门任务结束",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			sysLog("师门任务结束！");
+			toast("师门任务结束！");
 			--694,870,983,1018点一下
 			x = math.random(694, 983);
 			y = math.random(870, 1018);
 			pubFun_tab.tap(300,x,y);
 			mSleep(2000);
 			break;
+		end
+		--买各类东西
+		x, y = findMultiColorInRegionFuzzy(0xf7fbf7,"312|3|0x94cead,2|57|0x31b694,308|56|0x31b68c", 95, 1219, 832, 1595, 959);
+		if (x ~= -1 and y ~= -1) then
+			--1250,867,1547,917点击购买
+			x = math.random(1250, 1547);
+			y = math.random(867, 917);
+			sysLog("购买x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			toast("购买x:"..x..",y:"..y);
+			nTime = mTime();
+		end
+		mSleep(300);
+		--找战斗对话框
+		x, y = findMultiColorInRegionFuzzy(0xdea252,"19|87|0xde963a,27|114|0xde9a4a,46|201|0xd6963a", 95, 1225, 608, 1809, 831);
+		if (x ~= -1 and y ~= -1) then
+			--1273,633,1767,688点击战斗
+			x = math.random(1273, 1767);
+			y = math.random(633, 688);
+			sysLog("战斗x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			nTime = mTime();
+			toast("战斗x:"..x..",y:"..y);
+		end
+		mSleep(300);
+		--判断是否在战斗中
+		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+		if (x ~= -1 and y ~= -1) then
+			--747,615,873,720点击一下
+			x = math.random(747, 873);
+			y = math.random(615, 720);
+			pubFun_tab.tap(300,x,y);
+			sysLog("战斗！");
+			toast("战斗中");
+			while true do
+				mSleep(10000);
+				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+				if(x == -1 and y == -1) then
+					nTime = mTime();
+					break;
+				end
+			end
 		end
 	end
 	hideHUD(hud);
