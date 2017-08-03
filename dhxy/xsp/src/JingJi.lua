@@ -31,15 +31,16 @@ function jingji_funtab540.jingji(flag)
 	x = math.random(758, 781);
 	y = math.random(43, 63);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(200,x,y);
-	--检测世界地图是否关闭
-	x, y = findMultiColorInRegionFuzzy(0xef7173,"-12|-10|0xef7173,10|-11|0xe6716b,-14|14|0xe67173,15|15|0xef7173", 95, 1843, 24, 1896, 71)
+	pubFun_tab.tap(100,x,y);
+	mSleep(500);
+	--检查世界地图是否需要关闭
+	x, y = findMultiColorInRegionFuzzy(0xea716f,"-6|-6|0xea716f,6|-6|0xea716f,-5|5|0xea716f,7|7|0xea716f", 95, 900, 1, 958, 58)
 	if (x ~= -1 and y ~= -1) then
-		--关闭世界地图1846,24,1896,71
-		x = math.random(1846, 1896);
-		y = math.random(24, 71);
+		--关闭世界地图923,11,946,35
+		x = math.random(923, 946);
+		y = math.random(11, 35);
 		sysLog("关闭世界地图x:"..x.."，y:"..y);
-		pubFun_tab.tap(200,x,y);
+		pubFun_tab.tap(100,x,y);
 	end
 	mSleep(1000);
 	--702,277,724,298点击传送阵
@@ -169,12 +170,17 @@ function jingji_funtab1080.jingji(flag)
 	x = math.random(1515, 1562);
 	y = math.random(86, 130);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	--1849,24,1895,70关闭世界地图
-	x = math.random(1849, 1895);
-	y = math.random(24, 70);
-	sysLog("关闭世界地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
+	pubFun_tab.tap(100,x,y);
+	mSleep(500);
+	--检测世界地图是否关闭
+	x, y = findMultiColorInRegionFuzzy(0xef7173,"-12|-10|0xef7173,10|-11|0xe6716b,-14|14|0xe67173,15|15|0xef7173", 95, 1843, 24, 1896, 71)
+	if (x ~= -1 and y ~= -1) then
+		--关闭世界地图1846,24,1896,71
+		x = math.random(1846, 1896);
+		y = math.random(24, 71);
+		sysLog("关闭世界地图x:"..x.."，y:"..y);
+		pubFun_tab.tap(100,x,y);
+	end
 	mSleep(7000);
 	--1392,533,1450,568休息7秒后点击传送阵
 	x = math.random(1392, 1450);

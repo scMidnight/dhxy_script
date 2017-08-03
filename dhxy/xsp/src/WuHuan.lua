@@ -34,8 +34,18 @@ function wuhuan_funtab540.wuhuan(flag)
 	x = math.random(833, 856);
 	y = math.random(42, 63);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	mSleep(10000);
+	pubFun_tab.tap(100,x,y);
+	mSleep(500);
+	--检查世界地图是否需要关闭
+	x, y = findMultiColorInRegionFuzzy(0xea716f,"-6|-6|0xea716f,6|-6|0xea716f,-5|5|0xea716f,7|7|0xea716f", 95, 900, 1, 958, 58)
+	if (x ~= -1 and y ~= -1) then
+		--关闭世界地图923,11,946,35
+		x = math.random(923, 946);
+		y = math.random(11, 35);
+		sysLog("关闭世界地图x:"..x.."，y:"..y);
+		pubFun_tab.tap(100,x,y);
+	end
+	mSleep(8000);
 	--点击五环
 	x, y = findMultiColorInRegionFuzzy(0xd68729,"0|43|0xe8b46b,-24|57|0xd88c32,-14|100|0xe7b064,-14|114|0xda9139,-16|157|0xe6ad5e,-6|171|0xdb9541", 95, 607, 292, 900, 515)
 	if (x ~= -1 and y ~= -1) then
@@ -108,7 +118,8 @@ function wuhuan_funtab1080.wuhuan(flag)
 	x = math.random(1669, 1715);
 	y = math.random(82, 129);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(200,x,y);
+	pubFun_tab.tap(100,x,y);
+	mSleep(500);
 	--检测世界地图是否关闭
 	x, y = findMultiColorInRegionFuzzy(0xef7173,"-12|-10|0xef7173,10|-11|0xe6716b,-14|14|0xe67173,15|15|0xef7173", 95, 1843, 24, 1896, 71)
 	if (x ~= -1 and y ~= -1) then
@@ -116,7 +127,7 @@ function wuhuan_funtab1080.wuhuan(flag)
 		x = math.random(1846, 1896);
 		y = math.random(24, 71);
 		sysLog("关闭世界地图x:"..x.."，y:"..y);
-		pubFun_tab.tap(200,x,y);
+		pubFun_tab.tap(100,x,y);
 	end
 	mSleep(8000);
 	--选择五环

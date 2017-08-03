@@ -2,63 +2,59 @@ huan200_funtab540 = {};
 huan200_funtab1080 = {};
 require("PubFun");
 
-
-local function tap(delay, x, y) 
-	touchDown(1, x, y);
-	mSleep(delay);
-	touchUp(1, x, y);
-	mSleep(delay);
-end
-
---540领取200环任务
-function huan200_funtab540.lingqu()
-	local hud = createHUD();
-	showHUD(hud,"200环",12,"0xffffffff","0x70161212",1,-240,-260,192,30);
-	local x, y = 0, 0;
-	mSleep(1000);
-	--8,6,54,55点击世界地图
-	x = math.random(8, 54);
-	y = math.random(6, 55);
-	sysLog("世界地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	--98,36,160,67点击蟠桃园
-	x = math.random(98, 160);
-	y = math.random(36, 67);
-	sysLog("蟠桃园x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	--556,418,610,427点击护园大将
-	x = math.random(556, 610);
-	y = math.random(418, 427);
-	sysLog("护园大将x:"..x.."，y:"..y);
-	tap(300,x,y);
-	--628,41,651,63关闭小地图
-	x = math.random(628, 651);
-	y = math.random(41, 63);
-	sysLog("小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	mSleep(5000);
-	for i = 1, 2 do
-		--632,314,883,343找领取200对话框
-		x, y = findMultiColorInRegionFuzzy(0xd78729,"7|43|0xe8b46b,10|57|0xd88c32,14|100|0xe7b064", 95, 609, 301, 903, 423)
-		if (x ~= -1 and y ~= -1) then
-			x = math.random(632, 883);
-			y = math.random(314, 343);
-			sysLog("领取200对话框x:"..x.."，y:"..y);
-			pubFun_tab.tap(300,x,y);
-			break;
-		elseif (i == 2) then 
-			sysLog("没有找到200对话框，任务结束！");
-			showHUD(hud,"没有找到200对话框，任务结束！",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
-			mSleep(2000);
-		end
-	end
-	hideHUD(hud);
-end
---540的200环具体逻辑
-function huan200_funtab540.neirong()
+--540的200环
+function huan200_funtab540.run()
 	local hud = createHUD();
 	showHUD(hud,"200环任务",12,"0xffffffff","0x70161212",1,-240,-260,192,30);
 	local x, y = 0, 0;
+	--先点活动
+	x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
+	if (x ~= -1 and y ~= -1) then
+		x = math.random((x-5), (x+36));
+		y = math.random((y-10), (y+29));
+		sysLog("活动x:"..x.."，y:"..y);
+		pubFun_tab.tap(300,x,y);
+	else
+		sysLog("对不起，没找到活动！");
+		toast("对不起，没找到活动！");
+	end
+	--找200环
+	for i = 1, 10 do
+		point = findMultiColorInRegionFuzzyExt(0x97a7c2,"-4|15|0xa1bbd6,-14|21|0xdfeff5,7|21|0x7194ac,222|-9|0xffffff,275|-5|0x74c49e,224|10|0x33bf97,277|10|0x33bf97",95,116, 134, 807, 389);
+		if (#point ~= 0) then
+			for var = 1,#point do
+				x = point[var].x;
+				y = point[var].y;
+				break;
+			end
+			--373,157,427,178点击前往151,166
+			x = math.random((x+222), (x+276));
+			y = math.random((y-9), (y+12));
+			sysLog("200环x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		else
+			--208,238,698,361滑动
+			x = math.random(208, 698);
+			y = math.random(238, 361);
+			pubFun_tab.move(500,x,y,x,(y-80));
+		end
+		if(i == 10) then
+			showHUD(hud,"200环任务结束",12,"0xffffffff","0x70161212",1,-240,-260,192,30);
+			mSleep(2000);
+			hideHUD(hud);
+			lua_exit();
+		end
+	end
+	mSleep(5000);
+	--632,314,883,343找领取200对话框
+	x, y = findMultiColorInRegionFuzzy(0xd78729,"7|43|0xe8b46b,10|57|0xd88c32,14|100|0xe7b064", 95, 609, 301, 903, 423)
+	if (x ~= -1 and y ~= -1) then
+		x = math.random(632, 883);
+		y = math.random(314, 343);
+		sysLog("领取200对话框x:"..x.."，y:"..y);
+		pubFun_tab.tap(300,x,y);
+	end
 	local nTime = mTime();--记录一个时间
 	while true do
 		mSleep(2000);
@@ -71,7 +67,7 @@ function huan200_funtab540.neirong()
 				y = math.random(322, 349);
 				sysLog("诗词鬼选择a,x:"..x..",y:"..y);
 				pubFun_tab.tap(300,x,y);
-				mSleep(5000);
+				mSleep(2000);
 				nTime = mTime();
 				--找是否通过
 --				x, y = findMultiColorInRegionFuzzy(0xd19660,"-74|0|0xd69a64,15|0|0xd3965e,39|0|0xf5e9d1,49|-6|0xc4b497,59|-17|0xb36f37", 95, 186, 324, 573, 398);
@@ -216,63 +212,64 @@ function huan200_funtab540.neirong()
 	end
 	hideHUD(hud);
 end
---540执行领取加逻辑
-function huan200_funtab540.quanbu()
-	huan200_funtab540.lingqu();
-	huan200_funtab540.neirong();	
-end
 
---1080领取200环任务
-function huan200_funtab1080.lingqu()
-	local hud = createHUD();
-	showHUD(hud,"200环",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
-	local x , y = 0, 0;
-	mSleep(1000);
-	--13,15,109,110世界地图
-	x = math.random(13, 109);
-	y = math.random(15, 110);
-	sysLog("世界地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	--229,68,310,133蟠桃园
-	x = math.random(229, 310);
-	y = math.random(68, 133);
-	sysLog("蟠桃园x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	--1113,836,1220,854护园大将
-	x = math.random(1113, 1220);
-	y = math.random(836, 854);
-	sysLog("蟠桃园x:"..x.."，y:"..y);
-	tap(300,x,y);
-	--1252,81,1306,128关闭小地图
-	x = math.random(1252, 1306);
-	y = math.random(81, 128);
-	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	mSleep(5000);
-	for i = 1,2 do 
-		x, y = findMultiColorInRegionFuzzy(0xde9e52,"48|87|0xde963a,54|114|0xd69a4a,60|201|0xde9a3a", 95, 1232, 604, 1812, 839)
-		if (x ~= -1 and y ~= -1) then
-			--1268,632,1769,687领取200对话框
-			x = math.random(1268, 1769);
-			y = math.random(632, 687);
-			sysLog("领取200对话框x:"..x.."，y:"..y);
-			pubFun_tab.tap(300,x,y);
-			break;
-		elseif (i == 2) then 
-			sysLog("没有找到200对话框，任务结束！");
-			showHUD(hud,"没有找到200环对话框，任务结束！",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
-			mSleep(2000);
-		end
-	end
-	hideHUD(hud);
-end
 
---1080的200环具体逻辑
-function huan200_funtab1080.neirong()
+--1080的200环
+function huan200_funtab1080.run()
 	local hud = createHUD();
 	showHUD(hud,"200环任务",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
-	local nTime = mTime();--记录一个时间
 	local x , y = 0, 0;
+	mSleep(2000);
+	--先点活动
+	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
+	if (x ~= -1 and y ~= -1) then
+		x = math.random((x-34), (x+19));
+		y = math.random((y-10), (y+60));
+		sysLog("活动x:"..x.."，y:"..y);
+		pubFun_tab.tap(300,x,y);
+	else
+		sysLog("对不起，没找到活动！");
+		toast("对不起，没找到活动！");
+	end
+	--找200环
+	for i = 1, 10 do
+		point = findMultiColorInRegionFuzzyExt(0x94a6bd,"-16|26|0xeff7f7,0|26|0x8caac5,-9|51|0xa4c2ce,53|39|0x5a7994,444|-16|0xffffff,552|-9|0x7bc6a4,447|23|0x31be94,558|18|0x3abe94",95,233, 260, 1630, 783);
+		if (#point ~= 0) then
+			for var = 1,#point do
+				x = point[var].x;
+				y = point[var].y;
+				break;
+			end
+			--745,645,858,689点击前往303,661
+			x = math.random((x+442), (x+555));
+			y = math.random((y-16), (y+28));
+			sysLog("200环x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		else
+			--426,469,1394,715滑动
+			x = math.random(426, 1394);
+			y = math.random(469, 715);
+			pubFun_tab.move(500,x,y,x,(y-160));
+		end
+		if(i == 10) then
+			showHUD(hud,"200环任务结束",30,"0xffffffff","0x70161212",1,-450,-740,260,50);
+			mSleep(2000);
+			hideHUD(hud);
+			lua_exit();
+		end
+	end
+	mSleep(5000);
+	--找领取200环任务对话框
+	x, y = findMultiColorInRegionFuzzy(0xde9e52,"48|87|0xde963a,54|114|0xd69a4a,60|201|0xde9a3a", 95, 1232, 604, 1812, 839)
+	if (x ~= -1 and y ~= -1) then
+		--1268,632,1769,687领取200对话框
+		x = math.random(1268, 1769);
+		y = math.random(632, 687);
+		sysLog("领取200对话框x:"..x.."，y:"..y);
+		pubFun_tab.tap(300,x,y);
+	end
+	local nTime = mTime();--记录一个时间
 	while true do
 		mSleep(2000);
 		--诗词鬼
@@ -285,7 +282,7 @@ function huan200_funtab1080.neirong()
 				y = math.random(637, 712);
 				sysLog("诗词鬼选择a,x:"..x..",y:"..y);
 				pubFun_tab.tap(300,x,y);
-				mSleep(5000);
+				mSleep(2000);
 				nTime = mTime();
 				--找是否通过
 				x, y = findMultiColorInRegionFuzzy(0xbdb294,"96|-41|0xefc294", 95, 923, 620, 1270, 780);
@@ -426,10 +423,4 @@ function huan200_funtab1080.neirong()
 		end
 	end
 	hideHUD(hud);
-end
-
---1080执行领取加逻辑
-function huan200_funtab1080.quanbu()
-	huan200_funtab1080.lingqu();
-	huan200_funtab1080.neirong();
 end

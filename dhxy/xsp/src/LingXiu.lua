@@ -8,7 +8,79 @@ function lingxiu_funtab540.lingxiu(choice)
 	showHUD(hud,"召唤兽灵修",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(2000);
+	--找更多按钮
+	x, y = findMultiColorInRegionFuzzy(0xfffffd,"-14|17|0x6fdcab,20|13|0xf6fdf9,1|36|0xf3fdfc", 95, 894, 466, 943, 528);
+	if (x ~= -1 and y ~= -1) then
+		--点更多904,487,933,516
+		x = math.random(904, 933);
+		y = math.random(487, 516);
+		sysLog("更多x:"..x.."，y:"..y);
+		pubFun_tab.tap(200,x,y);
+	end
+	--找家园按钮
+	x, y = findMultiColorInRegionFuzzy(0xfefd91,"8|21|0xfde07e,-6|22|0x75f2c8,-3|34|0xf68759,16|36|0xd9d3c9", 95, 737, 459, 808, 527);
+	if (x ~= -1 and y ~= -1) then
+		--点击家园759,487,791,518
+		x = math.random(759, 791);
+		y = math.random(487, 518);
+		sysLog("家园x:"..x.."，y:"..y);
+		pubFun_tab.tap(200,x,y);
+	end
+	mSleep(1000);
+	--找管家按钮
+	x, y = findMultiColorInRegionFuzzy(0x65ceb2,"140|2|0x61cdb0,2|25|0x34b990,141|25|0x34b890,295|-1|0xe2f6f1", 95, 248, 421, 751, 480);
+	if (x ~= -1 and y ~= -1) then
+		--点击管家598,356,690,379
+		x = math.random(598, 690);
+		y = math.random(356, 379);
+		sysLog("管家x:"..x.."，y:"..y);
+		pubFun_tab.tap(200,x,y);
+	end
+	mSleep(3000);
+	--找召唤兽灵修按钮
+	x, y = findMultiColorInRegionFuzzy(0xd68729,"0|43|0xe8b46b,11|57|0xd88c32,18|100|0xe7b064,20|114|0xda9139,23|157|0xe6ad5e", 95, 612, 298, 905, 493);
+	if (x ~= -1 and y ~= -1) then
+		--点击召唤兽灵修632,313,882,343
+		x = math.random(632, 882);
+		y = math.random(313, 343);
+		sysLog("召唤兽灵修x:"..x.."，y:"..y);
+		pubFun_tab.tap(200,x,y);
+	end
+	mSleep(1000);
+	--确定是灵修对话框
+	x, y = findMultiColorInRegionFuzzy(0xfefffe,"138|5|0x71c297,6|28|0x32b78e,132|30|0x2fb890", 95, 483, 411, 676, 484);
+	if (x ~= -1 and y ~= -1) then
+		if(choice == "经验") then
+			--点击经验827,138,855,199
+			x = math.random(827, 855);
+			y = math.random(138, 199);
+			sysLog("经验x:"..x.."，y:"..y);
+			pubFun_tab.tap(200,x,y);
+		elseif(choice == "亲密") then
+			--点击亲密827,239,855,311
+			x = math.random(827, 855);
+			y = math.random(239, 311);
+			sysLog("亲密x:"..x.."，y:"..y);
+			pubFun_tab.tap(200,x,y);
+		end
+		--点击开始518,430,653,463
+		x = math.random(518, 653);
+		y = math.random(430, 463);
+		sysLog("开始x:"..x.."，y:"..y);
+		pubFun_tab.tap(200,x,y);
+		mSleep(1000);
+		--关闭灵修对话框819,63,843,85
+		x = math.random(819, 843);
+		y = math.random(63, 85);
+		sysLog("关闭灵修对话框x:"..x.."，y:"..y);
+		pubFun_tab.tap(200,x,y);
+	end
 	showHUD(hud,"召唤兽灵修结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+	--再点一下更多，使还原902,488,937,515
+	x = math.random(902, 937);
+	y = math.random(488, 515);
+	sysLog("更多x:"..x.."，y:"..y);
+	pubFun_tab.tap(200,x,y);
 	mSleep(2000);
 	hideHUD(hud);
 end
@@ -37,7 +109,7 @@ function lingxiu_funtab1080.lingxiu(choice)
 		sysLog("家园x:"..x.."，y:"..y);
 		pubFun_tab.tap(200,x,y);
 	end
-	mSleep(2000);
+	mSleep(1000);
 	--找管家按钮
 	x, y = findMultiColorInRegionFuzzy(0xd6f3e6,"139|4|0x63cead,596|-2|0xdef7ef,790|3|0x63ceb5", 95, 508, 827, 1488, 976);
 	if (x ~= -1 and y ~= -1) then

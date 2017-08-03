@@ -62,7 +62,17 @@ function tiangui_funtab.gui()
 	x = math.random(783, 807);
 	y = math.random(40, 65);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
+	pubFun_tab.tap(100,x,y);
+	mSleep(500);
+	--检查世界地图是否需要关闭
+	x, y = findMultiColorInRegionFuzzy(0xea716f,"-6|-6|0xea716f,6|-6|0xea716f,-5|5|0xea716f,7|7|0xea716f", 95, 900, 1, 958, 58)
+	if (x ~= -1 and y ~= -1) then
+		--关闭世界地图923,11,946,35
+		x = math.random(923, 946);
+		y = math.random(11, 35);
+		sysLog("关闭世界地图x:"..x.."，y:"..y);
+		pubFun_tab.tap(100,x,y);
+	end
 	--休息10s
 	mSleep(10000);
 	--629,313,885,345;点击钟馗对话框中的我来帮你
@@ -175,9 +185,19 @@ function tiangui_funtab.tian()
 	x = math.random(783, 807);
 	y = math.random(40, 65);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
+	pubFun_tab.tap(100,x,y);
+	mSleep(500);
+	--检查世界地图是否需要关闭
+	x, y = findMultiColorInRegionFuzzy(0xea716f,"-6|-6|0xea716f,6|-6|0xea716f,-5|5|0xea716f,7|7|0xea716f", 95, 900, 1, 958, 58)
+	if (x ~= -1 and y ~= -1) then
+		--关闭世界地图923,11,946,35
+		x = math.random(923, 946);
+		y = math.random(11, 35);
+		sysLog("关闭世界地图x:"..x.."，y:"..y);
+		pubFun_tab.tap(100,x,y);
+	end
 	--休息10s
-	mSleep(10000);
+	mSleep(8000);
 	--632,314,884,344马上就去
 	x = math.random(632, 884);
 	y = math.random(314, 344);
@@ -289,7 +309,17 @@ function tiangui_funtab1080.gui()
 	x = math.random(1566, 1618);
 	y = math.random(81, 130);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
+	pubFun_tab.tap(100,x,y);
+	mSleep(500);
+	--检测世界地图是否关闭
+	x, y = findMultiColorInRegionFuzzy(0xef7173,"-12|-10|0xef7173,10|-11|0xe6716b,-14|14|0xe67173,15|15|0xef7173", 95, 1843, 24, 1896, 71)
+	if (x ~= -1 and y ~= -1) then
+		--关闭世界地图1846,24,1896,71
+		x = math.random(1846, 1896);
+		y = math.random(24, 71);
+		sysLog("关闭世界地图x:"..x.."，y:"..y);
+		pubFun_tab.tap(100,x,y);
+	end
 	--休息10s
 	mSleep(10000);
 	--1264,629,1762,687点击钟馗对话框中的我来帮你
@@ -407,9 +437,19 @@ function tiangui_funtab1080.tian()
 	x = math.random(1566, 1618);
 	y = math.random(81, 130);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	--休息10s
-	mSleep(10000);
+	pubFun_tab.tap(100,x,y);
+	mSleep(500);
+	--检测世界地图是否关闭
+	x, y = findMultiColorInRegionFuzzy(0xef7173,"-12|-10|0xef7173,10|-11|0xe6716b,-14|14|0xe67173,15|15|0xef7173", 95, 1843, 24, 1896, 71)
+	if (x ~= -1 and y ~= -1) then
+		--关闭世界地图1846,24,1896,71
+		x = math.random(1846, 1896);
+		y = math.random(24, 71);
+		sysLog("关闭世界地图x:"..x.."，y:"..y);
+		pubFun_tab.tap(100,x,y);
+	end
+	--休息8s
+	mSleep(8000);
 	--1264,629,1762,687点击李靖对话框中的马上就去
 	x, y = findMultiColorInRegionFuzzy(0xde9e52,"0|87|0xde963a,13|114|0xde9e4a,13|201|0xd6963a,22|228|0xd69642,38|315|0xde9a42", 95, 1228, 603, 1804, 953)
 	if (x ~= -1 and y ~= -1) then
