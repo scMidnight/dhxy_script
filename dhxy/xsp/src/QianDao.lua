@@ -7,7 +7,7 @@ function qiandao_funtab540.qiandao()
 	local hud = createHUD();
 	showHUD(hud,"签到",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
-	mSleep(1000);
+	mSleep(2000);
 	--25,210找奖励18,218,48,246
 	x, y = findMultiColorInRegionFuzzy(0xfbe154,"19|0|0xeeb443,9|18|0xfffffd,10|34|0xfca8a9,23|31|0xf8c53b,-1|34|0xf3b53b", 95, 3, 202, 74, 267)
 	if (x ~= -1 and y ~= -1) then
@@ -70,7 +70,7 @@ function qiandao_funtab1080.qiandao()
 	local hud = createHUD();
 	showHUD(hud,"签到",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
-	mSleep(1000);
+	mSleep(2000);
 	--46,421找奖励40,430,95,509
 	x, y = findMultiColorInRegionFuzzy(0xf7d23a,"22|9|0xffe7c5,43|0|0xf7c242,24|36|0xf7fbf7,30|67|0xde456b,0|67|0xffb631,51|67|0xf7c23a", 95, 12, 406, 128, 533)
 	if (x ~= -1 and y ~= -1) then

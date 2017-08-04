@@ -8,6 +8,7 @@ beiJu_funtab1080.isLoop = true;
 --北倶挂机方法540
 function beiJu_funtab.motor()
   local x, y = 0, 0;
+	mSleep(3000);
 	--先看看有没有遮挡框，有的话一概取消（掉线之类的另说）
 	for i = 1, 2 do
 		mSleep(1000);
@@ -133,6 +134,7 @@ end
 --北倶挂机方法1080
 function beiJu_funtab1080.motor()
   local x, y = 0, 0;
+	mSleep(3000);
 	--先看掉线
 	for i = 1, 2 do
 		mSleep(1000);

@@ -8,7 +8,7 @@ function jingji_funtab540.jingji(flag)
 	local hud = createHUD();
 	showHUD(hud,"竞技场",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
-	mSleep(1000);
+	mSleep(2000);
 	--8,6,54,55点击世界地图
 	x = math.random(8, 54);
 	y = math.random(6, 55);
@@ -148,7 +148,7 @@ function jingji_funtab1080.jingji(flag)
 	local hud = createHUD();
 	showHUD(hud,"竞技场",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
-	mSleep(1000);
+	mSleep(2000);
 	--13,15,109,110世界地图
 	x = math.random(13, 109);
 	y = math.random(15, 110);

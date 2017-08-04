@@ -8,7 +8,7 @@ function tiangui_funtab.gui()
 	local hud = createHUD();
 	showHUD(hud,"抓鬼任务中",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
-	mSleep(1000);
+	mSleep(2000);
 	--先使用循环找是否在战斗中
 	x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
 	if (x ~= -1 and y ~= -1) then
@@ -90,10 +90,6 @@ function tiangui_funtab.gui()
 		if (x ~= -1 and y ~= -1) then
 			num = num + 1;
 			showHUD(hud,"抓鬼第"..num.."次",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
-			--439,231,522,307随机点一下
-			x = math.random(439, 522);
-			y = math.random(231, 307);
-			pubFun_tab.tap(300,x,y);
 			while true do
 				mSleep(10000);
 				x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
@@ -131,7 +127,7 @@ function tiangui_funtab.tian()
 	local hud = createHUD();
 	showHUD(hud,"天庭任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	local x, y = 0, 0;
-	mSleep(1000);
+	mSleep(2000);
 	--先使用循环找是否在战斗中
 	x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
 	if (x ~= -1 and y ~= -1) then
@@ -214,10 +210,6 @@ function tiangui_funtab.tian()
 			num = num + 1;
 			sysLog("天庭第"..num.."次;");
 			showHUD(hud,"天庭第"..num.."次",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
-			--439,231,522,307随机点一下
-			x = math.random(439, 522);
-			y = math.random(231, 307);
-			pubFun_tab.tap(300,x,y);
 			while true do
 				mSleep(10000);
 				x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
@@ -341,10 +333,6 @@ function tiangui_funtab1080.gui()
 		--判断是否在战斗中
 		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
 		if (x ~= -1 and y ~= -1) then
-			--747,615,873,720点击一下
-			x = math.random(747, 873);
-			y = math.random(615, 720);
-			pubFun_tab.tap(300,x,y);
 			num = num + 1;
 			showHUD(hud,"抓鬼第"..num.."次",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 			while true do
@@ -469,10 +457,6 @@ function tiangui_funtab1080.tian()
 		--判断是否在战斗中
 		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
 		if (x ~= -1 and y ~= -1) then
-			--747,615,873,720点击一下
-			x = math.random(747, 873);
-			y = math.random(615, 720);
-			pubFun_tab.tap(300,x,y);
 			num = num + 1;
 			showHUD(hud,"做天第"..num.."次",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 			while true do

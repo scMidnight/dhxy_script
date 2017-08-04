@@ -7,7 +7,7 @@ require("PubFun");
 function baotu_funtab540.baotu()
 	local hud = createHUD();
 	showHUD(hud,"宝图任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
-	mSleep(5000);
+	mSleep(3000);
 	local x,y = 0,0;
 	--先点活动
 	x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
@@ -56,10 +56,6 @@ function baotu_funtab540.baotu()
 		--判断是否在战斗中
 		x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
 		if (x ~= -1 and y ~= -1) then
-			--439,231,522,307随机点一下
-			x = math.random(439, 522);
-			y = math.random(231, 307);
-			pubFun_tab.tap(300,x,y);
 			while true do
 				mSleep(10000);
 				x, y = findMultiColorInRegionFuzzy(0xf6ca71,"10|2|0xf3c36f,3|-15|0xe1d6c2", 95, 62, 28, 112, 79);
@@ -83,7 +79,7 @@ function baotu_funtab1080.baotu()
 	local hud = createHUD();
 	showHUD(hud,"宝图任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
-	mSleep(5000);
+	mSleep(3000);
 	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
 	--先点活动
 	if (x ~= -1 and y ~= -1) then
@@ -131,10 +127,6 @@ function baotu_funtab1080.baotu()
 		--判断是否在战斗中
 		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
 		if (x ~= -1 and y ~= -1) then
-			--747,615,873,720点击一下
-			x = math.random(747, 873);
-			y = math.random(615, 720);
-			pubFun_tab.tap(300,x,y);
 			while true do
 				mSleep(10000);
 				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
