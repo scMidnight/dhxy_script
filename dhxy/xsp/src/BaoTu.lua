@@ -19,6 +19,7 @@ function baotu_funtab540.baotu()
 	else
 		sysLog("对不起，没找到活动！");
 	end
+	mSleep(2000);
 	--找宝图
 	for i = 1, 10 do
 		point = findMultiColorInRegionFuzzyExt(0xc44738,"0|19|0xf6f5bd,14|0|0xd1a65e",95,115, 138, 814, 393);
@@ -90,6 +91,7 @@ function baotu_funtab1080.baotu()
 	else
 		sysLog("对不起，没找到活动！");
 	end
+	mSleep(2000);
 	--找宝图
 	for i = 1, 10 do
 		point = findMultiColorInRegionFuzzyExt(0xc5493a,"-6|27|0xded284,2|42|0xf7f3bd,26|7|0xd6b66b",95,242, 286, 1621, 777);
@@ -125,11 +127,11 @@ function baotu_funtab1080.baotu()
 	while true do
 		mSleep(1000);
 		--判断是否在战斗中
-		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+		x, y = findMultiColorInRegionFuzzy(0xefbe6b,"-158|-60|0xbd793a,-46|-77|0x735d4a", 95, 19, 42, 224, 146);
 		if (x ~= -1 and y ~= -1) then
 			while true do
 				mSleep(10000);
-				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+				x, y = findMultiColorInRegionFuzzy(0xefbe6b,"-158|-60|0xbd793a,-46|-77|0x735d4a", 95, 19, 42, 224, 146);
 				if(x == -1 and y == -1) then
 					nTime = mTime();
 					break;

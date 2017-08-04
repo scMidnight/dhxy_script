@@ -19,6 +19,7 @@ function huan200_funtab540.run()
 		sysLog("对不起，没找到活动！");
 		toast("对不起，没找到活动！");
 	end
+	mSleep(2000);
 	--找200环
 	for i = 1, 10 do
 		point = findMultiColorInRegionFuzzyExt(0x97a7c2,"-4|15|0xa1bbd6,-14|21|0xdfeff5,7|21|0x7194ac,222|-9|0xffffff,275|-5|0x74c49e,224|10|0x33bf97,277|10|0x33bf97",95,116, 134, 807, 389);
@@ -228,6 +229,7 @@ function huan200_funtab1080.run()
 		sysLog("对不起，没找到活动！");
 		toast("对不起，没找到活动！");
 	end
+	mSleep(2000);
 	--找200环
 	for i = 1, 10 do
 		point = findMultiColorInRegionFuzzyExt(0x94a6bd,"-16|26|0xeff7f7,0|26|0x8caac5,-9|51|0xa4c2ce,53|39|0x5a7994,444|-16|0xffffff,552|-9|0x7bc6a4,447|23|0x31be94,558|18|0x3abe94",95,233, 260, 1630, 783);
@@ -299,13 +301,13 @@ function huan200_funtab1080.run()
 		end
 		mSleep(500);
 		--是否在战斗中
-		x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+		x, y = findMultiColorInRegionFuzzy(0xefbe6b,"-158|-60|0xbd793a,-46|-77|0x735d4a", 95, 19, 42, 224, 146);
 		if (x ~= -1 and y ~= -1) then
 			nTime = mTime();
 			while true do
 				sysLog("战斗中");
 				mSleep(10000);
-				x, y = findMultiColorInRegionFuzzy(0x845d3a,"18|27|0x8c6142,85|48|0xa47552,117|4|0x7b6552", 95, 12, 23, 239, 145);
+				x, y = findMultiColorInRegionFuzzy(0xefbe6b,"-158|-60|0xbd793a,-46|-77|0x735d4a", 95, 19, 42, 224, 146);
 				if(x == -1 and y == -1) then
 					break;
 				end

@@ -17,6 +17,7 @@ function shimen_funtab540.shimen()
 	else
 		sysLog("对不起，没找到活动！");
 	end
+	mSleep(2000);
 	--找师门
 	for i = 1, 10 do
 		point = findMultiColorInRegionFuzzyExt(0xccecf7,"-38|8|0xfcffff,-17|13|0x84aece",95,121, 130, 816, 397);
@@ -109,6 +110,7 @@ function shimen_funtab1080.shimen()
 	else
 		sysLog("对不起，没找到活动！");
 	end
+	mSleep(2000);
 	--找师门
 	for i = 1, 10 do
 		point = findMultiColorInRegionFuzzyExt(0xceebf7,"-62|14|0xffffff,-29|-6|0x425d7b,-28|33|0x7ba6ce",95,245, 275, 1619, 781);
