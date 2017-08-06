@@ -34,10 +34,11 @@ for i,v in pairs(choicesTab) do
 		if(v == "0") then--北倶
 			if(beiJuSetting == "0") then--5点结束
 				beiJu_funtab.loopFun();
-				pubFun_tab.infiniteLoop(beiJu_funtab.isLoop);
+				beiJu_funtab.infiniteLoop();
 			elseif(beiJuSetting == "1") then--5点带天
-				beiJu_funtab.loopFun("1");
-				pubFun_tab.infiniteLoop(beiJu_funtab.isLoop);
+				beiJu_funtab.loopFun();
+				beiJu_funtab.infiniteLoop();
+				tiangui_funtab.tian();
 			end
 		end
 		if(v == "1") then--抓鬼
@@ -103,10 +104,11 @@ for i,v in pairs(choicesTab) do
 		if(v == "0") then--北倶挂机
 			if(beiJuSetting == "0") then--5点结束
 				beiJu_funtab1080.loopFun();
-				pubFun_tab.infiniteLoop(beiJu_funtab1080.isLoop);
+				beiJu_funtab1080.infiniteLoop();
 			elseif(beiJuSetting == "1") then--5点带天
-				beiJu_funtab1080.loopFun("1");
-				pubFun_tab.infiniteLoop(beiJu_funtab1080.isLoop);
+				beiJu_funtab1080.loopFun();
+				beiJu_funtab1080.infiniteLoop();
+				tiangui_funtab1080.tian();
 			end
 		end
 		if(v == "1") then--抓鬼

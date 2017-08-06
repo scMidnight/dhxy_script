@@ -52,13 +52,6 @@ function pubFun_tab.lua_string_split(str, split_char)
 	return sub_str_tab;  
 end
 
---无限循环，一般用来防止脚本自动结束
-function pubFun_tab.infiniteLoop(isLoop)
-	while isLoop do
-		mSleep(1000);
-	end
-end
-
 --获取当前时间 mTime()是UNIX时间戳mTime()/1000
 function pubFun_tab.getNowDate()
 	return os.date("%Y%m%d%H%M%S",os.time());

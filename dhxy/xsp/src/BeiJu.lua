@@ -1,8 +1,6 @@
 beiJu_funtab = {};
 beiJu_funtab1080 = {};
 require("PubFun");
-require("TianGui");
-local isTian = false;
 
 beiJu_funtab.isLoop = true;
 beiJu_funtab1080.isLoop = true;
@@ -117,22 +115,22 @@ function beiJu_funtab.motor()
   end
 end
 --北俱挂机方法入口540
-function beiJu_funtab.loopFun(isTianGui)
+function beiJu_funtab.loopFun()
   sysLog("进入调用方法！");
-  beiJu_funtab.isLoop = true;
-	if(type(isTianGui) ~= nil) then
-		isTian = isTianGui;
-	end
   if(pubFun_tab.getNowHour() ~= "05") then
     beiJu_funtab.motor();
     setTimer(1800000, beiJu_funtab.loopFun);
   else
     sysLog("5点了，北倶挂机结束"..pubFun_tab.getNowDate());
-		if(isTian == "1") then--5点带天
-			tiangui_funtab.tian();
-		end
-    beiJu_funtab.isLoop = false;
+		beiJu_funtab.isLoop = false;
   end
+end
+
+--无限循环，一般用来防止脚本自动结束
+function beiJu_funtab.infiniteLoop()
+	while beiJu_funtab.isLoop do
+		mSleep(1000);
+	end
 end
 
 --北倶挂机方法1080
@@ -284,20 +282,20 @@ function beiJu_funtab1080.motor()
 	end
 end
 --北俱挂机方法入口1080
-function beiJu_funtab1080.loopFun(isTianGui)
+function beiJu_funtab1080.loopFun()
   sysLog("进入1080调用方法！");
-  beiJu_funtab1080.isLoop = true;
-	if(type(isTianGui) ~= nil) then
-		isTian = isTianGui;
-	end
   if(pubFun_tab.getNowHour() ~= "05") then
     beiJu_funtab1080.motor();
     setTimer(180000, beiJu_funtab1080.loopFun);
   else
     sysLog("5点了，北倶挂机完毕"..pubFun_tab.getNowDate());
-		if(isTian == "1") then--5点带天
-			tiangui_funtab1080.tian();
-		end
-    beiJu_funtab1080.isLoop = false;
+		beiJu_funtab1080.isLoop = false;
   end
+end
+
+--无限循环，一般用来防止脚本自动结束
+function beiJu_funtab1080.infiniteLoop()
+	while beiJu_funtab1080.isLoop do
+		mSleep(1000);
+	end
 end
