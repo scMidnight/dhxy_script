@@ -112,6 +112,7 @@ function wuhuan_funtab1080.wuhuan(flag)
 	mSleep(500);
 	--选择五环
 	for i = 1, 50 do
+		mSleep(1000);
 		x, y = findMultiColorInRegionFuzzy(0xde9e52,"10|87|0xde963a,3|114|0xde9e4a,6|201|0xde9a3a,6|228|0xd69642,13|315|0xd6963a,17|342|0xde9242", 95, 1230, 606, 1799, 1012);
 		if (x ~= -1 and y ~= -1) then
 			if(flag == "single") then--单人1266,746,1761,798
