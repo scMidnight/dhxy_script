@@ -10,15 +10,20 @@ function wabao_funtab540.wabao()
 	local x, y = 0, 0;
 	mSleep(2000);
 	--先找包裹
-	x, y = findMultiColorInRegionFuzzy(0xe79a3e,"-15|6|0x932620,15|30|0xd45955,2|31|0xcc4130,-16|16|0xfffddf,16|7|0xc55627", 95, 818, 463, 879, 528)
-	if (x ~= -1 and y ~= -1) then
-		--848  479
-		x = math.random(830, 860);
-		y = math.random(y, 515);
-		sysLog("包裹x:"..x..",y:"..y);
-		pubFun_tab.doubleClick(300,x,y);
-	else
-		sysLog("对不起，没找到包裹！");
+	for i = 1, 10 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xe79a3e,"-15|6|0x932620,15|30|0xd45955,2|31|0xcc4130,-16|16|0xfffddf,16|7|0xc55627", 95, 818, 463, 879, 528)
+		if (x ~= -1 and y ~= -1) then
+			--848  479
+			x = math.random(830, 860);
+			y = math.random(y, 515);
+			sysLog("包裹x:"..x..",y:"..y);
+			pubFun_tab.doubleClick(300,x,y);
+			break;
+		else
+			sysLog("对不起，没找到包裹！");
+			showHUD(hud,"挖宝,没找到包裹",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+		end
 	end
 	mSleep(500);
 	--找宝图
@@ -37,7 +42,7 @@ function wabao_funtab540.wabao()
 	else
 			sysLog("对不起，没找到宝图！");
 	end
-	mSleep(500);
+	mSleep(1000);
 	local nTime = mTime();--记录一个时间
 	while true do
 		--点使用
@@ -83,15 +88,20 @@ function wabao_funtab1080.wabao()
 	local x, y = 0, 0;
 	mSleep(2000);
 	--上来找包裹点击
-	x, y = findMultiColorInRegionFuzzy(0xad2831,"-29|19|0x942d21,26|22|0x942d21,4|23|0xbd6510,11|69|0xad1819,43|63|0x52baac", 95, 1637, 926, 1752, 1056);
-	if (x ~= -1 and y ~= -1) then
-		--1696,951
-		x = math.random(1650, 1737);
-		y = math.random(y, 1046);
-		sysLog("包裹x:"..x..",y:"..y);
-		pubFun_tab.doubleClick(300,x,y);
-	else
-		sysLog("对不起，没找到包裹！");
+	for i = 1, 10 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xad2831,"-29|19|0x942d21,26|22|0x942d21,4|23|0xbd6510,11|69|0xad1819,43|63|0x52baac", 95, 1637, 926, 1752, 1056);
+		if (x ~= -1 and y ~= -1) then
+			--1696,951
+			x = math.random(1650, 1737);
+			y = math.random(y, 1046);
+			sysLog("包裹x:"..x..",y:"..y);
+			pubFun_tab.doubleClick(300,x,y);
+			break;
+		else
+			sysLog("对不起，没找到包裹！");
+			showHUD(hud,"挖宝,没找到包裹",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+		end
 	end
 	mSleep(1000);
 	--找宝图

@@ -21,7 +21,7 @@ function dalisi_funtab540.dalisi()
 	--点大理寺官员165,216,207,226
 	x = math.random(165, 207);
 	y = math.random(216, 226);
-	sysLog("长安x:"..x.."，y:"..y);
+	sysLog("大理寺官员x:"..x.."，y:"..y);
 	pubFun_tab.tap(200,x,y);
 	--关闭小地图832,39,856,63
 	x = math.random(832, 856);
@@ -38,16 +38,18 @@ function dalisi_funtab540.dalisi()
 		sysLog("关闭世界地图x:"..x.."，y:"..y);
 		pubFun_tab.tap(100,x,y);
 	end
-	--休息13s
-	mSleep(13000);
 	--检查对话框
-	x, y = findMultiColorInRegionFuzzy(0xd68729,"5|43|0xe8b46b,9|57|0xd88c32,23|100|0xe7b064", 95, 612, 301, 901, 417)
-	if (x ~= -1 and y ~= -1) then
-		--点击我要参加有奖问答634,315,878,341
-		x = math.random(634, 878);
-		y = math.random(315, 341);
-		sysLog("我要参加有奖问答x:"..x.."，y:"..y);
-		pubFun_tab.tap(200,x,y);
+	for i = 1, 50 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xd68729,"5|43|0xe8b46b,9|57|0xd88c32,23|100|0xe7b064", 95, 612, 301, 901, 417)
+		if (x ~= -1 and y ~= -1) then
+			--点击我要参加有奖问答634,315,878,341
+			x = math.random(634, 878);
+			y = math.random(315, 341);
+			sysLog("我要参加有奖问答x:"..x.."，y:"..y);
+			pubFun_tab.tap(200,x,y);
+			break;
+		end
 	end
 	mSleep(2000);
 	local answerNum = 0;--回答次数
@@ -125,16 +127,17 @@ function dalisi_funtab1080.dalisi()
 		sysLog("关闭世界地图x:"..x.."，y:"..y);
 		pubFun_tab.tap(100,x,y);
 	end
-	--休息13s
-	mSleep(13000);
 	--找官员对话框
-	x, y = findMultiColorInRegionFuzzy(0xdea252,"-5|87|0xde963a,-6|114|0xde9e4a,-12|201|0xd6963a", 95, 1235, 602, 1805, 833)
-	if (x ~= -1 and y ~= -1) then
-		--1265,629,1767,689点击我要参加有奖问答
-		x = math.random(1265, 1767);
-		y = math.random(629, 689);
-		sysLog("我要参加有奖问答x:"..x.."，y:"..y);
-		pubFun_tab.tap(200,x,y);
+	for i = 1, 50 do
+		x, y = findMultiColorInRegionFuzzy(0xdea252,"-5|87|0xde963a,-6|114|0xde9e4a,-12|201|0xd6963a", 95, 1235, 602, 1805, 833)
+		if (x ~= -1 and y ~= -1) then
+			--1265,629,1767,689点击我要参加有奖问答
+			x = math.random(1265, 1767);
+			y = math.random(629, 689);
+			sysLog("我要参加有奖问答x:"..x.."，y:"..y);
+			pubFun_tab.tap(200,x,y);
+			break;
+		end
 	end
 	mSleep(2000);
 	local answerNum = 0;--回答次数

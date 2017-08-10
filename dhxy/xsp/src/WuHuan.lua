@@ -36,31 +36,25 @@ function wuhuan_funtab540.wuhuan(flag)
 	sysLog("关闭小地图x:"..x.."，y:"..y);
 	pubFun_tab.tap(100,x,y);
 	mSleep(500);
-	--检查世界地图是否需要关闭
-	x, y = findMultiColorInRegionFuzzy(0xea716f,"-6|-6|0xea716f,6|-6|0xea716f,-5|5|0xea716f,7|7|0xea716f", 95, 900, 1, 958, 58)
-	if (x ~= -1 and y ~= -1) then
-		--关闭世界地图923,11,946,35
-		x = math.random(923, 946);
-		y = math.random(11, 35);
-		sysLog("关闭世界地图x:"..x.."，y:"..y);
-		pubFun_tab.tap(100,x,y);
-	end
-	mSleep(8000);
 	--点击五环
-	x, y = findMultiColorInRegionFuzzy(0xd68729,"0|43|0xe8b46b,-24|57|0xd88c32,-14|100|0xe7b064,-14|114|0xda9139,-16|157|0xe6ad5e,-6|171|0xdb9541", 95, 607, 292, 900, 515)
-	if (x ~= -1 and y ~= -1) then
-		if(flag == "single") then--单人645,372,870,398
-			x = math.random(645, 870);
-			y = math.random(372, 398);
-			sysLog("单人五环x:"..x.."，y:"..y);
-			showHUD(hud,"单人五环",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
-		elseif(flag == "double") then--双人634,315,878,341
-			x = math.random(634, 878);
-			y = math.random(315, 341);
-			sysLog("双人五环x:"..x.."，y:"..y);
-			showHUD(hud,"双人五环",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+	for i = 1, 50 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xd68729,"0|43|0xe8b46b,-24|57|0xd88c32,-14|100|0xe7b064,-14|114|0xda9139,-16|157|0xe6ad5e,-6|171|0xdb9541", 95, 607, 292, 900, 515)
+		if (x ~= -1 and y ~= -1) then
+			if(flag == "single") then--单人645,372,870,398
+				x = math.random(645, 870);
+				y = math.random(372, 398);
+				sysLog("单人五环x:"..x.."，y:"..y);
+				showHUD(hud,"单人五环",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			elseif(flag == "double") then--双人634,315,878,341
+				x = math.random(634, 878);
+				y = math.random(315, 341);
+				sysLog("双人五环x:"..x.."，y:"..y);
+				showHUD(hud,"双人五环",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			end
+			pubFun_tab.tap(300,x,y);
+			break;
 		end
-		pubFun_tab.tap(300,x,y);
 	end
 	local nTime = mTime();--记录一个时间
 	local pkNum = 0;
@@ -116,31 +110,24 @@ function wuhuan_funtab1080.wuhuan(flag)
 	sysLog("关闭小地图x:"..x.."，y:"..y);
 	pubFun_tab.tap(100,x,y);
 	mSleep(500);
-	--检测世界地图是否关闭
-	x, y = findMultiColorInRegionFuzzy(0xef7173,"-12|-10|0xef7173,10|-11|0xe6716b,-14|14|0xe67173,15|15|0xef7173", 95, 1843, 24, 1896, 71)
-	if (x ~= -1 and y ~= -1) then
-		--关闭世界地图1846,24,1896,71
-		x = math.random(1846, 1896);
-		y = math.random(24, 71);
-		sysLog("关闭世界地图x:"..x.."，y:"..y);
-		pubFun_tab.tap(100,x,y);
-	end
-	mSleep(8000);
 	--选择五环
-	x, y = findMultiColorInRegionFuzzy(0xde9e52,"10|87|0xde963a,3|114|0xde9e4a,6|201|0xde9a3a,6|228|0xd69642,13|315|0xd6963a,17|342|0xde9242", 95, 1230, 606, 1799, 1012);
-	if (x ~= -1 and y ~= -1) then
-		if(flag == "single") then--单人1266,746,1761,798
-			x = math.random(1266, 1761);
-			y = math.random(746, 798);
-			sysLog("单人五环x:"..x.."，y:"..y);
-			showHUD(hud,"单人五环",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
-		elseif(flag == "double") then--双人1267,630,1765,688
-			x = math.random(1267, 1765);
-			y = math.random(630, 688);
-			sysLog("双人五环x:"..x.."，y:"..y);
-			showHUD(hud,"双人五环",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	for i = 1, 50 do
+		x, y = findMultiColorInRegionFuzzy(0xde9e52,"10|87|0xde963a,3|114|0xde9e4a,6|201|0xde9a3a,6|228|0xd69642,13|315|0xd6963a,17|342|0xde9242", 95, 1230, 606, 1799, 1012);
+		if (x ~= -1 and y ~= -1) then
+			if(flag == "single") then--单人1266,746,1761,798
+				x = math.random(1266, 1761);
+				y = math.random(746, 798);
+				sysLog("单人五环x:"..x.."，y:"..y);
+				showHUD(hud,"单人五环",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			elseif(flag == "double") then--双人1267,630,1765,688
+				x = math.random(1267, 1765);
+				y = math.random(630, 688);
+				sysLog("双人五环x:"..x.."，y:"..y);
+				showHUD(hud,"双人五环",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			end
+			pubFun_tab.tap(300,x,y);
+			break;
 		end
-		pubFun_tab.tap(300,x,y);
 	end
 	local nTime = mTime();--记录一个时间
 	local pkNum = 0;

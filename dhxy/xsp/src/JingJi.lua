@@ -26,7 +26,6 @@ function jingji_funtab540.jingji(flag)
 	y = math.random(179, 197);
 	sysLog("金銮殿x:"..x.."，y:"..y);
 	pubFun_tab.tap(300,x,y);
-	mSleep(10000);
 	--758,43,781,63关闭小地图
 	x = math.random(758, 781);
 	y = math.random(43, 63);
@@ -42,7 +41,7 @@ function jingji_funtab540.jingji(flag)
 		sysLog("关闭世界地图x:"..x.."，y:"..y);
 		pubFun_tab.tap(100,x,y);
 	end
-	mSleep(1000);
+	mSleep(12000);
 	--702,277,724,298点击传送阵
 	x = math.random(702, 724);
 	y = math.random(277, 298);
@@ -65,15 +64,18 @@ function jingji_funtab540.jingji(flag)
 	y = math.random(39, 62);
 	sysLog("关闭小地图x:"..x.."，y:"..y);
 	pubFun_tab.tap(300,x,y);
-	mSleep(5000);
 	--找对话框
-	x, y = findMultiColorInRegionFuzzy(0xd78729,"9|43|0xe8b46b,10|57|0xd88c32,14|100|0xe7b064", 90, 616, 302, 902, 479)
-	if (x ~= -1 and y ~= -1) then
-		--640,316,876,341点挑战
-		x = math.random(640, 876);
-		y = math.random(316, 341);
-		sysLog("挑战x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
+	for i = 1, 2 do
+		mSleep(4000);
+		x, y = findMultiColorInRegionFuzzy(0xd78729,"9|43|0xe8b46b,10|57|0xd88c32,14|100|0xe7b064", 90, 616, 302, 902, 479)
+		if (x ~= -1 and y ~= -1) then
+			--640,316,876,341点挑战
+			x = math.random(640, 876);
+			y = math.random(316, 341);
+			sysLog("挑战x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		end
 	end
 	local pkNum = 0;
 	local pkList = {
@@ -181,7 +183,7 @@ function jingji_funtab1080.jingji(flag)
 		sysLog("关闭世界地图x:"..x.."，y:"..y);
 		pubFun_tab.tap(100,x,y);
 	end
-	mSleep(7000);
+	mSleep(12000);
 	--1392,533,1450,568休息7秒后点击传送阵
 	x = math.random(1392, 1450);
 	y = math.random(533, 568);

@@ -35,7 +35,16 @@ function beiJu_funtab.motor()
 			end
 		end
 	end
-  mSleep(1000);
+  mSleep(3000);
+	--看看是不是能找到更多
+	x, y = findMultiColorInRegionFuzzy(0xfffffd,"-14|17|0x6fdcab,20|13|0xf6fdf9,1|36|0xf3fdfc", 95, 894, 466, 943, 528);
+	if (x == -1 and y == -1) then
+		--点更多902,488,937,515
+		x = math.random(902, 937);
+		y = math.random(488, 515);
+		sysLog("更多x:"..x.."，y:"..y);
+		pubFun_tab.tap(200,x,y);
+	end
   local flag = true;
   for i = 1, 5 do
     while flag do
@@ -194,7 +203,16 @@ function beiJu_funtab1080.motor()
 			end
 		end
 	end
-	mSleep(2000);
+	mSleep(3000);
+	--找不到更多按钮的话就点一下让包裹露出来
+	x, y = findMultiColorInRegionFuzzy(0xefffff,"39|28|0xeff7f7,-31|28|0xe6f7ef,0|73|0xdefbf7,5|71|0x29f3ef", 95, 1770, 930, 1910, 1067);
+	if (x == -1 and y == -1) then
+		--点一下更多，使还原1814,995,1876,1039
+		x = math.random(1814, 1876);
+		y = math.random(995, 1039);
+		sysLog("更多x:"..x.."，y:"..y);
+		pubFun_tab.tap(200,x,y);
+	end
 	local flag = true;
 	for i = 1, 2 do
 		while flag do

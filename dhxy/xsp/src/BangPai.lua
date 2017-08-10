@@ -7,19 +7,27 @@ require("PubFun");
 function bangpai_funtab540.bangpai()
 	local hud = createHUD();
 	showHUD(hud,"帮派任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+	local x, y = 0, 0;
 	mSleep(3000);
 	--先点活动
-	x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
-	if (x ~= -1 and y ~= -1) then
-		x = math.random((x-5), (x+36));
-		y = math.random((y-10), (y+29));
-		sysLog("活动x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
-	else
-		sysLog("对不起，没找到活动！");
+	while true do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
+		if (x ~= -1 and y ~= -1) then
+			x = math.random((x-5), (x+36));
+			y = math.random((y-10), (y+29));
+			sysLog("活动x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		else
+			sysLog("对不起，没找到活动！");
+			showHUD(hud,"帮派，没找到活动",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+		end
 	end
+	mSleep(2000);
 	--找帮派
 	for i = 1, 10 do
+		mSleep(1000);
 		point = findMultiColorInRegionFuzzyExt(0xc05721,"-11|-2|0xd79100,13|-3|0xfdffa7,16|17|0xffe790,-4|15|0xde7325,-4|32|0xfab64d,21|16|0xf7d580",95,114, 137, 818, 393);
 		if (#point ~= 0) then
 			for var = 1,#point do
@@ -39,15 +47,18 @@ function bangpai_funtab540.bangpai()
 			pubFun_tab.move(500,x,y,x,(y-80));
 		end
 	end
-	mSleep(10000);
 	--找帮派主管对话框
-	x, y = findMultiColorInRegionFuzzy(0xd68729,"-8|43|0xe8b46b,-9|57|0xd88c32,-13|100|0xe7b064,-12|114|0xda9139,-10|157|0xe6ad5e", 95, 608, 299, 906, 478)
-	if (x ~= -1 and y ~= -1) then
-		--635,316,879,342点击帮派任务
-		x = math.random(635, 879);
-		y = math.random(316, 342);
-		sysLog("帮派任务x:"..x..",y:"..y);
-		pubFun_tab.tap(300,x,y);
+	for i = 1, 50 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xd68729,"-8|43|0xe8b46b,-9|57|0xd88c32,-13|100|0xe7b064,-12|114|0xda9139,-10|157|0xe6ad5e", 95, 608, 299, 906, 478)
+		if (x ~= -1 and y ~= -1) then
+			--635,316,879,342点击帮派任务
+			x = math.random(635, 879);
+			y = math.random(316, 342);
+			sysLog("帮派任务x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		end
 	end
 	--一直找买卖东西或者提示战斗的对话框
 	while true do 
@@ -117,16 +128,22 @@ function bangpai_funtab1080.bangpai()
 	showHUD(hud,"帮派任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(3000);
-	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
-	--先点活动
-	if (x ~= -1 and y ~= -1) then
-		x = math.random((x-34), (x+19));
-		y = math.random((y-10), (y+60));
-		sysLog("活动x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
-	else
-		sysLog("对不起，没找到活动！");
+	while true do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
+		--先点活动
+		if (x ~= -1 and y ~= -1) then
+			x = math.random((x-34), (x+19));
+			y = math.random((y-10), (y+60));
+			sysLog("活动x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		else
+			sysLog("对不起，没找到活动");
+			showHUD(hud,"帮派，没找到活动",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+		end
 	end
+	mSleep(2000);
 	--找帮派
 	for i = 1, 10 do
 		point = findMultiColorInRegionFuzzyExt(0xbd5521,"8|-9|0xf7fb73,-32|32|0xefa63a,20|35|0xe6a23a,20|72|0xde6d21",95,235, 267, 1615, 774);
@@ -148,15 +165,18 @@ function bangpai_funtab1080.bangpai()
 			pubFun_tab.move(500,x,y,x,(y-160));
 		end
 	end
-	mSleep(10000);
 	--找帮派主管对话框
-	x, y = findMultiColorInRegionFuzzy(0xdea252,"11|87|0xde963a,49|114|0xd69a4a,49|201|0xde9a3a,59|228|0xd69642,72|315|0xd6963a", 95, 1225, 594, 1812, 963)
-	if (x ~= -1 and y ~= -1) then
-		--1264,627,1762,689
-		x = math.random(1264, 1762);
-		y = math.random(627, 689);
-		sysLog("帮派任务x:"..x..",y:"..y);
-		pubFun_tab.tap(300,x,y);
+	for i = 1, 50 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xdea252,"11|87|0xde963a,49|114|0xd69a4a,49|201|0xde9a3a,59|228|0xd69642,72|315|0xd6963a", 95, 1225, 594, 1812, 963)
+		if (x ~= -1 and y ~= -1) then
+			--1264,627,1762,689
+			x = math.random(1264, 1762);
+			y = math.random(627, 689);
+			sysLog("帮派任务x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		end
 	end
 	--一直找买卖东西或者提示战斗的对话框
 	while true do

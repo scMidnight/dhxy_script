@@ -8,14 +8,19 @@ function shimen_funtab540.shimen()
 	showHUD(hud,"师门任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	mSleep(3000);
 	--先点活动
-	x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
-	if (x ~= -1 and y ~= -1) then
-		x = math.random((x-5), (x+36));
-		y = math.random((y-10), (y+29));
-		sysLog("活动x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
-	else
-		sysLog("对不起，没找到活动！");
+	while true do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
+		if (x ~= -1 and y ~= -1) then
+			x = math.random((x-5), (x+36));
+			y = math.random((y-10), (y+29));
+			sysLog("活动x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		else
+			sysLog("对不起，没找到活动！");
+			showHUD(hud,"师门,没找到活动",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+		end
 	end
 	mSleep(2000);
 	--找师门
@@ -39,15 +44,18 @@ function shimen_funtab540.shimen()
 			pubFun_tab.move(500,x,y,x,(y-80));
 		end
 	end
-	mSleep(10000);
 	--找师门对话框
-	x, y = findMultiColorInRegionFuzzy(0xd78729,"4|43|0xe8b46b,6|57|0xd88c32,6|100|0xe7b064", 95, 604, 297, 905, 425)
-	if (x ~= -1 and y ~= -1) then
-		--638,317,880,342点击师门任务
-		x = math.random(638, 880);
-		y = math.random(317, 342);
-		sysLog("师门任务x:"..x..",y:"..y);
-		pubFun_tab.tap(300,x,y);
+	for i = 1, 50 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xd78729,"4|43|0xe8b46b,6|57|0xd88c32,6|100|0xe7b064", 95, 604, 297, 905, 425)
+		if (x ~= -1 and y ~= -1) then
+			--638,317,880,342点击师门任务
+			x = math.random(638, 880);
+			y = math.random(317, 342);
+			sysLog("师门任务x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		end
 	end
 	--一直找买卖东西或者提示战斗的对话框
 	while true do 
@@ -101,14 +109,19 @@ function shimen_funtab1080.shimen()
 	local x, y = 0, 0;
 	mSleep(3000);
 	--先点活动
-	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
-	if (x ~= -1 and y ~= -1) then
-		x = math.random((x-34), (x+19));
-		y = math.random((y-10), (y+60));
-		sysLog("活动x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
-	else
-		sysLog("对不起，没找到活动！");
+	while true do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
+		if (x ~= -1 and y ~= -1) then
+			x = math.random((x-34), (x+19));
+			y = math.random((y-10), (y+60));
+			sysLog("活动x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		else
+			sysLog("对不起，没找到活动！");
+			showHUD(hud,"师门,没找到活动",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+		end
 	end
 	mSleep(2000);
 	--找师门
@@ -132,15 +145,18 @@ function shimen_funtab1080.shimen()
 			pubFun_tab.move(500,x,y,x,(y-160));
 		end
 	end
-	mSleep(10000);
 	--找师门对话框
-	x, y = findMultiColorInRegionFuzzy(0xdea252,"19|87|0xde963a,27|114|0xde9a4a,46|201|0xd6963a", 95, 1225, 608, 1809, 831)
-	if (x ~= -1 and y ~= -1) then
-		--1264,627,1762,689
-		x = math.random(1264, 1762);
-		y = math.random(627, 689);
-		sysLog("师门任务x:"..x..",y:"..y);
-		pubFun_tab.tap(300,x,y);
+	for i = 1, 50 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xdea252,"19|87|0xde963a,27|114|0xde9a4a,46|201|0xd6963a", 95, 1225, 608, 1809, 831)
+		if (x ~= -1 and y ~= -1) then
+			--1264,627,1762,689
+			x = math.random(1264, 1762);
+			y = math.random(627, 689);
+			sysLog("师门任务x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		end
 	end
 	--一直找买卖东西或者提示战斗的对话框
 	while true do 

@@ -10,14 +10,18 @@ function baotu_funtab540.baotu()
 	mSleep(3000);
 	local x,y = 0,0;
 	--先点活动
-	x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
-	if (x ~= -1 and y ~= -1) then
-		x = math.random((x-5), (x+36));
-		y = math.random((y-10), (y+29));
-		sysLog("活动x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
-	else
-		sysLog("对不起，没找到活动！");
+	while true do
+		x, y = findMultiColorInRegionFuzzy(0xf38398,"12|18|0xdb5072,31|11|0xe68d34,23|-5|0xfff8bd,28|-5|0xb22a32,34|-5|0xfbdd44", 95, 6, 133, 68, 200);
+		if (x ~= -1 and y ~= -1) then
+			x = math.random((x-5), (x+36));
+			y = math.random((y-10), (y+29));
+			sysLog("活动x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		else
+			sysLog("对不起，没找到活动！");
+			showHUD(hud,"宝图,没找到活动",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+		end
 	end
 	mSleep(2000);
 	--找宝图
@@ -41,15 +45,18 @@ function baotu_funtab540.baotu()
 			pubFun_tab.move(500,x,y,x,(y-80));
 		end
 	end
-	mSleep(20000);
 	--找宝图任务对话框
-	x, y = findMultiColorInRegionFuzzy(0xd78729,"21|43|0xe8b46b,39|57|0xd88c32,45|100|0xe7b064", 95, 604, 296, 901, 423)
-	if (x ~= -1 and y ~= -1) then
-		--636,315,880,341点击宝图任务
-		x = math.random(636, 880);
-		y = math.random(315, 341);
-		sysLog("宝图任务x:"..x..",y:"..y);
-		pubFun_tab.tap(300,x,y);
+	for i = 1, 50 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xd78729,"21|43|0xe8b46b,39|57|0xd88c32,45|100|0xe7b064", 95, 604, 296, 901, 423)
+		if (x ~= -1 and y ~= -1) then
+			--636,315,880,341点击宝图任务
+			x = math.random(636, 880);
+			y = math.random(315, 341);
+			sysLog("宝图任务x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		end
 	end
 	local nTime = mTime();--记录一个时间
 	while true do
@@ -81,15 +88,20 @@ function baotu_funtab1080.baotu()
 	showHUD(hud,"宝图任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(3000);
-	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
 	--先点活动
-	if (x ~= -1 and y ~= -1) then
-		x = math.random((x-34), (x+19));
-		y = math.random((y-10), (y+60));
-		sysLog("活动x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
-	else
-		sysLog("对不起，没找到活动！");
+	while true do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
+		if (x ~= -1 and y ~= -1) then
+			x = math.random((x-34), (x+19));
+			y = math.random((y-10), (y+60));
+			sysLog("活动x:"..x.."，y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		else
+			sysLog("对不起，没找到活动！");
+			showHUD(hud,"宝图,没找到活动",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+		end
 	end
 	mSleep(2000);
 	--找宝图
@@ -113,15 +125,18 @@ function baotu_funtab1080.baotu()
 			pubFun_tab.move(500,x,y,x,(y-160));
 		end
 	end
-	mSleep(20000);
 	--找宝图任务对话框
-	x, y = findMultiColorInRegionFuzzy(0xdea252,"19|87|0xde963a,27|114|0xde9a4a,46|201|0xd6963a", 95, 1225, 608, 1809, 831)
-	if (x ~= -1 and y ~= -1) then
-		--1273,633,1767,688点击战斗
-		x = math.random(1273, 1767);
-		y = math.random(633, 688);
-		sysLog("宝图任务x:"..x..",y:"..y);
-		pubFun_tab.tap(300,x,y);
+	for i = 1, 50 do
+		mSleep(1000);
+		x, y = findMultiColorInRegionFuzzy(0xdea252,"19|87|0xde963a,27|114|0xde9a4a,46|201|0xd6963a", 95, 1225, 608, 1809, 831)
+		if (x ~= -1 and y ~= -1) then
+			--1273,633,1767,688点击战斗
+			x = math.random(1273, 1767);
+			y = math.random(633, 688);
+			sysLog("宝图任务x:"..x..",y:"..y);
+			pubFun_tab.tap(300,x,y);
+			break;
+		end
 	end
 	local nTime = mTime();--记录一个时间
 	while true do
