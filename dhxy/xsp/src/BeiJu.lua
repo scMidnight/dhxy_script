@@ -128,7 +128,7 @@ function beiJu_funtab.loopFun()
   sysLog("进入调用方法！");
   if(pubFun_tab.getNowHour() ~= "05") then
     beiJu_funtab.motor();
-    setTimer(1800000, beiJu_funtab.loopFun);
+    setTimer(1830000, beiJu_funtab.loopFun);
   else
     sysLog("5点了，北倶挂机结束"..pubFun_tab.getNowDate());
 		beiJu_funtab.isLoop = false;
@@ -304,7 +304,7 @@ function beiJu_funtab1080.loopFun()
   sysLog("进入1080调用方法！");
   if(pubFun_tab.getNowHour() ~= "05") then
     beiJu_funtab1080.motor();
-    setTimer(180000, beiJu_funtab1080.loopFun);
+    setTimer(183000, beiJu_funtab1080.loopFun);
   else
     sysLog("5点了，北倶挂机完毕"..pubFun_tab.getNowDate());
 		beiJu_funtab1080.isLoop = false;
