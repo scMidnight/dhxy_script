@@ -129,6 +129,7 @@ function dalisi_funtab1080.dalisi()
 	end
 	--找官员对话框
 	for i = 1, 50 do
+		mSleep(1000);
 		x, y = findMultiColorInRegionFuzzy(0xdea252,"-5|87|0xde963a,-6|114|0xde9e4a,-12|201|0xd6963a", 95, 1235, 602, 1805, 833)
 		if (x ~= -1 and y ~= -1) then
 			--1265,629,1767,689点击我要参加有奖问答
