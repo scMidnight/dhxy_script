@@ -75,7 +75,7 @@ function shimen_funtab540.shimen()
 			--372,432,563,499点一下
 			x = math.random(431, 580);
 			y = math.random(469, 508);
-			pubFun_tab.tap(300,x,y);
+			pubFun_tab.doubleClick(300,x,y);
 			mSleep(2000);
 			break;
 		end
@@ -178,7 +178,7 @@ function shimen_funtab1080.shimen()
 			--694,870,983,1018点一下
 			x = math.random(694, 983);
 			y = math.random(870, 1018);
-			pubFun_tab.tap(300,x,y);
+			pubFun_tab.doubleClick(300,x,y);
 			mSleep(2000);
 			break;
 		end

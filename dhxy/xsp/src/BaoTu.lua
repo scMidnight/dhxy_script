@@ -76,6 +76,10 @@ function baotu_funtab540.baotu()
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			showHUD(hud,"宝图任务结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 			mSleep(2000);
+			--点一下903,12,947,32
+			x = math.random(903, 947);
+			y = math.random(12, 32);
+			pubFun_tab.tap(300,x,y);
 			break;
 		end
 	end
@@ -156,6 +160,10 @@ function baotu_funtab1080.baotu()
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			showHUD(hud,"宝图任务结束",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
 			mSleep(2000);
+			--点一下1803,19,1897,62
+			x = math.random(1803, 1897);
+			y = math.random(19, 62);
+			pubFun_tab.tap(300,x,y);
 			break;
 		end
 	end
