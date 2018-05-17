@@ -6,7 +6,7 @@ require("PubFun");
 --540抓鬼
 function tiangui_funtab.gui()
 	local hud = createHUD();
-	showHUD(hud,"抓鬼任务中",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+	pubFun_tab.showHud(hud,"抓鬼任务中",12,1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(2000);
 	--先使用循环找是否在战斗中
@@ -114,7 +114,7 @@ function tiangui_funtab.gui()
 			end
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
 				sysLog("抓鬼结束！");
-				showHUD(hud,"抓鬼结束！",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+				pubFun_tab.showHud(hud,"抓鬼结束！",12,1,-240,-170,192,30);
 				mSleep(2000);
 				break;
 			end
@@ -125,7 +125,7 @@ end
 --540做天
 function tiangui_funtab.tian()
 	local hud = createHUD();
-	showHUD(hud,"天庭任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+	pubFun_tab.showHud(hud,"天庭任务",12,1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(2000);
 	--先使用循环找是否在战斗中
@@ -234,7 +234,7 @@ function tiangui_funtab.tian()
 			end
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
 				sysLog("天庭结束！");
-				showHUD(hud,"天庭结束！",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+				pubFun_tab.showHud(hud,"天庭结束！",12,1,-240,-170,192,30);
 				mSleep(2000);
 				break;
 			end
@@ -246,7 +246,7 @@ end
 --1080抓鬼
 function tiangui_funtab1080.gui()
 	local hud = createHUD();
-	showHUD(hud,"抓鬼任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	pubFun_tab.showHud(hud,"抓鬼任务",30,1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(1000);
 	--先使用循环找是否在战斗中
@@ -359,7 +359,7 @@ function tiangui_funtab1080.gui()
 			end
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
 				sysLog("抓鬼结束！");
-				showHUD(hud,"抓鬼结束",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+				pubFun_tab.showHud(hud,"抓鬼结束",30,1,-540,-340,260,50);
 				mSleep(2000);
 				break;
 			end
@@ -370,7 +370,7 @@ end
 --1080做天
 function tiangui_funtab1080.tian()
 	local hud = createHUD();
-	showHUD(hud,"天庭任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	pubFun_tab.showHud(hud,"天庭任务",30,1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(1000);
 	--先使用循环找是否在战斗中
@@ -483,7 +483,7 @@ function tiangui_funtab1080.tian()
 			end
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
 				sysLog("天庭任务结束！");
-				showHUD(hud,"天庭任务结束",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+				pubFun_tab.showHud(hud,"天庭任务结束",30,1,-540,-340,260,50);
 				mSleep(2000);
 				break;
 			end

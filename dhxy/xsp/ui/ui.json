@@ -1,8 +1,8 @@
 {
    "style" : "default",
    "config" : "save_测试项目.dat",
-   "width" : 840,
-   "height" : 960,
+   "width" : 800,
+   "height" : 850,
    "cancelname" : "取消",
    "okname" : "确定",
    "views" : [
@@ -12,7 +12,7 @@
          "views" : [
             {
                "id" : "CheckBoxTask1",
-               "list" : "北倶挂机 ,抓鬼   ,天庭   ,签到   ,召唤兽灵修,算卦   ,大理寺答题,竞技场  ,帮派   ,师门   ,宝图   ,五环   ,挖宝   ,竞技场  ,200环  ",
+               "list" : "北倶挂机 ,抓鬼   ,天庭   ,签到   ,召唤兽灵修,算卦   ,大理寺答题,竞技场  ,帮派   ,师门   ,宝图   ,五环   ,挖宝   ,200环  ",
                "select" : "0",
                "size" : "24",
                "type" : "CheckBoxGroup",
@@ -27,8 +27,8 @@
          "views" : [
             {
                "id" : "group1",
-               "width" : 450,
-               "height" : 100,
+               "width" : 800,
+               "height" : 130,
                "type" : "LinearLayout",
 								"valign" : "center",
                "views" : [
@@ -45,16 +45,16 @@
                      "id" : "SetBeiJu",
                      "list" : "5点结束,5点带天",
                      "select" : "0",
-                     "size" : "24",
+                     "size" : "16",
                      "type" : "ComboBox",
                      "width" : 300
                   }
                ]
             },
 						{
-	            "id" : "group1",
-	            "width" : 450,
-	            "height" : 100,
+	            "id" : "group2",
+	            "width" : 550,
+	            "height" : 150,
 	            "type" : "LinearLayout",
 							"valign" : "center",
 	            "views" : [
@@ -73,39 +73,22 @@
 	              "select" : "0",
 	              "size" : "24",
 	              "type" : "ComboBox",
-	              "width" : 300
-              }
-	            ]
-            },
-						{
-	            "id" : "group1",
-	            "width" : 450,
-	            "height" : 100,
-	            "type" : "LinearLayout",
-	            "views" : [
-	            	//LinearLayout 控件内的所有子控件都需要加入width属性指定宽度
-							{
-	              "align" : "left",
-	              "color" : "0,0,0",
-	              "size" : "24",
-	              "text" : "竞技场:",
-	              "type" : "Label",
 	              "width" : 150
               },
-							{
-	              "id" : "SetJingJi",
-	              "list" : "打五次,打十次",
+			  {
+	              "id" : "ZhaoHuanShou",
+	              "list" : "1,2,3",
 	              "select" : "0",
 	              "size" : "24",
 	              "type" : "ComboBox",
-	              "width" : 300
+	              "width" : 150
               }
 	            ]
             },
-						{
-	            "id" : "group1",
-	            "width" : 450,
-	            "height" : 100,
+			{
+	            "id" : "group3",
+	            "width" : 550,
+	            "height" : 120,
 	            "type" : "LinearLayout",
 	            "views" : [
 	            	//LinearLayout 控件内的所有子控件都需要加入width属性指定宽度

@@ -6,7 +6,7 @@ require("PubFun");
 --540挖宝
 function wabao_funtab540.wabao()
 	local hud = createHUD();
-	showHUD(hud,"挖宝",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+	pubFun_tab.showHud(hud,"挖宝",12,1,-240,-170,192,30);
 	local x, y = 0, 0;
 	mSleep(2000);
 	--先找包裹
@@ -22,7 +22,7 @@ function wabao_funtab540.wabao()
 			break;
 		else
 			sysLog("对不起，没找到包裹！");
-			showHUD(hud,"挖宝,没找到包裹",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			pubFun_tab.showHud(hud,"挖宝,没找到包裹",12,1,-240,-170,192,30);
 		end
 	end
 	mSleep(500);
@@ -72,7 +72,7 @@ function wabao_funtab540.wabao()
 		end
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			sysLog("挖宝结束！");
-			showHUD(hud,"挖宝结束！",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			pubFun_tab.showHud(hud,"挖宝结束！",12,1,-240,-170,192,30);
 			mSleep(2000);
 			break;
 		end
@@ -84,7 +84,7 @@ end
 --1080挖宝
 function wabao_funtab1080.wabao()
 	local hud = createHUD();
-	showHUD(hud,"挖宝",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	pubFun_tab.showHud(hud,"挖宝",30,1,-540,-340,260,50);
 	local x, y = 0, 0;
 	mSleep(2000);
 	--上来找包裹点击
@@ -100,7 +100,7 @@ function wabao_funtab1080.wabao()
 			break;
 		else
 			sysLog("对不起，没找到包裹！");
-			showHUD(hud,"挖宝,没找到包裹",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			pubFun_tab.showHud(hud,"挖宝,没找到包裹",30,1,-540,-340,260,50);
 		end
 	end
 	mSleep(1000);
@@ -150,7 +150,7 @@ function wabao_funtab1080.wabao()
 		end
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			sysLog("挖宝结束！");
-			showHUD(hud,"挖宝结束！",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			pubFun_tab.showHud(hud,"挖宝结束！",30,1,-540,-340,260,50);
 			mSleep(2000);
 			break;
 		end

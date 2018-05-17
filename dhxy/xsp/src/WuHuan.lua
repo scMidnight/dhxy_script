@@ -12,7 +12,7 @@ end
 --540五环
 function wuhuan_funtab540.wuhuan(flag)
 	local hud = createHUD();
-	showHUD(hud,"五环任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+	pubFun_tab.showHud(hud,"五环任务",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
 	mSleep(2000);
 	local x,y = 0,0;
 	--8,6,54,55点击世界地图
@@ -45,12 +45,12 @@ function wuhuan_funtab540.wuhuan(flag)
 				x = math.random(645, 870);
 				y = math.random(372, 398);
 				sysLog("单人五环x:"..x.."，y:"..y);
-				showHUD(hud,"单人五环",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+				pubFun_tab.showHud(hud,"单人五环",12,1,-240,-170,192,30);
 			elseif(flag == "double") then--双人634,315,878,341
 				x = math.random(634, 878);
 				y = math.random(315, 341);
 				sysLog("双人五环x:"..x.."，y:"..y);
-				showHUD(hud,"双人五环",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+				pubFun_tab.showHud(hud,"双人五环",12,1,-240,-170,192,30);
 			end
 			pubFun_tab.tap(300,x,y);
 			break;
@@ -75,7 +75,7 @@ function wuhuan_funtab540.wuhuan(flag)
 		end
 		if(pkNum == 5 or tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			sysLog("五环结束！");
-			showHUD(hud,"五环结束",12,"0xffffffff","0x70161212",1,-240,-170,192,30);
+			pubFun_tab.showHud(hud,"五环结束",12,1,-240,-170,192,30);
 			mSleep(2000);
 			break;
 		end
@@ -86,7 +86,7 @@ end
 --1080五环
 function wuhuan_funtab1080.wuhuan(flag)
 	local hud = createHUD();
-	showHUD(hud,"五环任务",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+	pubFun_tab.showHud(hud,"五环任务",30,1,-540,-340,260,50);
 	mSleep(2000);
 	local x,y = 0,0;
 	--13,15,109,110世界地图
@@ -119,12 +119,12 @@ function wuhuan_funtab1080.wuhuan(flag)
 				x = math.random(1266, 1761);
 				y = math.random(746, 798);
 				sysLog("单人五环x:"..x.."，y:"..y);
-				showHUD(hud,"单人五环",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+				pubFun_tab.showHud(hud,"单人五环",30,1,-540,-340,260,50);
 			elseif(flag == "double") then--双人1267,630,1765,688
 				x = math.random(1267, 1765);
 				y = math.random(630, 688);
 				sysLog("双人五环x:"..x.."，y:"..y);
-				showHUD(hud,"双人五环",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+				pubFun_tab.showHud(hud,"双人五环",30,1,-540,-340,260,50);
 			end
 			pubFun_tab.tap(300,x,y);
 			break;
@@ -148,7 +148,7 @@ function wuhuan_funtab1080.wuhuan(flag)
 			end
 		end
 		if(pkNum == 5 or tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
-			showHUD(hud,"五环结束",30,"0xffffffff","0x70161212",1,-540,-340,260,50);
+			pubFun_tab.showHud(hud,"五环结束",30,1,-540,-340,260,50);
 			mSleep(2000);
 			break;
 		end
