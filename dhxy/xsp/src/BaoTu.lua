@@ -35,7 +35,7 @@ function baotu_funtab1080.baotu(width)
 				nTime = mTime();
 			end
 		end
-		if(isPk == 5 or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
+		if(isPk == 15 or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
 			pubFun_tab.showHud(hud,"宝图任务结束",width);
 			mSleep(2000);
 			break;
