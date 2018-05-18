@@ -51,6 +51,7 @@ function baotu_funtab1080.baotu(width)
 	if (pubFun_tab.findBoxBaoTu(width)) then
 		while true do
 			mSleep(2000);
+			--使用
 			if(pubFun_tab.findUse(width)) then
 				nTime = mTime();
 			end

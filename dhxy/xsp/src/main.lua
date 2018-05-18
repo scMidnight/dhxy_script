@@ -1,3 +1,4 @@
+require("DhxyUtils");
 local appid = frontAppName();--获取当前应用ID
 local width,height = getScreenSize();
 sysLog(appid);
@@ -28,25 +29,25 @@ local beiJuSetting = results.SetBeiJu;--北倶设置
 local lingXiuSetting = results.SetLingXiu;--召唤兽灵修设置
 local zhaohuanShou = results.ZhaoHuanShou;--第几个召唤兽要灵修
 local wuHuanSetting = results.SetWuHuan;--五环设置
+local richangEnd = results.SetEnd;--所选任务完成后
 local choicesTab = dhxyUtils_tab.lua_string_split(choices,"@");--把多选任务结果转换成table
 for i,v in pairs(choicesTab) do 
 	--1080 start
 	if(width == 1080) then
 		if(v == "0") then--北倶挂机
-			if(beiJuSetting == "0") then--5点结束
-				beiJu_funtab1080.loopFun();
-				beiJu_funtab1080.infiniteLoop();
+			if(beiJuSetting == "0") then--无限北俱
+				beiJu_funtab1080.loopFun(width, "0");
 			elseif(beiJuSetting == "1") then--5点带天
-				beiJu_funtab1080.loopFun();
-				beiJu_funtab1080.infiniteLoop();
-				tiangui_funtab1080.tian();
+				beiJu_funtab1080.loopFun(width, "1");
+			elseif(beiJuSetting == "2") then --5点捉鬼
+				beiJu_funtab1080.loopFun(width, "2");
 			end
 		end
 		if(v == "1") then--抓鬼
-			tiangui_funtab1080.gui();
+			tiangui_funtab1080.gui(width);
 		end
 		if(v == "2") then--做天
-			tiangui_funtab1080.tian();
+			tiangui_funtab1080.tian(width);
 		end
 		if(v == "3") then --签到
 			qiandao_funtab1080.qiandao(width);
@@ -86,9 +87,14 @@ for i,v in pairs(choicesTab) do
 		if(v == "12") then --200环
 			huan200_funtab1080.run();
 		end
+		if(richangEnd == "0") then -- 无限北俱
+			beiJu_funtab1080.loopFun(width, "0");
+		elseif(richangEnd == "1") then --退出
+			lua_exit();
+		end
 	end
 	--1080 end
 end
 
 --得到当前小时的另一种方法
---string.sub(pubFun_tab.getNowDate(),9,10)
+--string.sub(dhxyUtils_tab.getNowDate(),9,10)

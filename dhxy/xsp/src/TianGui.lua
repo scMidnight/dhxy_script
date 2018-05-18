@@ -3,235 +3,87 @@ require("DhxyUtils");
 require("PubFun");
 
 --1080抓鬼
-function tiangui_funtab1080.gui()
+function tiangui_funtab1080.gui(width)
 	local hud = createHUD();
 	pubFun_tab.showHud(hud,"抓鬼",width);
 	local x, y = 0, 0;
 	mSleep(1000);
-	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
-	--先点活动
-	if (x ~= -1 and y ~= -1) then
-		x = math.random((x-34), (x+19));
-		y = math.random((y-10), (y+60));
-		sysLog("活动x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
-		--1443,194,1549,235点击再次领取（领取双倍）
-		x = math.random(1443, 1549);
-		y = math.random(194, 235);
-		pubFun_tab.doubleClick(300,x,y);
-		--1637,128,1688,170领取完双倍，点关闭
-		x = math.random(1637, 1688);
-		y = math.random(128, 170);
-		pubFun_tab.tap(300,x,y);
-	else
-		sysLog("对不起，没找到活动！");
-	end
-	--13,15,109,110世界地图
-	x = math.random(13, 109);
-	y = math.random(15, 110);
-	sysLog("世界地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
+	--领双
+	pubFun_tab.shuang(width);
 	mSleep(1000);
-	--1514,782,1565,938地府
-	x = math.random(1514, 1565);
-	y = math.random(782, 938);
-	sysLog("地府x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
+	--点击世界地图并回家
+	pubFun_tab.goHome(width, "goHome");
+	mSleep(2000);
+	--再点一下世界地图
+	pubFun_tab.goHome(width);
+	mSleep(1000);
+	--点击地府：1514,782,1565,938
+	dhxyUtils_tab.tap(300,math.random(1514, 1565),math.random(782, 938));
 	mSleep(1000);
 	--531,803,579,823钟馗
-	x = math.random(531, 579);
-	y = math.random(803, 823);
-	sysLog("钟馗x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	--1566,81,1618,130关闭小地图
-	x = math.random(1566, 1618);
-	y = math.random(81, 130);
-	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(100,x,y);
-	mSleep(500);
-	--检测世界地图是否关闭
-	x, y = findMultiColorInRegionFuzzy(0xef7173,"-12|-10|0xef7173,10|-11|0xe6716b,-14|14|0xe67173,15|15|0xef7173", 95, 1843, 24, 1896, 71)
-	if (x ~= -1 and y ~= -1) then
-		--关闭世界地图1846,24,1896,71
-		x = math.random(1846, 1896);
-		y = math.random(24, 71);
-		sysLog("关闭世界地图x:"..x.."，y:"..y);
-		pubFun_tab.tap(100,x,y);
-	end
+	dhxyUtils_tab.tap(300,math.random(531, 579),math.random(803, 823));
+	mSleep(1000);
+	--1666,85,1714,129关闭小地图特殊关闭，不调用方法，手动在此关闭
+	dhxyUtils_tab.tap(300,math.random(1666, 1714),math.random(85, 129));
 	--休息10s
 	mSleep(10000);
-	--1264,629,1762,687点击钟馗对话框中的我来帮你
-	x, y = findMultiColorInRegionFuzzy(0xde9e52,"0|87|0xde963a,13|114|0xde9e4a,13|201|0xd6963a,22|228|0xd69642,38|315|0xde9a42", 95, 1228, 603, 1804, 953)
-	if (x ~= -1 and y ~= -1) then
-		x = math.random(1264, 1762);
-		y = math.random(629, 687);
-		sysLog("我来帮你x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
-	else
-		sysLog("没有我来帮你");
-		lua_exit();
-	end
-	--判断是否在战斗中
-	local num = 0;
-	local nTime = mTime();--记录一个时间
-	while true do
-		mSleep(7000);
+	--找对话框
+	local isDialog = pubFun_tab.findDialog(width);
+	if (isDialog) then
+		--点对话框第一个选项
+		pubFun_tab.dialogBox(width, 1);
 		--判断是否在战斗中
-		x, y = findMultiColorInRegionFuzzy(0xefbe6b,"-158|-60|0xbd793a,-46|-77|0x735d4a", 95, 19, 42, 224, 146);
-		if (x ~= -1 and y ~= -1) then
-			num = num + 1;
-			while true do
-				mSleep(10000);
-				x, y = findMultiColorInRegionFuzzy(0xefbe6b,"-158|-60|0xbd793a,-46|-77|0x735d4a", 95, 19, 42, 224, 146);
-				if(x == -1 and y == -1) then
-					nTime = mTime();
-					break;
-				end
-			end
-		else
-			--不在战斗中的时候判断是不是有是否继续抓鬼对话框
-			for i = 1, 2 do
-				x, y = findMultiColorInRegionFuzzy(0xfffbff,"-391|-10|0xd68121,-184|77|0xd69e52,109|-10|0x31b67b,136|76|0x42c6a4,11|23|0x4aba8c", 95, 574, 642, 1330, 762);
-				if (x ~= -1 and y ~= -1) then
-					--1299,722
-					x = math.random(x, (x+268));
-					y = math.random(y, (y+55));
-					sysLog("确定继续x:"..x.."，y:"..y);
-					pubFun_tab.tap(300,x,y);
-				else
-					sysLog("对不起，没找到是否继续抓鬼对话框！");
-				end
-			end
-			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
-				sysLog("抓鬼结束！");
-				pubFun_tab.showHud(hud,"抓鬼结束",width);
-				mSleep(2000);
+		local nTime = mTime();--记录一个时间
+		while true do
+			nTime = pubFun_tab.body(width, nTime);
+			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 120) then
 				break;
 			end
 		end
 	end
+	pubFun_tab.showHud(hud,"抓鬼结束",width);
+	mSleep(2000);
 	hideHUD(hud);
 end
 --1080做天
-function tiangui_funtab1080.tian()
+function tiangui_funtab1080.tian(width)
 	local hud = createHUD();
 	pubFun_tab.showHud(hud,"做天",width);
 	local x, y = 0, 0;
 	mSleep(1000);
-	--先使用循环找是否在战斗中
-	x, y = findMultiColorInRegionFuzzy(0xefbe6b,"-158|-60|0xbd793a,-46|-77|0x735d4a", 95, 19, 42, 224, 146);
-	if (x ~= -1 and y ~= -1) then
-		sysLog("战斗中！");
-		while true do
-			mSleep(10000);
-			x, y = findMultiColorInRegionFuzzy(0xefbe6b,"-158|-60|0xbd793a,-46|-77|0x735d4a", 95, 19, 42, 224, 146);
-			if(x == -1 and y == -1) then
-				break;
-			end
-		end
-	end
-	mSleep(2000);
-	--先点活动
-	x, y = findMultiColorInRegionFuzzy(0xad2d31,"-13|-4|0xfffbde,-40|6|0xf7698c,-61|10|0xe6929c,-42|36|0xd64163,-12|39|0xce3d5a,16|-4|0xffd73a", 95, 15, 264, 125, 385)
-	if (x ~= -1 and y ~= -1) then
-		x = math.random((x-34), (x+19));
-		y = math.random((y-10), (y+60));
-		sysLog("活动x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
-		--1443,194,1549,235点击再次领取（领取双倍）
-		x = math.random(1443, 1549);
-		y = math.random(194, 235);
-		pubFun_tab.doubleClick(300,x,y);
-		--1637,128,1688,170领取完双倍，点关闭
-		x = math.random(1637, 1688);
-		y = math.random(128, 170);
-		pubFun_tab.tap(300,x,y);
-	else
-		sysLog("对不起，没找到活动！");
-	end
-	--13,15,109,110世界地图
-	x = math.random(13, 109);
-	y = math.random(15, 110);
-	sysLog("世界地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
+	--领双
+	pubFun_tab.shuang(width);
 	mSleep(1000);
-	--404,22,511,112天宫
-	x = math.random(404, 511);
-	y = math.random(22, 112);
-	sysLog("天宫x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
+	--点击世界地图并回家
+	pubFun_tab.goHome(width, "goHome");
+	mSleep(2000);
+	--再点一下世界地图
+	pubFun_tab.goHome(width);
+	mSleep(1000);
+	--点击天宫：404,22,511,112
+	dhxyUtils_tab.tap(300,math.random(404, 511),math.random(22, 112));
 	mSleep(1000);
 	--872,466,921,485李靖
-	x = math.random(872, 921);
-	y = math.random(466, 485);
-	sysLog("李靖x:"..x.."，y:"..y);
-	pubFun_tab.tap(300,x,y);
-	--1566,81,1618,130关闭小地图
-	x = math.random(1566, 1618);
-	y = math.random(81, 130);
-	sysLog("关闭小地图x:"..x.."，y:"..y);
-	pubFun_tab.tap(100,x,y);
-	mSleep(500);
-	--检测世界地图是否关闭
-	x, y = findMultiColorInRegionFuzzy(0xef7173,"-12|-10|0xef7173,10|-11|0xe6716b,-14|14|0xe67173,15|15|0xef7173", 95, 1843, 24, 1896, 71)
-	if (x ~= -1 and y ~= -1) then
-		--关闭世界地图1846,24,1896,71
-		x = math.random(1846, 1896);
-		y = math.random(24, 71);
-		sysLog("关闭世界地图x:"..x.."，y:"..y);
-		pubFun_tab.tap(100,x,y);
-	end
-	--休息8s
-	mSleep(8000);
-	--1264,629,1762,687点击李靖对话框中的马上就去
-	x, y = findMultiColorInRegionFuzzy(0xde9e52,"0|87|0xde963a,13|114|0xde9e4a,13|201|0xd6963a,22|228|0xd69642,38|315|0xde9a42", 95, 1228, 603, 1804, 953)
-	if (x ~= -1 and y ~= -1) then
-		x = math.random(1264, 1762);
-		y = math.random(629, 687);
-		sysLog("马上就去x:"..x.."，y:"..y);
-		pubFun_tab.tap(300,x,y);
-	else
-		sysLog("没有马上就去");
-		lua_exit();
-	end
-	--判断是否在战斗中
-	local num = 0;
-	local nTime = mTime();--记录一个时间
-	while true do
-		mSleep(7000);
+	dhxyUtils_tab.tap(300,math.random(872, 921),math.random(466, 485));
+	--1666,85,1714,129关闭小地图特殊关闭，不调用方法，手动在此关闭
+	dhxyUtils_tab.tap(300,math.random(1666, 1714),math.random(85, 129));
+	--休息10s
+	mSleep(10000);
+	--找对话框
+	local isDialog = pubFun_tab.findDialog(width);
+	if (isDialog) then
+		--点对话框第一个选项
+		pubFun_tab.dialogBox(width, 1);
 		--判断是否在战斗中
-		x, y = findMultiColorInRegionFuzzy(0xefbe6b,"-158|-60|0xbd793a,-46|-77|0x735d4a", 95, 19, 42, 224, 146);
-		if (x ~= -1 and y ~= -1) then
-			num = num + 1;
-			while true do
-				mSleep(10000);
-				x, y = findMultiColorInRegionFuzzy(0xefbe6b,"-158|-60|0xbd793a,-46|-77|0x735d4a", 95, 19, 42, 224, 146);
-				if(x == -1 and y == -1) then
-					nTime = mTime();
-					break;
-				end
-			end
-		else
-			--不在战斗中的时候判断是不是有是否继续做天对话框
-			for i = 1, 2 do
-				x, y = findMultiColorInRegionFuzzy(0xfffbff,"-391|-10|0xd68121,-184|77|0xd69e52,109|-10|0x31b67b,136|76|0x42c6a4,11|23|0x4aba8c", 95, 574, 642, 1330, 762);
-				if (x ~= -1 and y ~= -1) then
-					--1299,722
-					x = math.random(x, (x+268));
-					y = math.random(y, (y+55));
-					sysLog("确定继续x:"..x.."，y:"..y);
-					pubFun_tab.tap(300,x,y);
-				else
-					sysLog("对不起，没找到是否继续做天对话框！");
-				end
-			end
-			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 180) then
-				sysLog("天庭任务结束！");
-				pubFun_tab.showHud(hud,"做天结束",width);
-				mSleep(2000);
+		local nTime = mTime();--记录一个时间
+		while true do
+			nTime = pubFun_tab.body(width, nTime);
+			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 120) then
 				break;
 			end
 		end
 	end
+	pubFun_tab.showHud(hud,"抓鬼结束",width);
+	mSleep(2000);
 	hideHUD(hud);
 end

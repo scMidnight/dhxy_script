@@ -10,7 +10,7 @@ function wuhuan_funtab1080.wuhuan(width,flag)
 	mSleep(2000);
 	--点击世界地图并回家
 	pubFun_tab.goHome(width, "goHome");
-	mSleep(1000);
+	mSleep(2000);
 	--再点一下世界地图
 	pubFun_tab.goHome(width);
 	mSleep(1000);
@@ -21,7 +21,7 @@ function wuhuan_funtab1080.wuhuan(width,flag)
 	dhxyUtils_tab.tap(0,math.random(1120, 1225),math.random(657, 670));
 	--1666,85,1714,129关闭小地图特殊关闭，不调用方法，手动在此关闭
 	dhxyUtils_tab.tap(300,math.random(1666, 1714),math.random(85, 129));
-	mSleep(1000);
+	mSleep(8000);
 	--是否有对话框
 	--找对话框
 	local isDialog = pubFun_tab.findDialog(width);

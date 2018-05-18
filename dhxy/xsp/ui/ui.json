@@ -1,7 +1,7 @@
 {
    "style" : "default",
    "config" : "save_测试项目.dat",
-   "width" : 800,
+   "width" : 1000,
    "height" : 850,
    "cancelname" : "取消",
    "okname" : "确定",
@@ -30,7 +30,7 @@
                "width" : 800,
                "height" : 130,
                "type" : "LinearLayout",
-								"valign" : "center",
+				"valign" : "center",
                "views" : [
                   //LinearLayout 控件内的所有子控件都需要加入width属性指定宽度
                   {
@@ -43,7 +43,7 @@
                   },
                   {
                      "id" : "SetBeiJu",
-                     "list" : "5点结束,5点带天",
+                     "list" : "无限北俱,5点带天，5点捉鬼",
                      "select" : "0",
                      "size" : "16",
                      "type" : "ComboBox",
@@ -53,10 +53,10 @@
             },
 						{
 	            "id" : "group2",
-	            "width" : 550,
-	            "height" : 150,
+	            "width" : 800,
+	            "height" : 130,
 	            "type" : "LinearLayout",
-							"valign" : "center",
+				"valign" : "center",
 	            "views" : [
 	            	//LinearLayout 控件内的所有子控件都需要加入width属性指定宽度
 							{
@@ -87,8 +87,8 @@
             },
 			{
 	            "id" : "group3",
-	            "width" : 550,
-	            "height" : 120,
+	            "width" : 800,
+	            "height" : 130,
 	            "type" : "LinearLayout",
 	            "views" : [
 	            	//LinearLayout 控件内的所有子控件都需要加入width属性指定宽度
@@ -109,7 +109,31 @@
 	              "width" : 300
               }
 	            ]
-            }
+            },
+			{
+				"id" : "group4",
+	            "width" : 800,
+	            "height" : 130,
+	            "type" : "LinearLayout",
+				"views" : [
+					{
+						"align" : "left",
+						"color" : "0,0,0",
+						"size" : "24",
+						"text" : "所选任务完成后:",
+						"type" : "Label",
+						"width" : 150
+					},
+					{
+						"id" : "SetEnd",
+						"list" : "无限北俱,退出",
+						"select" : "0",
+						"size" : "24",
+						"type" : "ComboBox",
+						"width" : 300
+					}
+				]
+			}
          ]
       }
    ]

@@ -132,6 +132,18 @@ function pubFun_tab.findMore(width)
 	moreXYTab.y = y;
 	return moreXYTab;
 end
+--寻找反向更多并点击
+function pubFun_tab.findNoMore(width)
+	local x, y = 0, 0;
+	if(width == 1080) then
+		x, y = findColor({1755, 933, 1909, 1063}, "0|0|0xfdfefd,44|1|0x66dba3,-1|44|0x26e8e2,41|43|0x43d4ae",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			return true;
+		else
+			return false;
+		end
+	end
+end
 --寻找家园
 function pubFun_tab.findHome(width)
 	local homeXYTab = {};
@@ -318,6 +330,99 @@ function pubFun_tab.findUse(width)
 			return true;
 		else
 			return false;
+		end
+	end
+end
+-- 领双
+function pubFun_tab.shuang(width)
+	if(width == 1080) then
+		--寻找活动并点击30,288,108,370
+		for i = 1, 2 do
+			local activityTabXY = pubFun_tab.findActivity(width);
+			pubFun_tab.click(activityTabXY, "活动", math.random(30, 108), math.random(288, 370), "click");
+		end
+		mSleep(2000);
+		--点击两次领取:1440,196,1551,238
+		for i = 1, 2 do
+			dhxyUtils_tab.tap(300,math.random(1440, 1551),math.random(196, 238));
+			mSleep(1000);
+		end
+		pubFun_tab.close(width, "活动面板");
+	end
+end
+--做天抓鬼是否继续以及查看掉线
+function pubFun_tab.isContinue(width)
+	local x, y = 0, 0;
+	if(width == 1080) then
+		x, y = findColor({569, 636, 1336, 767}, "0|0|0xde8e31,447|0|0x31ba84,65|86|0xdea652,473|86|0x31be84",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击确定:1033,666,1303,728
+			dhxyUtils_tab.tap(300,math.random(1033, 1303),math.random(666, 728));
+			mSleep(1000);
+			return true;
+		else
+			return false;
+		end
+	end
+end
+--做天抓鬼循环体
+function pubFun_tab.body(width,nTime)
+	if(width == 1080) then
+		mSleep(5000);
+		--判断是否在战斗中
+		local isPk = pubFun_tab.isPk(width);
+		if (isPk) then
+			while true do
+				mSleep(2000);
+				isPk = pubFun_tab.isPk(width);
+				if(not isPk) then
+					break;
+				end
+				nTime = mTime();
+			end
+		else
+			for i =1, 2 do
+				--是否继续
+				pubFun_tab.isContinue(width);
+			end
+		end
+	end
+	return nTime;
+end
+--查找引妖香
+function pubFun_tab.findYinYaoXiang(width)
+	local x, y = 0, 0;
+	if(width == 1080) then
+		x, y = findColor({961, 297, 1600, 919}, "0|0|0x131310,-10|11|0xfefefd,-34|5|0xf0d16c,24|5|0xc67d2b,-3|45|0xfa9160",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击引妖香:1033,666,1303,728
+			dhxyUtils_tab.tap(300,math.random((x-44), (x+33)),math.random((y-14), (y+70)));
+			return true;
+		else
+			return false;
+		end
+	end
+end
+--引妖香巡逻
+function pubFun_tab.patrol(width)
+	local x, y = 0, 0;
+	if(width == 1080) then
+		--手机端巡逻
+		x, y = findColor({898, 190, 1049, 264}, "0|0|0xdeae6b,56|-30|0xd69e52,61|35|0xd6a25a,129|2|0xdeae6b",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击巡逻：923,207,1024,247
+			dhxyUtils_tab.tap(300,math.random(923, 1024),math.random(207, 247));
+			return true;
+		else
+			--模拟器巡逻
+			x, y = findColor({1041, 188, 1183, 263}, "0|0|0xe0b26e,72|-27|0xd8a051,66|38|0xd4a159,128|7|0xd9a65e",95, 0, 0, 0);
+			if (x ~= -1 and y ~= -1) then
+				--点击巡逻：1062,207,1164,247
+				dhxyUtils_tab.tap(300,math.random(1062, 1164),math.random(207, 247));
+				return true;
+			else
+				return false;
+			end
 		end
 	end
 end
