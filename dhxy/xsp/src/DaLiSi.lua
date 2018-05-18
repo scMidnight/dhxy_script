@@ -10,6 +10,7 @@ function dalisi_funtab1080.dalisi(width)
 	--点击世界地图并回家
 	pubFun_tab.goHome(width, "goHome");
 	mSleep(1000);
+	--再点一下世界地图
 	pubFun_tab.goHome(width);
 	mSleep(1000);
 	--1034,369,1163,441长安

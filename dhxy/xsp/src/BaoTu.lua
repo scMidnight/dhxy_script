@@ -36,10 +36,29 @@ function baotu_funtab1080.baotu(width)
 			end
 		end
 		if(isPk == 15 or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
-			pubFun_tab.showHud(hud,"宝图任务结束",width);
+			pubFun_tab.showHud(hud,"开始挖宝",width);
 			mSleep(2000);
 			break;
 		end
 	end
+	--挖宝开始
+	--寻找包裹并点击
+	local clickTabXY = pubFun_tab.findPackage(width);
+	pubFun_tab.click(clickTabXY, "包裹", math.random(1663, 1717), math.random(960, 1022), "double");
+	--休息2秒后寻找宝图
+	mSleep(2000);
+	--寻找宝图并点击
+	if (pubFun_tab.findBoxBaoTu(width)) then
+		while true do
+			mSleep(2000);
+			if(pubFun_tab.findUse(width)) then
+				nTime = mTime();
+			end
+			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
+				break;
+			end
+		end
+	end
+	pubFun_tab.showHud(hud,"宝图任务结束",width);
 	hideHUD(hud);
 end

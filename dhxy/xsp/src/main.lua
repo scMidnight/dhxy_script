@@ -14,7 +14,6 @@ require("BangPai");
 require("ShiMen");
 require("BaoTu");
 require("WuHuan");
-require("WaBao");
 require("JingJi");
 require("SuanGua");
 require("LingXiu");
@@ -79,15 +78,12 @@ for i,v in pairs(choicesTab) do
 		end
 		if(v == "11") then--五环
 			if(wuHuanSetting == "0") then --单人五环
-				wuhuan_funtab1080.wuhuan("single");
+				wuhuan_funtab1080.wuhuan(width,"single");
 			elseif(wuHuanSetting == "1") then --双人五环
-				wuhuan_funtab1080.wuhuan("double");
+				wuhuan_funtab1080.wuhuan(width,"double");
 			end
 		end
-		if(v == "12") then --挖宝
-			wabao_funtab1080.wabao();
-		end
-		if(v == "13") then --200环
+		if(v == "12") then --200环
 			huan200_funtab1080.run();
 		end
 	end

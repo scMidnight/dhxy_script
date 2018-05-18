@@ -11,7 +11,7 @@ function jingji_funtab1080.jingji(num,width)
 	--寻找包裹并点击
 	local clickTabXY = pubFun_tab.findPackage(width);
 	pubFun_tab.click(clickTabXY, "包裹", math.random(1663, 1717), math.random(960, 1022), "double");
-	--休息3秒后点积分
+	--休息2秒后点积分
 	mSleep(2000);
 	--点击积分1488,7,1541,37
 	dhxyUtils_tab.tap(300,math.random(1488, 1541),math.random(7, 37));
@@ -34,6 +34,7 @@ function jingji_funtab1080.jingji(num,width)
 	}
 	--战斗的次数
 	local pkNum = 0;
+	local nTime = mTime();--记录一个时间
 	while true do
 		mSleep(3000);
 		--检查是否战斗中
@@ -46,6 +47,7 @@ function jingji_funtab1080.jingji(num,width)
 				if (not isPk) then
 					break;
 				end
+				nTime = mTime();
 			end
 		else
 			local index = math.random(1, 5);
@@ -55,7 +57,7 @@ function jingji_funtab1080.jingji(num,width)
 			sysLog("挑战x:"..x.."，y:"..y);
 			dhxyUtils_tab.tap(300,x,y);
 		end
-		if(pkNum == num) then
+		if(pkNum == num or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
 			pubFun_tab.showHud(hud,"竞技场结束",width);
 			sysLog("竞技场10次完毕");
 			mSleep(2000);

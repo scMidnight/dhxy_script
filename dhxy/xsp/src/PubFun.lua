@@ -290,3 +290,34 @@ function pubFun_tab.clickBaoTu(width)
 		end
 	end
 end
+--寻找包裹中的宝图并点击
+function pubFun_tab.findBoxBaoTu(width) 
+	local x, y = 0, 0;
+	if(width == 1080) then
+		point = findColors({959, 298, 1593, 951}, "0|0|0xc5493a,-42|62|0x94756b,-17|37|0xeff3bd,13|41|0xb59e52",95, 0, 0, 0);
+		if #point ~= 0 then
+			for var = 1,#point do
+				x = point[var].x;
+				y = point[var].y;
+			end
+			dhxyUtils_tab.tap(300,math.random((x-33), (x+34)),math.random((y-21), (y+44)));
+			return true;
+		else
+			return false;
+		end
+	end
+end
+--寻找物品的使用并点击
+function pubFun_tab.findUse(width)
+	local x, y = 0, 0;
+	if(width == 1080) then
+		x, y = findColor({1184, 333, 1424, 494}, "0|0|0xffffff,170|6|0x8bcca5,1|63|0x2cbe9b,172|66|0x2dc49f",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击使用:1217,377,1391,444
+			dhxyUtils_tab.tap(300,math.random(1217, 1391),math.random(377, 444));
+			return true;
+		else
+			return false;
+		end
+	end
+end
