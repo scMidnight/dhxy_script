@@ -28,33 +28,33 @@ function wuhuan_funtab1080.wuhuan(width,flag)
 	if (isDialog) then
 		if(flag == "single") then
 			--点对话框第一个选项
-			pubFun_tab.dialogBox(width, 1);
+			pubFun_tab.dialogBox(width, 2);
 		elseif(flag == "double") then
 			--点对话框第二个选项
-			pubFun_tab.dialogBox(width, 2);
+			pubFun_tab.dialogBox(width, 1);
 		end
-		local nTime = mTime();--记录一个时间
-		local pkNum = 0;
-		--是否战斗
-		while true do
-			mSleep(5000);
-			--判断是否在战斗中
-			local isPk = pubFun_tab.isPk(width);
-			if (isPk) then
-				pkNum = pkNum + 1;
-				sysLog("第"..pkNum.."次。");
-				while true do
-					mSleep(2000);
-					isPk = pubFun_tab.isPk(width);
-					if(not isPk) then
-						break;
-					end
-					nTime = mTime();
+	end
+	local nTime = mTime();--记录一个时间
+	local pkNum = 0;
+	--是否战斗
+	while true do
+		mSleep(5000);
+		--判断是否在战斗中
+		local isPk = pubFun_tab.isPk(width);
+		if (isPk) then
+			pkNum = pkNum + 1;
+			sysLog("第"..pkNum.."次。");
+			while true do
+				mSleep(2000);
+				isPk = pubFun_tab.isPk(width);
+				if(not isPk) then
+					break;
 				end
+				nTime = mTime();
 			end
-			if(isPk == 5 or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
-				break;
-			end
+		end
+		if(isPk == 5 or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
+			break;
 		end
 	end
 	pubFun_tab.showHud(hud,"五环结束",width);

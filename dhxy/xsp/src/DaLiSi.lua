@@ -10,6 +10,8 @@ function dalisi_funtab1080.dalisi(width)
 	--点击世界地图并回家
 	pubFun_tab.goHome(width, "goHome");
 	mSleep(2000);
+	--关闭右上角世界界面1080坐标:1836,29,1887,77
+	dhxyUtils_tab.tap(300,math.random(1836, 1887),math.random(29, 77));
 	--再点一下世界地图
 	pubFun_tab.goHome(width);
 	mSleep(1000);

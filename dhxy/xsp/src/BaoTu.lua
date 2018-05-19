@@ -14,7 +14,7 @@ function baotu_funtab1080.baotu(width)
 	mSleep(2000);
 	--找宝图
 	pubFun_tab.clickBaoTu(width);
-	mSleep(10000);
+	mSleep(15000);
 	--找宝图任务对话框选择第一个选项
 	pubFun_tab.dialogBox(width, 1);
 	local nTime = mTime();--记录一个时间

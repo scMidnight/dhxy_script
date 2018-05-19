@@ -85,12 +85,15 @@ function pubFun_tab.click(tab, text, x, y, clickType)
 		sysLog(text.."x:"..x..",y:"..y);
 		if(clickType == "double") then
 			dhxyUtils_tab.doubleClick(300,x,y);
+			return true;
 		else 
 			dhxyUtils_tab.tap(300,x,y);
+			return true;
 		end
 	else
 		sysLog("对不起没有找到"..text);
 		toast("对不起没有找到"..text);
+		return false;
 		--sysLog("截图");
 		--local nowDate = os.date("%H:%M:%S", os.time());
 		--snapshot("[public]"..nowDate..".png",2,2,1919,1079);
@@ -218,7 +221,7 @@ function pubFun_tab.clickBangPai(width)
 				dhxyUtils_tab.tap(300,math.random((x+425), (x+538)),math.random((y+16), (y+27)));
 				break;
 			else
-				--在此点生成x,y（613,384,1257,679）
+				--在此点生成x,y滑动（613,384,1257,679）
 				x = math.random(613,1257);
 				y = math.random(384,679);
 				dhxyUtils_tab.move(500,x, y, x, (y-165));
@@ -236,13 +239,35 @@ function pubFun_tab.clickShiMen(width)
 				dhxyUtils_tab.tap(300,math.random((x+399), (x+513)),math.random((y-15), (y+32)));
 				break;
 			else
-				--在此点生成x,y（613,384,1257,679）
+				--在此点生成x,y滑动（613,384,1257,679）
 				x = math.random(613,1257);
 				y = math.random(384,679);
 				dhxyUtils_tab.move(500,x, y, x, (y-165));
 			end
 		end
 	end
+end
+--寻找200环并点击
+function pubFun_tab.huan200Click(width)
+	local x, y = 0, 0;
+	local flag = false;
+	if(width == 1080) then
+		for i = 1, 10 do
+			x, y = findColor({224, 265, 1631, 784}, "0|0|0x94a2bd,-16|28|0xeff7ff,-39|40|0xa4bece,36|19|0x9caece,55|43|0x7b96ad,274|10|0x8c1819",95, 0, 0, 0);
+			if(x ~= -1 and y ~= -1) then
+				--点击前往
+				dhxyUtils_tab.tap(300,math.random((x+447), (x+548)),math.random((y-11), (y+26)));
+				flag = true;
+				break;
+			else
+				--在此点生成x,y滑动（613,384,1257,679）
+				x = math.random(613,1257);
+				y = math.random(384,679);
+				dhxyUtils_tab.move(500,x, y, x, (y-165));
+			end
+		end
+	end	
+	return flag;
 end
 --寻找右下角的购买并点击
 function pubFun_tab.buy(width)
@@ -258,7 +283,7 @@ end
 function pubFun_tab.bangPaiEnd(width)
 	local x, y = 0, 0;
 	if(width == 1080) then
-		x, y = findColor({272, 673, 1083, 908}, "0|0|0xc2b795,-115|13|0xd1945e,-141|88|0xf9cb10,-529|85|0xfafaff",95, 0, 0, 0);
+		x, y = findColor({93, 740, 962, 865}, "0|0|0xfffbff,376|8|0xf7f7f7,147|3|0xefe3d6",95, 0, 0, 0);
 		if(x ~= -1 and y ~= -1) then
 			return true;
 		else
@@ -270,7 +295,7 @@ end
 function pubFun_tab.shiMenEnd(width)
 	local x, y = 0, 0;
 	if(width == 1080) then
-		x, y = findColor({389, 661, 1045, 873}, "0|0|0xb1a087,-304|16|0xd29963,-50|90|0xfdeb17,-52|103|0xff5166",95, 0, 0, 0);
+		x, y = findColor({93, 740, 962, 865}, "0|0|0xf7db29,-2|14|0xff516b,-138|-1|0xf7ebd6",95, 0, 0, 0);
 		if(x ~= -1 and y ~= -1) then
 			return true;
 		else
@@ -423,6 +448,66 @@ function pubFun_tab.patrol(width)
 			else
 				return false;
 			end
+		end
+	end
+end
+--上交各种物品，召唤兽
+function pubFun_tab.shangJiao(width)
+	local x, y = 0, 0;
+	if(width == 1080) then
+		x, y = findColor({1014, 789, 1335, 907}, "0|0|0xffffff,243|10|0x70c297,7|54|0x32b68d,237|51|0x34b58b",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--找玫瑰仙叶
+			x, y = findColor({327, 274, 766, 864}, "0|0|0x116926,10|-20|0x93e265,37|-32|0x4ad751",95, 0, 0, 0);
+			if(x ~= -1 and y ~= -1) then
+				--点击玫瑰仙叶
+				dhxyUtils_tab.tap(300,math.random((x-15), (x+62)),math.random((y-47), (y+33)));
+			else
+				--找千年熊胆
+				x, y = findColor({327, 274, 766, 864}, "0|0|0xfce9ca,14|-3|0xfdf1d4,-2|51|0xcb3848,20|8|0xec4e5e",95, 0, 0, 0);
+				if(x ~= -1 and y ~= -1) then
+					--点击千年熊胆
+					dhxyUtils_tab.tap(300,math.random((x-49), (x+41)),math.random((y-20), (y+60)));
+				end
+			end
+			mSleep(1000);
+			--点击上交：1047,816,1287,872
+			dhxyUtils_tab.tap(300,math.random(1047, 1287),math.random(816, 872));
+			return true;
+		else
+			return false;
+		end
+	end
+end
+--先找是否上交宝宝的任务，再购买需要的宝宝
+function pubFun_tab.maiBaobao(width)
+	local x, y = 0, 0;
+	local flag = false;
+	if(width == 1080) then
+		--是否购买宝宝的对话框
+		x, y = findColor({211, 173, 738, 299}, "0|0|0xfffbec,181|4|0xfffbf0,255|-1|0xf7ece0,180|33|0xffe6a2,255|32|0xeacbae",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			for i = 1, 10 do
+				--找需要的宝宝购买
+				x, y = findColor({673, 295, 1626, 920}, "0|0|0xffef93,-59|63|0xfb895a,-75|23|0xffe58d,14|40|0xfe9762,-13|29|0xffc075,-49|24|0xffe688",95, 0, 0, 0);
+				if (x ~= -1 and y ~= -1) then
+					--找到就点击
+					dhxyUtils_tab.tap(300,math.random((x+50), (x+336)),math.random((y-20), (y+80)));
+					mSleep(1000);
+					--1071,809,1495,862点击购买
+					dhxyUtils_tab.tap(300,math.random(1071, 1495),math.random(809, 862));
+					flag = true;
+					break;
+				else
+					--没找到就滑下一页
+					x = math.random(739, 1546);
+					y = math.random(650, 885);
+					pubFun_tab.move(300,x,y,x,(y-160));
+				end
+			end
+			return flag;
+		else
+			return flag;
 		end
 	end
 end

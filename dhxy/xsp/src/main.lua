@@ -31,8 +31,8 @@ local zhaohuanShou = results.ZhaoHuanShou;--第几个召唤兽要灵修
 local wuHuanSetting = results.SetWuHuan;--五环设置
 local richangEnd = results.SetEnd;--所选任务完成后
 local choicesTab = dhxyUtils_tab.lua_string_split(choices,"@");--把多选任务结果转换成table
+sysLog(choices);
 for i,v in pairs(choicesTab) do 
-	--1080 start
 	if(width == 1080) then
 		if(v == "0") then--北倶挂机
 			if(beiJuSetting == "0") then--无限北俱
@@ -85,15 +85,15 @@ for i,v in pairs(choicesTab) do
 			end
 		end
 		if(v == "12") then --200环
-			huan200_funtab1080.run();
-		end
-		if(richangEnd == "0") then -- 无限北俱
-			beiJu_funtab1080.loopFun(width, "0");
-		elseif(richangEnd == "1") then --退出
-			lua_exit();
+			huan200_funtab1080.run(width);
 		end
 	end
-	--1080 end
+end
+--判断结束
+if(richangEnd == "0") then -- 无限北俱
+	beiJu_funtab1080.loopFun(width, "0");
+elseif(richangEnd == "1") then --退出
+	lua_exit();
 end
 
 --得到当前小时的另一种方法
