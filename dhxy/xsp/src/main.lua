@@ -20,6 +20,7 @@ require("SuanGua");
 require("LingXiu");
 require("QianDao");
 require("DaLiSi");
+require("HuoYue");
 init("0",1);
 --ui = 适配UI("ui.json",540);
 ret,results = showUI("ui.json");
@@ -84,7 +85,10 @@ for i,v in pairs(choicesTab) do
 				wuhuan_funtab1080.wuhuan(width,"double");
 			end
 		end
-		if(v == "12") then --200环
+		if(v == "12") then --活跃领奖
+			huoyue_funtab1080.huoyue(width);
+		end
+		if(v == "13") then --200环
 			huan200_funtab1080.run(width);
 		end
 	end

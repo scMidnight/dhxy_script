@@ -31,6 +31,9 @@ function motor(width, beiJuType)
 	dhxyUtils_tab.tap(300,math.random(542, 704), math.random(789, 876));
 	--1666,85,1714,129关闭小地图特殊关闭，不调用方法，手动在此关闭
 	dhxyUtils_tab.tap(300,math.random(1666, 1714),math.random(85, 129));
+	mSleep(1000);
+	--查找世界地图是否关闭，没有的话就关闭
+	pubFun_tab.findShiJieClose(width);
 	mSleep(3000);
 	--寻找包裹并点击
 	local clickTabXY = pubFun_tab.findPackage(width);
@@ -48,8 +51,8 @@ function motor(width, beiJuType)
 		--关闭包裹
 		pubFun_tab.close(width, "包裹");
 		mSleep(2000);
-		--点击巡逻
-		pubFun_tab.patrol(width);
+		--点击巡逻并点击
+		pubFun_tab.patrol(width, true);
 		mSleep(1000);
 		local nTime = mTime();--记录一个时间
 		while true do
@@ -64,6 +67,27 @@ function motor(width, beiJuType)
 						break;
 					end
 					nTime = mTime();
+				end
+			else
+				if(tonumber(dhxyUtils_tab.getNowHour()) == 5) then--如果5点了
+					if(pubFun_tab.patrol(width, false)) then
+						--关闭巡逻
+						dhxyUtils_tab.tap(300,math.random(923, 1024),math.random(207, 247));
+						mSleep(500);
+						--点击确定
+						for i = 1, 2 do
+							pubFun_tab.isContinue(width);
+						end
+						--查看是否又进入战斗了
+						while true do
+							mSleep(2000);
+							isPk = pubFun_tab.isPk(width);
+							if(not isPk) then
+								break;
+							end
+						end
+						break;
+					end
 				end
 			end
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 80) then

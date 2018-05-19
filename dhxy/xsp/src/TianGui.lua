@@ -14,8 +14,9 @@ function tiangui_funtab1080.gui(width)
 	--点击世界地图并回家
 	pubFun_tab.goHome(width, "goHome");
 	mSleep(2000);
-	--关闭右上角世界界面1080坐标:1836,29,1887,77
-	dhxyUtils_tab.tap(300,math.random(1836, 1887),math.random(29, 77));
+	--查找世界地图是否关闭，没有的话就关闭
+	pubFun_tab.findShiJieClose(width);
+	mSleep(1000);
 	--再点一下世界地图
 	pubFun_tab.goHome(width);
 	mSleep(1000);
@@ -59,8 +60,9 @@ function tiangui_funtab1080.tian(width)
 	--点击世界地图并回家
 	pubFun_tab.goHome(width, "goHome");
 	mSleep(2000);
-	--关闭右上角世界界面1080坐标:1836,29,1887,77
-	dhxyUtils_tab.tap(300,math.random(1836, 1887),math.random(29, 77));
+	--查找世界地图是否关闭，没有的话就关闭
+	pubFun_tab.findShiJieClose(width);
+	mSleep(1000);
 	--再点一下世界地图
 	pubFun_tab.goHome(width);
 	mSleep(1000);
@@ -87,7 +89,7 @@ function tiangui_funtab1080.tian(width)
 			end
 		end
 	end
-	pubFun_tab.showHud(hud,"抓鬼结束",width);
+	pubFun_tab.showHud(hud,"做天结束",width);
 	mSleep(2000);
 	hideHUD(hud);
 end

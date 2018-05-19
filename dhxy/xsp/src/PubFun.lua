@@ -429,21 +429,25 @@ function pubFun_tab.findYinYaoXiang(width)
 	end
 end
 --引妖香巡逻
-function pubFun_tab.patrol(width)
+function pubFun_tab.patrol(width, isClick)
 	local x, y = 0, 0;
 	if(width == 1080) then
 		--手机端巡逻
 		x, y = findColor({898, 190, 1049, 264}, "0|0|0xdeae6b,56|-30|0xd69e52,61|35|0xd6a25a,129|2|0xdeae6b",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
-			--点击巡逻：923,207,1024,247
-			dhxyUtils_tab.tap(300,math.random(923, 1024),math.random(207, 247));
+			if(isClick) then
+				--点击巡逻：923,207,1024,247
+				dhxyUtils_tab.tap(300,math.random(923, 1024),math.random(207, 247));
+			end
 			return true;
 		else
 			--模拟器巡逻
 			x, y = findColor({1041, 188, 1183, 263}, "0|0|0xe0b26e,72|-27|0xd8a051,66|38|0xd4a159,128|7|0xd9a65e",95, 0, 0, 0);
 			if (x ~= -1 and y ~= -1) then
-				--点击巡逻：1062,207,1164,247
-				dhxyUtils_tab.tap(300,math.random(1062, 1164),math.random(207, 247));
+				if(isClick) then
+					--点击巡逻：1062,207,1164,247
+					dhxyUtils_tab.tap(300,math.random(1062, 1164),math.random(207, 247));
+				end
 				return true;
 			else
 				return false;
@@ -508,6 +512,47 @@ function pubFun_tab.maiBaobao(width)
 			return flag;
 		else
 			return flag;
+		end
+	end
+end
+--寻找右上角关闭（并不是世界关闭）
+function pubFun_tab.findYouClose(width)
+	local x, y = 0, 0;
+	if(width == 1080) then
+		x, y = findColor({1803, 23, 1902, 120}, "0|0|0xef7173,-4|-25|0xefe3c5,1|21|0xefd2b5",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--1831,47,1875,92点击关闭
+			dhxyUtils_tab.tap(300,math.random(1831, 1875),math.random(47, 92));
+		end
+	end
+end
+--寻找右下角使用并点击
+function pubFun_tab.findYouUse(width)
+	local x, y = 0, 0;
+	if(width == 1080) then
+		x, y = findColor({1320, 550, 1598, 859}, "0|0|0xffffff,133|17|0x52be94,6|37|0x31be94,126|34|0x3abe94",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--1396,777,1526,820点击使用
+			dhxyUtils_tab.tap(300,math.random(1396, 1526),math.random(777, 820));
+			mSleep(1000);
+			pubFun_tab.findYouClose(width);
+			return true;
+		else
+			return false;
+		end
+	end
+end
+--查找世界关闭
+function pubFun_tab.findShiJieClose(width)
+	local x, y = 0, 0;
+	if(width == 1080) then
+		x, y = findColor({1815, 1, 1917, 104}, "0|0|0xe67173,7|-24|0xf7efde,5|18|0xe6cead,-13|-4|0xefd7b5",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--关闭右上角世界界面1080坐标:1836,29,1887,77
+			dhxyUtils_tab.tap(300,math.random(1836, 1887),math.random(29, 77));
+			return true;
+		else
+			return false;
 		end
 	end
 end

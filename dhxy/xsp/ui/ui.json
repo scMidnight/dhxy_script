@@ -1,8 +1,8 @@
 {
-   "style" : "default",
+   "style" : "custom",
    "config" : "save_测试项目.dat",
-   "width" : 1000,
-   "height" : 850,
+   "width" : 950,
+   "height" : 1000,
    "cancelname" : "取消",
    "okname" : "确定",
    "views" : [
@@ -11,13 +11,41 @@
          "type" : "Page",
          "views" : [
             {
+	            "align" : "center",
+	            "color" : "0,0,0",
+	            "size" : 50,
+	            "text" : "========",
+	            "bg" : "255,255,255",
+	            "type" : "Label",
+				"rect" : "30,5,260,70"
+            },
+			{
+	            "align" : "center",
+	            "color" : "0,0,0",
+	            "size" : 50,
+	            "text" : "★富贵脚本★",
+	            "bg" : "255,255,255",
+	            "type" : "Label",
+				"rect" : "290,5,330,70"
+            },
+			{
+	            "align" : "center",
+	            "color" : "0,0,0",
+	            "size" : 50,
+	            "text" : "========",
+	            "bg" : "255,255,255",
+	            "type" : "Label",
+				"rect" : "620,5,260,70"
+            },
+            {
                "id" : "CheckBoxTask1",
-               "list" : "北倶挂机 ,抓鬼   ,做天   ,签到   ,召唤兽灵修,算卦   ,大理寺答题,竞技场  ,帮派   ,师门   ,宝图   ,五环   ,200环  ",
+               "list" : "北倶挂机,抓鬼,做天,签到,召唤兽灵修,算卦,大理寺答题,竞技场,帮派,师门,宝图,五环,活跃领奖,200环",
                "select" : "0",
-               "size" : "24",
+               "size" : "60",
                "type" : "CheckBoxGroup",
                "orientation" : "horizontal",
-               "color" : "0,0,0"
+               "color" : "0,0,0",
+               "rect" : "30,90,900,600"
             }
          ]
       },
@@ -25,115 +53,109 @@
          "text" : "任务设置",
          "type" : "Page",
          "views" : [
+		  {
+	            "align" : "center",
+	            "color" : "0,0,0",
+	            "size" : 50,
+	            "text" : "========",
+	            "bg" : "255,255,255",
+	            "type" : "Label",
+				"rect" : "30,5,260,70"
+            },
+			{
+	            "align" : "center",
+	            "color" : "0,0,0",
+	            "size" : 50,
+	            "text" : "★富贵脚本★",
+	            "bg" : "255,255,255",
+	            "type" : "Label",
+				"rect" : "290,5,330,70"
+            },
+			{
+	            "align" : "center",
+	            "color" : "0,0,0",
+	            "size" : 50,
+	            "text" : "========",
+	            "bg" : "255,255,255",
+	            "type" : "Label",
+				"rect" : "620,5,260,70"
+            },
             {
-               "id" : "group1",
-               "width" : 800,
-               "height" : 130,
-               "type" : "LinearLayout",
-				"valign" : "center",
-               "views" : [
-                  //LinearLayout 控件内的所有子控件都需要加入width属性指定宽度
-                  {
-                     "align" : "left",
-                     "color" : "0,0,0",
-                     "size" : "24",
-                     "text" : "北倶:",
-                     "type" : "Label",
-                     "width" : 150
-                  },
-                  {
-                     "id" : "SetBeiJu",
-                     "list" : "无限北俱,5点带天，5点捉鬼",
-                     "select" : "0",
-                     "size" : "16",
-                     "type" : "ComboBox",
-                     "width" : 300
-                  }
-               ]
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 40,
+               "text" : "北倶：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,90,350,90"
             },
-						{
-	            "id" : "group2",
-	            "width" : 800,
-	            "height" : 130,
-	            "type" : "LinearLayout",
-				"valign" : "center",
-	            "views" : [
-	            	//LinearLayout 控件内的所有子控件都需要加入width属性指定宽度
-							{
-	              "align" : "left",
-	              "color" : "0,0,0",
-	              "size" : "24",
-	              "text" : "召唤兽灵修:",
-	              "type" : "Label",
-	              "width" : 150
-              },
-							{
-	              "id" : "SetLingXiu",
-	              "list" : "经验,亲密",
-	              "select" : "0",
-	              "size" : "24",
-	              "type" : "ComboBox",
-	              "width" : 150
-              },
-			  {
-	              "id" : "ZhaoHuanShou",
-	              "list" : "1,2,3",
-	              "select" : "0",
-	              "size" : "24",
-	              "type" : "ComboBox",
-	              "width" : 150
-              }
-	            ]
+            {
+               "id" : "SetBeiJu",
+               "list" : "无限北俱,5点带天,5点捉鬼",
+               "select" : "0",
+               "size" : 40,
+               "type" : "ComboBox",
+               "rect" : "390,90,470,90"
             },
-			{
-	            "id" : "group3",
-	            "width" : 800,
-	            "height" : 130,
-	            "type" : "LinearLayout",
-	            "views" : [
-	            	//LinearLayout 控件内的所有子控件都需要加入width属性指定宽度
-							{
-	              "align" : "left",
-	              "color" : "0,0,0",
-	              "size" : "24",
-	              "text" : "五环:",
-	              "type" : "Label",
-	              "width" : 150
-              },
-							{
-	              "id" : "SetWuHuan",
-	              "list" : "单人,双人",
-	              "select" : "0",
-	              "size" : "24",
-	              "type" : "ComboBox",
-	              "width" : 300
-              }
-	            ]
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 40,
+               "text" : "召唤兽灵修：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,210,350,90"
             },
-			{
-				"id" : "group4",
-	            "width" : 800,
-	            "height" : 130,
-	            "type" : "LinearLayout",
-				"views" : [
-					{
-						"align" : "left",
-						"color" : "0,0,0",
-						"size" : "24",
-						"text" : "所选任务完成后:",
-						"type" : "Label",
-						"width" : 150
-					},
-					{
-						"id" : "SetEnd",
-						"list" : "无限北俱,退出",
-						"select" : "0",
-						"size" : "24",
-						"type" : "ComboBox",
-						"width" : 300
-					}
-				]
-			}
+            {
+               "id" : "SetLingXiu",
+               "list" : "经验,亲密",
+               "select" : "0",
+               "size" : 40,
+               "type" : "ComboBox",
+               "rect" : "390,210,240,90"
+            },
+            {
+               "id" : "ZhaoHuanShou",
+               "list" : "1,2,3",
+               "select" : "0",
+               "size" : 40,
+               "type" : "ComboBox",
+               "rect" : "640,210,220,90"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 40,
+               "text" : "五环：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,330,350,90"
+            },
+            {
+               "id" : "SetWuHuan",
+               "list" : "单人,双人",
+               "select" : "0",
+               "size" : 40,
+               "type" : "ComboBox",
+               "rect" : "390,330,470,90"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 40,
+               "text" : "所选任务完成后：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,450,350,90"
+            },
+            {
+               "id" : "SetEnd",
+               "list" : "无限北俱,退出",
+               "select" : "0",
+               "size" : 40,
+               "type" : "ComboBox",
+               "rect" : "390,450,470,90"
+            }
          ]
       }
    ]
