@@ -52,6 +52,7 @@ function pubFun_tab.isPk(width)
 	if(width == 1080) then
 		x, y = findColor({8, 107, 155, 158}, "0|0|0x8c5337,28|4|0x7d422e,57|0|0x7a412c,86|-2|0x7c412d,112|2|0x7e442f",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
+			dhxyUtils_tab.tap(300,math.random(887, 1138),math.random(366, 553));
 			return true;
 		else
 			return false;
@@ -331,17 +332,24 @@ end
 function pubFun_tab.findBoxBaoTu(width) 
 	local x, y = 0, 0;
 	if(width == 1080) then
-		point = findColors({959, 298, 1593, 951}, "0|0|0xc5493a,-42|62|0x94756b,-17|37|0xeff3bd,13|41|0xb59e52",95, 0, 0, 0);
-		if #point ~= 0 then
-			for var = 1,#point do
-				x = point[var].x;
-				y = point[var].y;
-			end
-			dhxyUtils_tab.tap(300,math.random((x-33), (x+34)),math.random((y-21), (y+44)));
+		x, y = findColor({954, 293, 1599, 948}, "0|0|0xc54d3a,-27|47|0xa48673,0|28|0xe6db94",93, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			dhxyUtils_tab.tap(300,math.random((x-27), (x+31)),math.random((y-17), (y+41)));
 			return true;
 		else
 			return false;
 		end
+--		point = findColors({959, 298, 1593, 951}, "0|0|0xc5493a,-42|62|0x94756b,-17|37|0xeff3bd,13|41|0xb59e52",95, 0, 0, 0);
+--		if #point ~= 0 then
+--			for var = 1,#point do
+--				x = point[var].x;
+--				y = point[var].y;
+--			end
+--			dhxyUtils_tab.tap(300,math.random((x-33), (x+34)),math.random((y-21), (y+44)));
+--			return true;
+--		else
+--			return false;
+--		end
 	end
 end
 --寻找物品的使用并点击
