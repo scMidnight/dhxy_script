@@ -36,6 +36,7 @@ function dalisi_funtab1080.dalisi(width)
 			pubFun_tab.clickEnd(width);
 			break;
 		end
+		mSleep(2000);
 		--检查是否答题界面,是的话就选择a就可以
 		local datiTabXY = pubFun_tab.findDaTi(width);
 		pubFun_tab.click(datiTabXY, "大理寺答题", math.random(432, 900), math.random(635, 707), "click");
