@@ -50,12 +50,14 @@ function jingji_funtab1080.jingji(num,width)
 				nTime = mTime();
 			end
 		else
+			mSleep(5000);
 			local index = math.random(1, 5);
 			--随机找一个PK且生成随机坐标,点击目标挑战
 			x = math.random(pkList[index].x1, pkList[index].x2);
 			y = math.random(pkList[index].y1, pkList[index].y2);
 			sysLog("挑战x:"..x.."，y:"..y);
 			dhxyUtils_tab.tap(300,x,y);
+			nTime = mTime();
 		end
 		if(pkNum == num or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
 			pubFun_tab.showHud(hud,"竞技场结束",width);
