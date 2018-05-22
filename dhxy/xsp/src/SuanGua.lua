@@ -20,10 +20,10 @@ function suangua_funtab1080.suangua(width)
 	--算卦按钮是固定的，不需要找打开界面直接点1080坐标:1185,307,1397,343
 	dhxyUtils_tab.tap(200,math.random(1185, 1397),math.random(307, 343));
 	--休息2秒
-	mSleep(1000);
+	mSleep(2000);
 	--算一卦按钮是固定的，不需要找打开界面直接点1080坐标:1047,807,1295,867
 	dhxyUtils_tab.tap(200,math.random(1047, 1295),math.random(807, 867));
-	mSleep(1000);
+	mSleep(2000);
 	--摇一摇按钮是固定的，不需要找打开界面直接点1080坐标:836,600,1084,660
 	dhxyUtils_tab.tap(300,math.random(836, 1084),math.random(600, 660));
 	--关闭摇一摇界面1080坐标:1836,29,1887,77

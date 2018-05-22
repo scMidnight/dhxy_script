@@ -514,7 +514,7 @@ function pubFun_tab.maiBaobao(width)
 					--没找到就滑下一页
 					x = math.random(739, 1546);
 					y = math.random(650, 885);
-					pubFun_tab.move(300,x,y,x,(y-160));
+					dhxyUtils_tab.move(500, x, y, x, (y-160));
 				end
 			end
 			return flag;
@@ -558,6 +558,34 @@ function pubFun_tab.findShiJieClose(width)
 		if (x ~= -1 and y ~= -1) then
 			--关闭右上角世界界面1080坐标:1836,29,1887,77
 			dhxyUtils_tab.tap(300,math.random(1836, 1887),math.random(29, 77));
+			return true;
+		else
+			return false;
+		end
+	end
+end
+--查找竞技场的挑战按钮
+function pubFun_tab.findTiaoZhan(width)
+	local x, y = 0, 0;
+	--选择挑战的目标集合
+	local pkList = {};
+	if(width == 1080) then
+		pkList = {
+			{x1=1357,x2=1540,y1=205,y2=235},
+			{x1=1357,x2=1540,y1=346,y2=408},
+			{x1=1357,x2=1540,y1=522,y2=578},
+			{x1=1357,x2=1540,y1=695,y2=755},
+			{x1=1357,x2=1540,y1=869,y2=927}
+		}
+		--找挑战按钮
+		x, y = findColor({1316, 664, 1577, 785}, "0|0|0xffffff,191|9|0x73c29c,13|64|0x29c6a4,191|56|0x31b68c",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			local index = math.random(1, 5);
+			--随机找一个PK且生成随机坐标,点击目标挑战
+			x = math.random(pkList[index].x1, pkList[index].x2);
+			y = math.random(pkList[index].y1, pkList[index].y2);
+			sysLog("挑战x:"..x.."，y:"..y);
+			dhxyUtils_tab.tap(100,x,y);
 			return true;
 		else
 			return false;

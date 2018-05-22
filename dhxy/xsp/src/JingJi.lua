@@ -24,19 +24,11 @@ function jingji_funtab1080.jingji(num,width)
 	mSleep(4000);
 	--单击对话框第一个选项
 	pubFun_tab.dialogBox(width, 1);
-	--选择挑战的目标集合
-	local pkList = {
-		{x1=1352,x2=1548,y1=205,y2=235},
-		{x1=1357,x2=1541,y1=346,y2=408},
-		{x1=1357,x2=1540,y1=522,y2=578},
-		{x1=1356,x2=1543,y1=695,y2=755},
-		{x1=1359,x2=1538,y1=869,y2=927}
-	}
+	
 	--战斗的次数
 	local pkNum = 0;
 	local nTime = mTime();--记录一个时间
 	while true do
-		mSleep(3000);
 		--检查是否战斗中
 		local isPk = pubFun_tab.isPk(width);
 		if (isPk) then
@@ -50,13 +42,7 @@ function jingji_funtab1080.jingji(num,width)
 				nTime = mTime();
 			end
 		else
-			mSleep(5000);
-			local index = math.random(1, 5);
-			--随机找一个PK且生成随机坐标,点击目标挑战
-			x = math.random(pkList[index].x1, pkList[index].x2);
-			y = math.random(pkList[index].y1, pkList[index].y2);
-			sysLog("挑战x:"..x.."，y:"..y);
-			dhxyUtils_tab.tap(0,x,y);
+			pubFun_tab.findTiaoZhan(width);
 		end
 		if(pkNum == num or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
 			pubFun_tab.showHud(hud,"竞技场结束",width);
