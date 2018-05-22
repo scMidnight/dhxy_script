@@ -56,7 +56,7 @@ function jingji_funtab1080.jingji(num,width)
 			x = math.random(pkList[index].x1, pkList[index].x2);
 			y = math.random(pkList[index].y1, pkList[index].y2);
 			sysLog("挑战x:"..x.."，y:"..y);
-			dhxyUtils_tab.tap(300,x,y);
+			dhxyUtils_tab.tap(0,x,y);
 			nTime = mTime();
 		end
 		if(pkNum == num or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
