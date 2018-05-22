@@ -57,7 +57,6 @@ function jingji_funtab1080.jingji(num,width)
 			y = math.random(pkList[index].y1, pkList[index].y2);
 			sysLog("挑战x:"..x.."，y:"..y);
 			dhxyUtils_tab.tap(0,x,y);
-			nTime = mTime();
 		end
 		if(pkNum == num or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
 			pubFun_tab.showHud(hud,"竞技场结束",width);
