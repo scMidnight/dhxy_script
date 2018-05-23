@@ -29,6 +29,7 @@ function jingji_funtab1080.jingji(num,width)
 	local pkNum = 0;
 	local nTime = mTime();--记录一个时间
 	while true do
+		mSleep(3000);
 		--检查是否战斗中
 		local isPk = pubFun_tab.isPk(width, "jingJi");
 		if (isPk) then
