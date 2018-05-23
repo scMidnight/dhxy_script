@@ -415,6 +415,10 @@ function pubFun_tab.body(width,nTime)
 				end
 				nTime = mTime();
 			end
+			--点击领悟技能知道了
+			if(pubFun_tab.findLingWu(width)) then
+				nTime = mTime();
+			end
 		else
 			for i =1, 2 do
 				--是否继续
@@ -560,6 +564,20 @@ function pubFun_tab.findShiJieClose(width)
 		if (x ~= -1 and y ~= -1) then
 			--关闭右上角世界界面1080坐标:1836,29,1887,77
 			dhxyUtils_tab.tap(300,math.random(1836, 1887),math.random(29, 77));
+			return true;
+		else
+			return false;
+		end
+	end
+end
+--查找是否领悟技能对话框
+function pubFun_tab.findLingWu(width)
+	local x, y = 0, 0;
+	if(width == 1080) then
+		x, y = findColor({589, 637, 1373, 760}, "0|0|0xff75ff,208|-32|0xf7fbf7,476|-16|0x52ba8c,243|18|0x31ba94,446|18|0x31ba94",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击1037,668,1297,727知道了
+			dhxyUtils_tab.tap(300,math.random(1037, 1297),math.random(668, 727));
 			return true;
 		else
 			return false;

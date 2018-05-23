@@ -67,9 +67,14 @@ function motor(width, beiJuType)
 						break;
 					end
 					nTime = mTime();
+					mSleep(1500);
+					--点击领悟技能知道了
+					if(pubFun_tab.findLingWu(width)) then
+						nTime = mTime();
+					end
 				end
 			else
-				if(tonumber(dhxyUtils_tab.getNowHour()) == 5) then--如果5点了
+				if(tonumber(dhxyUtils_tab.getNowHour()) == 5 and beiJuType ~= "0") then--如果5点了
 					if(pubFun_tab.patrol(width, false)) then
 						--关闭巡逻
 						dhxyUtils_tab.tap(300,math.random(923, 1024),math.random(207, 247));
@@ -85,6 +90,9 @@ function motor(width, beiJuType)
 							if(not isPk) then
 								break;
 							end
+							mSleep(1500);
+							--点击领悟技能知道了
+							pubFun_tab.findLingWu(width);
 						end
 						break;
 					end

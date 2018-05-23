@@ -23,7 +23,7 @@ function huan200_funtab1080.run(width)
 			end
 			local nTime = mTime();--记录一个时间
 			while true do
-				mSleep(5000);
+				mSleep(3000);
 				--检测是否答题对话框,是的话就选择a就可以
 				local datiTabXY = pubFun_tab.findDaTi(width);
 				if(pubFun_tab.click(datiTabXY, "诗词鬼或者歌词", math.random(432, 900), math.random(635, 707), "click")) then
@@ -33,24 +33,24 @@ function huan200_funtab1080.run(width)
 					mSleep(500);
 					nTime = mTime();
 				end
-				mSleep(2000);
+				mSleep(1500);
 				--如果是要宝宝的任务
 				if(pubFun_tab.maiBaobao(width)) then
 					nTime = mTime();
 				end
-				mSleep(2000);
+				mSleep(1500);
 				--上交各种物品，选择药品，召唤兽
 				if(pubFun_tab.shangJiao(width)) then
 					nTime = mTime();
 				end
-				mSleep(2000);
+				mSleep(1500);
 				--找对话框，一般是战斗或者上交技能书那一环使用
 				isDialog = pubFun_tab.findDialog(width);
 				if(isDialog) then
 					pubFun_tab.dialogBox(width, 1);
 					nTime = mTime();
 				end
-				mSleep(2000);
+				mSleep(1500);
 				--判断是否在战斗中
 				local isPk = pubFun_tab.isPk(width);
 				if (isPk) then
@@ -62,6 +62,11 @@ function huan200_funtab1080.run(width)
 						end
 						nTime = mTime();
 					end
+				end
+				mSleep(1500);
+				--点击领悟技能知道了
+				if(pubFun_tab.findLingWu(width)) then
+					nTime = mTime();
 				end
 				--判断结束
 				if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 120) then
