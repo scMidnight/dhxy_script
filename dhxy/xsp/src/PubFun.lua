@@ -47,12 +47,14 @@ function pubFun_tab.findJingJi(width)
 	return clickTabXY;
 end
 --判断是否战斗中
-function pubFun_tab.isPk(width)
+function pubFun_tab.isPk(width, isClick)
 	local x, y = 0, 0;
 	if(width == 1080) then
 		x, y = findColor({8, 107, 155, 158}, "0|0|0x8c5337,28|4|0x7d422e,57|0|0x7a412c,86|-2|0x7c412d,112|2|0x7e442f",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
-			dhxyUtils_tab.tap(300,math.random(887, 1138),math.random(366, 553));
+			if(isClick ~= "jingJi") then
+				dhxyUtils_tab.tap(300,math.random(887, 1138),math.random(366, 553));
+			end
 			return true;
 		else
 			return false;
@@ -571,7 +573,7 @@ function pubFun_tab.findTiaoZhan(width)
 	local pkList = {};
 	if(width == 1080) then
 		pkList = {
-			{x1=1357,x2=1540,y1=205,y2=235},
+			--{x1=1357,x2=1540,y1=205,y2=235},
 			{x1=1357,x2=1540,y1=346,y2=408},
 			{x1=1357,x2=1540,y1=522,y2=578},
 			{x1=1357,x2=1540,y1=695,y2=755},
@@ -580,7 +582,7 @@ function pubFun_tab.findTiaoZhan(width)
 		--找挑战按钮
 		x, y = findColor({1316, 664, 1577, 785}, "0|0|0xffffff,191|9|0x73c29c,13|64|0x29c6a4,191|56|0x31b68c",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
-			local index = math.random(1, 5);
+			local index = math.random(1, 4);
 			--随机找一个PK且生成随机坐标,点击目标挑战
 			x = math.random(pkList[index].x1, pkList[index].x2);
 			y = math.random(pkList[index].y1, pkList[index].y2);

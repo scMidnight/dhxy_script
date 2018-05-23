@@ -47,6 +47,7 @@ function huan200_funtab1080.run(width)
 				--找对话框，一般是战斗或者上交技能书那一环使用
 				isDialog = pubFun_tab.findDialog(width);
 				if(isDialog) then
+					pubFun_tab.dialogBox(width, 1);
 					nTime = mTime();
 				end
 				mSleep(2000);

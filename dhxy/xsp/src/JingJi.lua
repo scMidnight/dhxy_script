@@ -30,12 +30,12 @@ function jingji_funtab1080.jingji(num,width)
 	local nTime = mTime();--记录一个时间
 	while true do
 		--检查是否战斗中
-		local isPk = pubFun_tab.isPk(width);
+		local isPk = pubFun_tab.isPk(width, "jingJi");
 		if (isPk) then
 			pkNum = pkNum + 1;
 			while true do
 				mSleep(2000);
-				isPk = pubFun_tab.isPk(width);
+				isPk = pubFun_tab.isPk(width, "jingJi");
 				if (not isPk) then
 					break;
 				end
