@@ -1,6 +1,66 @@
 lingxiu_funtab1080 = {};
+lingxiu_funtab720 = {};
 require("DhxyUtils");
 require("PubFun");
+
+--720灵修
+function lingxiu_funtab720.lingxiu(lType, choice, width, zhaohuanShou) 
+	local hud = createHUD();
+	pubFun_tab.showHud(hud,"灵修",width);
+	local x, y = 0, 0;
+	mSleep(3000);
+	--找更多按钮并点击
+	local moreXYTab = pubFun_tab.findMore(width);
+	pubFun_tab.click(moreXYTab, "更多", math.random(1365, 1405), math.random(636, 686), "click");
+	mSleep(1000);
+	--找家园按钮并点击
+	local homeXYTab = pubFun_tab.findHome(width);
+	x, y = homeXYTab.x, homeXYTab.y;
+	pubFun_tab.click(moreXYTab, "家园", math.random(x-18, x+19), math.random(y, y+47), "click");
+	mSleep(2000);
+	--管家按钮是固定的，不需要找打开界面直接点720坐标:878,475,1004,510
+	dhxyUtils_tab.tap(200,math.random(878, 1004),math.random(475, 510));
+	--休息5秒
+	mSleep(5000);
+	--召唤兽灵修按钮，对话框点击第一个
+	pubFun_tab.dialogBox(width, 1);
+	if(lType == "宝宝") then
+		if(choice == "经验") then
+			--点击经验572,130,701,165
+			dhxyUtils_tab.tap(200,math.random(572, 701),math.random(130, 165));
+		elseif(choice == "亲密") then
+			--点击亲密747,129,870,165
+			dhxyUtils_tab.tap(200,math.random(747, 870),math.random(129, 165));
+		end
+	elseif(lType == "坐骑") then
+		--点击坐骑1186,320,1222,412
+		dhxyUtils_tab.tap(200,math.random(1186, 1222),math.random(320, 412));
+	end
+	--判断第几个召唤兽灵修
+	if(zhaohuanShou == "0") then
+		--点击第一个:342,137,524,210
+		dhxyUtils_tab.tap(200,math.random(342, 524),math.random(137, 210));
+	elseif(zhaohuanShou == "1") then
+		--点击第二个:346,249,531,323
+		dhxyUtils_tab.tap(200,math.random(346, 531),math.random(249, 323));
+	elseif(zhaohuanShou == "2") then
+		--点击第三个:343,358,534,435
+		dhxyUtils_tab.tap(200,math.random(343, 534),math.random(358, 435));
+	elseif(zhaohuanShou == "3") then
+		--点击第四个:342,471,533,547
+		dhxyUtils_tab.tap(200,math.random(342, 533),math.random(471, 547));
+	end
+	--点击开始:773,594,951,636
+	dhxyUtils_tab.tap(200,math.random(773, 951),math.random(594, 636));
+	mSleep(1000);
+	--关闭灵修对话框
+	pubFun_tab.close(width, "灵修对话框");
+	--再点一下更多，使还原
+	dhxyUtils_tab.tap(200,math.random(1364, 1413),math.random(643, 691));
+	pubFun_tab.showHud(hud,"灵修结束",width);
+	mSleep(2000);
+	hideHUD(hud);
+end
 
 --1080灵修
 function lingxiu_funtab1080.lingxiu(choice,width,zhaohuanShou)

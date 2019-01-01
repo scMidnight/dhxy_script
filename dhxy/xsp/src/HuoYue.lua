@@ -1,6 +1,47 @@
 huoyue_funtab1080 = {};
+huoyue_funtab720 = {};
 require("DhxyUtils");
 require("PubFun");
+
+--活跃领奖
+function huoyue_funtab720.huoyue(width)
+	local hud = createHUD();
+	pubFun_tab.showHud(hud,"活跃领奖",width);
+	--每个奖励的x坐标
+	local jiangliList = {
+		{x1=403,x2=451},
+		{x1=527,x2=575},
+		{x1=651,x2=701},
+		{x1=777,x2=826},
+		{x1=904,x2=951},
+		{x1=1029,x2=1073}
+	}
+	mSleep(3000);
+	--寻找活动并点击30,288,108,370
+	local activityTabXY = pubFun_tab.findActivity(width);
+	if(activityTabXY.isFound) then
+		if(pubFun_tab.click(activityTabXY, "活动", math.random(23, 75), math.random(199, 247), "click")) then
+			for var = 1,#jiangliList do
+				dhxyUtils_tab.doubleClick(0,math.random(jiangliList[var].x1, jiangliList[var].x2),math.random(555, 600));
+			end
+		end
+		pubFun_tab.close(width, "活动面板");
+		while true do
+			--寻找右下角使用并点击
+			if(not pubFun_tab.findYouUse(width)) then
+				break;
+			end
+		end
+		pubFun_tab.showHud(hud,"领奖结束",width);
+		mSleep(2000);
+	else
+		pubFun_tab.showHud(hud,"未找到活动",width);
+		mSleep(2000);
+		pubFun_tab.showHud(hud,"领奖结束",width);
+		mSleep(2000);
+	end
+	hideHUD(hud);
+end
 
 --活跃领奖
 function huoyue_funtab1080.huoyue(width)

@@ -1,6 +1,71 @@
 bangpai_funtab1080 = {};
+bangpai_funtab720 = {};
 require("DhxyUtils");
 require("PubFun");
+
+--720帮派
+function bangpai_funtab720.bangpai(width)
+	local hud = createHUD();
+	pubFun_tab.showHud(hud,"帮派任务",width);
+	local x, y = 0, 0;
+	mSleep(3000);
+	--寻找活动并点击30,288,108,370
+	local activityTabXY = pubFun_tab.findActivity(width);
+	if(activityTabXY.isFound) then
+		pubFun_tab.click(activityTabXY, "活动", math.random(23, 75), math.random(199, 247), "click");
+		mSleep(3000);
+		--点击帮派
+		pubFun_tab.clickBangPai(width);
+		mSleep(8000);
+		--找对话框
+		local c = pubFun_tab.findDialog(width);
+		if (c) then
+			--点帮派主管对话框选择第一个选项
+			pubFun_tab.dialogBox(width, 1);
+		end
+		--一直找买卖东西或者提示战斗的对话框
+		while true do
+			mSleep(5000);
+			--是否有对话框
+			local isDialog = false;
+			--是否在战斗
+			local isPk = false;
+			--买各类东西
+			pubFun_tab.buy(width);
+			mSleep(6000);
+			--找对话框
+			isDialog = pubFun_tab.findDialog(width);
+			if (isDialog) then
+				--点对话框第一个选项
+				pubFun_tab.dialogBox(width, 1);
+			end
+			mSleep(6000);
+			--判断是否在战斗中
+			isPk = pubFun_tab.isPk(width);
+			if (isPk) then
+				mSleep(20000);
+			end
+			mSleep(6000);
+			--检测是否结束
+			local isEnd = pubFun_tab.bangPaiEnd(width);
+			if(isEnd) then
+				pubFun_tab.showHud(hud,"帮派任务结束",width);
+				--把结束框点掉
+				pubFun_tab.clickEnd(width);
+				mSleep(2000);
+				break;
+			end
+		end
+		pubFun_tab.showHud(hud,"帮派任务结束",width);
+		mSleep(2000);
+	else
+		pubFun_tab.showHud(hud,"未找到活动",width);
+		mSleep(2000);
+		pubFun_tab.showHud(hud,"帮派任务结束",width);
+		mSleep(2000);
+	end
+	hideHUD(hud);
+end
 
 --1080帮派
 function bangpai_funtab1080.bangpai(width)
