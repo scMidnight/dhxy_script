@@ -1,15 +1,15 @@
-qiandao_funtab1080 = {};
-qiandao_funtab720 = {};
+qiandao_funtab1080_1920 = {};
+qiandao_funtab720_1440 = {};
 require("DhxyUtils");
 require("PubFun");
 
---签到720
-function qiandao_funtab720.qiandao(width)
+--签到720_1440
+function qiandao_funtab720_1440.qiandao(width, height)
 	local hud = createHUD();
-	pubFun_tab.showHud(hud,"签到",width);
+	pubFun_tab.showHud(hud,"签到",width, height);
 	mSleep(3000);
 	--获得奖励xy坐标并点击奖励
-	local jiangliXYTab = pubFun_tab.findJiangli(width);
+	local jiangliXYTab = pubFun_tab.findJiangli(width, height);
 	pubFun_tab.click(jiangliXYTab, "奖励", math.random(jiangliXYTab.x-20, jiangliXYTab.x+23), math.random(jiangliXYTab.y-3, jiangliXYTab.y+35), "click");
 	mSleep(1000);
 	--直接点击第一个每日签到不查找
@@ -21,7 +21,7 @@ function qiandao_funtab720.qiandao(width)
 	--关闭窗口
 	dhxyUtils_tab.tap(200,math.random(1183, 1204),math.random(107, 133));
 	--找确定按钮
-	if(pubFun_tab.isOk(width)) then
+	if(pubFun_tab.isOk(width, height)) then
 		--找到了说明卡包满了，点取消523,444,645,486
 		dhxyUtils_tab.tap(200,math.random(523, 645),math.random(444, 486));
 		mSleep(1000);
@@ -40,18 +40,18 @@ function qiandao_funtab720.qiandao(width)
 		--关闭窗口
 		dhxyUtils_tab.tap(200,math.random(1183, 1204),math.random(107, 133));
 	end
-	pubFun_tab.showHud(hud,"签到结束",width);
+	pubFun_tab.showHud(hud,"签到结束",width, height);
 	mSleep(2000);
 	hideHUD(hud);
 end
 
---签到1080
-function qiandao_funtab1080.qiandao(width)
+--签到1080_1920
+function qiandao_funtab1080_1920.qiandao(width, height)
 	local hud = createHUD();
-	pubFun_tab.showHud(hud,"签到",width);
+	pubFun_tab.showHud(hud,"签到",width, height);
 	mSleep(2000);
 	--获得奖励xy坐标并点击奖励
-	local jiangliXYTab = pubFun_tab.findJiangli(width);
+	local jiangliXYTab = pubFun_tab.findJiangli(width, height);
 	pubFun_tab.click(jiangliXYTab, "奖励", math.random(33, 103), math.random(445, 512), "click");
 	--休息一秒
 	mSleep(1000);
@@ -61,7 +61,7 @@ function qiandao_funtab1080.qiandao(width)
 	mSleep(2000);
 	--直接点关闭签到关闭特殊，单独做
 	dhxyUtils_tab.tap(300,math.random(1647, 1690),math.random(159, 196));
-	pubFun_tab.showHud(hud,"签到结束",width);
+	pubFun_tab.showHud(hud,"签到结束",width, height);
 	mSleep(1000);
 	hideHUD(hud);
 end

@@ -1,21 +1,21 @@
-dalisi_funtab1080 = {};
-dalisi_funtab720 = {};
+dalisi_funtab1080_1920 = {};
+dalisi_funtab720_1440 = {};
 require("PubFun");
 
---720大理寺
-function dalisi_funtab720.dalisi(width)
+--720_1440大理寺
+function dalisi_funtab720_1440.dalisi(width, height)
 	local hud = createHUD();
-	pubFun_tab.showHud(hud,"大理寺答题",width);
+	pubFun_tab.showHud(hud,"大理寺答题",width, height);
 	local x, y = 0, 0;
 	mSleep(3000);
 	--点击世界地图并回家
-	pubFun_tab.goHome(width, "goHome");
+	pubFun_tab.goHome(width, height, "goHome");
 	mSleep(1000);
 	--查找世界地图是否关闭，没有的话就关闭
-	pubFun_tab.findShiJieClose(width);
+	pubFun_tab.findShiJieClose(width, height);
 	mSleep(1000);
 	--再点一下世界地图
-	pubFun_tab.goHome(width);
+	pubFun_tab.goHome(width, height);
 	mSleep(1000);
 	--780,238,891,332长安
 	dhxyUtils_tab.tap(300,math.random(780, 891),math.random(238, 332));
@@ -27,39 +27,39 @@ function dalisi_funtab720.dalisi(width)
 	dhxyUtils_tab.tap(300,math.random(1192, 1225),math.random(54, 86));
 	mSleep(8000);
 	--找官员对话框点击第一个选项
-	pubFun_tab.dialogBox(width, 1);
+	pubFun_tab.dialogBox(width, height, 1);
 	mSleep(1000);
 	while true do
 		--检查是否答题界面,是的话就选择a就可以
-		local datiTabXY = pubFun_tab.findDaTi(width);
+		local datiTabXY = pubFun_tab.findDaTi(width, height);
 		if(datiTabXY.isFound) then
 			pubFun_tab.click(datiTabXY, "大理寺答题", math.random(511, 755), math.random(392, 461), "click");
 		else
 			--答题完后随便点个位置，把对话框点掉
-			pubFun_tab.clickEnd(width);
+			pubFun_tab.clickEnd(width, height);
 			break;
 		end
 		mSleep(2000);
 	end
-	pubFun_tab.showHud(hud,"答题结束",width);
+	pubFun_tab.showHud(hud,"答题结束",width, height);
 	mSleep(2000);
 	hideHUD(hud);
 end
 
---1080大理寺
-function dalisi_funtab1080.dalisi(width)
+--1080_1920大理寺
+function dalisi_funtab1080_1920.dalisi(width, height)
 	local hud = createHUD();
-	pubFun_tab.showHud(hud,"大理寺答题",width);
+	pubFun_tab.showHud(hud,"大理寺答题",width, height);
 	local x, y = 0, 0;
 	mSleep(2000);
 	--点击世界地图并回家
-	pubFun_tab.goHome(width, "goHome");
+	pubFun_tab.goHome(width, height, "goHome");
 	mSleep(2000);
 	--查找世界地图是否关闭，没有的话就关闭
-	pubFun_tab.findShiJieClose(width);
+	pubFun_tab.findShiJieClose(width, height);
 	mSleep(1000);
 	--再点一下世界地图
-	pubFun_tab.goHome(width);
+	pubFun_tab.goHome(width, height);
 	mSleep(1000);
 	--1034,369,1163,441长安
 	dhxyUtils_tab.tap(300,math.random(1034, 1163),math.random(369, 441));
@@ -71,19 +71,19 @@ function dalisi_funtab1080.dalisi(width)
 	dhxyUtils_tab.tap(300,math.random(1666, 1714),math.random(85, 129));
 	mSleep(8000);
 	--找官员对话框点击第一个选项
-	pubFun_tab.dialogBox(width, 1);
+	pubFun_tab.dialogBox(width, height, 1);
 	mSleep(1000);
 	local answerNum = 0;--回答次数
 	while true do
 		if(answerNum == 10) then
-			pubFun_tab.showHud(hud,"答题结束",width);
+			pubFun_tab.showHud(hud,"答题结束",width, height);
 			--答题完后随便点个位置，把对话框点掉
-			pubFun_tab.clickEnd(width);
+			pubFun_tab.clickEnd(width, height);
 			break;
 		end
 		mSleep(2000);
 		--检查是否答题界面,是的话就选择a就可以
-		local datiTabXY = pubFun_tab.findDaTi(width);
+		local datiTabXY = pubFun_tab.findDaTi(width, height);
 		pubFun_tab.click(datiTabXY, "大理寺答题", math.random(432, 900), math.random(635, 707), "click");
 		answerNum = answerNum + 1;
 		mSleep(2000);

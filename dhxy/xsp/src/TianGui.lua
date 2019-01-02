@@ -1,25 +1,25 @@
-tiangui_funtab1080 = {};
-tiangui_funtab720 = {};
+tiangui_funtab1080_1920 = {};
+tiangui_funtab720_1440 = {};
 require("DhxyUtils");
 require("PubFun");
 
---720抓鬼
-function tiangui_funtab720.gui(width)
+--720_1440抓鬼
+function tiangui_funtab720_1440.gui(width, height)
 	local hud = createHUD();
-	pubFun_tab.showHud(hud,"抓鬼",width);
+	pubFun_tab.showHud(hud,"抓鬼",width, height);
 	local x, y = 0, 0;
 	mSleep(3000);
 	--领双
-	pubFun_tab.shuang(width);
+	pubFun_tab.shuang(width, height);
 	mSleep(2000);
 	--点击世界地图并回家
-	pubFun_tab.goHome(width, "goHome");
+	pubFun_tab.goHome(width, height, "goHome");
 	mSleep(2000);
 	--查找世界地图是否关闭，没有的话就关闭
-	pubFun_tab.findShiJieClose(width);
+	pubFun_tab.findShiJieClose(width, height);
 	mSleep(2000);
 	--再点一下世界地图
-	pubFun_tab.goHome(width);
+	pubFun_tab.goHome(width, height);
 	mSleep(2000);
 	--点击地府：1078,508,1152,539
 	dhxyUtils_tab.tap(300,math.random(1078, 1152),math.random(508, 539));
@@ -32,41 +32,41 @@ function tiangui_funtab720.gui(width)
 	--休息10s
 	mSleep(10000);
 	--找对话框
-	local isDialog = pubFun_tab.findDialog(width);
+	local isDialog = pubFun_tab.findDialog(width, height);
 	if (isDialog) then
 		--点对话框第一个选项
-		pubFun_tab.dialogBox(width, 1);
+		pubFun_tab.dialogBox(width, height, 1);
 		--判断是否在战斗中
 		local nTime = mTime();--记录一个时间
 		while true do
-			nTime = pubFun_tab.body(width, nTime);
+			nTime = pubFun_tab.body(width, height, nTime);
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 120) then
 				break;
 			end
 		end
 	end
-	pubFun_tab.showHud(hud,"抓鬼结束",width);
+	pubFun_tab.showHud(hud,"抓鬼结束",width, height);
 	mSleep(2000);
 	hideHUD(hud);
 end
 
---720天
-function tiangui_funtab720.tian(width)
+--720_1440天
+function tiangui_funtab720_1440.tian(width, height)
 	local hud = createHUD();
-	pubFun_tab.showHud(hud,"做天",width);
+	pubFun_tab.showHud(hud,"做天",width, height);
 	local x, y = 0, 0;
 	mSleep(3000);
 	--领双
-	pubFun_tab.shuang(width);
+	pubFun_tab.shuang(width, height);
 	mSleep(2000);
 	--点击世界地图并回家
-	pubFun_tab.goHome(width, "goHome");
+	pubFun_tab.goHome(width, height, "goHome");
 	mSleep(2000);
 	--查找世界地图是否关闭，没有的话就关闭
-	pubFun_tab.findShiJieClose(width);
+	pubFun_tab.findShiJieClose(width, height);
 	mSleep(2000);
 	--再点一下世界地图
-	pubFun_tab.goHome(width);
+	pubFun_tab.goHome(width, height);
 	mSleep(2000);
 	--点击天宫：345,10,417,74
 	dhxyUtils_tab.tap(300,math.random(345, 417),math.random(10, 74));
@@ -78,41 +78,41 @@ function tiangui_funtab720.tian(width)
 	--休息10s
 	mSleep(10000);
 	--找对话框
-	local isDialog = pubFun_tab.findDialog(width);
+	local isDialog = pubFun_tab.findDialog(width, height);
 	if (isDialog) then
 		--点对话框第一个选项
-		pubFun_tab.dialogBox(width, 1);
+		pubFun_tab.dialogBox(width, height, 1);
 		--判断是否在战斗中
 		local nTime = mTime();--记录一个时间
 		while true do
-			nTime = pubFun_tab.body(width, nTime);
+			nTime = pubFun_tab.body(width, height, nTime);
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 120) then
 				break;
 			end
 		end
 	end
-	pubFun_tab.showHud(hud,"做天结束",width);
+	pubFun_tab.showHud(hud,"做天结束",width, height);
 	mSleep(2000);
 	hideHUD(hud);
 end
 
---1080抓鬼
-function tiangui_funtab1080.gui(width)
+--1080_1920抓鬼
+function tiangui_funtab1080_1920.gui(width, height)
 	local hud = createHUD();
-	pubFun_tab.showHud(hud,"抓鬼",width);
+	pubFun_tab.showHud(hud,"抓鬼",width, height);
 	local x, y = 0, 0;
 	mSleep(1000);
 	--领双
-	pubFun_tab.shuang(width);
+	pubFun_tab.shuang(width, height);
 	mSleep(1000);
 	--点击世界地图并回家
-	pubFun_tab.goHome(width, "goHome");
+	pubFun_tab.goHome(width, height, "goHome");
 	mSleep(2000);
 	--查找世界地图是否关闭，没有的话就关闭
-	pubFun_tab.findShiJieClose(width);
+	pubFun_tab.findShiJieClose(width, height);
 	mSleep(1000);
 	--再点一下世界地图
-	pubFun_tab.goHome(width);
+	pubFun_tab.goHome(width, height);
 	mSleep(1000);
 	--点击地府：1514,782,1565,938
 	dhxyUtils_tab.tap(300,math.random(1514, 1565),math.random(782, 938));
@@ -125,40 +125,40 @@ function tiangui_funtab1080.gui(width)
 	--休息10s
 	mSleep(10000);
 	--找对话框
-	local isDialog = pubFun_tab.findDialog(width);
+	local isDialog = pubFun_tab.findDialog(width, height);
 	if (isDialog) then
 		--点对话框第一个选项
-		pubFun_tab.dialogBox(width, 1);
+		pubFun_tab.dialogBox(width, height, 1);
 		--判断是否在战斗中
 		local nTime = mTime();--记录一个时间
 		while true do
-			nTime = pubFun_tab.body(width, nTime);
+			nTime = pubFun_tab.body(width, height, nTime);
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 120) then
 				break;
 			end
 		end
 	end
-	pubFun_tab.showHud(hud,"抓鬼结束",width);
+	pubFun_tab.showHud(hud,"抓鬼结束",width, height);
 	mSleep(2000);
 	hideHUD(hud);
 end
---1080做天
-function tiangui_funtab1080.tian(width)
+--1080_1920做天
+function tiangui_funtab1080_1920.tian(width, height)
 	local hud = createHUD();
-	pubFun_tab.showHud(hud,"做天",width);
+	pubFun_tab.showHud(hud,"做天",width, height);
 	local x, y = 0, 0;
 	mSleep(1000);
 	--领双
-	pubFun_tab.shuang(width);
+	pubFun_tab.shuang(width, height);
 	mSleep(1000);
 	--点击世界地图并回家
-	pubFun_tab.goHome(width, "goHome");
+	pubFun_tab.goHome(width, height, "goHome");
 	mSleep(2000);
 	--查找世界地图是否关闭，没有的话就关闭
-	pubFun_tab.findShiJieClose(width);
+	pubFun_tab.findShiJieClose(width, height);
 	mSleep(1000);
 	--再点一下世界地图
-	pubFun_tab.goHome(width);
+	pubFun_tab.goHome(width, height);
 	mSleep(1000);
 	--点击天宫：404,22,511,112
 	dhxyUtils_tab.tap(300,math.random(404, 511),math.random(22, 112));
@@ -170,20 +170,20 @@ function tiangui_funtab1080.tian(width)
 	--休息10s
 	mSleep(10000);
 	--找对话框
-	local isDialog = pubFun_tab.findDialog(width);
+	local isDialog = pubFun_tab.findDialog(width, height);
 	if (isDialog) then
 		--点对话框第一个选项
-		pubFun_tab.dialogBox(width, 1);
+		pubFun_tab.dialogBox(width, height, 1);
 		--判断是否在战斗中
 		local nTime = mTime();--记录一个时间
 		while true do
-			nTime = pubFun_tab.body(width, nTime);
+			nTime = pubFun_tab.body(width, height, nTime);
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 120) then
 				break;
 			end
 		end
 	end
-	pubFun_tab.showHud(hud,"做天结束",width);
+	pubFun_tab.showHud(hud,"做天结束",width, height);
 	mSleep(2000);
 	hideHUD(hud);
 end

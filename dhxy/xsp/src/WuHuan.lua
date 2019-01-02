@@ -1,22 +1,22 @@
-wuhuan_funtab1080 = {};
-wuhuan_funtab720 = {};
+wuhuan_funtab1080_1920 = {};
+wuhuan_funtab720_1440 = {};
 require("DhxyUtils");
 require("PubFun");
 
---720五环
-function wuhuan_funtab720.wuhuan(width,flag)
+--720_1440五环
+function wuhuan_funtab720_1440.wuhuan(width, height,flag)
 	local hud = createHUD();
-	pubFun_tab.showHud(hud,"五环任务",width);
+	pubFun_tab.showHud(hud,"五环任务",width, height);
 	local x, y = 0, 0;
 	mSleep(3000);
 	--点击世界地图并回家
-	pubFun_tab.goHome(width, "goHome");
+	pubFun_tab.goHome(width, height, "goHome");
 	mSleep(1000);
 	--查找世界地图是否关闭，没有的话就关闭
-	pubFun_tab.findShiJieClose(width);
+	pubFun_tab.findShiJieClose(width, height);
 	mSleep(1000);
 	--再点一下世界地图
-	pubFun_tab.goHome(width);
+	pubFun_tab.goHome(width, height);
 	mSleep(1000);
 	--780,238,891,332长安
 	dhxyUtils_tab.tap(300,math.random(780, 891),math.random(238, 332));
@@ -28,14 +28,14 @@ function wuhuan_funtab720.wuhuan(width,flag)
 	mSleep(8000);
 	--是否有对话框
 	--找对话框
-	local isDialog = pubFun_tab.findDialog(width);
+	local isDialog = pubFun_tab.findDialog(width, height);
 	if (isDialog) then
 		if(flag == "single") then
 			--点对话框第二个选项
-			pubFun_tab.dialogBox(width, 2);
+			pubFun_tab.dialogBox(width, height, 2);
 		elseif(flag == "double") then
 			--点对话框第一个选项
-			pubFun_tab.dialogBox(width, 1);
+			pubFun_tab.dialogBox(width, height, 1);
 		end
 	end
 	local nTime = mTime();--记录一个时间
@@ -44,14 +44,14 @@ function wuhuan_funtab720.wuhuan(width,flag)
 	while true do
 		mSleep(5000);
 		--判断是否在战斗中
-		local isPk = pubFun_tab.isPk(width);
+		local isPk = pubFun_tab.isPk(width, height);
 		if (isPk) then
 			pkNum = pkNum + 1;
 --			sysLog("第"..pkNum.."次。");
-			pubFun_tab.showHud(hud,"五环任务",width);
+			pubFun_tab.showHud(hud,"五环任务",width, height);
 			while true do
 				mSleep(2000);
-				isPk = pubFun_tab.isPk(width);
+				isPk = pubFun_tab.isPk(width, height);
 				if(not isPk) then
 					break;
 				end
@@ -62,22 +62,22 @@ function wuhuan_funtab720.wuhuan(width,flag)
 			break;
 		end
 	end
-	pubFun_tab.showHud(hud,"五环结束",width);
+	pubFun_tab.showHud(hud,"五环结束",width, height);
 	mSleep(2000);
 	hideHUD(hud);
 end
 
---1080五环
-function wuhuan_funtab1080.wuhuan(width,flag)
+--1080_1920五环
+function wuhuan_funtab1080_1920.wuhuan(width, height,flag)
 	local hud = createHUD();
-	pubFun_tab.showHud(hud,"五环任务",width);
+	pubFun_tab.showHud(hud,"五环任务",width, height);
 	local x,y = 0,0;
 	mSleep(2000);
 	--点击世界地图并回家
-	pubFun_tab.goHome(width, "goHome");
+	pubFun_tab.goHome(width, height, "goHome");
 	mSleep(2000);
 	--再点一下世界地图
-	pubFun_tab.goHome(width);
+	pubFun_tab.goHome(width, height);
 	mSleep(1000);
 	--1034,369,1163,441长安
 	dhxyUtils_tab.tap(300,math.random(1034, 1163),math.random(369, 441));
@@ -89,14 +89,14 @@ function wuhuan_funtab1080.wuhuan(width,flag)
 	mSleep(8000);
 	--是否有对话框
 	--找对话框
-	local isDialog = pubFun_tab.findDialog(width);
+	local isDialog = pubFun_tab.findDialog(width, height);
 	if (isDialog) then
 		if(flag == "single") then
 			--点对话框第一个选项
-			pubFun_tab.dialogBox(width, 2);
+			pubFun_tab.dialogBox(width, height, 2);
 		elseif(flag == "double") then
 			--点对话框第二个选项
-			pubFun_tab.dialogBox(width, 1);
+			pubFun_tab.dialogBox(width, height, 1);
 		end
 	end
 	local nTime = mTime();--记录一个时间
@@ -105,13 +105,13 @@ function wuhuan_funtab1080.wuhuan(width,flag)
 	while true do
 		mSleep(5000);
 		--判断是否在战斗中
-		local isPk = pubFun_tab.isPk(width);
+		local isPk = pubFun_tab.isPk(width, height);
 		if (isPk) then
 			pkNum = pkNum + 1;
 			sysLog("第"..pkNum.."次。");
 			while true do
 				mSleep(2000);
-				isPk = pubFun_tab.isPk(width);
+				isPk = pubFun_tab.isPk(width, height);
 				if(not isPk) then
 					break;
 				end
@@ -122,7 +122,7 @@ function wuhuan_funtab1080.wuhuan(width,flag)
 			break;
 		end
 	end
-	pubFun_tab.showHud(hud,"五环结束",width);
+	pubFun_tab.showHud(hud,"五环结束",width, height);
 	mSleep(2000);
 	hideHUD(hud);
 end
