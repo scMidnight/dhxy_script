@@ -18,7 +18,7 @@ function suangua_funtab720_1440.suangua(width, height)
 	--找家园按钮并点击
 	local homeXYTab = pubFun_tab.findHome(width, height);
 	x, y = homeXYTab.x, homeXYTab.y;
-	pubFun_tab.click(moreXYTab, "家园", math.random(x-18, x+19), math.random(y, y+47), "click");
+	pubFun_tab.click(homeXYTab, "家园", math.random(x-18, x+19), math.random(y, y+47), "click");
 	mSleep(2000);
 	--点击算卦871,204,1016,230
 	dhxyUtils_tab.tap(200,math.random(871, 1016),math.random(204, 230));

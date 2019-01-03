@@ -18,7 +18,7 @@ function lingxiu_funtab720_1440.lingxiu(lType, choice, width, height, zhaohuanSh
 	--找家园按钮并点击
 	local homeXYTab = pubFun_tab.findHome(width, height);
 	x, y = homeXYTab.x, homeXYTab.y;
-	pubFun_tab.click(moreXYTab, "家园", math.random(x-18, x+19), math.random(y, y+47), "click");
+	pubFun_tab.click(homeXYTab, "家园", math.random(x-18, x+19), math.random(y, y+47), "click");
 	mSleep(2000);
 	--管家按钮是固定的，不需要找打开界面直接点720坐标:878,475,1004,510
 	dhxyUtils_tab.tap(200,math.random(878, 1004),math.random(475, 510));
