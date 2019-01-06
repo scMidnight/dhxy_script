@@ -1,51 +1,289 @@
 {
    "style" : "custom",
    "config" : "save_测试项目.dat",
-   "width" : 950,
-   "height" : 1000,
-   "cancelname" : "取消",
-   "okname" : "确定",
+   "width" : 1300,
+   "height" : 890,
+   "cancelname" : "我不要解放双手",
+   "okname" : "我要解放双手",
+   "countdown" : 999,
    "views" : [
       {
-         "text" : "各种任务",
+         "text" : "日常任务",
          "type" : "Page",
          "views" : [
             {
-	            "align" : "center",
-	            "color" : "0,0,0",
-	            "size" : 50,
-	            "text" : "========",
-	            "bg" : "255,255,255",
-	            "type" : "Label",
-				"rect" : "30,5,260,70"
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,5,430,70"
             },
-			{
-	            "align" : "center",
-	            "color" : "0,0,0",
-	            "size" : 50,
-	            "text" : "★富贵脚本★",
-	            "bg" : "255,255,255",
-	            "type" : "Label",
-				"rect" : "290,5,330,70"
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "★富贵脚本★",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "470,5,330,70"
             },
-			{
-	            "align" : "center",
-	            "color" : "0,0,0",
-	            "size" : 50,
-	            "text" : "========",
-	            "bg" : "255,255,255",
-	            "type" : "Label",
-				"rect" : "620,5,260,70"
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "820,5,420,70"
             },
             {
                "id" : "CheckBoxTask1",
-               "list" : "北倶挂机,抓鬼,做天,签到,召唤兽灵修,算卦,大理寺答题,竞技场,帮派,师门,宝图,五环,活跃领奖,200环",
-               "select" : "0",
+               "list" : "北倶挂机    ,抓鬼,做天,签到",
+               "select" : "",
                "size" : "60",
                "type" : "CheckBoxGroup",
                "orientation" : "horizontal",
                "color" : "0,0,0",
-               "rect" : "30,90,900,600"
+               "rect" : "60,90,1300,100"
+            },
+            {
+               "id" : "CheckBoxTask2",
+               "list" : "召唤兽灵修,算卦,大理寺答题",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,220,1300,100"
+            },
+            {
+               "id" : "CheckBoxTask3",
+               "list" : "竞技场        ,帮派,师门,宝图",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,350,1300,100"
+            },
+            {
+               "id" : "CheckBoxTask4",
+               "list" : "五环            ,活跃领奖    ,200环",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,480,1300,100"
+            }
+         ]
+      },
+      {
+         "text" : "切换账号",
+         "type" : "Page",
+         "views" : [
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,5,430,70"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "★富贵脚本★",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "470,5,330,70"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "820,5,420,70"
+            },
+            {
+               "id" : "CheckBoxAccount1",
+               "list" : "账号1",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,150,280,100"
+            },
+            {
+               "id" : "EditAccount1",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号1",
+               "size" : 50,
+               "rect" : "350,90,870,100"
+            },
+            {
+               "id" : "EditAccountPwd1",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号1密码",
+               "size" : 50,
+               "rect" : "350,200,870,100"
+            },
+            {
+               "id" : "line1",
+               "type" : "Line",
+               "color" : "128,138,135",
+               "rect" : "50,310,1170,5"
+            },
+            {
+               "id" : "CheckBoxAccount2",
+               "list" : "账号2",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,390,280,100"
+            },
+            {
+               "id" : "EditAccount2",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号2",
+               "size" : 50,
+               "rect" : "350,325,870,100"
+            },
+            {
+               "id" : "EditAccountPwd2",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号2密码",
+               "size" : 50,
+               "rect" : "350,435,870,100"
+            },
+            {
+               "id" : "line2",
+               "type" : "Line",
+               "color" : "128,138,135",
+               "rect" : "50,545,1170,5"
+            },
+            {
+               "id" : "CheckBoxAccount3",
+               "list" : "账号3",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,620,280,100"
+            },
+            {
+               "id" : "EditAccount3",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号3",
+               "size" : 50,
+               "rect" : "350,560,870,100"
+            },
+            {
+               "id" : "EditAccountPwd3",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号3密码",
+               "size" : 50,
+               "rect" : "350,670,870,100"
+            },
+            {
+               "id" : "line3",
+               "type" : "Line",
+               "color" : "128,138,135",
+               "rect" : "50,780,1170,5"
+            },
+            {
+               "id" : "CheckBoxAccount4",
+               "list" : "账号4",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,860,280,100"
+            },
+            {
+               "id" : "EditAccount4",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号4",
+               "size" : 50,
+               "rect" : "350,795,870,100"
+            },
+            {
+               "id" : "EditAccountPwd4",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号4密码",
+               "size" : 50,
+               "rect" : "350,905,870,100"
+            },
+            {
+               "id" : "line4",
+               "type" : "Line",
+               "color" : "128,138,135",
+               "rect" : "50,1015,1170,5"
+            },
+            {
+               "id" : "CheckBoxAccount5",
+               "list" : "账号5",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,1100,280,100"
+            },
+            {
+               "id" : "EditAccount5",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号5",
+               "size" : 50,
+               "rect" : "350,1030,870,100"
+            },
+            {
+               "id" : "EditAccountPwd5",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号5密码",
+               "size" : 50,
+               "rect" : "350,1140,870,100"
             }
          ]
       },
@@ -53,108 +291,174 @@
          "text" : "任务设置",
          "type" : "Page",
          "views" : [
-		  {
-	            "align" : "center",
-	            "color" : "0,0,0",
-	            "size" : 50,
-	            "text" : "========",
-	            "bg" : "255,255,255",
-	            "type" : "Label",
-				"rect" : "30,5,260,70"
-            },
-			{
-	            "align" : "center",
-	            "color" : "0,0,0",
-	            "size" : 50,
-	            "text" : "★富贵脚本★",
-	            "bg" : "255,255,255",
-	            "type" : "Label",
-				"rect" : "290,5,330,70"
-            },
-			{
-	            "align" : "center",
-	            "color" : "0,0,0",
-	            "size" : 50,
-	            "text" : "========",
-	            "bg" : "255,255,255",
-	            "type" : "Label",
-				"rect" : "620,5,260,70"
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,5,430,70"
             },
             {
                "align" : "center",
                "color" : "0,0,0",
-               "size" : 40,
+               "size" : 50,
+               "text" : "★富贵脚本★",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "470,5,330,70"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "820,5,420,70"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
                "text" : "北倶：",
                "bg" : "255,255,255",
                "type" : "Label",
-               "rect" : "30,90,350,90"
+               "rect" : "60,90,350,100"
             },
             {
                "id" : "SetBeiJu",
                "list" : "无限北俱,5点带天,5点捉鬼",
                "select" : "0",
-               "size" : 40,
+               "size" : 50,
                "type" : "ComboBox",
-               "rect" : "390,90,470,90"
+               "rect" : "390,90,840,100"
             },
             {
                "align" : "center",
                "color" : "0,0,0",
-               "size" : 40,
-               "text" : "召唤兽灵修：",
+               "size" : 50,
+               "text" : "灵修：",
                "bg" : "255,255,255",
                "type" : "Label",
-               "rect" : "30,210,350,90"
+               "rect" : "60,210,350,100"
+            },
+            {
+               "id" : "SetLingXiuType",
+               "list" : "宝宝,坐骑",
+               "select" : "0",
+               "size" : 50,
+               "type" : "ComboBox",
+               "rect" : "390,210,250,100"
             },
             {
                "id" : "SetLingXiu",
                "list" : "经验,亲密",
                "select" : "0",
-               "size" : 40,
+               "size" : 50,
                "type" : "ComboBox",
-               "rect" : "390,210,240,90"
+               "rect" : "685,210,250,100"
             },
             {
                "id" : "ZhaoHuanShou",
-               "list" : "1,2,3",
+               "list" : "1,2,3,4",
                "select" : "0",
-               "size" : 40,
+               "size" : 50,
                "type" : "ComboBox",
-               "rect" : "640,210,220,90"
+               "rect" : "980,210,250,100"
             },
             {
                "align" : "center",
                "color" : "0,0,0",
-               "size" : 40,
+               "size" : 50,
                "text" : "五环：",
                "bg" : "255,255,255",
                "type" : "Label",
-               "rect" : "30,330,350,90"
+               "rect" : "60,330,350,100"
             },
             {
                "id" : "SetWuHuan",
                "list" : "单人,双人",
                "select" : "0",
-               "size" : 40,
+               "size" : 50,
                "type" : "ComboBox",
-               "rect" : "390,330,470,90"
+               "rect" : "390,330,840,100"
             },
             {
                "align" : "center",
                "color" : "0,0,0",
-               "size" : 40,
-               "text" : "所选任务完成后：",
+               "size" : 50,
+               "text" : "账号设置：",
                "bg" : "255,255,255",
                "type" : "Label",
-               "rect" : "30,450,350,90"
+               "rect" : "60,450,350,100"
+            },
+            {
+               "id" : "AccountSet",
+               "list" : "否,是",
+               "select" : "0",
+               "size" : 50,
+               "type" : "ComboBox",
+               "rect" : "390,450,400,100"
+            },
+            {
+               "id" : "RoleNumSet",
+               "list" : "1,2,3,4,5,6",
+               "select" : "0",
+               "size" : 40,
+               "type" : "ComboBox",
+               "rect" : "830,450,400,100"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "任务完成后：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "60,570,350,100"
             },
             {
                "id" : "SetEnd",
                "list" : "无限北俱,退出",
                "select" : "0",
-               "size" : 40,
+               "size" : 50,
                "type" : "ComboBox",
-               "rect" : "390,450,470,90"
+               "rect" : "390,570,840,100"
+            }
+         ]
+      },
+      {
+         "text" : "使用说明",
+         "type" : "Page",
+         "views" : [
+			{
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,5,430,70"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "★任务设置★",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "470,5,330,70"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "820,5,420,70"
             }
          ]
       }

@@ -59,19 +59,26 @@ function huoyue_funtab1080_1920.huoyue(width, height)
 	mSleep(3000);
 	--寻找活动并点击30,288,108,370
 	local activityTabXY = pubFun_tab.findActivity(width, height);
-	if(pubFun_tab.click(activityTabXY, "活动", math.random(30, 108), math.random(288, 370), "click")) then
-		for var = 1,#jiangliList do
-			dhxyUtils_tab.doubleClick(0,math.random(jiangliList[var].x1, jiangliList[var].x2),math.random(834, 898));
+	if(activityTabXY.isFound) then
+		if(pubFun_tab.click(activityTabXY, "活动", math.random(30, 108), math.random(288, 370), "click")) then
+			for var = 1,#jiangliList do
+				dhxyUtils_tab.doubleClick(0,math.random(jiangliList[var].x1, jiangliList[var].x2),math.random(834, 898));
+			end
 		end
-	end
-	pubFun_tab.close(width, height, "活动面板");
-	while true do
-		--寻找右下角使用并点击
-		if(not pubFun_tab.findYouUse(width, height)) then
-			break;
+		pubFun_tab.close(width, height, "活动面板");
+		while true do
+			--寻找右下角使用并点击
+			if(not pubFun_tab.findYouUse(width, height)) then
+				break;
+			end
 		end
+		pubFun_tab.showHud(hud,"领奖结束",width, height);
+		mSleep(2000);
+	else
+		pubFun_tab.showHud(hud,"未找到活动",width, height);
+		mSleep(2000);
+		pubFun_tab.showHud(hud,"领奖结束",width, height);
+		mSleep(2000);
 	end
-	pubFun_tab.showHud(hud,"领奖结束",width, height);
-	mSleep(2000);
 	hideHUD(hud);
 end

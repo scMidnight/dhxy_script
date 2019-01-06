@@ -6,7 +6,7 @@ function pubFun_tab.showHud(id,text,width, height)
 		showHUD(id, text, 20, "0xFFFFFFFF","0xFF0000FF",1,-240,-310,180,50);
 	end
 	if(width == 1080 and height == 1920) then
-		showHUD(id,text,35,"0xFFFFFFFF","0xFF0000FF",1,-300,-480,260,80);
+		showHUD(id,text,30,"0xFFFFFFFF","0xFF0000FF",1,-260,-480,260,70);
 	end
 end
 --随机生成x,y
@@ -29,7 +29,7 @@ function pubFun_tab.findPackage(width, height)
 		end
 	end
 	if(width == 1080 and height == 1920) then
-		x, y = findColor({1622, 923, 1764, 1059}, "0|0|0xe66471,-38|36|0xe8948e,34|34|0xc76432,28|69|0xd9710a",95, 0, 0, 0)
+		x, y = findColor({1622, 923, 1764, 1059}, "0|0|0xe66471,-38|36|0xe8948e,34|34|0xc76432,28|69|0xd9710a",95, 0, 0, 0);
 		if(x ~= -1 and y ~= -1) then
 			clickTabXY.isFound = true;
 		else
@@ -53,7 +53,7 @@ function pubFun_tab.findJingJi(width, height)
 		end
 	end
 	if(width == 1080 and height == 1920) then
-		local point = findColors({1253, 126, 1775, 615}, "0|0|0xa28c73,-10|14|0x90310b,13|14|0x8b300f,34|14|0x99441a,-29|14|0x9c4515",95, 0, 0, 0)
+		local point = findColors({1253, 126, 1775, 615}, "0|0|0xa28c73,-10|14|0x90310b,13|14|0x8b300f,34|14|0x99441a,-29|14|0x9c4515",95, 0, 0, 0);
 		if #point ~= 0 then
 			for var = 1,#point do
 				x = point[var].x;
@@ -83,9 +83,9 @@ function pubFun_tab.isPk(width, height, isClick)
 	if(width == 1080 and height == 1920) then
 		x, y = findColor({8, 107, 155, 158}, "0|0|0x8c5337,28|4|0x7d422e,57|0|0x7a412c,86|-2|0x7c412d,112|2|0x7e442f",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
-			if(isClick ~= "jingJi") then
-				dhxyUtils_tab.tap(300,math.random(887, 1138),math.random(366, 553));
-			end
+--			if(isClick ~= "jingJi") then
+--				dhxyUtils_tab.tap(300,math.random(887, 1138),math.random(366, 553));
+--			end
 			return true;
 		else
 			return false;
@@ -157,7 +157,7 @@ function pubFun_tab.close(width, height, text)
 		dhxyUtils_tab.tap(300,x,y);
 	end
 	if(width == 1080 and height == 1920) then
-		x, y = math.random(1637, 1686), math.random(131, 171);
+		x, y = math.random(1640, 1685), math.random(127, 171);
 		sysLog("关闭"..text.."x:"..x.."，y:"..y);
 		dhxyUtils_tab.tap(300,x,y);
 	end
@@ -256,8 +256,8 @@ function pubFun_tab.goHome(width, height, choice)
 		end
 	end
 	if(width == 1080 and height == 1920) then
-		--点击世界地图13,15,109,110
-		x, y = math.random(13, 109), math.random(15, 110);
+		--点击世界地图21,16,105,74
+		x, y = math.random(21, 105), math.random(16, 74);
 		sysLog("世界地图x:"..x.."，y:"..y);
 		dhxyUtils_tab.tap(300,x,y);
 		if(choice == "goHome") then
@@ -284,7 +284,7 @@ function pubFun_tab.findDaTi200(width, height)
 	datiTabXY.y = y;
 	return datiTabXY;
 end
---检测答题界面
+--检测是否大理寺答题界面
 function pubFun_tab.findDaTi(width, height) 
 	local datiTabXY = {};
 	local x, y = 0, 0;
@@ -297,7 +297,7 @@ function pubFun_tab.findDaTi(width, height)
 		end
 	end
 	if(width == 1080 and height == 1920) then
-		x, y = findColor({361, 608, 1543, 906}, "0|0|0xdb933f,-2|105|0xdc9a40,338|53|0xda8f2f,875|47|0xda963d",95, 0, 0, 0);
+		x, y = findColor({192, 212, 1766, 1034}, "0|0|0xc8fbb7,-1262|-167|0xb7f4a5,-21|335|0x78b989,115|353|0x5f7c93",95, 0, 0, 0);
 		if(x ~= -1 and y ~= -1) then
 			datiTabXY.isFound = true;
 		else
@@ -383,9 +383,9 @@ function pubFun_tab.clickShiMen(width, height)
 	end
 	if(width == 1080 and height == 1920) then
 		for i = 1, 10 do
-			x, y = findColor({229, 265, 1627, 790}, "0|0|0x172844,-69|48|0xfcffff,-61|44|0xfaffff,-35|42|0xeef7fb,-34|8|0xf5f8fa,-4|43|0x8eb0ca",95, 0, 0, 0);
+			x, y = findColor({238, 277, 1619, 780}, "0|0|0xf5f8fa,-40|24|0xd1eff8,29|42|0x7397b6,0|62|0x6893b9",95, 0, 0, 0);
 			if(x ~= -1 and y ~= -1) then
-				dhxyUtils_tab.tap(300,math.random((x+399), (x+513)),math.random((y-15), (y+32)));
+				dhxyUtils_tab.tap(300,math.random((x+434), (x+546)),math.random((y-17), (y+24)));
 				break;
 			else
 				--在此点生成x,y滑动（613,384,1257,679）
@@ -462,7 +462,7 @@ function pubFun_tab.bangPaiEnd(width, height)
 		end
 	end
 	if(width == 1080 and height == 1920) then
-		x, y = findColor({93, 740, 962, 865}, "0|0|0xfffbff,376|8|0xf7f7f7,147|3|0xefe3d6",95, 0, 0, 0);
+		x, y = findColor({419, 628, 1074, 864}, "0|0|0xfefefe,398|8|0xfff213,524|-79|0xc5bf9d",95, 0, 0, 0);
 		if(x ~= -1 and y ~= -1) then
 			return true;
 		else
@@ -482,7 +482,7 @@ function pubFun_tab.shiMenEnd(width, height)
 		end
 	end
 	if(width == 1080 and height == 1920) then
-		x, y = findColor({93, 740, 962, 865}, "0|0|0xf7db29,-2|14|0xff516b,-138|-1|0xf7ebd6",95, 0, 0, 0);
+		x, y = findColor({861, 664, 1078, 857}, "0|0|0x000000,13|1|0x000000,2|13|0xf33d52,52|-90|0xb2a491",95, 0, 0, 0);
 		if(x ~= -1 and y ~= -1) then
 			return true;
 		else
@@ -496,7 +496,7 @@ function pubFun_tab.clickEnd(width, height)
 		dhxyUtils_tab.tap(300,math.random(514, 713),math.random(553, 650));
 	end
 	if(width == 1080 and height == 1920) then
-		dhxyUtils_tab.tap(300,math.random(670, 889),math.random(867, 1039));
+		dhxyUtils_tab.tap(300,math.random(835, 1024),math.random(864, 960));
 	end
 end
 --活动中检测宝图并点击
@@ -593,7 +593,7 @@ end
 -- 领双
 function pubFun_tab.shuang(width, height)
 	if(width == 720 and height == 1440) then
-		--寻找活动并点击30,288,108,370 
+		--寻找活动并点击
 		local activityTabXY = pubFun_tab.findActivity(width, height);
 		pubFun_tab.click(activityTabXY, "活动", math.random(23, 75), math.random(199, 247), "click");
 		mSleep(3000);
@@ -603,17 +603,13 @@ function pubFun_tab.shuang(width, height)
 		pubFun_tab.close(width, height, "活动面板");
 	end
 	if(width == 1080 and height == 1920) then
-		--寻找活动并点击30,288,108,370
-		for i = 1, 2 do
-			local activityTabXY = pubFun_tab.findActivity(width, height);
-			pubFun_tab.click(activityTabXY, "活动", math.random(30, 108), math.random(288, 370), "click");
-		end
-		mSleep(2000);
+		--寻找活动并点击
+		local activityTabXY = pubFun_tab.findActivity(width, height);
+		pubFun_tab.click(activityTabXY, "活动", math.random(30, 108), math.random(288, 370), "click");
+		mSleep(3000);
 		--点击两次领取:1440,196,1551,238
-		for i = 1, 2 do
-			dhxyUtils_tab.tap(300,math.random(1440, 1551),math.random(196, 238));
-			mSleep(1000);
-		end
+		dhxyUtils_tab.tap(300,math.random(1440, 1551),math.random(196, 238));
+		mSleep(1000);
 		pubFun_tab.close(width, height, "活动面板");
 	end
 end
@@ -621,6 +617,14 @@ end
 function pubFun_tab.isOk(width, height, height)
 	if(width == 720 and height == 1440) then
 		x, y = findColor({699, 409, 1026, 527}, "0|0|0x63be9c,98|-3|0x73c39c,-1|22|0x31ba8c,94|22|0x31ba94",90, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			return true;
+		else
+			return false;
+		end
+	end
+	if(width == 1080 and height == 1920) then
+		x, y = findColor({573, 620, 1345, 777}, "0|0|0xdc953b,298|4|0xd99841,444|2|0x42b78b,669|7|0x3cb88b",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
 			return true;
 		else
@@ -695,11 +699,10 @@ function pubFun_tab.body(width, height,nTime)
 			if(pubFun_tab.findLingWu(width, height)) then
 				nTime = mTime();
 			end
-		else
-			for i =1, 2 do
-				--是否继续
-				pubFun_tab.isContinue(width, height);
-			end
+		end
+		--是否继续
+		if(pubFun_tab.isContinue(width, height)) then
+			nTime = mTime();
 		end
 	end
 	return nTime;
@@ -732,34 +735,18 @@ end
 function pubFun_tab.patrol(width, height, isClick)
 	local x, y = 0, 0;
 	if(width == 720 and height == 1440) then
-		--手机端巡逻
-		if(isClick) then
-			--点击巡逻：696,133,765,164
-			dhxyUtils_tab.tap(300,math.random(696, 765),math.random(133, 164));
-		end
+		--点击小地图102,31,215,71
+		dhxyUtils_tab.tap(300,math.random(102, 215),math.random(31, 71));
+		mSleep(2000);
+		--点击地图上这个地方984,482,1038,528
+		dhxyUtils_tab.tap(300,math.random(984, 1038),math.random(482, 528));
 	end
 	if(width == 1080 and height == 1920) then
-		--手机端巡逻
-		x, y = findColor({898, 190, 1049, 264}, "0|0|0xdeae6b,56|-30|0xd69e52,61|35|0xd6a25a,129|2|0xdeae6b",95, 0, 0, 0);
-		if (x ~= -1 and y ~= -1) then
-			if(isClick) then
-				--点击巡逻：923,207,1024,247
-				dhxyUtils_tab.tap(300,math.random(923, 1024),math.random(207, 247));
-			end
-			return true;
-		else
-			--模拟器巡逻
-			x, y = findColor({1041, 188, 1183, 263}, "0|0|0xe0b26e,72|-27|0xd8a051,66|38|0xd4a159,128|7|0xd9a65e",95, 0, 0, 0);
-			if (x ~= -1 and y ~= -1) then
-				if(isClick) then
-					--点击巡逻：1062,207,1164,247
-					dhxyUtils_tab.tap(300,math.random(1062, 1164),math.random(207, 247));
-				end
-				return true;
-			else
-				return false;
-			end
-		end
+		--点击小地图159,44,305,106
+		dhxyUtils_tab.tap(300,math.random(159, 305),math.random(44, 106));
+		mSleep(2000);
+		--点击地图上这个地方1351,715,1424,772
+		dhxyUtils_tab.tap(300,math.random(1351, 1424),math.random(715, 772));
 	end
 end
 --上交各种物品，召唤兽
@@ -779,19 +766,6 @@ function pubFun_tab.shangJiao(width, height)
 	if(width == 1080 and height == 1920) then
 		x, y = findColor({1014, 789, 1335, 907}, "0|0|0xffffff,243|10|0x70c297,7|54|0x32b68d,237|51|0x34b58b",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
-			--找玫瑰仙叶
-			x, y = findColor({327, 274, 766, 864}, "0|0|0x116926,10|-20|0x93e265,37|-32|0x4ad751",95, 0, 0, 0);
-			if(x ~= -1 and y ~= -1) then
-				--点击玫瑰仙叶
-				dhxyUtils_tab.tap(300,math.random((x-15), (x+62)),math.random((y-47), (y+33)));
-			else
-				--找千年熊胆
-				x, y = findColor({327, 274, 766, 864}, "0|0|0xfce9ca,14|-3|0xfdf1d4,-2|51|0xcb3848,20|8|0xec4e5e",95, 0, 0, 0);
-				if(x ~= -1 and y ~= -1) then
-					--点击千年熊胆
-					dhxyUtils_tab.tap(300,math.random((x-49), (x+41)),math.random((y-20), (y+60)));
-				end
-			end
 			mSleep(1000);
 			--点击上交：1047,816,1287,872
 			dhxyUtils_tab.tap(300,math.random(1047, 1287),math.random(816, 872));
@@ -892,6 +866,13 @@ function pubFun_tab.findCard(width, height)
 			dhxyUtils_tab.tap(300,math.random(834, 1021),math.random(563, 605));
 		end
 	end
+	if(width == 1080 and height == 1920) then
+		x, y = findColor({1083, 819, 1502, 943}, "0|0|0xffffff,270|12|0x65bf92,40|54|0x2cbb93,246|49|0x30ba90",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击确定1129,844,1407,911
+			dhxyUtils_tab.tap(300,math.random(1129, 1407),math.random(844, 911));
+		end
+	end
 end
 --寻找右下角使用并点击
 function pubFun_tab.findYouUse(width, height)
@@ -914,7 +895,7 @@ function pubFun_tab.findYouUse(width, height)
 			--1396,777,1526,820点击使用
 			dhxyUtils_tab.tap(300,math.random(1396, 1526),math.random(777, 820));
 			mSleep(1000);
-			pubFun_tab.findYouClose(width, height);
+			pubFun_tab.findCard(width, height);
 			return true;
 		else
 			return false;
@@ -1028,12 +1009,16 @@ function pubFun_tab.input(width, height, account, pwd)
 		mSleep(3000);
 		--点击一下别的地方把输入法点掉
 		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(34,14,260,166).x,pubFun_tab.randomXY(34,14,260,166).y);
-		mSleep(30000);
-		--删除输入框中的文字（假设输入框中已存在文字）
-		inputText("#CLEAR#");
+		mSleep(3000);
+		--清空账号
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(975,244,988,256).x,pubFun_tab.randomXY(975,244,988,256).y);
+		--点击一下别的地方把输入法点掉
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(34,14,260,166).x,pubFun_tab.randomXY(34,14,260,166).y);
 		mSleep(3000);
 		--在输入框中输入字符串并回车
 		inputText(account .. "#ENTER#");
+		--点击一下别的地方把输入法点掉
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(34,14,260,166).x,pubFun_tab.randomXY(34,14,260,166).y);
 		mSleep(3000);
 		--点击密码输入框获取焦点
 		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(474,333,792,362).x,pubFun_tab.randomXY(474,333,792,362).y);
@@ -1041,11 +1026,49 @@ function pubFun_tab.input(width, height, account, pwd)
 		--点击一下别的地方把输入法点掉
 		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(34,14,260,166).x,pubFun_tab.randomXY(34,14,260,166).y);
 		mSleep(3000);
-		--删除输入框中的文字（假设输入框中已存在文字）
-		inputText("#CLEAR#");
+		--清空密码
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(906,340,918,353).x,pubFun_tab.randomXY(906,340,918,353).y);
+		--点击一下别的地方把输入法点掉
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(34,14,260,166).x,pubFun_tab.randomXY(34,14,260,166).y);
 		mSleep(3000);
 		--在输入框中输入字符串并回车
 		inputText(pwd .. "#ENTER#");
+		--点击一下别的地方把输入法点掉
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(34,14,260,166).x,pubFun_tab.randomXY(34,14,260,166).y);
+		mSleep(3000);
+	end
+	if(width == 1080 and height == 1920) then
+		--点击账号输入框获取焦点
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(553,335,1126,411).x,pubFun_tab.randomXY(553,335,1126,411).y);
+		mSleep(3000);
+		--点击一下别的地方把输入法点掉
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(164,23,321,154).x,pubFun_tab.randomXY(164,23,321,154).y);
+		mSleep(3000);
+		--清空账号
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(1339,364,1363,383).x,pubFun_tab.randomXY(1339,364,1363,383).y);
+		--点击一下别的地方把输入法点掉
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(164,23,321,154).x,pubFun_tab.randomXY(164,23,321,154).y);
+		mSleep(3000);
+		--在输入框中输入字符串并回车
+		inputText(account .. "#ENTER#");
+		--点击一下别的地方
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(164,23,321,154).x,pubFun_tab.randomXY(164,23,321,154).y);
+		mSleep(3000);
+		--点击密码输入框获取焦点
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(560,485,1000,554).x,pubFun_tab.randomXY(560,485,1000,554).y);
+		mSleep(3000);
+		--点击一下别的地方把输入法点掉
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(164,23,321,154).x,pubFun_tab.randomXY(164,23,321,154).y);
+		mSleep(3000);
+		--清空密码
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(1234,511,1257,531).x,pubFun_tab.randomXY(1234,511,1257,531).y);
+		--点击一下别的地方把输入法点掉
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(164,23,321,154).x,pubFun_tab.randomXY(164,23,321,154).y);
+		mSleep(3000);
+		--在输入框中输入字符串并回车
+		inputText(pwd .. "#ENTER#");
+		--点击一下别的地方把输入法点掉
+		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(164,23,321,154).x,pubFun_tab.randomXY(164,23,321,154).y);
 		mSleep(3000);
 	end
 end
@@ -1059,15 +1082,75 @@ function pubFun_tab.isLoginBtn(width, height)
 			return false;
 		end
 	end
-end
---检测是否还在登录界面
-function pubFun_tab.isLoginPage(width, height)
-	if(width == 720 and height == 1440) then
-		x, y = findColor({276, 85, 1156, 616}, "0|0|0x4acff6,12|18|0x4efcfc,9|5|0xffffff,-664|-7|0xf173c4,-375|290|0x21c798",95, 0, 0, 0);
+	if(width == 1080 and height == 1920) then
+		x, y = findColor({393, 379, 1601, 950}, "0|0|0xfdfffe,839|7|0x4cc798,14|70|0x17caa0,835|70|0x17caa0",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
 			return true;
 		else
 			return false;
+		end
+	end
+end
+--检测是否有网易邮箱按钮，有的话就点击 
+function pubFun_tab.isWYClick(width, height)
+	if(width == 720 and height == 1440) then
+		x, y = findColor({764, 472, 873, 623}, "0|0|0xffffff,0|-4|0xd41d13,0|26|0xd41d13",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击网易邮箱按钮
+			dhxyUtils_tab.tap(300,math.random(x-13, x+16),math.random(y-3, y+25));
+		else
+			sysLog("没有找到网易邮箱按钮");
+		end
+	end
+	if(width == 1080 and height == 1920) then
+		x, y = findColor({974, 546, 1425, 1078}, "0|0|0xd41d13,44|6|0xd41d13,-4|35|0xd41d13,37|37|0xd41d13,21|13|0xffffff",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击网易邮箱按钮
+			dhxyUtils_tab.tap(300,math.random(x-1, x+41),math.random(y+7, y+49));
+		else
+			sysLog("没有找到网易邮箱按钮");
+		end
+	end
+end
+--寻找切换账号按钮并点击
+function pubFun_tab.findSwitchAccountClick(widht, height)
+	if(width == 720 and height == 1440) then
+		x, y = findColor({33, 94, 1432, 323}, "0|0|0xfb5050,81|-18|0xfb5050,159|14|0xfb5050,75|51|0xfb5050,86|19|0xfb5151",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击换账号按钮
+			dhxyUtils_tab.tap(300,math.random(x+16, x+146),math.random(y-8, y+36));
+		else
+			sysLog("没有找到切换账号按钮");
+		end
+	end
+	if(width == 1080 and height == 1920) then
+		x, y = findColor({218, 152, 1910, 443}, "0|0|0xfb4f4f,239|8|0xfb4f4f,121|-44|0xfb4f4f,118|59|0xfb4f4f",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击换账号按钮
+			dhxyUtils_tab.tap(300,math.random(x+22, x+214),math.random(y-27, y+40));
+		else
+			sysLog("没有找到切换账号按钮");
+		end
+	end
+end
+--寻找其他账号按钮并点击
+function pubFun_tab.findOtherAccountClick(widht, height)
+	if(width == 720 and height == 1440) then
+		x, y = findColor({384, 390, 1134, 661}, "0|0|0xa35b1c,27|-3|0xa35b1b,54|-1|0xad6c31,89|1|0xa35b1b,119|-3|0xaa682c,148|0|0xa76224",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击其他账号按钮
+			dhxyUtils_tab.tap(300,math.random(x, x+148),math.random(y-10, y+10));
+		else
+			sysLog("没有找到其他账号按钮");
+		end
+	end
+	if(width == 1080 and height == 1920) then
+		x, y = findColor({732, 576, 1274, 1020}, "0|0|0xa35b1b,70|3|0xa35b1b,97|1|0xa35b1b,140|13|0xa35b1b,180|8|0xa35b1b,234|9|0xa35b1b",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击其他账号按钮
+			dhxyUtils_tab.tap(300,math.random(x, x+221),math.random(y-2, y+27));
+		else
+			sysLog("没有找到其他账号按钮");
 		end
 	end
 end

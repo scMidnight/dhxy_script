@@ -1,4 +1,5 @@
 require("DhxyUtils");
+require("PubFun");
 local appid = frontAppName();--获取当前应用ID
 local width,height = getScreenSize();
 sysLog(appid);

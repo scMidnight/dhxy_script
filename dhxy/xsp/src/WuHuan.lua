@@ -39,16 +39,12 @@ function wuhuan_funtab720_1440.wuhuan(width, height,flag)
 		end
 	end
 	local nTime = mTime();--记录一个时间
-	local pkNum = 0;
 	--是否战斗
 	while true do
 		mSleep(5000);
 		--判断是否在战斗中
 		local isPk = pubFun_tab.isPk(width, height);
 		if (isPk) then
-			pkNum = pkNum + 1;
---			sysLog("第"..pkNum.."次。");
-			pubFun_tab.showHud(hud,"五环任务",width, height);
 			while true do
 				mSleep(2000);
 				isPk = pubFun_tab.isPk(width, height);
@@ -72,10 +68,13 @@ function wuhuan_funtab1080_1920.wuhuan(width, height,flag)
 	local hud = createHUD();
 	pubFun_tab.showHud(hud,"五环任务",width, height);
 	local x,y = 0,0;
-	mSleep(2000);
+	mSleep(3000);
 	--点击世界地图并回家
 	pubFun_tab.goHome(width, height, "goHome");
 	mSleep(2000);
+	--查找世界地图是否关闭，没有的话就关闭
+	pubFun_tab.findShiJieClose(width, height);
+	mSleep(1000);
 	--再点一下世界地图
 	pubFun_tab.goHome(width, height);
 	mSleep(1000);
@@ -83,7 +82,7 @@ function wuhuan_funtab1080_1920.wuhuan(width, height,flag)
 	dhxyUtils_tab.tap(300,math.random(1034, 1163),math.random(369, 441));
 	mSleep(1000);
 	--1120,657,1225,670云游大师
-	dhxyUtils_tab.tap(0,math.random(1120, 1225),math.random(657, 670));
+	dhxyUtils_tab.tap(300,math.random(1120, 1225),math.random(657, 670));
 	--1666,85,1714,129关闭小地图特殊关闭，不调用方法，手动在此关闭
 	dhxyUtils_tab.tap(300,math.random(1666, 1714),math.random(85, 129));
 	mSleep(8000);
@@ -92,23 +91,20 @@ function wuhuan_funtab1080_1920.wuhuan(width, height,flag)
 	local isDialog = pubFun_tab.findDialog(width, height);
 	if (isDialog) then
 		if(flag == "single") then
-			--点对话框第一个选项
+			--点对话框第二个选项
 			pubFun_tab.dialogBox(width, height, 2);
 		elseif(flag == "double") then
-			--点对话框第二个选项
+			--点对话框第一个选项
 			pubFun_tab.dialogBox(width, height, 1);
 		end
 	end
 	local nTime = mTime();--记录一个时间
-	local pkNum = 0;
 	--是否战斗
 	while true do
 		mSleep(5000);
 		--判断是否在战斗中
 		local isPk = pubFun_tab.isPk(width, height);
 		if (isPk) then
-			pkNum = pkNum + 1;
-			sysLog("第"..pkNum.."次。");
 			while true do
 				mSleep(2000);
 				isPk = pubFun_tab.isPk(width, height);
@@ -118,7 +114,7 @@ function wuhuan_funtab1080_1920.wuhuan(width, height,flag)
 				nTime = mTime();
 			end
 		end
-		if(isPk == 5 or (tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60)) then
+		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			break;
 		end
 	end

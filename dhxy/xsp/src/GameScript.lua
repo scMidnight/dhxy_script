@@ -99,10 +99,14 @@ function gameScript.run(width, height, results)
 		end
 		if(width == 1080 and height == 1920) then
 			if(v == "0") then --召唤兽灵修
-				if(lingXiuSetting == "0") then
-					lingxiu_funtab1080_1920.lingxiu("经验",width, height,zhaohuanShou);
-				elseif(lingXiuSetting == "1") then
-					lingxiu_funtab1080_1920.lingxiu("亲密",width, height,zhaohuanShou);
+				if(linxiuType == "0") then--宝宝
+					if(lingXiuSetting == "0") then
+						lingxiu_funtab1080_1920.lingxiu("宝宝","经验",width, height,zhaohuanShou);
+					elseif(lingXiuSetting == "1") then
+						lingxiu_funtab1080_1920.lingxiu("宝宝","亲密",width, height,zhaohuanShou);
+					end
+				elseif(linxiuType == "1") then--坐骑
+					lingxiu_funtab1080_1920.lingxiu("坐骑","", width, height,zhaohuanShou);
 				end
 			end
 			if(v == "1") then --算卦
