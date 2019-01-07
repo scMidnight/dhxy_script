@@ -32,19 +32,21 @@ function shimen_funtab720_1440.shimen(width, height)
 			local isPk = false;
 			--买各类东西
 			pubFun_tab.buy(width, height);
-			mSleep(1000);
+			mSleep(6000);
 			--找对话框
 			isDialog = pubFun_tab.findDialog(width, height);
 			if (isDialog) then
 				--点对话框第一个选项
 				pubFun_tab.dialogBox(width, height, 1);
 			end
-			mSleep(1000);
+			mSleep(6000);
 			--判断是否在战斗中
 			isPk = pubFun_tab.isPk(width, height);
 			if (isPk) then
 				mSleep(20000);
 			end
+			--检测是否小狐妖技能列表
+			pubFun_tab.findFoxSkillListClick(width, height);
 			--检测是否结束
 			local isEnd = pubFun_tab.shiMenEnd(width, height);
 			if(isEnd) then
@@ -108,6 +110,8 @@ function shimen_funtab1080_1920.shimen(width, height)
 			if (isPk) then
 				mSleep(20000);
 			end
+			--检测是否小狐妖技能列表
+			pubFun_tab.findFoxSkillListClick(width, height);
 			--检测是否结束
 			local isEnd = pubFun_tab.shiMenEnd(width, height);
 			if (isEnd) then

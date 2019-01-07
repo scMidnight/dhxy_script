@@ -119,6 +119,68 @@ elseif(richangEnd == "1") then --账号切换
 				end
 			end
 		end
+	elseif(width == 1080 and height == 1440) then
+		if(accountCheck1 == "0") then --账号1
+			if(string.len(account1) > 0 and string.len(accountPwd1) > 0) then
+				isOk = accountSwitch_funtab1080_1920.switch(width, height, account1, accountPwd1, isRole, roleNum, true, accountSwitchNum);
+				accountSwitchNum = accountSwitchNum + 1;
+				if(isOk) then
+					gameScript.run(width, height, results);
+				end
+			end
+		end
+		if(accountCheck2 == "0") then --账号2
+			if(string.len(account2) > 0 and string.len(accountPwd2) > 0) then
+				if(accountSwitchNum == 1) then
+					isOk = accountSwitch_funtab1080_1920.switch(width, height, account2, accountPwd2, isRole, roleNum, true, accountSwitchNum);
+				else
+					isOk = accountSwitch_funtab1080_1920.switch(width, height, account2, accountPwd2, isRole, roleNum, isOk, accountSwitchNum);
+				end
+				accountSwitchNum = accountSwitchNum + 1;
+				if(isOk) then
+					gameScript.run(width, height, results);
+				end
+			end
+		end
+		if(accountCheck3 == "0") then --账号3
+			if(string.len(account3) > 0 and string.len(accountPwd3) > 0) then
+				if(accountSwitchNum == 1) then
+					isOk = accountSwitch_funtab1080_1920.switch(width, height, account3, accountPwd3, isRole, roleNum, true, accountSwitchNum);
+				else
+					isOk = accountSwitch_funtab1080_1920.switch(width, height, account3, accountPwd3, isRole, roleNum, isOk, accountSwitchNum);
+				end
+				accountSwitchNum = accountSwitchNum + 1;
+				if(isOk) then
+					gameScript.run(width, height, results);
+				end
+			end
+		end
+		if(accountCheck4 == "0") then --账号4
+			if(string.len(account4) > 0 and string.len(accountPwd4) > 0) then
+				if(accountSwitchNum == 1) then
+					isOk = accountSwitch_funtab1080_1920.switch(width, height, account4, accountPwd4, isRole, roleNum, true, accountSwitchNum);
+				else
+					isOk = accountSwitch_funtab1080_1920.switch(width, height, account4, accountPwd4, isRole, roleNum, isOk, accountSwitchNum);
+				end
+				accountSwitchNum = accountSwitchNum + 1;
+				if(isOk) then
+					gameScript.run(width, height, results);
+				end
+			end
+		end
+		if(accountCheck5 == "0") then --账号5
+			if(string.len(account5) > 0 and string.len(accountPwd5) > 0) then
+				if(accountSwitchNum == 1) then
+					isOk = accountSwitch_funtab1080_1920.switch(width, height, account5, accountPwd5, isRole, roleNum, true, accountSwitchNum);
+				else
+					isOk = accountSwitch_funtab1080_1920.switch(width, height, account5, accountPwd5, isRole, roleNum, isOk, accountSwitchNum);
+				end
+				accountSwitchNum = accountSwitchNum + 1;
+				if(isOk) then
+					gameScript.run(width, height, results);
+				end
+			end
+		end
 	end
 else --退出
 	lua_exit();

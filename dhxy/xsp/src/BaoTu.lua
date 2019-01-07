@@ -38,6 +38,8 @@ function baotu_funtab720_1440.baotu(width, height)
 					nTime = mTime();
 				end
 			end
+			--检测是否小狐妖技能列表
+			pubFun_tab.findFoxSkillListClick(width, height);
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 				pubFun_tab.showHud(hud,"开始挖宝",width, height);
 				mSleep(2000);
@@ -116,6 +118,9 @@ function baotu_funtab1080_1920.baotu(width, height)
 					nTime = mTime();
 				end
 			end
+			mSleep(1000);
+			--检测是否小狐妖技能列表
+			pubFun_tab.findFoxSkillListClick(width, height);
 			if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 				pubFun_tab.showHud(hud,"开始挖宝",width, height);
 				mSleep(2000);

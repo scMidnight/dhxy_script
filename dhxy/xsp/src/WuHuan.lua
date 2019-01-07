@@ -54,6 +54,9 @@ function wuhuan_funtab720_1440.wuhuan(width, height,flag)
 				nTime = mTime();
 			end
 		end
+		mSleep(2000);
+		--检测是否小狐妖技能列表
+		pubFun_tab.findFoxSkillListClick(width, height);
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			break;
 		end
@@ -114,6 +117,9 @@ function wuhuan_funtab1080_1920.wuhuan(width, height,flag)
 				nTime = mTime();
 			end
 		end
+		mSleep(1000);
+		--检测是否小狐妖技能列表
+		pubFun_tab.findFoxSkillListClick(width, height);
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
 			break;
 		end

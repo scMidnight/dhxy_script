@@ -678,10 +678,14 @@ function pubFun_tab.body(width, height,nTime)
 		if(pubFun_tab.findLingWu(width, height)) then
 			nTime = mTime();
 		end
+		mSleep(1000);
 		--是否继续后30轮
 		if(pubFun_tab.isContinue(width, height)) then
 			nTime = mTime();
 		end
+		mSleep(1000);
+		--检测是否小狐妖技能列表
+		pubFun_tab.findFoxSkillListClick(width, height);
 	end
 	if(width == 1080 and height == 1920) then
 		--判断是否在战斗中
@@ -695,15 +699,20 @@ function pubFun_tab.body(width, height,nTime)
 				end
 				nTime = mTime();
 			end
-			--点击领悟技能知道了
-			if(pubFun_tab.findLingWu(width, height)) then
-				nTime = mTime();
-			end
 		end
+		mSleep(1000);
+		--点击领悟技能知道了
+		if(pubFun_tab.findLingWu(width, height)) then
+			nTime = mTime();
+		end
+		mSleep(1000);
 		--是否继续
 		if(pubFun_tab.isContinue(width, height)) then
 			nTime = mTime();
 		end
+		mSleep(1000);
+		--检测是否小狐妖技能列表
+		pubFun_tab.findFoxSkillListClick(width, height);
 	end
 	return nTime;
 end
@@ -1152,5 +1161,19 @@ function pubFun_tab.findOtherAccountClick(widht, height)
 		else
 			sysLog("没有找到其他账号按钮");
 		end
+	end
+end
+--寻找是否小狐妖技能列表框，是的话关闭
+function pubFun_tab.findFoxSkillListClick(widht, height) 
+	if(width == 720 and height == 1440) then
+		x, y = findColor({229, 60, 593, 674}, "0|0|0xdeaa63,89|27|0xdea252,104|8|0xa56121,-31|-551|0xc69673",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击关闭1172,86,1204,114
+			dhxyUtils_tab.tap(300,math.random(1172, 1204),math.random(86, 114));
+		else
+			sysLog("没有找到其他账号按钮");
+		end
+	end
+	if(width == 1080 and height == 1920) then
 	end
 end

@@ -70,6 +70,9 @@ function huan200_funtab720_1440.run(width, height)
 						nTime = mTime();
 					end
 				end
+				mSleep(2000)
+				--检测是否小狐妖技能列表
+				pubFun_tab.findFoxSkillListClick(width, height);
 				--判断结束
 				if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 120) then
 					break;
@@ -154,6 +157,9 @@ function huan200_funtab1080_1920.run(width, height)
 						nTime = mTime();
 					end
 				end
+				mSleep(2000);
+				--检测是否小狐妖技能列表
+				pubFun_tab.findFoxSkillListClick(width, height);
 				--判断结束
 				if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 120) then
 					break;
