@@ -55,6 +55,9 @@ function wuhuan_funtab720_1440.wuhuan(width, height,flag)
 			end
 		end
 		mSleep(2000);
+		--点击解封技能格知道了
+		pubFun_tab.iNowClick(width, height);
+		mSleep(2000);
 		--点击领悟技能知道了
 		pubFun_tab.findLingWu(width, height);
 		--是否继续后30轮
@@ -122,6 +125,9 @@ function wuhuan_funtab1080_1920.wuhuan(width, height,flag)
 			end
 		end
 		mSleep(1000);
+		--点击解封技能格知道了
+		pubFun_tab.iNowClick(width, height);
+		mSleep(2000);
 		--点击领悟技能知道了
 		pubFun_tab.findLingWu(width, height);
 		--是否继续后30轮

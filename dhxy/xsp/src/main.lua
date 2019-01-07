@@ -119,7 +119,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 			end
 		end
-	elseif(width == 1080 and height == 1440) then
+	elseif(width == 1080 and height == 1920) then
 		if(accountCheck1 == "0") then --账号1
 			if(string.len(account1) > 0 and string.len(accountPwd1) > 0) then
 				isOk = accountSwitch_funtab1080_1920.switch(width, height, account1, accountPwd1, isRole, roleNum, true, accountSwitchNum);

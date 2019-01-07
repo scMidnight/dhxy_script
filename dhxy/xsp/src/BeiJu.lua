@@ -14,7 +14,7 @@ function motor720_1440(width, height, beiJuType)
 	pubFun_tab.isContinue(width, height);
 	mSleep(2000);
 	--找更多按钮并点击，先找是否反向更多
-	if(not pubFun_tab.findNoMore(width, height)) then
+	if(pubFun_tab.findNoMore(width, height)) then
 		local moreXYTab = pubFun_tab.findMore(width, height);
 		pubFun_tab.click(moreXYTab, "更多", math.random(1365, 1405), math.random(636, 686), "click");
 		mSleep(1000);
@@ -108,7 +108,7 @@ function motor1080_1920(width, height, beiJuType)
 	--先看掉线
 	pubFun_tab.isContinue(width, height);
 	--查看是不是反向更多
-	if(not pubFun_tab.findNoMore(width, height)) then
+	if(pubFun_tab.findNoMore(width, height)) then
 		dhxyUtils_tab.tap(300,math.random(1808, 1872), math.random(976, 1040));
 	end
 	mSleep(2000);

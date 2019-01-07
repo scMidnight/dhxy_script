@@ -24,10 +24,10 @@ function accountSwitch_funtab720_1440.switch(width, height, account, pwd, isRole
 		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(692,569,733,610).x,pubFun_tab.randomXY(692,569,733,610).y);
 		mSleep(3000);
 		--点击切换账号
-		pubFun_tab.findSwitchAccountClick(widht, height);
+		pubFun_tab.findSwitchAccountClick(width, height);
 		mSleep(5000);
 		--点击其他账号
-		pubFun_tab.findOtherAccountClick(widht, height);
+		pubFun_tab.findOtherAccountClick(width, height);
 		mSleep(3000);
 		--点击网易邮箱
 		pubFun_tab.isWYClick(width, height);
@@ -98,10 +98,10 @@ function accountSwitch_funtab1080_1920.switch(width, height, account, pwd, isRol
 		dhxyUtils_tab.tap(100,pubFun_tab.randomXY(913,852,982,917).x,pubFun_tab.randomXY(913,852,982,917).y);
 		mSleep(3000);
 		--点击切换账号
-		pubFun_tab.findSwitchAccountClick(widht, height);
+		pubFun_tab.findSwitchAccountClick(width, height);
 		mSleep(5000);
 		--点击其他账号
-		pubFun_tab.findOtherAccountClick(widht, height);
+		pubFun_tab.findOtherAccountClick(width, height);
 		mSleep(3000);
 		--点击网易邮箱
 		pubFun_tab.isWYClick(width, height);

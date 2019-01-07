@@ -280,6 +280,14 @@ function pubFun_tab.findDaTi200(width, height)
 			datiTabXY.isFound = false;
 		end
 	end
+	if(width == 1080 and height == 1920) then
+		x, y = findColor({383, 610, 958, 742}, "0|0|0xdb933f,-220|46|0xda8e2d,317|53|0xda9740,27|105|0xdc9a40",95, 0, 0, 0);
+		if(x ~= -1 and y ~= -1) then
+			datiTabXY.isFound = true;
+		else
+			datiTabXY.isFound = false;
+		end
+	end
 	datiTabXY.x = x;
 	datiTabXY.y = y;
 	return datiTabXY;
@@ -674,6 +682,9 @@ function pubFun_tab.body(width, height,nTime)
 				nTime = mTime();
 			end
 		end
+		--点击解封技能格知道了
+		pubFun_tab.iNowClick(width, height);
+		mSleep(2000);
 		--点击领悟技能知道了
 		if(pubFun_tab.findLingWu(width, height)) then
 			nTime = mTime();
@@ -701,6 +712,9 @@ function pubFun_tab.body(width, height,nTime)
 			end
 		end
 		mSleep(1000);
+		--点击解封技能格知道了
+		pubFun_tab.iNowClick(width, height);
+		mSleep(2000);
 		--点击领悟技能知道了
 		if(pubFun_tab.findLingWu(width, height)) then
 			nTime = mTime();
@@ -942,18 +956,18 @@ function pubFun_tab.findLingWu(width, height)
 	if(width == 720 and height == 1440) then
 		x, y = findColor({755, 431, 971, 505}, "0|0|0xffffff,170|6|0x84c79c,6|38|0x31b68c,159|35|0x31ba94",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
-			--点击769,443,951,486知道了
-			dhxyUtils_tab.tap(300,math.random(769, 951),math.random(443, 486));
+			--点击775,460,943,498知道了
+			dhxyUtils_tab.tap(300,math.random(775, 943),math.random(460, 498));
 			return true;
 		else
 			return false;
 		end
 	end
 	if(width == 1080 and height == 1920) then
-		x, y = findColor({589, 637, 1373, 760}, "0|0|0xff75ff,208|-32|0xf7fbf7,476|-16|0x52ba8c,243|18|0x31ba94,446|18|0x31ba94",95, 0, 0, 0);
+		x, y = findColor({929, 602, 1390, 827}, "0|0|0xfdfefe,269|17|0x58ba8f,27|53|0x2fbb92,261|50|0x38bc95",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
-			--点击1037,668,1297,727知道了
-			dhxyUtils_tab.tap(300,math.random(1037, 1297),math.random(668, 727));
+			--点击1044,672,1288,729知道了
+			dhxyUtils_tab.tap(300,math.random(x+11, x+155),math.random(y+8, y+65));
 			return true;
 		else
 			return false;
@@ -1166,15 +1180,36 @@ end
 --寻找是否小狐妖技能列表框，是的话关闭
 function pubFun_tab.findFoxSkillListClick(width, height) 
 	if(width == 720 and height == 1440) then
-		sysLog("sss");
 		x, y = findColor({299, 600, 486, 670}, "0|0|0xdeaa63,83|-22|0xdeb284,166|-1|0xd69e4b,85|22|0xdea252",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
 			--点击关闭1172,86,1204,114
 			dhxyUtils_tab.tap(300,math.random(1172, 1204),math.random(86, 114));
 		else
-			sysLog("没有找到其他账号按钮");
+			sysLog("没有找到关闭按钮");
 		end
 	end
 	if(width == 1080 and height == 1920) then
+		x, y = findColor({307, 898, 640, 1000}, "0|0|0xd49b4c,99|-27|0xd5a665,249|7|0xd9a355,109|38|0xdead67",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击关闭1636,129,1685,175
+			dhxyUtils_tab.tap(300,math.random(1636, 1685),math.random(129, 175));
+		else
+			sysLog("没有找到关闭按钮");
+		end
+	end
+end
+--解封技能格点击我知道了
+function pubFun_tab.iNowClick(width, height)
+	if(width == 720 and height == 1440) then
+		x, y = findColor({603, 427, 832, 507}, "0|0|0xffffff,173|12|0x52ba94,16|33|0x31be9c,158|33|0x31ba94",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击关闭629,445,804,484
+			dhxyUtils_tab.tap(300,math.random(629, 804),math.random(445, 484));
+		else
+			sysLog("没有找到我知道了按钮");
+		end
+	end
+	if(width == 1080 and height == 1920) then
+		
 	end
 end

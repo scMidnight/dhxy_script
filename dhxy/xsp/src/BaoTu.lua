@@ -38,6 +38,9 @@ function baotu_funtab720_1440.baotu(width, height)
 					nTime = mTime();
 				end
 			end
+			--点击解封技能格知道了
+			pubFun_tab.iNowClick(width, height);
+			mSleep(2000);
 			--点击领悟技能知道了
 			pubFun_tab.findLingWu(width, height);
 			--是否继续后30轮
@@ -123,6 +126,9 @@ function baotu_funtab1080_1920.baotu(width, height)
 				end
 			end
 			mSleep(1000);
+			--点击解封技能格知道了
+			pubFun_tab.iNowClick(width, height);
+			mSleep(2000);
 			--点击领悟技能知道了
 			pubFun_tab.findLingWu(width, height);
 			--是否继续后30轮

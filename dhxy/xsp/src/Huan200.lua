@@ -70,7 +70,10 @@ function huan200_funtab720_1440.run(width, height)
 						nTime = mTime();
 					end
 				end
-				mSleep(2000)
+				mSleep(2000);
+				--点击解封技能格知道了
+				pubFun_tab.iNowClick(width, height);
+				mSleep(2000);
 				--检测是否小狐妖技能列表
 				pubFun_tab.findFoxSkillListClick(width, height);
 				--判断结束
@@ -116,10 +119,10 @@ function huan200_funtab1080_1920.run(width, height)
 				--检测是否答题对话框,是的话就选择a就可以
 				local datiTabXY = pubFun_tab.findDaTi200(width, height);
 				if(datiTabXY.isFound) then
-					pubFun_tab.click(datiTabXY, "200环答题", math.random(380, 652), math.random(422, 471), "click");
-					mSleep(2000);
-					--点击两次200环任务:1211,184,1376,237
-					dhxyUtils_tab.doubleClick(300,math.random(1564, 1860),math.random(280, 345));
+					pubFun_tab.click(datiTabXY, "200环答题", math.random(427, 912), math.random(637, 710), "click");
+					mSleep(3000);
+					--点击两次200环任务:1604,285,1794,346
+					dhxyUtils_tab.doubleClick(300,math.random(1604, 1794),math.random(285, 346));
 					nTime = mTime();
 				end
 				mSleep(2000);
@@ -157,6 +160,9 @@ function huan200_funtab1080_1920.run(width, height)
 						nTime = mTime();
 					end
 				end
+				mSleep(2000);
+				--点击解封技能格知道了
+				pubFun_tab.iNowClick(width, height);
 				mSleep(2000);
 				--检测是否小狐妖技能列表
 				pubFun_tab.findFoxSkillListClick(width, height);
