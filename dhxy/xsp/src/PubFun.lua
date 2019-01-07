@@ -614,7 +614,7 @@ function pubFun_tab.shuang(width, height)
 	end
 end
 --找签到确定按钮
-function pubFun_tab.isOk(width, height, height)
+function pubFun_tab.isOk(width, height)
 	if(width == 720 and height == 1440) then
 		x, y = findColor({699, 409, 1026, 527}, "0|0|0x63be9c,98|-3|0x73c39c,-1|22|0x31ba8c,94|22|0x31ba94",90, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
