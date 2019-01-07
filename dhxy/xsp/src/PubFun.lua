@@ -846,7 +846,7 @@ end
 --寻找右上角关闭（并不是世界关闭）
 function pubFun_tab.findYouClose(width, height)
 	local x, y = 0, 0;
-	if(widht == 720 and height == 1440) then
+	if(width == 720 and height == 1440) then
 		x, y = findColor({1381, 7, 1430, 57}, "0|0|0xefaa9c,13|-1|0xef716b,-2|15|0xef716b,12|14|0xef716b,5|7|0xef716b",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
 			return true;
@@ -1122,7 +1122,7 @@ function pubFun_tab.isWYClick(width, height)
 	end
 end
 --寻找切换账号按钮并点击
-function pubFun_tab.findSwitchAccountClick(widht, height)
+function pubFun_tab.findSwitchAccountClick(width, height)
 	if(width == 720 and height == 1440) then
 		x, y = findColor({33, 94, 1432, 323}, "0|0|0xfb5050,81|-18|0xfb5050,159|14|0xfb5050,75|51|0xfb5050,86|19|0xfb5151",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1143,7 +1143,7 @@ function pubFun_tab.findSwitchAccountClick(widht, height)
 	end
 end
 --寻找其他账号按钮并点击
-function pubFun_tab.findOtherAccountClick(widht, height)
+function pubFun_tab.findOtherAccountClick(width, height)
 	if(width == 720 and height == 1440) then
 		x, y = findColor({384, 390, 1134, 661}, "0|0|0xa35b1c,27|-3|0xa35b1b,54|-1|0xad6c31,89|1|0xa35b1b,119|-3|0xaa682c,148|0|0xa76224",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1164,9 +1164,10 @@ function pubFun_tab.findOtherAccountClick(widht, height)
 	end
 end
 --寻找是否小狐妖技能列表框，是的话关闭
-function pubFun_tab.findFoxSkillListClick(widht, height) 
+function pubFun_tab.findFoxSkillListClick(width, height) 
 	if(width == 720 and height == 1440) then
-		x, y = findColor({229, 60, 593, 674}, "0|0|0xdeaa63,89|27|0xdea252,104|8|0xa56121,-31|-551|0xc69673",95, 0, 0, 0);
+		sysLog("sss");
+		x, y = findColor({299, 600, 486, 670}, "0|0|0xdeaa63,83|-22|0xdeb284,166|-1|0xd69e4b,85|22|0xdea252",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
 			--点击关闭1172,86,1204,114
 			dhxyUtils_tab.tap(300,math.random(1172, 1204),math.random(86, 114));

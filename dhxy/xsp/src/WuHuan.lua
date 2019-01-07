@@ -55,6 +55,10 @@ function wuhuan_funtab720_1440.wuhuan(width, height,flag)
 			end
 		end
 		mSleep(2000);
+		--点击领悟技能知道了
+		pubFun_tab.findLingWu(width, height);
+		--是否继续后30轮
+		pubFun_tab.isContinue(width, height);
 		--检测是否小狐妖技能列表
 		pubFun_tab.findFoxSkillListClick(width, height);
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then
@@ -118,6 +122,10 @@ function wuhuan_funtab1080_1920.wuhuan(width, height,flag)
 			end
 		end
 		mSleep(1000);
+		--点击领悟技能知道了
+		pubFun_tab.findLingWu(width, height);
+		--是否继续后30轮
+		pubFun_tab.isContinue(width, height);
 		--检测是否小狐妖技能列表
 		pubFun_tab.findFoxSkillListClick(width, height);
 		if(tonumber(string.format("%0.0f",(mTime() - nTime)/1000)) > 60) then

@@ -45,6 +45,12 @@ function bangpai_funtab720_1440.bangpai(width, height)
 			if (isPk) then
 				mSleep(20000);
 			end
+			mSleep(6000);
+			--点击领悟技能知道了
+			pubFun_tab.findLingWu(width, height);
+			mSleep(6000);
+			--是否继续后30轮
+			pubFun_tab.isContinue(width, height);
 			--检测是否小狐妖技能列表
 			pubFun_tab.findFoxSkillListClick(width, height);
 			--检测是否结束
@@ -108,6 +114,10 @@ function bangpai_funtab1080_1920.bangpai(width, height)
 			if (isPk) then
 				mSleep(20000);
 			end
+			--点击领悟技能知道了
+			pubFun_tab.findLingWu(width, height);
+			--是否继续后30轮
+			pubFun_tab.isContinue(width, height);
 			--检测是否小狐妖技能列表
 			pubFun_tab.findFoxSkillListClick(width, height);
 			--检测是否结束

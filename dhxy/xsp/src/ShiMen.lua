@@ -45,6 +45,10 @@ function shimen_funtab720_1440.shimen(width, height)
 			if (isPk) then
 				mSleep(20000);
 			end
+			--点击领悟技能知道了
+			pubFun_tab.findLingWu(width, height);
+			--是否继续后30轮
+			pubFun_tab.isContinue(width, height);
 			--检测是否小狐妖技能列表
 			pubFun_tab.findFoxSkillListClick(width, height);
 			--检测是否结束
