@@ -329,7 +329,7 @@
             },
             {
                "id" : "SetBeiJu",
-               "list" : "无限北俱,5点带天,5点捉鬼",
+               "list" : "无限北俱",//,5点带天,5点捉鬼
                "select" : "0",
                "size" : 50,
                "type" : "ComboBox",

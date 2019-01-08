@@ -21,33 +21,33 @@ function motor720_1440(width, height, beiJuType)
 	end
 	--点击世界地图并回家
 	pubFun_tab.goHome(width, height, "goHome");
-	mSleep(2000);
+	mSleep(3000);
 	--查找世界地图是否关闭，没有的话就关闭
 	pubFun_tab.findShiJieClose(width, height);
-	mSleep(2000);
+	mSleep(3000);
 	--再点一下世界地图
 	pubFun_tab.goHome(width, height);
-	mSleep(2000);
+	mSleep(3000);
 	--点击北俱芦洲:666,78,785,102
 	dhxyUtils_tab.tap(300,math.random(666, 785), math.random(78, 102));
-	mSleep(2000);
+	mSleep(3000);
 	--随便点小地图某个地方:444,512,498,570
 	dhxyUtils_tab.tap(300,math.random(444, 498), math.random(512, 570));
 	--1155,54,1190,88关闭小地图特殊关闭，不调用方法，手动在此关闭
 	dhxyUtils_tab.tap(300,math.random(1155, 1190),math.random(54, 88));
-	mSleep(2000);
+	mSleep(3000);
 	--寻找包裹
 	local clickTabXY = pubFun_tab.findPackage(width, height);
 	if(clickTabXY.isFound) then
 		mSleep(1000);
 		--点击包裹
 		pubFun_tab.click(clickTabXY, "包裹", math.random(1268, 1314), math.random(644, 691), "click");
-		mSleep(1000);
+		mSleep(3000);
 		--找引妖香并点击
 		if(pubFun_tab.findYinYaoXiang(width, height)) then
 			--点击使用
 			pubFun_tab.findUse(width, height);
-			mSleep(1000);
+			mSleep(3000);
 			--点击确定
 			pubFun_tab.isContinue(width, height);
 			mSleep(1000);
@@ -111,30 +111,30 @@ function motor1080_1920(width, height, beiJuType)
 	if(pubFun_tab.findNoMore(width, height)) then
 		dhxyUtils_tab.tap(300,math.random(1808, 1872), math.random(976, 1040));
 	end
-	mSleep(2000);
+	mSleep(3000);
 	--点击世界地图并回家
 	pubFun_tab.goHome(width, height, "goHome");
-	mSleep(2000);
+	mSleep(3000);
 	--查找世界地图是否关闭，没有的话就关闭
 	pubFun_tab.findShiJieClose(width, height);
-	mSleep(2000);
+	mSleep(3000);
 	--再点一下世界地图
 	pubFun_tab.goHome(width, height);
-	mSleep(2000);
+	mSleep(3000);
 	--点击北俱芦洲:917,126,1035,250
 	dhxyUtils_tab.tap(300,math.random(917, 1035), math.random(126, 250));
-	mSleep(2000);
+	mSleep(3000);
 	--随便点小地图某个地方:542,789,704,876
 	dhxyUtils_tab.tap(300,math.random(542, 704), math.random(789, 876));
 	--1610,87,1664,128关闭小地图特殊关闭，不调用方法，手动在此关闭
 	dhxyUtils_tab.tap(300,math.random(1610, 1664),math.random(87, 128));
-	mSleep(2000);
+	mSleep(3000);
 	--寻找包裹并点击
 	local clickTabXY = pubFun_tab.findPackage(width, height);
 	if(clickTabXY.isFound) then
-		mSleep(1000);
+		mSleep(3000);
 		pubFun_tab.click(clickTabXY, "包裹", math.random(1663, 1717), math.random(960, 1022), "click");
-		mSleep(1000);
+		mSleep(3000);
 		--找引妖香并点击
 		if(pubFun_tab.findYinYaoXiang(width, height)) then
 			--点击使用

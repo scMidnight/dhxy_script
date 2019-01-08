@@ -52,7 +52,7 @@ local accountSwitchNum = 1;
 if(richangEnd == "0") then -- 无限北俱
 	if(width == 720 and height == 1440) then
 		beiJu_funtab720_1440.loopFun(width, height, "0");
-	elseif(width == 1080 and height == 1440) then
+	elseif(width == 1080 and height == 1920) then
 		beiJu_funtab1080_1920.loopFun(width, height, "0");
 	end
 elseif(richangEnd == "1") then --账号切换
