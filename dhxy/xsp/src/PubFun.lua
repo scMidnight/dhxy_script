@@ -1210,6 +1210,12 @@ function pubFun_tab.iNowClick(width, height)
 		end
 	end
 	if(width == 1080 and height == 1920) then
-		
+		x, y = findColor({801, 649, 1114, 752}, "0|0|0xffffff,259|9|0x7ac69e,23|55|0x34c09b,238|55|0x2cbc95",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击关闭827,667,1085,731
+			dhxyUtils_tab.tap(300,math.random(827, 1085),math.random(667, 731));
+		else
+			sysLog("没有找到我知道了按钮");
+		end
 	end
 end
