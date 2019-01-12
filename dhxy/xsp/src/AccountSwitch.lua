@@ -1,7 +1,89 @@
 accountSwitch_funtab720_1440 = {};
 accountSwitch_funtab1080_1920 = {};
+accountSwitch_funtab1080_2160 = {};
 require("DhxyUtils");
 require("PubFun");
+
+--1080_2160账号切换
+function accountSwitch_funtab1080_2160.switch(width, height, account, pwd, isRole, roleNum, isOk, accountNum)
+	local hud = createHUD();
+	pubFun_tab.showHud(hud,"账号切换",width, height);
+	mSleep(5000);
+	local tapXY;
+	if(isOk) then
+		--首先寻找反向更多
+		if(not pubFun_tab.findNoMore(width, height))then
+			--没有找到反向更多则点一下 更多 
+			local moreXYTab = pubFun_tab.findMore(width, height);
+			tapXY = pubFun_tab.randomXY(2045,976,2117,1039);
+			pubFun_tab.click(moreXYTab, "更多", tapXY.x, tapXY.y, "click");
+			mSleep(1000);
+		end
+		mSleep(3000);
+		--点击设置
+		tapXY = pubFun_tab.randomXY(1898,957,1969,1032);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		mSleep(3000);
+		--点击个人中心
+		tapXY = pubFun_tab.randomXY(1034,854,1104,921);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		mSleep(3000);
+		--点击切换账号
+		pubFun_tab.findSwitchAccountClick(width, height);
+		mSleep(5000);
+		--点击其他账号
+		pubFun_tab.findOtherAccountClick(width, height);
+		mSleep(3000);
+		--点击网易邮箱
+		pubFun_tab.isWYClick(width, height);
+		mSleep(3000);
+	end
+	--输入账号密码功能
+	pubFun_tab.input(width, height, account, pwd);
+	--输入完后检查是否有登录按钮，有的话点一下
+	if (pubFun_tab.isLoginBtn(width, height)) then
+		tapXY = pubFun_tab.randomXY(729,616,1430,692);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	end
+	mSleep(5000);
+	--判断是否还有登录按钮，有的话就是有问题
+	if(not pubFun_tab.isLoginBtn(width, height)) then
+		--点完登录，判断是否需要选择角色，如果为0就不需要
+		local x, y = 0, 0;
+		if(tonumber(isRole) > tonumber("0")) then
+			--点击服务器按钮
+			tapXY = pubFun_tab.randomXY(943,704,1252,751);
+			dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+			mSleep(3000);
+			--选择第几个角色
+			local roleList = {
+				{x1=712,x2=1119,y1=181,y2=295},
+				{x1=1328,x2=1735,y1=182,y2=298},
+				{x1=716,x2=1123,y1=352,y2=464},
+				{x1=1325,x2=1740,y1=345,y2=464},
+				{x1=706,x2=1129,y1=512,y2=630},
+				{x1=1328,x2=1747,y1=513,y2=635}
+			}
+			local index = tonumber(roleNum);
+			--随机点击角色坐标
+			x = math.random(roleList[index].x1, roleList[index].x2);
+			y = math.random(roleList[index].y1, roleList[index].y2);
+			--点击角色
+			dhxyUtils_tab.tap(100,x,y);
+			mSleep(3000);
+		end
+		--点击开始游戏
+		tapXY = pubFun_tab.randomXY(932,857,1264,921);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		pubFun_tab.showHud(hud,"账号切换结束",width, height);
+		mSleep(20000);
+		hideHUD(hud);
+		return true;
+	else
+		dialog("正在切换第"  .. accountNum .. "个账号，\n\n但是登录不成功，请检查账号密码，\n\n现在准备切换下一个账号，请确定");
+		return false;
+	end
+end
 
 --720_1440账号切换
 function accountSwitch_funtab720_1440.switch(width, height, account, pwd, isRole, roleNum, isOk, accountNum)

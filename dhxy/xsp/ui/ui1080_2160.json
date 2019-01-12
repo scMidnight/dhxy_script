@@ -1,0 +1,535 @@
+{
+   "style" : "custom",
+   "config" : "save_大话西游手游.dat",
+   "width" : 1800,
+   "height" : 890,
+   "cancelname" : "我不要解放双手",
+   "okname" : "我要解放双手",
+   "countdown" : 999,
+   "views" : [
+      {
+         "text" : "日常任务",
+         "type" : "Page",
+         "views" : [
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=======================  ★富贵脚本★  =======================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,5,1740,70"
+            },
+            {
+               "id" : "CheckBoxTask1",
+               "list" : "北倶挂机    ,抓鬼          ,做天            ,签到          ",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,90,1740,100"
+            },
+            {
+               "id" : "CheckBoxTask2",
+               "list" : "召唤兽灵修,算卦          ,大理寺答题,竞技场",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,220,1740,100"
+            },
+            {
+               "id" : "CheckBoxTask3",
+               "list" : "帮派            ,师门          ,宝图            ,五环",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,350,1740,100"
+            },
+            {
+               "id" : "CheckBoxTask4",
+               "list" : "活跃领奖    ,200环",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,480,1740,100"
+            }
+         ]
+      },
+      {
+         "text" : "切换账号",
+         "type" : "Page",
+         "views" : [
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=======================  ★富贵脚本★  =======================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,5,1740,70"
+            },
+            {
+               "id" : "CheckBoxAccount1",
+               "list" : "账号1",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,150,280,100"
+            },
+            {
+               "id" : "EditAccount1",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号1",
+               "size" : 50,
+               "rect" : "350,90,1390,100"
+            },
+            {
+               "id" : "EditAccountPwd1",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号1密码",
+               "size" : 50,
+               "rect" : "350,200,1390,100"
+            },
+            {
+               "id" : "line1",
+               "type" : "Line",
+               "color" : "128,138,135",
+               "rect" : "50,310,1700,5"
+            },
+            {
+               "id" : "CheckBoxAccount2",
+               "list" : "账号2",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,390,280,100"
+            },
+            {
+               "id" : "EditAccount2",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号2",
+               "size" : 50,
+               "rect" : "350,325,1390,100"
+            },
+            {
+               "id" : "EditAccountPwd2",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号2密码",
+               "size" : 50,
+               "rect" : "350,435,1390,100"
+            },
+            {
+               "id" : "line2",
+               "type" : "Line",
+               "color" : "128,138,135",
+               "rect" : "50,545,1700,5"
+            },
+            {
+               "id" : "CheckBoxAccount3",
+               "list" : "账号3",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,620,280,100"
+            },
+            {
+               "id" : "EditAccount3",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号3",
+               "size" : 50,
+               "rect" : "350,560,1390,100"
+            },
+            {
+               "id" : "EditAccountPwd3",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号3密码",
+               "size" : 50,
+               "rect" : "350,670,1390,100"
+            },
+            {
+               "id" : "line3",
+               "type" : "Line",
+               "color" : "128,138,135",
+               "rect" : "50,780,1700,5"
+            },
+            {
+               "id" : "CheckBoxAccount4",
+               "list" : "账号4",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,860,280,100"
+            },
+            {
+               "id" : "EditAccount4",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号4",
+               "size" : 50,
+               "rect" : "350,795,1390,100"
+            },
+            {
+               "id" : "EditAccountPwd4",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号4密码",
+               "size" : 50,
+               "rect" : "350,905,1390,100"
+            },
+            {
+               "id" : "line4",
+               "type" : "Line",
+               "color" : "128,138,135",
+               "rect" : "50,1015,1700,5"
+            },
+            {
+               "id" : "CheckBoxAccount5",
+               "list" : "账号5",
+               "select" : "",
+               "size" : "60",
+               "type" : "CheckBoxGroup",
+               "orientation" : "horizontal",
+               "color" : "0,0,0",
+               "rect" : "60,1100,280,100"
+            },
+            {
+               "id" : "EditAccount5",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号5",
+               "size" : 50,
+               "rect" : "350,1030,1390,100"
+            },
+            {
+               "id" : "EditAccountPwd5",
+               "type" : "Edit",
+               "align" : "left",
+               "color" : "0,0,0",
+               "kbtype" : "number",
+               "prompt" : "请输入账号5密码",
+               "size" : 50,
+               "rect" : "350,1140,1390,100"
+            }
+         ]
+      },
+      {
+         "text" : "任务设置",
+         "type" : "Page",
+         "views" : [
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=======================  ★富贵脚本★  =======================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,5,1740,70"
+            },
+            {
+               "align" : "right",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "北倶：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "20,100,350,100"
+            },
+            {
+               "id" : "SetBeiJu",
+               "list" : "无限北俱",//,5点带天,5点捉鬼
+               "select" : "0",
+               "size" : 50,
+               "type" : "ComboBox",
+               "rect" : "390,90,1350,100"
+            },
+            {
+               "align" : "right",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "灵修：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "20,220,350,100"
+            },
+            {
+               "id" : "SetLingXiuType",
+               "list" : "宝宝,坐骑",
+               "select" : "0",
+               "size" : 50,
+               "type" : "ComboBox",
+               "rect" : "390,210,420,100"
+            },
+            {
+               "id" : "SetLingXiu",
+               "list" : "经验,亲密",
+               "select" : "0",
+               "size" : 50,
+               "type" : "ComboBox",
+               "rect" : "855,210,420,100"
+            },
+            {
+               "id" : "ZhaoHuanShou",
+               "list" : "1,2,3,4",
+               "select" : "0",
+               "size" : 50,
+               "type" : "ComboBox",
+               "rect" : "1320,210,420,100"
+            },
+            {
+               "align" : "right",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "五环：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "20,340,350,100"
+            },
+            {
+               "id" : "SetWuHuan",
+               "list" : "单人,双人",
+               "select" : "0",
+               "size" : 50,
+               "type" : "ComboBox",
+               "rect" : "390,330,1350,100"
+            },
+            {
+               "align" : "right",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "选择角色：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "20,460,350,100"
+            },
+            {
+               "id" : "AccountSet",
+               "list" : "否,是",
+               "select" : "0",
+               "size" : 50,
+               "type" : "ComboBox",
+               "rect" : "390,450,653,100"
+            },
+            {
+               "id" : "RoleNumSet",
+               "list" : "1,2,3,4,5,6",
+               "select" : "0",
+               "size" : 40,
+               "type" : "ComboBox",
+               "rect" : "1087,450,653,100"
+            },
+            {
+               "align" : "right",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "任务完成后：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "20,580,350,100"
+            },
+            {
+               "id" : "SetEnd",
+               "list" : "无限北俱,切换账号,退出",
+               "select" : "0",
+               "size" : 50,
+               "type" : "ComboBox",
+               "rect" : "390,570,1350,100"
+            }
+         ]
+      },
+      {
+         "text" : "任务设置说明",
+         "type" : "Page",
+         "views" : [
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "北倶：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "10,5,170,70"
+            },
+            {
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "目前只有无限北俱一种选择，勾选后表示无限在北俱挂机",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "180,5,1580,60"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "灵修：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "10,100,170,70"
+            },
+            {
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "第一个下拉框表示对宝宝还是坐骑进行灵修，默认宝宝 ，第二个下拉框表示进行经验灵修还是亲密度灵修，默认经验，第三个下拉框表示对第几个宝宝/坐骑进行灵修，默认1",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "180,100,1580,190"
+            },
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "五环：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "10,325,170,70"
+            },
+            {
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "两种选择单人与双人，默认单人，如果选择双人，请自行组队拉人，此脚本不会自动组队，此脚本不会自动组队，此脚本不会自动组队",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "180,325,1580,130"
+            },
+            {
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "角色设置：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "10,490,270,70"
+            },
+            {
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "是否进行角色切换，默认否，第二个框表示选择第几个角色",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "290,490,1485,60"
+            },
+            {
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "任务完成后：",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "10,585,340,70"
+            },
+            {
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "三种选择，无限北俱，账号切换，退出",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "350,585,1415,60"
+            }
+         ]
+      },
+      {
+         "text" : "切换账号与日常任务说明",
+         "type" : "Page",
+         "views" : [
+            {
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=======================  ★切换账号★  =======================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,5,1740,70"
+            },
+			{
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+				"text" : "此脚本共提供5个账号进行切换，在账号1-5后面上下分别有两个输入框，上面输入框输入账号，下面输入框输入密码，当任务设置中设置了任务结束后进行账号切换，那么在切换账号页面中必须勾选要切换的账号，如不勾选则脚本退出",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "40,75,1730,250"
+            },
+			{
+               "align" : "center",
+               "color" : "0,0,0",
+               "size" : 50,
+               "text" : "=======================  ★日常任务★  =======================",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,325,1740,70"
+            },
+			{
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+				"text" : "此脚本提供北俱挂机、抓鬼、做天、签到、召唤兽灵修、算卦、大理寺答题、竞技场、帮派、师门、宝图、五环、活跃领奖、200环。按照以上顺序依次执行，其中北俱、抓鬼、做天、五环需要自行组队，此脚本不会自动组队与喊话，此脚本不会自动组队与喊话，此脚本不会自动组队与喊话.",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,395,1730,250"
+            },
+			{
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+				"text" : "建议抓鬼、做天、200环组好队后单独勾选执行，其余可以一次性勾选，脚本会按照顺序依次执行，如果要挂北俱建议所有任务做完好单独勾选或者所有任务任务做完后任务设置中选择无限北俱，北俱不可与其他任务一起勾选，那样只会挂北俱",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,700,1730,250"
+            },
+			{
+               "align" : "left",
+               "color" : "0,0,0",
+               "size" : 50,
+				"text" : "温馨提示：脚本执行期间务必使手机横屏，不可黑屏，并且在游戏设置中画面设置将闲时让屏幕变暗取消勾选，200环不会买技能书与抓宝宝，请自备",
+               "bg" : "255,255,255",
+               "type" : "Label",
+               "rect" : "30,1000,1730,200"
+            }
+         ]
+      }
+   ]
+}

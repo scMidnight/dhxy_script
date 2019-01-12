@@ -5,8 +5,8 @@
 4\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/BeiJu.lua
 5\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/DaLiSi.lua
 6\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/DhxyUtils.lua
-size=20
-7\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/GameScript.lua
+size=22
+7\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/GameScript720_1440.lua
 8\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/Huan200.lua
 9\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/HuoYue.lua
 10\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/JingJi.lua
@@ -20,11 +20,14 @@ size=20
 18\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/TianGui.lua
 19\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/ui.lua
 20\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/WuHuan.lua
+21\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/GameScript1080_1920.lua
+22\SOURCEFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/src/GameScript1080_2160.lua
 
 [UI]
-1\UIFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/ui/ui1080.json
-size=2
-2\UIFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/ui/ui720.json
+1\UIFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/ui/ui1080_1920.json
+size=3
+2\UIFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/ui/ui1080_2160.json
+3\UIFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/ui/ui720_1440.json
 
 [RES]
 1\RESFILE=E:/xx_xspworkspace/\x5927\x8bdd\x897f\x6e38\x624b\x6e38/xsp/res/1.png

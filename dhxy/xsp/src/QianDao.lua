@@ -1,7 +1,60 @@
 qiandao_funtab1080_1920 = {};
 qiandao_funtab720_1440 = {};
+qiandao_funtab1080_2160 = {};
 require("DhxyUtils");
 require("PubFun");
+
+--签到1080_2160
+function qiandao_funtab1080_2160.qiandao(width, height)
+	local hud = createHUD();
+	pubFun_tab.showHud(hud,"签到",width, height);
+	mSleep(3000);
+	local tapXY;
+	--获得奖励xy坐标并点击奖励
+	local jiangliXYTab = pubFun_tab.findJiangli(width, height);
+	pubFun_tab.click(jiangliXYTab, "奖励", math.random(jiangliXYTab.x-41, jiangliXYTab.x+41), math.random(jiangliXYTab.y-18, jiangliXYTab.y+55), "click");
+	mSleep(2000);
+	--直接点击第一个每日签到不查找
+	tapXY = pubFun_tab.randomXY(224,476,517,557);
+	dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	mSleep(5000);
+	--直接点击第一个牌
+	tapXY = pubFun_tab.randomXY(958,284,1116,462);
+	dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	mSleep(2000);
+	--关闭窗口
+	tapXY = pubFun_tab.randomXY(1768,160,1811,198);
+	dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	--找确定按钮 
+	if(pubFun_tab.isContinue(width, height)) then
+		--找到了说明卡包满了，点取消
+		tapXY = pubFun_tab.randomXY(748,673,992,726);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		mSleep(1000);
+		--再点第一个奖励领取掉空出卡包
+		tapXY = pubFun_tab.randomXY(552,261,792,355);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		mSleep(1000);
+		--点击后点兑换奖励
+		tapXY = pubFun_tab.randomXY(1034,706,1292,764);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		mSleep(1000);
+		--再点兑换
+		tapXY = pubFun_tab.randomXY(1254,825,1496,883);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		mSleep(5000);
+		--直接点击第一个牌
+		tapXY = pubFun_tab.randomXY(958,284,1116,462);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		mSleep(1000);
+		--关闭窗口
+		tapXY = pubFun_tab.randomXY(1768,160,1811,198);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	end
+	pubFun_tab.showHud(hud,"签到结束",width, height);
+	mSleep(2000);
+	hideHUD(hud);
+end
 
 --签到720_1440
 function qiandao_funtab720_1440.qiandao(width, height)

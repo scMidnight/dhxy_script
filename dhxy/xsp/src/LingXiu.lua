@@ -1,7 +1,73 @@
 lingxiu_funtab1080_1920 = {};
 lingxiu_funtab720_1440 = {};
+lingxiu_funtab1080_2160 = {};
 require("DhxyUtils");
 require("PubFun");
+
+--1080_2160灵修
+function lingxiu_funtab1080_2160.lingxiu(lType, choice, width, height, zhaohuanShou)
+	local hud = createHUD();
+	pubFun_tab.showHud(hud,"灵修",width, height);
+	local x, y = 0, 0;
+	mSleep(3000);
+	local tapXY;
+	--找更多按钮并点击，先找是否反向更多
+	if(not pubFun_tab.findNoMore(width, height)) then
+		local moreXYTab = pubFun_tab.findMore(width, height);
+		tapXY = pubFun_tab.randomXY(2045,976,2117,1039);
+		pubFun_tab.click(moreXYTab, "更多", tapXY.x, tapXY.y, "click");
+		mSleep(1000);
+	end
+	--找家园按钮并点击
+	local homeXYTab = pubFun_tab.findHome(width, height);
+	x, y = homeXYTab.x, homeXYTab.y;
+	pubFun_tab.click(homeXYTab, "家园", math.random(x-23, x+44), math.random(y+23, y+89), "click");
+	mSleep(2000);
+	--管家按钮是固定的，不需要找打开界面直接点
+	tapXY = pubFun_tab.randomXY(1343,716,1476,761);
+	dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	--休息5秒
+	mSleep(5000);
+	--召唤兽灵修按钮，对话框点击第一个
+	pubFun_tab.dialogBox(width, height, 1);
+	if(lType == "宝宝") then
+		if(choice == "亲密") then--经验不用做操作，默认就是
+			--点击亲密1120,197,1303,247
+			tapXY = pubFun_tab.randomXY(1120,197,1303,247);
+			dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		end
+	elseif(lType == "坐骑") then
+		--点击坐骑1779,496,1838,616
+		tapXY = pubFun_tab.randomXY(1779,496,1838,616);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	end
+	--判断第几个召唤兽灵修0的话不用管默认就是
+	if(zhaohuanShou == "1") then
+		--点击第二个:525,376,773,480
+		tapXY = pubFun_tab.randomXY(525,376,773,480);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	elseif(zhaohuanShou == "2") then
+		--点击第三个:521,541,803,651
+		tapXY = pubFun_tab.randomXY(521,541,803,651);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	elseif(zhaohuanShou == "3") then
+		--点击第四个:523,709,798,819
+		tapXY = pubFun_tab.randomXY(523,709,798,819);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	end
+	--点击开始:1187,892,1405,949
+	tapXY = pubFun_tab.randomXY(1187,892,1405,949);
+	dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	mSleep(2000);
+	--关闭灵修对话框
+	pubFun_tab.close(width, height, "灵修对话框");
+	--再点一下更多，使还原2056,958,2107,1034
+	tapXY = pubFun_tab.randomXY(2056,958,2107,1034);
+	dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+	pubFun_tab.showHud(hud,"灵修结束",width, height);
+	mSleep(2000);
+	hideHUD(hud);
+end
 
 --720_1440灵修
 function lingxiu_funtab720_1440.lingxiu(lType, choice, width, height, zhaohuanShou) 

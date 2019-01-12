@@ -3,8 +3,8 @@ require("PubFun");
 local appid = frontAppName();--获取当前应用ID
 local width,height = getScreenSize();
 sysLog(appid);
-sysLog(width);--720
-sysLog(height);--1440
+sysLog(width);--1080
+sysLog(height);--2160
 if (appid ~= "com.netease.dhxy") then
 	dialog("请打开大话西游再运行该脚本！", 3);
 	mSleep(1000);
@@ -13,9 +13,11 @@ end
 init(appid,1);
 local ret, results;
 if(width == 720 and height == 1440) then
-	ret,results = showUI("ui720.json");
+	ret,results = showUI("ui720_1440.json");
 elseif(width == 1080 and height == 1920) then
-	ret,results = showUI("ui1080.json");
+	ret,results = showUI("ui1080_1920.json");
+elseif(width == 1080 and height == 2160) then
+	ret,results = showUI("ui1080_2160.json");
 else
 	dialog("不支持该分辨率");
 	lua_exit();
@@ -43,10 +45,20 @@ local isRole = results.AccountSet;--得到账号切换设置 是否选择角色
 local roleNum = results.RoleNumSet;--得到账号切换设置 选择第几个角色
 roleNum = tonumber(roleNum) + 1;
 
-require("GameScript");--入口
+require("GameScript720_1440");--入口
+require("GameScript1080_1920");--入口
+require("GameScript1080_2160");--入口
 require("AccountSwitch");--账号切换
 local richangEnd = results.SetEnd;--所选任务完成后
-gameScript.run(width, height, results);--进来先执行一次
+
+if(width == 720 and height == 1440) then
+	gameScript720_1440.run(width, height, results);--进来先执行一次
+elseif(width == 1080 and height == 1920) then
+	gameScript1080_1920.run(width, height, results);--进来先执行一次
+elseif(width == 1080 and height == 2160) then
+	gameScript1080_2160.run(width, height, results);--进来先执行一次
+end
+
 local accountSwitchNum = 1;
 --判断结束
 if(richangEnd == "0") then -- 无限北俱
@@ -54,6 +66,8 @@ if(richangEnd == "0") then -- 无限北俱
 		beiJu_funtab720_1440.loopFun(width, height, "0");
 	elseif(width == 1080 and height == 1920) then
 		beiJu_funtab1080_1920.loopFun(width, height, "0");
+	elseif(width == 1080 and height == 2160) then
+		beiJu_funtab1080_2160.loopFun(width, height, "0");
 	end
 elseif(richangEnd == "1") then --账号切换
 	local isOk = true;
@@ -63,7 +77,7 @@ elseif(richangEnd == "1") then --账号切换
 				isOk = accountSwitch_funtab720_1440.switch(width, height, account1, accountPwd1, isRole, roleNum, true, accountSwitchNum);
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript720_1440.run(width, height, results);
 				end
 			end
 		end
@@ -76,7 +90,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript720_1440.run(width, height, results);
 				end
 			end
 		end
@@ -89,7 +103,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript720_1440.run(width, height, results);
 				end
 			end
 		end
@@ -102,7 +116,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript720_1440.run(width, height, results);
 				end
 			end
 		end
@@ -115,7 +129,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript720_1440.run(width, height, results);
 				end
 			end
 		end
@@ -125,7 +139,7 @@ elseif(richangEnd == "1") then --账号切换
 				isOk = accountSwitch_funtab1080_1920.switch(width, height, account1, accountPwd1, isRole, roleNum, true, accountSwitchNum);
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript1080_1920.run(width, height, results);
 				end
 			end
 		end
@@ -138,7 +152,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript1080_1920.run(width, height, results);
 				end
 			end
 		end
@@ -151,7 +165,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript1080_1920.run(width, height, results);
 				end
 			end
 		end
@@ -164,7 +178,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript1080_1920.run(width, height, results);
 				end
 			end
 		end
@@ -174,6 +188,68 @@ elseif(richangEnd == "1") then --账号切换
 					isOk = accountSwitch_funtab1080_1920.switch(width, height, account5, accountPwd5, isRole, roleNum, true, accountSwitchNum);
 				else
 					isOk = accountSwitch_funtab1080_1920.switch(width, height, account5, accountPwd5, isRole, roleNum, isOk, accountSwitchNum);
+				end
+				accountSwitchNum = accountSwitchNum + 1;
+				if(isOk) then
+					gameScript1080_1920.run(width, height, results);
+				end
+			end
+		end
+	elseif(width == 1080 and height == 2160) then
+		if(accountCheck1 == "0") then --账号1
+			if(string.len(account1) > 0 and string.len(accountPwd1) > 0) then
+				isOk = accountSwitch_funtab1080_2160.switch(width, height, account1, accountPwd1, isRole, roleNum, true, accountSwitchNum);
+				accountSwitchNum = accountSwitchNum + 1;
+				if(isOk) then
+					gameScript.run(width, height, results);
+				end
+			end
+		end
+		if(accountCheck2 == "0") then --账号2
+			if(string.len(account2) > 0 and string.len(accountPwd2) > 0) then
+				if(accountSwitchNum == 1) then
+					isOk = accountSwitch_funtab1080_2160.switch(width, height, account2, accountPwd2, isRole, roleNum, true, accountSwitchNum);
+				else
+					isOk = accountSwitch_funtab1080_2160.switch(width, height, account2, accountPwd2, isRole, roleNum, isOk, accountSwitchNum);
+				end
+				accountSwitchNum = accountSwitchNum + 1;
+				if(isOk) then
+					gameScript.run(width, height, results);
+				end
+			end
+		end
+		if(accountCheck3 == "0") then --账号3
+			if(string.len(account3) > 0 and string.len(accountPwd3) > 0) then
+				if(accountSwitchNum == 1) then
+					isOk = accountSwitch_funtab1080_2160.switch(width, height, account3, accountPwd3, isRole, roleNum, true, accountSwitchNum);
+				else
+					isOk = accountSwitch_funtab1080_2160.switch(width, height, account3, accountPwd3, isRole, roleNum, isOk, accountSwitchNum);
+				end
+				accountSwitchNum = accountSwitchNum + 1;
+				if(isOk) then
+					gameScript.run(width, height, results);
+				end
+			end
+		end
+		if(accountCheck4 == "0") then --账号4
+			if(string.len(account4) > 0 and string.len(accountPwd4) > 0) then
+				if(accountSwitchNum == 1) then
+					isOk = accountSwitch_funtab1080_2160.switch(width, height, account4, accountPwd4, isRole, roleNum, true, accountSwitchNum);
+				else
+					isOk = accountSwitch_funtab1080_2160.switch(width, height, account4, accountPwd4, isRole, roleNum, isOk, accountSwitchNum);
+				end
+				accountSwitchNum = accountSwitchNum + 1;
+				if(isOk) then
+					gameScript.run(width, height, results);
+				end
+			end
+		end
+		if(accountCheck5 == "0") then --账号5
+			if(string.len(account5) > 0 and string.len(accountPwd5) > 0) then
+				if(accountSwitchNum == 1) then
+					isOk = accountSwitch_funtab1080_2160.switch(width, height, account5, accountPwd5, isRole, roleNum, true, accountSwitchNum);
+				else
+					isOk = accountSwitch_funtab1080_2160.switch(width, height, account5, accountPwd5, isRole, roleNum, isOk, accountSwitchNum);
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
