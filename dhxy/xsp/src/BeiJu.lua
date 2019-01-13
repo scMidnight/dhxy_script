@@ -89,7 +89,7 @@ function motor1080_2160(width, height, beiJuType)
 		end
 		hideHUD(hud);
 		if(beiJuType == "0") then ---无限北俱
-			motor1080_2160(width, beiJuType);
+			motor1080_2160(width, height, beiJuType);
 		elseif(beiJuType == "1" and tonumber(dhxyUtils_tab.getNowHour()) >= 5) then --5点带天
 			tiangui_funtab1080_2160.tian(width, height);
 		elseif(beiJuType == "2" and tonumber(dhxyUtils_tab.getNowHour()) >= 5) then --5点捉鬼
@@ -184,7 +184,7 @@ function motor720_1440(width, height, beiJuType)
 		end
 		hideHUD(hud);
 		if(beiJuType == "0") then ---无限北俱
-			motor720_1440(width, beiJuType);
+			motor720_1440(width, height, beiJuType);
 		elseif(beiJuType == "1" and tonumber(dhxyUtils_tab.getNowHour()) >= 5) then --5点带天
 			tiangui_funtab720_1440.tian(width, height);
 		elseif(beiJuType == "2" and tonumber(dhxyUtils_tab.getNowHour()) >= 5) then --5点捉鬼

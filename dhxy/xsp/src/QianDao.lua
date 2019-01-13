@@ -26,7 +26,7 @@ function qiandao_funtab1080_2160.qiandao(width, height)
 	tapXY = pubFun_tab.randomXY(1768,160,1811,198);
 	dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
 	--找确定按钮 
-	if(pubFun_tab.isContinue(width, height)) then
+	if(pubFun_tab.isOk(width, height)) then
 		--找到了说明卡包满了，点取消
 		tapXY = pubFun_tab.randomXY(748,673,992,726);
 		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);

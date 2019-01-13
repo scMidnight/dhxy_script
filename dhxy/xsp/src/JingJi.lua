@@ -17,7 +17,7 @@ function jingji_funtab1080_2160.jingji(num,width, height)
 		tapXY = pubFun_tab.randomXY(1899,963,1969,1030);
 		pubFun_tab.click(clickTabXY, "包裹", tapXY.x, tapXY.y, "click");
 		--休息3秒后点积分
-		mSleep(3000);
+		mSleep(5000);
 		--点击积分1612,5,1658,43
 		tapXY = pubFun_tab.randomXY(1612,5,1658,43);
 		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);

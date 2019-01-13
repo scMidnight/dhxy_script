@@ -689,7 +689,7 @@ function pubFun_tab.findUse(width, height)
 		end
 	end
 	if(width == 1080 and height == 2160) then
-		x, y = findColor({1287, 315, 1556, 635}, "0|0|0xffffff,168|13|0x63be94,13|56|0x31ba94,166|50|0x31ae84",95, 0, 0, 0);
+		x, y = findColor({1306, 339, 1549, 511}, "0|0|0xffffff,174|5|0x8ccea4,0|66|0x29be9c,175|68|0x31cead",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
 			--点击使用:1354,383,1497,441
 			dhxyUtils_tab.tap(math.random(100, 300),math.random(1354, 1497),math.random(383, 441));
@@ -753,6 +753,14 @@ function pubFun_tab.isOk(width, height)
 			return false;
 		end
 	end
+	if(width == 1080 and height == 2160) then
+		x, y = findColor({1136, 648, 1444, 752}, "0|0|0xffffff,267|10|0x73c29c,23|51|0x31ba94,244|53|0x31ba94",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			return true;
+		else
+			return false;
+		end
+	end
 end
 --做天抓鬼是否继续以及查看掉线，还有引妖香使用和签到退出的提示
 function pubFun_tab.isContinue(width, height)
@@ -809,16 +817,16 @@ function pubFun_tab.body(width, height,nTime)
 				nTime = mTime();
 			end
 		end
+		--是否继续后30轮
+		if(pubFun_tab.isContinue(width, height)) then
+			nTime = mTime();
+		end
+		mSleep(1000);
 		--点击解封技能格知道了
 		pubFun_tab.iNowClick(width, height);
 		mSleep(2000);
 		--点击领悟技能知道了
 		if(pubFun_tab.findLingWu(width, height)) then
-			nTime = mTime();
-		end
-		mSleep(1000);
-		--是否继续后30轮
-		if(pubFun_tab.isContinue(width, height)) then
 			nTime = mTime();
 		end
 		mSleep(1000);
