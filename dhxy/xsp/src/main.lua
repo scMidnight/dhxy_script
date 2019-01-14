@@ -201,7 +201,7 @@ elseif(richangEnd == "1") then --账号切换
 				isOk = accountSwitch_funtab1080_2160.switch(width, height, account1, accountPwd1, isRole, roleNum, true, accountSwitchNum);
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript1080_2160.run(width, height, results);
 				end
 			end
 		end
@@ -214,7 +214,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript1080_2160.run(width, height, results);
 				end
 			end
 		end
@@ -227,7 +227,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript1080_2160.run(width, height, results);
 				end
 			end
 		end
@@ -240,7 +240,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript1080_2160.run(width, height, results);
 				end
 			end
 		end
@@ -253,7 +253,7 @@ elseif(richangEnd == "1") then --账号切换
 				end
 				accountSwitchNum = accountSwitchNum + 1;
 				if(isOk) then
-					gameScript.run(width, height, results);
+					gameScript1080_2160.run(width, height, results);
 				end
 			end
 		end

@@ -1400,6 +1400,10 @@ function pubFun_tab.input(width, height, account, pwd)
 		tapXY = pubFun_tab.randomXY(1428,380,1448,396);
 		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
 		mSleep(3000);
+		--点击一下别的地方把输入法点掉
+		tapXY = pubFun_tab.randomXY(115,25,310,174);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		mSleep(3000);
 		--在输入框中输入字符串并回车
 		inputText(account .. "#ENTER#");
 		--点击一下别的地方把输入法点掉
@@ -1416,6 +1420,10 @@ function pubFun_tab.input(width, height, account, pwd)
 		mSleep(3000);
 		--清空密码
 		tapXY = pubFun_tab.randomXY(1331,514,1350,531);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		mSleep(3000);
+		--点击一下别的地方把输入法点掉
+		tapXY = pubFun_tab.randomXY(115,25,310,174);
 		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
 		mSleep(3000);
 		--在输入框中输入字符串并回车
