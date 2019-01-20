@@ -31,7 +31,11 @@ function lingxiu_funtab1080_2160.lingxiu(lType, choice, width, height, zhaohuanS
 	--召唤兽灵修按钮，对话框点击第一个
 	pubFun_tab.dialogBox(width, height, 1);
 	if(lType == "宝宝") then
-		if(choice == "亲密") then--经验不用做操作，默认就是
+		if(choice == "经验") then
+			--点击经验866,196,1046,248
+			tapXY = pubFun_tab.randomXY(866,196,1046,248);
+			dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		elseif(choice == "亲密") then
 			--点击亲密1120,197,1303,247
 			tapXY = pubFun_tab.randomXY(1120,197,1303,247);
 			dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);

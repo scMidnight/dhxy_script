@@ -1057,7 +1057,7 @@ function pubFun_tab.maiBaobao(width, height)
 	end
 	if(width == 1080 and height == 2160) then
 		--是否购买宝宝的对话框
-		x, y = findColor({802, 303, 1736, 909}, "0|0|0xffe7a4,66|-12|0xffef8c,46|37|0x6b4529,43|3|0x844531",95, 0, 0, 0);
+		x, y = findColor({329, 175, 593, 301}, "0|0|0xffebad,108|0|0xffebb5,17|-25|0x840408,52|-33|0x7b0000,-61|-61|0xfffbef",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
 			for i = 1, 10 do
 				--找需要的宝宝购买
