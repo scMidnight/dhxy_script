@@ -654,9 +654,9 @@ function pubFun_tab.findBoxBaoTu(width, height)
 --		end
 	end
 	if(width == 1080 and height == 2160) then
-		x, y = findColor({1085, 296, 1714, 862}, "0|0|0xce694a,-17|39|0xeff3bd,-36|55|0x94796b",95, 0, 0, 0);
+		x, y = findColor({1065, 291, 1721, 864}, "0|0|0xc54d3a,-10|12|0xb59e5a,-38|57|0x8c7563",92, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
-			dhxyUtils_tab.tap(math.random(100,300),math.random((x-25), (x+37)),math.random((y-16), (y+48)));
+			dhxyUtils_tab.tap(math.random(100,300),math.random((x-40), (x+46)),math.random((y-25), (y+60)));
 			return true;
 		else
 			--没找到就把包裹关闭1756,127,1808,168
