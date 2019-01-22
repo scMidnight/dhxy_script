@@ -85,6 +85,7 @@ function pubFun_tab.isPk(width, height, isClick)
 end
 --找对对话框
 function pubFun_tab.findDialog(width, height)
+	local x, y = 0, 0;
 	if(width == 720 and height == 1440) then 
 		x, y = findColor({980, 400, 1357, 484}, "0|0|0xe7aa5a,145|-27|0xd68a32,358|-2|0xde963a,185|31|0xde963a",95, 0, 0, 0);
 	end
@@ -737,6 +738,7 @@ function pubFun_tab.shuang(width, height)
 end
 --找签到确定按钮
 function pubFun_tab.isOk(width, height)
+	local x, y = 0, 0;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({699, 409, 1026, 527}, "0|0|0x63be9c,98|-3|0x73c39c,-1|22|0x31ba8c,94|22|0x31ba94",90, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1436,6 +1438,7 @@ function pubFun_tab.input(width, height, account, pwd)
 end
 --检查是否有登录按钮
 function pubFun_tab.isLoginBtn(width, height) 
+	local x, y = 0, 0;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({417, 397, 1024, 500}, "0|0|0xfdfffe,555|11|0x35c593,29|48|0x17cba3,546|50|0x17cba3,261|31|0xfeffff,303|30|0xffffff",95, 0, 0, 0);
 	end
@@ -1454,6 +1457,7 @@ end
 --检测是否有网易邮箱按钮，有的话就点击 
 function pubFun_tab.isWYClick(width, height)
 	local tapXY;
+	local x, y = 0, 0;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({764, 472, 873, 623}, "0|0|0xffffff,0|-4|0xd41d13,0|26|0xd41d13",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1486,6 +1490,7 @@ end
 --寻找切换账号按钮并点击
 function pubFun_tab.findSwitchAccountClick(width, height)
 	local tapXY;
+	local x, y = 0, 0;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({33, 94, 1432, 323}, "0|0|0xfb5050,81|-18|0xfb5050,159|14|0xfb5050,75|51|0xfb5050,86|19|0xfb5151",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1518,6 +1523,7 @@ end
 --寻找其他账号按钮并点击
 function pubFun_tab.findOtherAccountClick(width, height)
 	local tapXY;
+	local x, y = 0, 0;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({384, 390, 1134, 661}, "0|0|0xa35b1c,27|-3|0xa35b1b,54|-1|0xad6c31,89|1|0xa35b1b,119|-3|0xaa682c,148|0|0xa76224",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1549,6 +1555,7 @@ function pubFun_tab.findOtherAccountClick(width, height)
 end
 --寻找是否小狐妖技能列表框，是的话关闭
 function pubFun_tab.findFoxSkillListClick(width, height) 
+	local x, y = 0, 0;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({299, 600, 486, 670}, "0|0|0xdeaa63,83|-22|0xdeb284,166|-1|0xd69e4b,85|22|0xdea252",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1579,6 +1586,7 @@ function pubFun_tab.findFoxSkillListClick(width, height)
 end
 --解封技能格点击我知道了
 function pubFun_tab.iNowClick(width, height)
+	local x, y = 0, 0;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({603, 427, 832, 507}, "0|0|0xffffff,173|12|0x52ba94,16|33|0x31be9c,158|33|0x31ba94",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1604,6 +1612,72 @@ function pubFun_tab.iNowClick(width, height)
 			dhxyUtils_tab.tap(math.random(100, 300),math.random(959, 1189),math.random(666, 731));
 		else
 			sysLog("没有找到我知道了按钮");
+		end
+	end
+end
+--查找锁定签到卡并上滑
+function pubFun_tab.findLockQiaoDao(width, height)
+	local flag = false;
+	local x, y = 0, 0;
+	if(width == 1080 and height == 2160) then
+		for i = 1, 20 do
+			x, y = findColor({379, 226, 829, 851}, "0|0|0xffffb5,21|1|0xfffbb5,12|4|0xbd9e5a",95, 0, 0, 0);
+			if (x ~= -1 and y ~= -1) then
+				--点第一个奖励
+				tapXY = pubFun_tab.randomXY(552,261,792,355);
+				dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+				mSleep(1000);
+				--查找兑换奖励按钮
+				x, y = findColor({1000, 689, 1328, 788}, "0|0|0xffffff,270|9|0x73c29c,17|55|0x3aba94,268|54|0x31b68c",95, 0, 0, 0);
+				if(x ~= -1 and y ~= -1) then
+					flag = true;
+					break;
+				else
+					--上滑492,336,765,769
+					x = math.random(492,765);
+					y = math.random(336,769);
+					dhxyUtils_tab.move(300,x, y, x, (y-135));
+					flag = false;
+				end
+			else
+				if(pubFun_tab.findHui(width, height)) then
+					--点第一个奖励
+					tapXY = pubFun_tab.randomXY(552,261,792,355);
+					dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+					mSleep(1000);
+					flag = true;
+					break;
+				end
+			end
+		end
+	end
+	return flag;
+end
+--检查是否是灰色，是的话点取消，点关闭
+function pubFun_tab.findHui(width, height)
+	local x, y = 0, 0;
+	if(width == 1080 and height == 2160) then
+		x, y = findColor({1128, 648, 1456, 753}, "0|0|0xffffff,214|29|0x949294",95, 0, 0, 0);
+		if (x ~= -1 and y ~= -1) then
+			--点击取消
+			tapXY = pubFun_tab.randomXY(740,668,1002,730);
+			dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+			mSleep(1000);
+			--点击关闭
+			tapXY = pubFun_tab.randomXY(1660,140,1707,188);
+			dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+			mSleep(1000);
+			return false;
+		else 
+			--点击取消
+			tapXY = pubFun_tab.randomXY(740,668,1002,730);
+			dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+			mSleep(1000);
+			--点击关闭
+			tapXY = pubFun_tab.randomXY(1660,140,1707,188);
+			dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+			mSleep(1000);
+			return true;
 		end
 	end
 end
