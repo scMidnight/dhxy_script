@@ -55,7 +55,16 @@ function gameScript1080_2160.run(width, height, results)
 	end
 	--第二组
 	for i, v in pairs(choicesTab2) do
-		if(v == "0") then --召唤兽灵修
+		if(v == "0") then --竞技场
+			jingji_funtab1080_2160.jingji(10,width, height);
+		end
+		if(v == "1") then --算卦
+			suangua_funtab1080_2160.suangua(width, height);
+		end
+		if(v == "2") then --大理寺答题
+			dalisi_funtab1080_2160.dalisi(width, height);
+		end
+		if(v == "3") then --召唤兽灵修
 			if(linxiuType == "0") then--宝宝
 				if(lingXiuSetting == "0") then
 					lingxiu_funtab1080_2160.lingxiu("宝宝","经验",width, height,zhaohuanShou);
@@ -65,15 +74,6 @@ function gameScript1080_2160.run(width, height, results)
 			elseif(linxiuType == "1") then--坐骑
 				lingxiu_funtab1080_2160.lingxiu("坐骑","", width, height,zhaohuanShou);
 			end
-		end
-		if(v == "1") then --算卦
-			suangua_funtab1080_2160.suangua(width, height);
-		end
-		if(v == "2") then --大理寺答题
-			dalisi_funtab1080_2160.dalisi(width, height);
-		end
-		if(v == "3") then --竞技场
-			jingji_funtab1080_2160.jingji(10,width, height);
 		end
 	end
 	--第三组

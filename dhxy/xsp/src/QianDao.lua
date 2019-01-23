@@ -32,7 +32,11 @@ function qiandao_funtab1080_2160.qiandao(width, height)
 		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
 		mSleep(1000);
 		--这里需要查找是否有锁定，有的话点击非锁定的然后点击，最近新发现有这功能
-		pubFun_tab.findLockQiaoDao(width, height);
+		--pubFun_tab.findLockQiaoDao(width, height);
+		--点第一个奖励
+		tapXY = pubFun_tab.randomXY(552,261,792,355);
+		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
+		mSleep(1000);
 		--点击后点兑换奖励
 		tapXY = pubFun_tab.randomXY(1034,706,1292,764);
 		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);

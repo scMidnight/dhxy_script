@@ -32,7 +32,7 @@
             },
             {
                "id" : "CheckBoxTask2",
-               "list" : "召唤兽灵修,算卦          ,大理寺答题,竞技场",
+               "list" : "竞技场        ,算卦          ,大理寺答题,召唤兽灵修",
                "select" : "",
                "size" : "60",
                "type" : "CheckBoxGroup",
