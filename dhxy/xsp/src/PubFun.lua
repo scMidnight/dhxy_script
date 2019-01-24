@@ -30,7 +30,7 @@ function pubFun_tab.findPackage(width, height)
 		x, y = findColor({1622, 923, 1764, 1059}, "0|0|0xe66471,-38|36|0xe8948e,34|34|0xc76432,28|69|0xd9710a",95, 0, 0, 0);
 	end
 	if(width == 1080 and height == 2160) then
-		x, y = findColor({1873, 928, 2000, 1055}, "0|0|0xee5d73,-43|21|0xfffbef,41|20|0xffffff,-3|86|0xefaa10,38|87|0xd6493a",95, 0, 0, 0);
+		x, y = findColor({1867, 922, 1999, 1056}, "0|0|0x9c2831,-30|36|0xffffff,-5|63|0xffd210",95, 0, 0, 0);
 	end
 	if(x ~= -1 and y ~= -1) then
 		clickTabXY.isFound = true;
