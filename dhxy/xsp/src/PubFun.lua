@@ -22,7 +22,7 @@ end
 --寻找包裹
 function pubFun_tab.findPackage(width, height)
 	local clickTabXY = {};
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({1246, 618, 1342, 709}, "0|0|0x9c2c31,-25|5|0xefd37b,25|5|0xefd384,22|50|0xce3c31,-21|27|0xfffff7",95, 0, 0, 0);
 	end
@@ -44,7 +44,7 @@ end
 --寻找竞技场
 function pubFun_tab.findJingJi(width, height)
 	local point;
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		point = findColors({967, 98, 1023, 404}, "0|0|0xffffff,10|-1|0xfffbee,14|-1|0xefc339,7|6|0xf7d339,5|18|0xfffbde",95, 0, 0, 0);
 	end
@@ -52,7 +52,7 @@ function pubFun_tab.findJingJi(width, height)
 		point = findColors({1253, 126, 1775, 615}, "0|0|0xa28c73,-10|14|0x90310b,13|14|0x8b300f,34|14|0x99441a,-29|14|0x9c4515",95, 0, 0, 0);
 	end
 	if(width == 1080 and height == 2160) then
-		point = findColors({1383, 130, 1892, 606}, "0|0|0xf7ef4a,17|-29|0xfffff7,29|-12|0xa48e73,60|4|0xefc229",95, 0, 0, 0);
+		point = findColors({1450, 156, 1538, 608}, "0|0|0x9c4519,13|-4|0xfff35a,25|-8|0xffffe6,59|-8|0xffff5a",95, 0, 0, 0);
 	end
 	if #point ~= 0 then
 		for var = 1,#point do
@@ -67,7 +67,7 @@ function pubFun_tab.findJingJi(width, height)
 end
 --判断是否战斗中
 function pubFun_tab.isPk(width, height, isClick)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({79, 20, 177, 108}, "0|0|0xf7c773,5|-2|0x8c5939,16|2|0xa56942,-14|2|0x8c5539,10|-44|0x7b614a",95, 0, 0, 0);
 	end
@@ -85,7 +85,7 @@ function pubFun_tab.isPk(width, height, isClick)
 end
 --找对对话框
 function pubFun_tab.findDialog(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then 
 		x, y = findColor({980, 400, 1357, 484}, "0|0|0xe7aa5a,145|-27|0xd68a32,358|-2|0xde963a,185|31|0xde963a",95, 0, 0, 0);
 	end
@@ -150,7 +150,7 @@ function pubFun_tab.click(tab, text, x, y, clickType)
 end
 --关闭包裹、竞技场、召唤兽灵修,小地图等一类的小窗口
 function pubFun_tab.close(width, height, text)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = math.random(1172, 1204), math.random(83, 114);
 		sysLog("关闭"..text.."x:"..x.."，y:"..y);
@@ -170,7 +170,7 @@ end
 --寻找奖励
 function pubFun_tab.findJiangli(width, height)
 	local jiangliXYTab = {};
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 1080 and height == 1920) then
 		x, y = findColor({5, 386, 189, 565}, "0|0|0xf6788f,42|7|0xfffefd,80|3|0xd13a5c",95, 0, 0, 0);
 	end
@@ -187,12 +187,12 @@ end
 --寻找更多按钮
 function pubFun_tab.findMore(width, height)
 	local moreXYTab = {};
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({1355, 619, 1429, 702}, "0|0|0x31867b,12|-26|0xffffff,17|4|0x42d3ad,36|-1|0x42d3ad,18|19|0x29e7de",95, 0, 0, 0);
 	end
 	if(width == 1080 and height == 1920) then
-		x, y = findColor({1771, 930, 1908, 1061}, "0|0|0xfffffe,-35|36|0x236552,47|44|0x26755c,5|72|0x2be9e4",95, 0, 0, 0);
+		x, y = findColor({1781, 931, 1898, 1048}, "0|0|0xfafdf8,5|40|0x4bd4a5,4|71|0x28f0ec",95, 0, 0, 0);
 	end
 	if(width == 1080 and height == 2160) then
 		x, y = findColor({2028, 935, 2137, 1046}, "0|0|0xffffff,-30|35|0x6be3ad,34|37|0x42d2ad,2|68|0x29ebe6",95, 0, 0, 0);
@@ -208,7 +208,7 @@ function pubFun_tab.findMore(width, height)
 end
 --寻找反向更多并点击
 function pubFun_tab.findNoMore(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({1344, 621, 1429, 702}, "0|0|0xf7ffff,29|0|0xffffff,-3|34|0x21ebe7,34|34|0xf7f7ff",95, 0, 0, 0);
 	end
@@ -227,12 +227,12 @@ end
 --寻找家园
 function pubFun_tab.findHome(width, height)
 	local homeXYTab = {};
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({1048, 614, 1236, 708}, "0|0|0x94f3de,-10|17|0x7befce,-8|29|0xf79e6b,32|43|0x4acb94,-30|37|0x42c78c",95, 0, 0, 0);
 	end
 	if(width == 1080 and height == 1920) then
-		x, y = findColor({1331, 916, 1625, 1065}, "0|0|0xfffe9d,-13|17|0x9cf1d9,-13|41|0x82f1d3,-53|68|0x3ec58a,47|81|0x54d198",95, 0, 0, 0);
+		x, y = findColor({1319, 909, 1647, 1074}, "0|0|0xfffd98,20|53|0xfefdf1,-3|72|0xfa8b5d,-9|69|0x8fbb4d",95, 0, 0, 0);
 	end
 	if(width == 1080 and height == 2160) then
 		x, y = findColor({1459, 906, 1875, 1057}, "0|0|0xffffff,4|22|0x73dfce,-3|50|0x7befce,45|53|0x6bdba4,-4|65|0xf7865a,54|87|0x219a5a",95, 0, 0, 0);
@@ -248,7 +248,7 @@ function pubFun_tab.findHome(width, height)
 end
 --世界地图根据类型判断是否回家
 function pubFun_tab.goHome(width, height, choice)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		--点击世界地图38,14,66,44
 		x, y = math.random(38, 66), math.random(14, 44);
@@ -291,7 +291,7 @@ end
 --检测是否200环答题
 function pubFun_tab.findDaTi200(width, height)
 	local datiTabXY = {};
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({340, 404, 721, 500}, "0|0|0xd68e32,174|-35|0xde8e32,162|35|0xefba73,358|-2|0xe7ba7b",90, 0, 0, 0);
 	end
@@ -313,7 +313,7 @@ end
 --检测是否大理寺答题界面
 function pubFun_tab.findDaTi(width, height) 
 	local datiTabXY = {};
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({168, 90, 1263, 689}, "0|0|0xc6fbb5,857|145|0xd6ffc6,774|401|0x63869c,845|385|0xb5dbb5,938|398|0x637994",95, 0, 0, 0);
 	end
@@ -335,7 +335,7 @@ end
 --寻找活动
 function pubFun_tab.findActivity(width, height) 
 	local activityTabXY = {};
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({5, 179, 92, 260}, "0|0|0xffebc6,18|7|0xf7dbd6,35|-2|0xf7ffef,46|-1|0xad2c31,58|-1|0xffffff",95, 0, 0, 0);
 	end
@@ -356,7 +356,7 @@ function pubFun_tab.findActivity(width, height)
 end
 --寻找帮派并点击
 function pubFun_tab.clickBangPai(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		for i = 1, 10 do
 			x, y = findColor({238, 185, 1162, 529}, "0|0|0xffd718,3|4|0xbd5121,17|52|0xde6d21",90, 0, 0, 0);
@@ -402,7 +402,7 @@ function pubFun_tab.clickBangPai(width, height)
 end
 --寻找师门并点击
 function pubFun_tab.clickShiMen(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		for i = 1, 10 do
 			x, y = findColor({238, 185, 1162, 529}, "0|0|0xf7fbf7,3|18|0x425173,22|8|0xffffff,-18|23|0xfffbff",90, 0, 0, 0);
@@ -448,7 +448,7 @@ function pubFun_tab.clickShiMen(width, height)
 end
 --寻找200环并点击
 function pubFun_tab.huan200Click(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	local flag = false;
 	local tapXY;
 	if(width == 720 and height == 1440) then
@@ -504,7 +504,7 @@ function pubFun_tab.huan200Click(width, height)
 end
 --寻找右下角的购买并点击
 function pubFun_tab.buy(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({894, 559, 1138, 629}, "0|0|0xf7ffff,206|4|0x8ccfa5,-2|40|0x31ba94,202|38|0x31ba8c",95, 0, 0, 0);
 		if(x ~= -1 and y ~= -1) then
@@ -526,7 +526,7 @@ function pubFun_tab.buy(width, height)
 end
 --检测帮派结束
 function pubFun_tab.bangPaiEnd(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({286, 444, 859, 582}, "0|0|0xf7fbff,242|5|0xfff721,253|7|0xfffff6,259|6|0xffef10,512|-56|0xb5a68c",92, 0, 0, 0);
 	end
@@ -544,7 +544,7 @@ function pubFun_tab.bangPaiEnd(width, height)
 end
 --检测师门结束
 function pubFun_tab.shiMenEnd(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({593, 444, 888, 580}, "0|0|0x000000,5|0|0xf7db18,9|0|0x000808,3|8|0xef5163,202|-59|0xb5a294",90, 0, 0, 0);
 	end
@@ -576,7 +576,7 @@ function pubFun_tab.clickEnd(width, height)
 end
 --活动中检测宝图并点击
 function pubFun_tab.clickBaoTu(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		for i = 1, 10 do
 			x, y = findColor({237, 183, 1157, 524}, "0|0|0xc64d39,-6|28|0xf7f7bd,16|-2|0xcea25a",95, 0, 0, 0);
@@ -622,7 +622,7 @@ function pubFun_tab.clickBaoTu(width, height)
 end
 --寻找包裹中的宝图并点击
 function pubFun_tab.findBoxBaoTu(width, height) 
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({723, 202, 1145, 579}, "0|0|0xc64539,-2|21|0xdedf94,15|-1|0xcea25a,-23|36|0x947d6b",90, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -668,7 +668,7 @@ function pubFun_tab.findBoxBaoTu(width, height)
 end
 --寻找物品的使用并点击
 function pubFun_tab.findUse(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({864, 215, 1059, 482}, "0|0|0xf7ffff,112|2|0x8ccfad,6|34|0x29ae8c,110|36|0x31b694",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -738,7 +738,7 @@ function pubFun_tab.shuang(width, height)
 end
 --找签到确定按钮
 function pubFun_tab.isOk(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({699, 409, 1026, 527}, "0|0|0x63be9c,98|-3|0x73c39c,-1|22|0x31ba8c,94|22|0x31ba94",90, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -767,7 +767,7 @@ end
 --做天抓鬼是否继续以及查看掉线，还有引妖香使用和签到退出的提示
 function pubFun_tab.isContinue(width, height)
 	local tapXY;
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({699, 409, 1026, 527}, "0|0|0x63be9c,98|-3|0x73c39c,-1|22|0x31ba8c,94|22|0x31ba94",90, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -899,7 +899,7 @@ function pubFun_tab.body(width, height,nTime)
 end
 --查找引妖香
 function pubFun_tab.findYinYaoXiang(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	local tapXY;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({725, 201, 1147, 581}, "0|0|0xfff7ee,20|-20|0x212019,26|-14|0xcec3b5",90, 0, 0, 0);
@@ -934,7 +934,7 @@ function pubFun_tab.findYinYaoXiang(width, height)
 end
 --引妖香巡逻
 function pubFun_tab.patrol(width, height, isClick)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	local tapXY;
 	if(width == 720 and height == 1440) then
 		--点击小地图102,31,215,71
@@ -962,7 +962,7 @@ function pubFun_tab.patrol(width, height, isClick)
 end
 --上交各种物品，召唤兽
 function pubFun_tab.shangJiao(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	local tapXY;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({757, 531, 961, 597}, "0|0|0xf7ffff,154|3|0x8ccba5,16|31|0x39ba94,140|30|0x31ba94",95, 0, 0, 0);
@@ -1000,7 +1000,7 @@ function pubFun_tab.shangJiao(width, height)
 end
 --先找是否上交宝宝的任务，再购买需要的宝宝
 function pubFun_tab.maiBaobao(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	local flag = false;
 	local tapXY;
 	if(width == 720 and height == 1440) then
@@ -1089,7 +1089,7 @@ function pubFun_tab.maiBaobao(width, height)
 end
 --寻找右上角关闭（并不是世界关闭）
 function pubFun_tab.findYouClose(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({1381, 7, 1430, 57}, "0|0|0xefaa9c,13|-1|0xef716b,-2|15|0xef716b,12|14|0xef716b,5|7|0xef716b",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1111,7 +1111,7 @@ function pubFun_tab.findYouClose(width, height)
 end
 --寻找传闻卡确定按钮
 function pubFun_tab.findCard(width, height) 
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	local tapXY;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({814, 550, 1046, 628}, "0|0|0xffffff,183|7|0x73c39c,5|34|0x31ae84,169|35|0x29ba94",95, 0, 0, 0);
@@ -1139,7 +1139,7 @@ end
 --寻找右下角使用并点击
 function pubFun_tab.findYouUse(width, height)
 	local tapXY;
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({1080, 509, 1197, 555}, "0|0|0xf7fbf7,90|1|0x94cba5,4|22|0x31be9c,88|21|0x39ba94",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1180,7 +1180,7 @@ function pubFun_tab.findYouUse(width, height)
 end
 --查找世界关闭
 function pubFun_tab.findShiJieClose(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	sysLog(width);
 	if(width == 720 and height == 1440) then
 		x, y = findColor({1378, 3, 1435, 60}, "0|0|0xe77173,16|0|0xe77173,8|7|0xef716b",95, 0, 0, 0);
@@ -1215,7 +1215,7 @@ function pubFun_tab.findShiJieClose(width, height)
 end
 --查找是否领悟技能对话框
 function pubFun_tab.findLingWu(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({755, 431, 971, 505}, "0|0|0xffffff,170|6|0x84c79c,6|38|0x31b68c,159|35|0x31ba94",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1249,7 +1249,7 @@ function pubFun_tab.findLingWu(width, height)
 end
 --查找竞技场的挑战按钮
 function pubFun_tab.findTiaoZhan(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	--选择挑战的目标集合
 	local pkList = {};
 	if(width == 720 and height == 1440) then
@@ -1438,7 +1438,7 @@ function pubFun_tab.input(width, height, account, pwd)
 end
 --检查是否有登录按钮
 function pubFun_tab.isLoginBtn(width, height) 
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({417, 397, 1024, 500}, "0|0|0xfdfffe,555|11|0x35c593,29|48|0x17cba3,546|50|0x17cba3,261|31|0xfeffff,303|30|0xffffff",95, 0, 0, 0);
 	end
@@ -1457,7 +1457,7 @@ end
 --检测是否有网易邮箱按钮，有的话就点击 
 function pubFun_tab.isWYClick(width, height)
 	local tapXY;
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({764, 472, 873, 623}, "0|0|0xffffff,0|-4|0xd41d13,0|26|0xd41d13",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1490,7 +1490,7 @@ end
 --寻找切换账号按钮并点击
 function pubFun_tab.findSwitchAccountClick(width, height)
 	local tapXY;
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({33, 94, 1432, 323}, "0|0|0xfb5050,81|-18|0xfb5050,159|14|0xfb5050,75|51|0xfb5050,86|19|0xfb5151",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1523,7 +1523,7 @@ end
 --寻找其他账号按钮并点击
 function pubFun_tab.findOtherAccountClick(width, height)
 	local tapXY;
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({384, 390, 1134, 661}, "0|0|0xa35b1c,27|-3|0xa35b1b,54|-1|0xad6c31,89|1|0xa35b1b,119|-3|0xaa682c,148|0|0xa76224",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1555,7 +1555,7 @@ function pubFun_tab.findOtherAccountClick(width, height)
 end
 --寻找是否小狐妖技能列表框，是的话关闭
 function pubFun_tab.findFoxSkillListClick(width, height) 
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({299, 600, 486, 670}, "0|0|0xdeaa63,83|-22|0xdeb284,166|-1|0xd69e4b,85|22|0xdea252",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1586,7 +1586,7 @@ function pubFun_tab.findFoxSkillListClick(width, height)
 end
 --解封技能格点击我知道了
 function pubFun_tab.iNowClick(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 720 and height == 1440) then
 		x, y = findColor({603, 427, 832, 507}, "0|0|0xffffff,173|12|0x52ba94,16|33|0x31be9c,158|33|0x31ba94",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1618,7 +1618,7 @@ end
 --查找锁定签到卡并上滑
 function pubFun_tab.findLockQiaoDao(width, height)
 	local flag = false;
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 1080 and height == 2160) then
 		for i = 1, 20 do
 			x, y = findColor({379, 226, 829, 851}, "0|0|0xffffb5,21|1|0xfffbb5,12|4|0xbd9e5a",95, 0, 0, 0);
@@ -1655,7 +1655,7 @@ function pubFun_tab.findLockQiaoDao(width, height)
 end
 --检查是否是灰色，是的话点取消，点关闭
 function pubFun_tab.findHui(width, height)
-	local x, y = 0, 0;
+	local x, y = -1, -1;
 	if(width == 1080 and height == 2160) then
 		x, y = findColor({1128, 648, 1456, 753}, "0|0|0xffffff,214|29|0x949294",95, 0, 0, 0);
 		if (x ~= -1 and y ~= -1) then
@@ -1679,5 +1679,80 @@ function pubFun_tab.findHui(width, height)
 			mSleep(1000);
 			return true;
 		end
+	end
+end
+--寻找主线任务
+function pubFun_tab.findZhuXian(width, height)
+	local x, y;
+	local tapXY = {};
+	if(width == 1080 and height == 2160) then
+		while true do
+			mSleep(300);
+			--寻找主线任务
+			x, y = findColor({1771, 255, 2127, 728}, "0|0|0xf7f79c,0|10|0xfff79c,11|14|0xe6df8c",90, 0, 0, 0);
+			if (x ~= -1 and y ~= -1) then
+				tapXY = pubFun_tab.randomXY(x+10,y,x + 50,y);
+				dhxyUtils_tab.tap(math.random(50,150),tapXY.x,tapXY.y);
+				if(pubFun_tab.findDialog(width, height)) then
+					pubFun_tab.dialogBox(width, height, 1);
+				end
+				break;
+			else
+				dhxyUtils_tab.move(500, 1950,365, 1950,365-80);
+			end
+		end
+	end
+	if(width == 1080 and height == 1920) then
+		while true do
+			mSleep(300);
+			--寻找主线任务
+			x, y = findColor({1523, 260, 1888, 732}, "0|0|0xf5f098,0|14|0xf2ef95,11|10|0xf5f297",90, 0, 0, 0);
+			if (x ~= -1 and y ~= -1) then
+				tapXY = pubFun_tab.randomXY(x+10,y,x + 50,y);
+				dhxyUtils_tab.tap(math.random(50,150),tapXY.x,tapXY.y);
+				if(pubFun_tab.findDialog(width, height)) then
+					pubFun_tab.dialogBox(width, height, 1);
+				end
+				break;
+			else
+				dhxyUtils_tab.move(500, 1563,316,1843,316-80);
+			end
+		end
+	end
+end
+--寻找点击并屏幕继续
+function pubFun_tab.clickPMJX(width, height)
+	local x, y = -1, -1;
+	local tapXY = {};
+	if(width == 1080 and height == 2160) then
+		--寻找点击并屏幕继续
+		x, y = findColor({2042, 3, 2118, 56}, "0|0|0xfff7e6,13|1|0xfff7e6",95, 0, 0, 0);
+	end
+	if(width == 1080 and height == 1920) then
+		--寻找点击并屏幕继续
+		x, y = findColor({1796, 3, 1866, 57}, "0|0|0xfdf5e5,12|0|0xfdf5e5",95, 0, 0, 0);
+	end
+	if (x ~= -1 and y ~= -1) then
+		return true;
+	else
+		return false;
+	end
+end
+--检测主线任务是否结束
+function pubFun_tab.findZhuXianEnd(width, height)
+	local x, y = -1, -1;
+	local tapXY = {};
+	if(width == 1080 and height == 2160) then
+		--寻找主线任务后面的升级
+		x, y = findColor({1960, 256, 2132, 873}, "0|0|0x6ba65a,45|0|0xc5ffce,74|8|0x5aa24a",95, 0, 0, 0);
+	end
+	if(width == 1080 and height == 1920) then
+		--寻找主线任务后面的升级
+		x, y = findColor({1732, 256, 1898, 880}, "0|0|0x63a452,43|5|0xc0fec7,66|-3|0xcafecf",95, 0, 0, 0);
+	end
+	if (x ~= -1 and y ~= -1) then
+		return true;
+	else
+		return false;
 	end
 end

@@ -15,6 +15,7 @@ require("QianDao");
 require("DaLiSi");
 require("HuoYue");
 require("AccountSwitch");
+require("ZhuXian");
 
 function gameScript1080_1920.run(width, height, results)
 	local choices1 = results.CheckBoxTask1;--得到1多选任务结果
@@ -102,6 +103,9 @@ function gameScript1080_1920.run(width, height, results)
 		end
 		if(v == "2") then --200环
 			huan200_funtab1080_1920.run(width, height);
+		end
+		if(v == "3") then --主线任务
+			zhuxian_funtab1080_1920.zhuxian(width, height);
 		end
 	end
 end

@@ -149,7 +149,7 @@ function lingxiu_funtab1080_1920.lingxiu(lType, choice, width, height, zhaohuanS
 	--找家园按钮并点击
 	local homeXYTab = pubFun_tab.findHome(width, height);
 	x, y = homeXYTab.x, homeXYTab.y;
-	pubFun_tab.click(homeXYTab, "家园", math.random(x-29, x+28), math.random(y+18, y+100), "click");
+	pubFun_tab.click(homeXYTab, "家园", math.random(x-22, x+39), math.random(y+14, y+105), "click");
 	--休息2秒
 	mSleep(2000);
 	--管家按钮是固定的，不需要找打开界面直接点1080坐标:1193,714,1387,761

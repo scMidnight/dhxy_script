@@ -16,16 +16,16 @@ function jingji_funtab1080_2160.jingji(num,width, height)
 		--点击包裹
 		tapXY = pubFun_tab.randomXY(1899,963,1969,1030);
 		pubFun_tab.click(clickTabXY, "包裹", tapXY.x, tapXY.y, "click");
-		--休息5秒后点积分
-		mSleep(5000);
+		--休息3秒后点积分
+		mSleep(3000);
 		--点击积分1610,10,1667,39
 		tapXY = pubFun_tab.randomXY(1610,10,1667,39);
 		dhxyUtils_tab.tap(math.random(100,300),tapXY.x,tapXY.y);
-		mSleep(4000);
+		mSleep(1000);
 		--寻找竞技场并点击
 		local jingJiXY = pubFun_tab.findJingJi(width, height);
 		local x, y = jingJiXY.x, jingJiXY.y;
-		pubFun_tab.click(clickTabXY, "竞技场", math.random(x+291, x+388), math.random(y-35, y+8), "click");
+		pubFun_tab.click(clickTabXY, "竞技场", math.random(x+283, x+393), math.random(y-40, y+4), "click");
 		--休息6秒点击对话框
 		mSleep(6000);
 		--单击对话框第一个选项

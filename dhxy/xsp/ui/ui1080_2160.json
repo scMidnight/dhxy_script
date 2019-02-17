@@ -52,7 +52,7 @@
             },
             {
                "id" : "CheckBoxTask4",
-               "list" : "活跃领奖    ,200环",
+               "list" : "活跃领奖    ,200环       ,主线任务",
                "select" : "",
                "size" : "60",
                "type" : "CheckBoxGroup",
