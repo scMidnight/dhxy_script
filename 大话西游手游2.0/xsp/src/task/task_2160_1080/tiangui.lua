@@ -4,20 +4,21 @@ local dhxy_pub = require('common.dhxy_pub_2160_1080')
 local tiangui = {}
 
 local function tiangui_body(begin_time)
+	local now_time = os.milliTime()
 	--是否战斗
 	if(dhxy_pub.is_combat()) then
-		begin_time = os.milliTime()
+		now_time = os.milliTime()
 	end
 	--是否继续
 	if(dhxy_pub.find_tiangui_is_continue_ok()) then
-		begin_time = os.milliTime()
+		now_time = os.milliTime()
 	end
 	--是否解封技能格
 	--领悟技能，点击知道了
 	if(dhxy_pub.lingwu_know()) then
-		begin_time = os.milliTime()
+		now_time = os.milliTime()
 	end
-	return begin_time
+	return now_time
 end
 
 function tiangui.tian_run()
@@ -42,6 +43,7 @@ function tiangui.tian_run()
 	
 	local begin_time = os.milliTime()
 	while true do
+		sleep(20000)
 		--执行逻辑
 		begin_time = tiangui_body(begin_time)
 		if(dhxy_common.exit_time(begin_time)) then

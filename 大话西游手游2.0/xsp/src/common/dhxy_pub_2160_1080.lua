@@ -70,7 +70,7 @@ function dhxy_pub.click_changan()
 end
 --查找战斗
 function dhxy_pub.is_combat()
-	local pos = screen.findColor(Rect(133, 101, 75, 58), "0|0|0xefc26b,11|-3|0x8c593a,21|1|0x101000",95, screen.PRIORITY_DEFAULT)
+	local pos = screen.findColor(Rect(0, 0, 2160, 1080), "0|0|0xefbe6b,8|-7|0x8c553a,-24|-1|0xefbe6b,29|-1|0xf7c273",95, screen.PRIORITY_DEFAULT)
 	if pos ~= Point.INVALID then
 		return true
 	else
