@@ -1,0 +1,31 @@
+{
+    "view" : "div",
+    "class" : "panel",
+    "subviews" : [
+		{
+			"view" : "text",
+			"class" : "h1",
+			"value" : "欢迎使用富贵脚本"
+		},
+		{
+			"view" : "image",
+            "style" : {
+                "width" : 40,
+                "height" : 40
+            },
+			"src" : "https://gw.alicdn.com/tfs/TB14fp2pwMPMeJjy1XbXXcwxVXa-72-72.png"
+		},
+		{
+			"id" : "test_btn",
+			"view" : "div",
+            "class" : "btn",
+            "subviews" : [
+                {
+                    "view" : "text",
+                    "class" : "txt",
+                    "value" : "ok"
+                }
+            ]
+		}
+    ]
+}
