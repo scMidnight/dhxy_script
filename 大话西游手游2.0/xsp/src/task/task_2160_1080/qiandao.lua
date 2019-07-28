@@ -16,7 +16,8 @@ function qiandao.run()
 	dhxy_common.click(math.random(951,951+162), math.random(278,278+203), math.random(40,100))
 	--关闭签到面板
 	dhxy_common.click(math.random(1768,1768+44), math.random(159,159+38), math.random(40,100))
-	
+	--是否卡包满了，满了就离开
+	dhxy_pub.qiandao_leave()
 	dhxy_pub.showHud(hud,"签到结束")
 	sleep(math.random(800,1500))
 	hideHUD(hud)

@@ -81,7 +81,13 @@ function paohuan.run()
 			begin_time = os.milliTime()
 		end
 		--小狐妖，解封技能格
-		
+		if(dhxy_pub.jiefeng_skill()) then
+			begin_time = os.milliTime()
+		end
+		--已经有了
+		if(dhxy_pub.yiyoujineng()) then
+			begin_time = os.milliTime()
+		end
 		--是否结束
 		if(tonumber(string.format("%0.0f",(os.milliTime() - begin_time) / 1000)) > 120) then
 			dhxy_pub.showHud(hud,"200环结束")

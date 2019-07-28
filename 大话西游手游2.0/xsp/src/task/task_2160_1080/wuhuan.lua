@@ -33,8 +33,15 @@ function wuhuan.run(choice)
 			begin_time = os.milliTime()
 		end
 		--是否解封技能格
+		if(dhxy_pub.jiefeng_skill()) then
+			begin_time = os.milliTime()
+		end
 		--是否领悟技能
 		if(dhxy_pub.lingwu_know()) then
+			begin_time = os.milliTime()
+		end
+		--已经有了
+		if(dhxy_pub.yiyoujineng()) then
 			begin_time = os.milliTime()
 		end
 		if(dhxy_common.exit_time(begin_time)) then

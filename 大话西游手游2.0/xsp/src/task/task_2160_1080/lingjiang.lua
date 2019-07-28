@@ -21,7 +21,6 @@ function lingjiang.run()
 	for var = 1,#jiangliList do
 		sleep(1500)
 		dhxy_common.click(math.random(jiangliList[var].x1, jiangliList[var].x2), math.random(830, 895), math.random(40,100))
-		dhxy_common.click(math.random(jiangliList[var].x1, jiangliList[var].x2), math.random(830, 895), math.random(40,100))
 	end
 	
 	dhxy_pub.showHud(hud,"领奖结束")

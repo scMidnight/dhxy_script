@@ -20,9 +20,5 @@ else
     dhxy_common.exit()
 end
 
---wuhuan.run()--待完善
---baotu.run()--待完善
---tiangui.tian_run()--待完善
---bangpai_shimen.bangpai_run()--待完善
---bangpai_shimen.shimen_run()--待完善
+
 --paohuan.run()--待完善

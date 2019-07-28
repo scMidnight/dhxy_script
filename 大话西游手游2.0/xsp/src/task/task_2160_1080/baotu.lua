@@ -39,7 +39,13 @@ function baotu.run()
 			begin_time = os.milliTime()
 		end
 		--小狐妖，解封技能格
-		
+		if(dhxy_pub.jiefeng_skill()) then
+			begin_time = os.milliTime()
+		end
+		--已经有了
+		if(dhxy_pub.yiyoujineng()) then
+			begin_time = os.milliTime()
+		end
 		if(dhxy_common.exit_time(begin_time)) then
 			break
 		end

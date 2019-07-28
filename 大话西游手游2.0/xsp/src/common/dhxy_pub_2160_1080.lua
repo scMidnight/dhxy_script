@@ -125,6 +125,28 @@ function dhxy_pub.lingwu_know()
 		return false
 	end
 end
+--已有技能
+function dhxy_pub.yiyoujineng()
+	local pos = screen.findColor(Rect(767, 694, 214, 56), "0|0|0xa45919,45|-9|0x9c5919,109|-25|0x9c5919,143|1|0x9c5d19",95, screen.PRIORITY_DEFAULT)
+	if pos ~= Point.INVALID then
+		--点击已经有了767,694,214,56
+		dhxy_common.click(math.random(767,767+214), math.random(694,694+56), math.random(40,100))
+		return true
+	else
+		return false
+	end
+end
+--解封技能格
+function dhxy_pub.jiefeng_skill()
+	local pos = screen.findColor(Rect(992, 671, 173, 60), "0|0|0xffffff,36|15|0xffffff,89|29|0xffffff,113|28|0xf7fbf7,138|-1|0xffffff",95, screen.PRIORITY_DEFAULT)
+	if pos ~= Point.INVALID then
+		--点击知道了982,672,192,60
+		dhxy_common.click(math.random(982,982+192), math.random(672,672+60), math.random(40,100))
+		return true
+	else
+		return false
+	end
+end
 --关闭推送好友
 function dhxy_pub.close_push_friend()
 	local pos = screen.findColor(Rect(965, 685, 232, 54), "0|0|0xffffff,33|10|0xeffbf7,57|-10|0xffffff,144|7|0xffffff,197|23|0xf7fbf7",95, screen.PRIORITY_DEFAULT)
@@ -136,6 +158,14 @@ end
 --点击空白处
 function dhxy_pub.click_blank_space()
 	dhxy_common.click(math.random(798,798+280), math.random(850,850+153), math.random(40,100))
+end
+--签到离开
+function dhxy_pub.qiandao_leave()
+	local pos = screen.findColor(Rect(1095, 461, 360, 291), "0|0|0x523d3a,37|3|0x523d3a,123|213|0xf7fbf7,216|226|0xffffff",95, screen.PRIORITY_DEFAULT)
+	if pos ~= Point.INVALID then
+		--点击确定1179,671,221,58
+		dhxy_common.click(math.random(1179,1179+221), math.random(671,671+58), math.random(40,100))
+	end
 end
 
 return dhxy_pub

@@ -32,7 +32,9 @@ local function bangpai_shimen_body(choice, hud)
 		--小狐妖，领悟技能，点击知道了
 		dhxy_pub.lingwu_know()
 		--小狐妖，解封技能格
-		
+		dhxy_pub.jiefeng_skill()
+		--已经有了
+		dhxy_pub.yiyoujineng()
 		--买各种东西
 		local pos = screen.findColor(Rect(1338, 835, 373, 124), "0|0|0xffffff,305|8|0x7bc69c,15|64|0x29c6a4,291|57|0x31be9c,38|24|0xffffff",95, screen.PRIORITY_DEFAULT)
 		if pos ~= Point.INVALID then

@@ -4,21 +4,27 @@ local dhxy_pub = require('common.dhxy_pub_2160_1080')
 local tiangui = {}
 
 local function tiangui_body(begin_time)
-	local now_time = os.milliTime()
 	--是否战斗
 	if(dhxy_pub.is_combat()) then
-		now_time = os.milliTime()
+		begin_time = os.milliTime()
 	end
 	--是否继续
 	if(dhxy_pub.find_tiangui_is_continue_ok()) then
-		now_time = os.milliTime()
+		begin_time = os.milliTime()
 	end
 	--是否解封技能格
+	if(dhxy_pub.jiefeng_skill()) then
+		begin_time = os.milliTime()
+	end
 	--领悟技能，点击知道了
 	if(dhxy_pub.lingwu_know()) then
-		now_time = os.milliTime()
+		begin_time = os.milliTime()
 	end
-	return now_time
+	--已经有了
+	if(dhxy_pub.yiyoujineng()) then
+		begin_time = os.milliTime()
+	end
+	return begin_time
 end
 
 function tiangui.tian_run()
