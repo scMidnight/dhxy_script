@@ -24,6 +24,9 @@ function lingxiu.run(x_type, choice, which)
 		if(choice == 1) then
 			--点击亲密1114,194,192,56
 			dhxy_common.click(math.random(1114,1114+192), math.random(194,194+56), math.random(40,100))
+		else
+			--点击经验866,195,191,58
+			dhxy_common.click(math.random(866,866+191), math.random(195,195+58), math.random(40,100))
 		end
 	end
 	--选择训练哪个，0不需要选
