@@ -52,7 +52,7 @@ function run.run(results)
 			dalisi.run()
 		end
 		if(v == "3") then --召唤兽灵修
-			lingxiu.run(linxiuType, lingXiuSetting, zhaohuanShou)
+			lingxiu.run(tonumber(linxiuType), tonumber(lingXiuSetting), tonumber(zhaohuanShou))
 		end
 	end
 	--第三组
@@ -67,7 +67,7 @@ function run.run(results)
 			baotu.run()
 		end
 		if(v == "3") then--五环
-			wuhuan.run(wuHuanSetting)
+			wuhuan.run(tonumber(wuHuanSetting))
 		end
 	end
 	--第四组
